@@ -1,8 +1,7 @@
-key.o: /home/hqf/esp/example/gpio/main/key.c \
- /home/hqf/esp/example/gpio/main/key.h \
+key.o: /home/hqf/esp/example/myproject/gpio/main/key.c \
  /home/hqf/esp/esp-idf/components/freertos/include/freertos/FreeRTOS.h \
  /home/hqf/esp/esp-idf/components/freertos/include/freertos/FreeRTOSConfig.h \
- /home/hqf/esp/example/gpio/build/include/sdkconfig.h \
+ /home/hqf/esp/example/myproject/gpio/build/include/sdkconfig.h \
  /home/hqf/esp/esp-idf/components/freertos/include/freertos/xtensa_config.h \
  /home/hqf/esp/esp-idf/components/xtensa/include/xtensa/hal.h \
  /home/hqf/esp/esp-idf/components/xtensa/esp32/include/xtensa/config/core.h \
@@ -49,16 +48,30 @@ key.o: /home/hqf/esp/example/gpio/main/key.c \
  /home/hqf/esp/esp-idf/components/soc/esp32/include/soc/gpio_struct.h \
  /home/hqf/esp/esp-idf/components/soc/esp32/include/soc/gpio_reg.h \
  /home/hqf/esp/esp-idf/components/soc/esp32/include/soc/gpio_sig_map.h \
+ /home/hqf/esp/esp-idf/components/driver/include/driver/timer.h \
+ /home/hqf/esp/esp-idf/components/soc/esp32/include/soc/soc.h \
+ /home/hqf/esp/esp-idf/components/soc/include/soc/timer_periph.h \
+ /home/hqf/esp/esp-idf/components/soc/esp32/include/soc/timer_group_reg.h \
+ /home/hqf/esp/esp-idf/components/soc/esp32/include/soc/timer_group_struct.h \
+ /home/hqf/esp/esp-idf/components/driver/include/driver/ledc.h \
+ /home/hqf/esp/esp-idf/components/driver/include/driver/periph_ctrl.h \
+ /home/hqf/esp/esp-idf/components/soc/esp32/include/soc/periph_defs.h \
  /home/hqf/esp/esp-idf/components/log/include/esp_log.h \
- /home/hqf/esp/esp-idf/components/log/include/esp_log_internal.h
-
-/home/hqf/esp/example/gpio/main/key.h:
+ /home/hqf/esp/esp-idf/components/log/include/esp_log_internal.h \
+ /home/hqf/esp/esp-idf/components/nvs_flash/include/nvs_flash.h \
+ /home/hqf/esp/esp-idf/components/nvs_flash/include/nvs.h \
+ /home/hqf/esp/esp-idf/components/spi_flash/include/esp_partition.h \
+ /home/hqf/esp/esp-idf/components/spi_flash/include/esp_flash.h \
+ /home/hqf/esp/esp-idf/components/soc/include/hal/spi_flash_types.h \
+ /home/hqf/esp/esp-idf/components/soc/include/hal/esp_flash_err.h \
+ /home/hqf/esp/esp-idf/components/spi_flash/include/esp_spi_flash.h \
+ /home/hqf/esp/example/myproject/gpio/main/key.h
 
 /home/hqf/esp/esp-idf/components/freertos/include/freertos/FreeRTOS.h:
 
 /home/hqf/esp/esp-idf/components/freertos/include/freertos/FreeRTOSConfig.h:
 
-/home/hqf/esp/example/gpio/build/include/sdkconfig.h:
+/home/hqf/esp/example/myproject/gpio/build/include/sdkconfig.h:
 
 /home/hqf/esp/esp-idf/components/freertos/include/freertos/xtensa_config.h:
 
@@ -152,6 +165,39 @@ key.o: /home/hqf/esp/example/gpio/main/key.c \
 
 /home/hqf/esp/esp-idf/components/soc/esp32/include/soc/gpio_sig_map.h:
 
+/home/hqf/esp/esp-idf/components/driver/include/driver/timer.h:
+
+/home/hqf/esp/esp-idf/components/soc/esp32/include/soc/soc.h:
+
+/home/hqf/esp/esp-idf/components/soc/include/soc/timer_periph.h:
+
+/home/hqf/esp/esp-idf/components/soc/esp32/include/soc/timer_group_reg.h:
+
+/home/hqf/esp/esp-idf/components/soc/esp32/include/soc/timer_group_struct.h:
+
+/home/hqf/esp/esp-idf/components/driver/include/driver/ledc.h:
+
+/home/hqf/esp/esp-idf/components/driver/include/driver/periph_ctrl.h:
+
+/home/hqf/esp/esp-idf/components/soc/esp32/include/soc/periph_defs.h:
+
 /home/hqf/esp/esp-idf/components/log/include/esp_log.h:
 
 /home/hqf/esp/esp-idf/components/log/include/esp_log_internal.h:
+
+/home/hqf/esp/esp-idf/components/nvs_flash/include/nvs_flash.h:
+
+/home/hqf/esp/esp-idf/components/nvs_flash/include/nvs.h:
+
+/home/hqf/esp/esp-idf/components/spi_flash/include/esp_partition.h:
+
+/home/hqf/esp/esp-idf/components/spi_flash/include/esp_flash.h:
+
+/home/hqf/esp/esp-idf/components/soc/include/hal/spi_flash_types.h:
+
+/home/hqf/esp/esp-idf/components/soc/include/hal/esp_flash_err.h:
+
+/home/hqf/esp/esp-idf/components/spi_flash/include/esp_spi_flash.h:
+
+/home/hqf/esp/example/myproject/gpio/main/key.h:
+/home/hqf/esp/example/myproject/gpio/main/./key.c:

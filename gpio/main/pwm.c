@@ -28,3 +28,25 @@ void pwm_init(void)
 	// Initialize fade service.
 	ledc_fade_func_install(0);
 }
+
+void pwm_test(void * arg)
+{
+	pwm_init();
+	while (1) {
+		printf("1. PWM逐渐变大的周期目标 = %d\n", LEDC_TEST_DUTY);
+		ESP_ERROR_CHECK( ledc_set_fade_with_time(ledc_channel.speed_mode,
+				ledc_channel.channel, LEDC_TEST_DUTY, LEDC_TEST_FADE_TIME) );
+		ESP_ERROR_CHECK( ledc_fade_start(ledc_channel.speed_mode,
+				ledc_channel.channel, LEDC_FADE_NO_WAIT) );
+
+		vTaskDelay(LEDC_TEST_FADE_TIME / portTICK_PERIOD_MS);
+
+		printf("2.  PWM逐渐变小的周期目标 = 0\n");
+		ESP_ERROR_CHECK( ledc_set_fade_with_time(ledc_channel.speed_mode,
+				ledc_channel.channel, 0, LEDC_TEST_FADE_TIME) );
+		ESP_ERROR_CHECK( ledc_fade_start(ledc_channel.speed_mode,
+				ledc_channel.channel, LEDC_FADE_NO_WAIT) );
+		
+		vTaskDelay(LEDC_TEST_FADE_TIME / portTICK_PERIOD_MS);
+	}
+}

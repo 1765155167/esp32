@@ -11,5 +11,5 @@
 #define LEDC_TEST_FADE_TIME    3000 /* speed */
 
 void pwm_init(void);
-
+void pwm_test(void * arg);
 #endif

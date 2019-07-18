@@ -15,7 +15,7 @@
 
 //client
 //STA模式配置信息,即要连上的路由器的账号密码
-#define WIFI_SSID				"Ubuntu"        //账号
+#define WIFI_SSID				"Ubuntu"            //账号
 #define WIFI_PASS				"hqf666123"         //密码
 #define TCP_SERVER_ADRESS       "10.42.0.1"         //作为client，要连接TCP服务器地址
 #define TCP_PORT                1234                //统一的端口号，包括TCP客户端或者服务端
@@ -72,7 +72,6 @@ static esp_err_t event_handler(void *ctx, system_event_t *event)
 void close_socket()
 {
     close(connect_socket);
-    //close(server_socket);
 }
 /* 获取socket错误代码 */
 int get_socket_error_code(int socket)
@@ -112,7 +111,7 @@ static void recv_data(void *arg)
         memset(databuff, 0x00, sizeof(databuff));
         //读取接收数据
         len = recv(connect_socket, databuff, sizeof(databuff), 0);
-        g_rxtx_need_restart = false;
+        //g_rxtx_need_restart = false;
         if (len > 0)
         {
             //g_total_data += len;
@@ -199,12 +198,12 @@ static void tcp_connect(void *arg)
             //建立tcp接收数据任务
             if (pdPASS != xTaskCreate(&recv_data, "recv_data", 4096, NULL, 4, &tx_rx_task))
             {
-                //建立失败
+                //建立tcp接收数据任务失败
                 ESP_LOGI(TAG, "Recv task create fail!");
             }
             else
             {
-                //建立成功
+                //建立tcp接收数据任务成功
                 ESP_LOGI(TAG, "Recv task create succeed!");
             }
         }
@@ -242,8 +241,7 @@ static void tcp_connect(void *arg)
             }
         }
     }
-
-    vTaskDelete(NULL);
+	vTaskDelete(NULL);
 }
 
 //配置wifi为STA模式
@@ -274,14 +272,12 @@ void wifi_init_sta()
 	ESP_ERROR_CHECK( esp_wifi_start() );
 	//打印系统日志
 	ESP_LOGI(TAG, "wifi_init_sta finished.");
-	ESP_LOGI(TAG, "connect to ap SSID:%s password:%s\n",
-	WIFI_SSID, WIFI_PASS);
+	ESP_LOGI(TAG, "connect to ap SSID:%s password:%s\n", WIFI_SSID, WIFI_PASS);
 }
 
 void app_main() 
 {
 	//初始化flash
-	printf("hello tcp_clent\n");
     esp_err_t ret = nvs_flash_init();
     if (ret == ESP_ERR_NVS_NO_FREE_PAGES)
     {
@@ -289,7 +285,7 @@ void app_main()
         ret = nvs_flash_init();
     }
     ESP_ERROR_CHECK(ret);
-	//client，建立sta
+	//配置wifi为STA模式
     wifi_init_sta();
 	xTaskCreate( tcp_connect, "tcp_connect", 4096, NULL, 10, NULL );
 }
