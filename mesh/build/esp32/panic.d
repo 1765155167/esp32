@@ -1,4 +1,20 @@
 panic.o: /home/hqf/esp/esp-idf/components/esp32/panic.c \
+ /home/hqf/esp/esp-idf/components/newlib/include/stdlib.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/machine/ieeefp.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/_ansi.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/newlib.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/sys/config.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/sys/features.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/xtensa/config/core-isa.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/sys/reent.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/_ansi.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/sys/_types.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/machine/_types.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/machine/_default_types.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/sys/lock.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/sys/cdefs.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/machine/stdlib.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/alloca.h \
  /home/hqf/esp/esp-idf/components/xtensa/esp32/include/xtensa/config/core.h \
  /home/hqf/esp/esp-idf/components/xtensa/include/xtensa/hal.h \
  /home/hqf/esp/esp-idf/components/xtensa/include/xtensa/xtensa-versions.h \
@@ -6,10 +22,13 @@ panic.o: /home/hqf/esp/esp-idf/components/esp32/panic.c \
  /home/hqf/esp/esp-idf/components/xtensa/esp32/include/xtensa/config/tie.h \
  /home/hqf/esp/esp-idf/components/esp_rom/include/esp32/rom/rtc.h \
  /home/hqf/esp/esp-idf/components/esp_rom/include/esp32/rom/ets_sys.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/stdint.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/sys/_intsup.h \
  /home/hqf/esp/example/myproject/mesh/build/include/sdkconfig.h \
  /home/hqf/esp/esp-idf/components/soc/esp32/include/soc/soc.h \
  /home/hqf/esp/esp-idf/components/esp_common/include/esp_assert.h \
  /home/hqf/esp/esp-idf/components/newlib/platform_include/assert.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/assert.h \
  /home/hqf/esp/esp-idf/components/esp_common/include/esp_bit_defs.h \
  /home/hqf/esp/esp-idf/components/esp_rom/include/esp32/rom/uart.h \
  /home/hqf/esp/esp-idf/components/esp_common/include/esp_types.h \
@@ -37,6 +56,11 @@ panic.o: /home/hqf/esp/esp-idf/components/esp32/panic.c \
  /home/hqf/esp/esp-idf/components/xtensa/include/xtensa/xtruntime-core-state.h \
  /home/hqf/esp/esp-idf/components/esp_common/include/esp_private/crosscore_int.h \
  /home/hqf/esp/esp-idf/components/esp_common/include/esp_timer.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/stdio.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/sys/types.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/machine/types.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/sys/sched.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/sys/stdio.h \
  /home/hqf/esp/esp-idf/components/esp_common/include/esp_err.h \
  /home/hqf/esp/esp-idf/components/heap/include/esp_heap_caps.h \
  /home/hqf/esp/esp-idf/components/heap/include/multi_heap.h \
@@ -45,6 +69,7 @@ panic.o: /home/hqf/esp/esp-idf/components/esp32/panic.c \
  /home/hqf/esp/esp-idf/components/esp_common/include/esp_system.h \
  /home/hqf/esp/esp-idf/components/esp_common/include/esp_idf_version.h \
  /home/hqf/esp/esp-idf/components/freertos/include/freertos/task.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/limits.h \
  /home/hqf/esp/esp-idf/components/freertos/include/freertos/list.h \
  /home/hqf/esp/esp-idf/components/freertos/include/freertos/xtensa_api.h \
  /home/hqf/esp/esp-idf/components/soc/include/soc/gpio_periph.h \
@@ -90,6 +115,38 @@ panic.o: /home/hqf/esp/esp-idf/components/esp32/panic.c \
  /home/hqf/esp/esp-idf/components/bootloader_support/include/esp_flash_partitions.h \
  /home/hqf/esp/esp-idf/components/bootloader_support/include/esp_app_format.h
 
+/home/hqf/esp/esp-idf/components/newlib/include/stdlib.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/machine/ieeefp.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/_ansi.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/newlib.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/sys/config.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/sys/features.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/xtensa/config/core-isa.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/sys/reent.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/_ansi.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/sys/_types.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/machine/_types.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/machine/_default_types.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/sys/lock.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/sys/cdefs.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/machine/stdlib.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/alloca.h:
+
 /home/hqf/esp/esp-idf/components/xtensa/esp32/include/xtensa/config/core.h:
 
 /home/hqf/esp/esp-idf/components/xtensa/include/xtensa/hal.h:
@@ -104,6 +161,10 @@ panic.o: /home/hqf/esp/esp-idf/components/esp32/panic.c \
 
 /home/hqf/esp/esp-idf/components/esp_rom/include/esp32/rom/ets_sys.h:
 
+/home/hqf/esp/esp-idf/components/newlib/include/stdint.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/sys/_intsup.h:
+
 /home/hqf/esp/example/myproject/mesh/build/include/sdkconfig.h:
 
 /home/hqf/esp/esp-idf/components/soc/esp32/include/soc/soc.h:
@@ -111,6 +172,8 @@ panic.o: /home/hqf/esp/esp-idf/components/esp32/panic.c \
 /home/hqf/esp/esp-idf/components/esp_common/include/esp_assert.h:
 
 /home/hqf/esp/esp-idf/components/newlib/platform_include/assert.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/assert.h:
 
 /home/hqf/esp/esp-idf/components/esp_common/include/esp_bit_defs.h:
 
@@ -166,6 +229,16 @@ panic.o: /home/hqf/esp/esp-idf/components/esp32/panic.c \
 
 /home/hqf/esp/esp-idf/components/esp_common/include/esp_timer.h:
 
+/home/hqf/esp/esp-idf/components/newlib/include/stdio.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/sys/types.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/machine/types.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/sys/sched.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/sys/stdio.h:
+
 /home/hqf/esp/esp-idf/components/esp_common/include/esp_err.h:
 
 /home/hqf/esp/esp-idf/components/heap/include/esp_heap_caps.h:
@@ -181,6 +254,8 @@ panic.o: /home/hqf/esp/esp-idf/components/esp32/panic.c \
 /home/hqf/esp/esp-idf/components/esp_common/include/esp_idf_version.h:
 
 /home/hqf/esp/esp-idf/components/freertos/include/freertos/task.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/limits.h:
 
 /home/hqf/esp/esp-idf/components/freertos/include/freertos/list.h:
 

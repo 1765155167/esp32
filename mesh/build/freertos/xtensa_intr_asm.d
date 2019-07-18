@@ -3,7 +3,7 @@ xtensa_intr_asm.o: \
  /home/hqf/esp/esp-idf/components/xtensa/include/xtensa/hal.h \
  /home/hqf/esp/esp-idf/components/xtensa/esp32/include/xtensa/config/core.h \
  /home/hqf/esp/esp-idf/components/xtensa/include/xtensa/xtensa-versions.h \
- /home/hqf/esp/esp-idf/components/xtensa/esp32/include/xtensa/config/core-isa.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/xtensa/config/core-isa.h \
  /home/hqf/esp/esp-idf/components/xtensa/esp32/include/xtensa/config/core-matmap.h \
  /home/hqf/esp/esp-idf/components/xtensa/esp32/include/xtensa/config/tie.h \
  /home/hqf/esp/esp-idf/components/xtensa/esp32/include/xtensa/config/tie-asm.h \
@@ -24,7 +24,7 @@ xtensa_intr_asm.o: \
 
 /home/hqf/esp/esp-idf/components/xtensa/include/xtensa/xtensa-versions.h:
 
-/home/hqf/esp/esp-idf/components/xtensa/esp32/include/xtensa/config/core-isa.h:
+/home/hqf/esp/esp-idf/components/newlib/include/xtensa/config/core-isa.h:
 
 /home/hqf/esp/esp-idf/components/xtensa/esp32/include/xtensa/config/core-matmap.h:
 

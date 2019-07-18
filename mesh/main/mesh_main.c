@@ -18,7 +18,7 @@
 /*******************************************************
  *                Macros
  *******************************************************/
-//#define MESH_SET_ROOT
+#define MESH_SET_ROOT
 
 #ifndef MESH_SET_ROOT
 #define MESH_SET_NODE
@@ -100,7 +100,7 @@ void mesh_event_handler(mesh_event_t event)
 		{
 			char *c_data;
 			c_data = (char *)malloc(SEND_LEN*sizeof(char));
-			sprintf(c_data,"hi,I'am Mr.Hu\n");
+			sprintf(c_data,"Hi Master,I'am Left\n");
 			mesh_data1.data = (uint8_t *)c_data;
 			esp_mesh_send(&mesh_parent_addr, &mesh_data1, 0, NULL, 0);
 			free(c_data);
@@ -185,9 +185,7 @@ void root_task(void * arg)
 	static int flag = MESH_DATA_P2P;
 	int timeout_ms = portMAX_DELAY;
 	static mesh_opt_t opt;
-	uint8_t data[10];
 	static mesh_data_t mesh_data;
-	mesh_data.data = data;
 	for(;;)
 	{
 		printf("root start...\n");
@@ -199,7 +197,7 @@ void root_task(void * arg)
 				printf("recv接受到信息...:");
 				for(int i = 0;i < mesh_data.size; i++)
 				{
-					printf("%d ",data[i]);
+					printf("%c ",mesh_data.data[i]);
 				}
 				printf("\nsrc_addr:%02x:%02x:%02x:%02x:%02x:%02x\n",MAC2STR(mac.addr));
 				esp_mesh_send(&mac, &mesh_data, flag, NULL, 0);
@@ -238,23 +236,21 @@ void leaf_send_task(void * arg)
 
 void leaf_recv_task(void * arg)
 {
-	uint8_t data[] = {1,1,3,4,5};
 	mesh_addr_t mac;
 	static int flag = MESH_DATA_P2P;
 	int timeout_ms = portMAX_DELAY;
 	static mesh_opt_t opt;
 	static mesh_data_t mesh_data;
-	mesh_data.data = data;
 	for(;;)
 	{
 		if(is_mesh_connected)
 		{
 			printf("leaf_recv_task...\n");
 			ESP_ERROR_CHECK(esp_mesh_recv(&mac, &mesh_data, timeout_ms, &flag, &opt, 1));
-			/* 打印接受的信息 */ 
+			/* 打印接收的信息 */ 
 			for(int i = 0;i < mesh_data.size; i++)
 			{
-				printf("%c ",data[i]);
+				printf("%c ",mesh_data.data[i]);
 			}
 			printf("recv_addr:%02x:%02x:%02x:%02x:%02x:%02x\n",MAC2STR(mac.addr));
 		}
@@ -265,7 +261,6 @@ void leaf_recv_task(void * arg)
 
 void app_main(void)
 {
-    //ESP_ERROR_CHECK(mesh_light_init());
     ESP_ERROR_CHECK(nvs_flash_init());
     /*  tcpip initialization */
     tcpip_adapter_init();

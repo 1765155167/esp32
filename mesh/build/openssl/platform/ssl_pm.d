@@ -1,6 +1,21 @@
 platform/ssl_pm.o: \
  /home/hqf/esp/esp-idf/components/openssl/platform/ssl_pm.c \
  /home/hqf/esp/esp-idf/components/openssl/include/platform/ssl_pm.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/string.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/_ansi.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/newlib.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/sys/config.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/machine/ieeefp.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/sys/features.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/xtensa/config/core-isa.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/sys/reent.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/_ansi.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/sys/_types.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/machine/_types.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/machine/_default_types.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/sys/lock.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/sys/cdefs.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/sys/string.h \
  /home/hqf/esp/esp-idf/components/openssl/include/internal/ssl_types.h \
  /home/hqf/esp/esp-idf/components/openssl/include/internal/ssl_code.h \
  /home/hqf/esp/esp-idf/components/openssl/include/internal/ssl3.h \
@@ -8,10 +23,17 @@ platform/ssl_pm.o: \
  /home/hqf/esp/esp-idf/components/openssl/include/internal/x509_vfy.h \
  /home/hqf/esp/esp-idf/components/openssl/include/platform/ssl_port.h \
  /home/hqf/esp/esp-idf/components/esp_common/include/esp_types.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/stdint.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/sys/_intsup.h \
  /home/hqf/esp/esp-idf/components/log/include/esp_log.h \
  /home/hqf/esp/example/myproject/mesh/build/include/sdkconfig.h \
  /home/hqf/esp/esp-idf/components/esp_rom/include/esp32/rom/ets_sys.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/stdlib.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/machine/stdlib.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/alloca.h \
  /home/hqf/esp/esp-idf/components/log/include/esp_log_internal.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/malloc.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/machine/malloc.h \
  /home/hqf/esp/esp-idf/components/openssl/include/platform/ssl_port.h \
  /home/hqf/esp/esp-idf/components/openssl/include/internal/ssl_dbg.h \
  /home/hqf/esp/esp-idf/components/openssl/include/platform/ssl_opt.h \
@@ -20,8 +42,16 @@ platform/ssl_pm.o: \
  /home/hqf/esp/esp-idf/components/mbedtls/port/include/mbedtls/esp_config.h \
  /home/hqf/esp/esp-idf/components/mbedtls/port/include/esp_mem.h \
  /home/hqf/esp/esp-idf/components/mbedtls/mbedtls/include/mbedtls/check_config.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/limits.h \
  /home/hqf/esp/esp-idf/components/mbedtls/mbedtls/include/mbedtls/platform_time.h \
  /home/hqf/esp/esp-idf/components/newlib/platform_include/time.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/time.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/machine/time.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/sys/types.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/machine/types.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/sys/sched.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/stdio.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/sys/stdio.h \
  /home/hqf/esp/esp-idf/components/mbedtls/mbedtls/include/mbedtls/net_sockets.h \
  /home/hqf/esp/esp-idf/components/mbedtls/mbedtls/include/mbedtls/ssl.h \
  /home/hqf/esp/esp-idf/components/mbedtls/mbedtls/include/mbedtls/bignum.h \
@@ -52,6 +82,36 @@ platform/ssl_pm.o: \
 
 /home/hqf/esp/esp-idf/components/openssl/include/platform/ssl_pm.h:
 
+/home/hqf/esp/esp-idf/components/newlib/include/string.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/_ansi.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/newlib.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/sys/config.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/machine/ieeefp.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/sys/features.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/xtensa/config/core-isa.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/sys/reent.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/_ansi.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/sys/_types.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/machine/_types.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/machine/_default_types.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/sys/lock.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/sys/cdefs.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/sys/string.h:
+
 /home/hqf/esp/esp-idf/components/openssl/include/internal/ssl_types.h:
 
 /home/hqf/esp/esp-idf/components/openssl/include/internal/ssl_code.h:
@@ -66,13 +126,27 @@ platform/ssl_pm.o: \
 
 /home/hqf/esp/esp-idf/components/esp_common/include/esp_types.h:
 
+/home/hqf/esp/esp-idf/components/newlib/include/stdint.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/sys/_intsup.h:
+
 /home/hqf/esp/esp-idf/components/log/include/esp_log.h:
 
 /home/hqf/esp/example/myproject/mesh/build/include/sdkconfig.h:
 
 /home/hqf/esp/esp-idf/components/esp_rom/include/esp32/rom/ets_sys.h:
 
+/home/hqf/esp/esp-idf/components/newlib/include/stdlib.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/machine/stdlib.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/alloca.h:
+
 /home/hqf/esp/esp-idf/components/log/include/esp_log_internal.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/malloc.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/machine/malloc.h:
 
 /home/hqf/esp/esp-idf/components/openssl/include/platform/ssl_port.h:
 
@@ -90,9 +164,25 @@ platform/ssl_pm.o: \
 
 /home/hqf/esp/esp-idf/components/mbedtls/mbedtls/include/mbedtls/check_config.h:
 
+/home/hqf/esp/esp-idf/components/newlib/include/limits.h:
+
 /home/hqf/esp/esp-idf/components/mbedtls/mbedtls/include/mbedtls/platform_time.h:
 
 /home/hqf/esp/esp-idf/components/newlib/platform_include/time.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/time.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/machine/time.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/sys/types.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/machine/types.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/sys/sched.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/stdio.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/sys/stdio.h:
 
 /home/hqf/esp/esp-idf/components/mbedtls/mbedtls/include/mbedtls/net_sockets.h:
 

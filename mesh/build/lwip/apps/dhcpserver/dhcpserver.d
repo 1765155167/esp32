@@ -1,11 +1,42 @@
 apps/dhcpserver/dhcpserver.o: \
  /home/hqf/esp/esp-idf/components/lwip/apps/dhcpserver/dhcpserver.c \
+ /home/hqf/esp/esp-idf/components/newlib/include/stdlib.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/machine/ieeefp.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/_ansi.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/newlib.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/sys/config.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/sys/features.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/xtensa/config/core-isa.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/sys/reent.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/_ansi.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/sys/_types.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/machine/_types.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/machine/_default_types.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/sys/lock.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/sys/cdefs.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/machine/stdlib.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/alloca.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/string.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/sys/string.h \
  /home/hqf/esp/esp-idf/components/lwip/lwip/src/include/lwip/inet.h \
  /home/hqf/esp/esp-idf/components/lwip/lwip/src/include/lwip/opt.h \
  /home/hqf/esp/esp-idf/components/lwip/port/esp32/include/lwipopts.h \
  /home/hqf/esp/esp-idf/components/newlib/platform_include/time.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/time.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/machine/time.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/sys/types.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/machine/types.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/sys/sched.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/unistd.h \
+ /home/hqf/esp/esp-idf/components/newlib/platform_include/sys/unistd.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/sys/unistd.h \
  /home/hqf/esp/esp-idf/components/newlib/platform_include/sys/time.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/sys/time.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/sys/fcntl.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/sys/_default_fcntl.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/sys/stat.h \
  /home/hqf/esp/esp-idf/components/vfs/include/sys/ioctl.h \
+ /home/hqf/esp/esp-idf/components/newlib/platform_include/sys/select.h \
  /home/hqf/esp/esp-idf/components/esp_common/include/esp_task.h \
  /home/hqf/esp/example/myproject/mesh/build/include/sdkconfig.h \
  /home/hqf/esp/esp-idf/components/freertos/include/freertos/FreeRTOSConfig.h \
@@ -20,9 +51,14 @@ apps/dhcpserver/dhcpserver.o: \
  /home/hqf/esp/esp-idf/components/xtensa/include/xtensa/corebits.h \
  /home/hqf/esp/esp-idf/components/xtensa/include/xtensa/xtruntime-frames.h \
  /home/hqf/esp/esp-idf/components/esp_rom/include/esp32/rom/ets_sys.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/stdint.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/sys/_intsup.h \
  /home/hqf/esp/esp-idf/components/esp_common/include/esp_system.h \
  /home/hqf/esp/esp-idf/components/esp_common/include/esp_err.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/stdio.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/sys/stdio.h \
  /home/hqf/esp/esp-idf/components/newlib/platform_include/assert.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/assert.h \
  /home/hqf/esp/esp-idf/components/esp32/include/esp_attr.h \
  /home/hqf/esp/esp-idf/components/esp_common/include/esp_bit_defs.h \
  /home/hqf/esp/esp-idf/components/esp_common/include/esp_idf_version.h \
@@ -32,6 +68,8 @@ apps/dhcpserver/dhcpserver.o: \
  /home/hqf/esp/esp-idf/components/lwip/lwip/src/include/lwip/arch.h \
  /home/hqf/esp/esp-idf/components/lwip/port/esp32/include/arch/cc.h \
  /home/hqf/esp/esp-idf/components/newlib/platform_include/errno.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/errno.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/sys/errno.h \
  /home/hqf/esp/esp-idf/components/lwip/port/esp32/include/arch/sys_arch.h \
  /home/hqf/esp/esp-idf/components/freertos/include/freertos/FreeRTOS.h \
  /home/hqf/esp/esp-idf/components/freertos/include/freertos/FreeRTOSConfig.h \
@@ -49,11 +87,13 @@ apps/dhcpserver/dhcpserver.o: \
  /home/hqf/esp/esp-idf/components/freertos/include/freertos/portbenchmark.h \
  /home/hqf/esp/esp-idf/components/freertos/include/freertos/mpu_wrappers.h \
  /home/hqf/esp/esp-idf/components/freertos/include/freertos/task.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/limits.h \
  /home/hqf/esp/esp-idf/components/freertos/include/freertos/list.h \
  /home/hqf/esp/esp-idf/components/freertos/include/freertos/queue.h \
  /home/hqf/esp/esp-idf/components/freertos/include/freertos/semphr.h \
  /home/hqf/esp/esp-idf/components/freertos/include/freertos/queue.h \
  /home/hqf/esp/esp-idf/components/lwip/port/esp32/include/arch/vfs_lwip.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/inttypes.h \
  /home/hqf/esp/esp-idf/components/lwip/lwip/src/include/lwip/def.h \
  /home/hqf/esp/esp-idf/components/lwip/lwip/src/include/lwip/ip_addr.h \
  /home/hqf/esp/esp-idf/components/lwip/lwip/src/include/lwip/ip4_addr.h \
@@ -76,11 +116,48 @@ apps/dhcpserver/dhcpserver.o: \
  /home/hqf/esp/esp-idf/components/lwip/lwip/src/include/lwip/prot/ip.h \
  /home/hqf/esp/esp-idf/components/lwip/lwip/src/include/lwip/prot/udp.h \
  /home/hqf/esp/esp-idf/components/tcpip_adapter/include/tcpip_adapter.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/sys/queue.h \
  /home/hqf/esp/esp-idf/components/esp_wifi/include/esp_wifi_types.h \
  /home/hqf/esp/esp-idf/components/esp_common/include/esp_interface.h \
  /home/hqf/esp/esp-idf/components/esp_event/include/esp_event_base.h \
  /home/hqf/esp/esp-idf/components/lwip/include/apps/dhcpserver/dhcpserver.h \
  /home/hqf/esp/esp-idf/components/lwip/include/apps/dhcpserver/dhcpserver_options.h
+
+/home/hqf/esp/esp-idf/components/newlib/include/stdlib.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/machine/ieeefp.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/_ansi.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/newlib.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/sys/config.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/sys/features.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/xtensa/config/core-isa.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/sys/reent.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/_ansi.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/sys/_types.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/machine/_types.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/machine/_default_types.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/sys/lock.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/sys/cdefs.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/machine/stdlib.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/alloca.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/string.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/sys/string.h:
 
 /home/hqf/esp/esp-idf/components/lwip/lwip/src/include/lwip/inet.h:
 
@@ -90,9 +167,35 @@ apps/dhcpserver/dhcpserver.o: \
 
 /home/hqf/esp/esp-idf/components/newlib/platform_include/time.h:
 
+/home/hqf/esp/esp-idf/components/newlib/include/time.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/machine/time.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/sys/types.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/machine/types.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/sys/sched.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/unistd.h:
+
+/home/hqf/esp/esp-idf/components/newlib/platform_include/sys/unistd.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/sys/unistd.h:
+
 /home/hqf/esp/esp-idf/components/newlib/platform_include/sys/time.h:
 
+/home/hqf/esp/esp-idf/components/newlib/include/sys/time.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/sys/fcntl.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/sys/_default_fcntl.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/sys/stat.h:
+
 /home/hqf/esp/esp-idf/components/vfs/include/sys/ioctl.h:
+
+/home/hqf/esp/esp-idf/components/newlib/platform_include/sys/select.h:
 
 /home/hqf/esp/esp-idf/components/esp_common/include/esp_task.h:
 
@@ -122,11 +225,21 @@ apps/dhcpserver/dhcpserver.o: \
 
 /home/hqf/esp/esp-idf/components/esp_rom/include/esp32/rom/ets_sys.h:
 
+/home/hqf/esp/esp-idf/components/newlib/include/stdint.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/sys/_intsup.h:
+
 /home/hqf/esp/esp-idf/components/esp_common/include/esp_system.h:
 
 /home/hqf/esp/esp-idf/components/esp_common/include/esp_err.h:
 
+/home/hqf/esp/esp-idf/components/newlib/include/stdio.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/sys/stdio.h:
+
 /home/hqf/esp/esp-idf/components/newlib/platform_include/assert.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/assert.h:
 
 /home/hqf/esp/esp-idf/components/esp32/include/esp_attr.h:
 
@@ -145,6 +258,10 @@ apps/dhcpserver/dhcpserver.o: \
 /home/hqf/esp/esp-idf/components/lwip/port/esp32/include/arch/cc.h:
 
 /home/hqf/esp/esp-idf/components/newlib/platform_include/errno.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/errno.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/sys/errno.h:
 
 /home/hqf/esp/esp-idf/components/lwip/port/esp32/include/arch/sys_arch.h:
 
@@ -180,6 +297,8 @@ apps/dhcpserver/dhcpserver.o: \
 
 /home/hqf/esp/esp-idf/components/freertos/include/freertos/task.h:
 
+/home/hqf/esp/esp-idf/components/newlib/include/limits.h:
+
 /home/hqf/esp/esp-idf/components/freertos/include/freertos/list.h:
 
 /home/hqf/esp/esp-idf/components/freertos/include/freertos/queue.h:
@@ -189,6 +308,8 @@ apps/dhcpserver/dhcpserver.o: \
 /home/hqf/esp/esp-idf/components/freertos/include/freertos/queue.h:
 
 /home/hqf/esp/esp-idf/components/lwip/port/esp32/include/arch/vfs_lwip.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/inttypes.h:
 
 /home/hqf/esp/esp-idf/components/lwip/lwip/src/include/lwip/def.h:
 
@@ -233,6 +354,8 @@ apps/dhcpserver/dhcpserver.o: \
 /home/hqf/esp/esp-idf/components/lwip/lwip/src/include/lwip/prot/udp.h:
 
 /home/hqf/esp/esp-idf/components/tcpip_adapter/include/tcpip_adapter.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/sys/queue.h:
 
 /home/hqf/esp/esp-idf/components/esp_wifi/include/esp_wifi_types.h:
 

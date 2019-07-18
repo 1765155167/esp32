@@ -1,10 +1,40 @@
 vfs/vfs_fat_sdmmc.o: \
  /home/hqf/esp/esp-idf/components/fatfs/vfs/vfs_fat_sdmmc.c \
+ /home/hqf/esp/esp-idf/components/newlib/include/stdlib.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/machine/ieeefp.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/_ansi.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/newlib.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/sys/config.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/sys/features.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/xtensa/config/core-isa.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/sys/reent.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/_ansi.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/sys/_types.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/machine/_types.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/machine/_default_types.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/sys/lock.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/sys/cdefs.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/machine/stdlib.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/alloca.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/string.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/sys/string.h \
  /home/hqf/esp/esp-idf/components/log/include/esp_log.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/stdint.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/sys/_intsup.h \
  /home/hqf/esp/example/myproject/mesh/build/include/sdkconfig.h \
  /home/hqf/esp/esp-idf/components/esp_rom/include/esp32/rom/ets_sys.h \
  /home/hqf/esp/esp-idf/components/log/include/esp_log_internal.h \
  /home/hqf/esp/esp-idf/components/vfs/include/esp_vfs.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/unistd.h \
+ /home/hqf/esp/esp-idf/components/newlib/platform_include/sys/unistd.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/sys/unistd.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/sys/types.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/machine/types.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/sys/sched.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/utime.h \
+ /home/hqf/esp/esp-idf/components/newlib/platform_include/sys/utime.h \
+ /home/hqf/esp/esp-idf/components/newlib/platform_include/sys/time.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/sys/time.h \
  /home/hqf/esp/esp-idf/components/freertos/include/freertos/FreeRTOS.h \
  /home/hqf/esp/esp-idf/components/freertos/include/freertos/FreeRTOSConfig.h \
  /home/hqf/esp/esp-idf/components/freertos/include/freertos/xtensa_config.h \
@@ -26,8 +56,11 @@ vfs/vfs_fat_sdmmc.o: \
  /home/hqf/esp/esp-idf/components/xtensa/include/xtensa/xtruntime-core-state.h \
  /home/hqf/esp/esp-idf/components/esp_common/include/esp_private/crosscore_int.h \
  /home/hqf/esp/esp-idf/components/esp_common/include/esp_timer.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/stdio.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/sys/stdio.h \
  /home/hqf/esp/esp-idf/components/esp_common/include/esp_err.h \
  /home/hqf/esp/esp-idf/components/newlib/platform_include/assert.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/assert.h \
  /home/hqf/esp/esp-idf/components/heap/include/esp_heap_caps.h \
  /home/hqf/esp/esp-idf/components/heap/include/multi_heap.h \
  /home/hqf/esp/esp-idf/components/freertos/include/freertos/portbenchmark.h \
@@ -38,8 +71,14 @@ vfs/vfs_fat_sdmmc.o: \
  /home/hqf/esp/esp-idf/components/esp_common/include/esp_idf_version.h \
  /home/hqf/esp/esp-idf/components/freertos/include/freertos/semphr.h \
  /home/hqf/esp/esp-idf/components/freertos/include/freertos/queue.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/sys/stat.h \
+ /home/hqf/esp/esp-idf/components/newlib/platform_include/time.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/time.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/machine/time.h \
  /home/hqf/esp/esp-idf/components/newlib/platform_include/sys/termios.h \
  /home/hqf/esp/esp-idf/components/newlib/platform_include/sys/poll.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/dirent.h \
+ /home/hqf/esp/esp-idf/components/vfs/include/sys/dirent.h \
  /home/hqf/esp/esp-idf/components/fatfs/vfs/esp_vfs_fat.h \
  /home/hqf/esp/esp-idf/components/driver/include/driver/gpio.h \
  /home/hqf/esp/esp-idf/components/esp_common/include/esp_types.h \
@@ -61,6 +100,7 @@ vfs/vfs_fat_sdmmc.o: \
  /home/hqf/esp/esp-idf/components/driver/include/driver/spi_master.h \
  /home/hqf/esp/esp-idf/components/driver/include/driver/spi_common.h \
  /home/hqf/esp/esp-idf/components/esp_rom/include/esp32/rom/lldesc.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/sys/queue.h \
  /home/hqf/esp/esp-idf/components/soc/include/soc/spi_periph.h \
  /home/hqf/esp/esp-idf/components/soc/esp32/include/soc/soc.h \
  /home/hqf/esp/esp-idf/components/soc/esp32/include/soc/periph_defs.h \
@@ -70,6 +110,10 @@ vfs/vfs_fat_sdmmc.o: \
  /home/hqf/esp/esp-idf/components/soc/include/hal/spi_types.h \
  /home/hqf/esp/esp-idf/components/fatfs/src/ff.h \
  /home/hqf/esp/esp-idf/components/fatfs/src/ffconf.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/sys/param.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/sys/syslimits.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/machine/endian.h \
+ /home/hqf/esp/esp-idf/components/newlib/include/machine/param.h \
  /home/hqf/esp/esp-idf/components/wear_levelling/include/wear_levelling.h \
  /home/hqf/esp/esp-idf/components/spi_flash/include/esp_partition.h \
  /home/hqf/esp/esp-idf/components/spi_flash/include/esp_flash.h \
@@ -82,7 +126,47 @@ vfs/vfs_fat_sdmmc.o: \
  /home/hqf/esp/esp-idf/components/fatfs/src/diskio.h \
  /home/hqf/esp/esp-idf/components/fatfs/diskio/diskio_sdmmc.h
 
+/home/hqf/esp/esp-idf/components/newlib/include/stdlib.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/machine/ieeefp.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/_ansi.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/newlib.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/sys/config.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/sys/features.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/xtensa/config/core-isa.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/sys/reent.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/_ansi.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/sys/_types.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/machine/_types.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/machine/_default_types.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/sys/lock.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/sys/cdefs.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/machine/stdlib.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/alloca.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/string.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/sys/string.h:
+
 /home/hqf/esp/esp-idf/components/log/include/esp_log.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/stdint.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/sys/_intsup.h:
 
 /home/hqf/esp/example/myproject/mesh/build/include/sdkconfig.h:
 
@@ -91,6 +175,26 @@ vfs/vfs_fat_sdmmc.o: \
 /home/hqf/esp/esp-idf/components/log/include/esp_log_internal.h:
 
 /home/hqf/esp/esp-idf/components/vfs/include/esp_vfs.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/unistd.h:
+
+/home/hqf/esp/esp-idf/components/newlib/platform_include/sys/unistd.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/sys/unistd.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/sys/types.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/machine/types.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/sys/sched.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/utime.h:
+
+/home/hqf/esp/esp-idf/components/newlib/platform_include/sys/utime.h:
+
+/home/hqf/esp/esp-idf/components/newlib/platform_include/sys/time.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/sys/time.h:
 
 /home/hqf/esp/esp-idf/components/freertos/include/freertos/FreeRTOS.h:
 
@@ -134,9 +238,15 @@ vfs/vfs_fat_sdmmc.o: \
 
 /home/hqf/esp/esp-idf/components/esp_common/include/esp_timer.h:
 
+/home/hqf/esp/esp-idf/components/newlib/include/stdio.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/sys/stdio.h:
+
 /home/hqf/esp/esp-idf/components/esp_common/include/esp_err.h:
 
 /home/hqf/esp/esp-idf/components/newlib/platform_include/assert.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/assert.h:
 
 /home/hqf/esp/esp-idf/components/heap/include/esp_heap_caps.h:
 
@@ -158,9 +268,21 @@ vfs/vfs_fat_sdmmc.o: \
 
 /home/hqf/esp/esp-idf/components/freertos/include/freertos/queue.h:
 
+/home/hqf/esp/esp-idf/components/newlib/include/sys/stat.h:
+
+/home/hqf/esp/esp-idf/components/newlib/platform_include/time.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/time.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/machine/time.h:
+
 /home/hqf/esp/esp-idf/components/newlib/platform_include/sys/termios.h:
 
 /home/hqf/esp/esp-idf/components/newlib/platform_include/sys/poll.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/dirent.h:
+
+/home/hqf/esp/esp-idf/components/vfs/include/sys/dirent.h:
 
 /home/hqf/esp/esp-idf/components/fatfs/vfs/esp_vfs_fat.h:
 
@@ -204,6 +326,8 @@ vfs/vfs_fat_sdmmc.o: \
 
 /home/hqf/esp/esp-idf/components/esp_rom/include/esp32/rom/lldesc.h:
 
+/home/hqf/esp/esp-idf/components/newlib/include/sys/queue.h:
+
 /home/hqf/esp/esp-idf/components/soc/include/soc/spi_periph.h:
 
 /home/hqf/esp/esp-idf/components/soc/esp32/include/soc/soc.h:
@@ -221,6 +345,14 @@ vfs/vfs_fat_sdmmc.o: \
 /home/hqf/esp/esp-idf/components/fatfs/src/ff.h:
 
 /home/hqf/esp/esp-idf/components/fatfs/src/ffconf.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/sys/param.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/sys/syslimits.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/machine/endian.h:
+
+/home/hqf/esp/esp-idf/components/newlib/include/machine/param.h:
 
 /home/hqf/esp/esp-idf/components/wear_levelling/include/wear_levelling.h:
 
