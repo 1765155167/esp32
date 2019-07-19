@@ -18,7 +18,7 @@
 /*******************************************************
  *                Macros
  *******************************************************/
-//#define MESH_SET_ROOT
+#define MESH_SET_ROOT
 
 #ifndef MESH_SET_ROOT
 #define MESH_SET_NODE
@@ -175,27 +175,38 @@ void mesh_event_handler(mesh_event_t event)
 #ifdef MESH_SET_ROOT
 void root_task(void * arg)
 {
-	uint8_t addr[6];
 	esp_err_t ret;
+	mesh_addr_t from;
 	mesh_addr_t route_table[5];
 	int route_table_size = 0;
-	// static int flag = MESH_DATA_P2P;
-	// int timeout_ms = portMAX_DELAY;
-	// static mesh_opt_t opt;
+	static int flag = MESH_DATA_P2P;
+	int timeout_ms = portMAX_DELAY;
 	char *c_data = (char *)malloc(SEND_LEN*sizeof(char));
-	sprintf(c_data,"hello,I'am root\n");
 	static mesh_data_t mesh_data;
 	mesh_data.data = (uint8_t *)c_data;
-	mesh_data.size = SEND_LEN;
 	mesh_data.proto = MESH_PROTO_BIN;
-	
 	for(;;)
 	{
-		printf("root start...\n");
 		printf("设备总数:%d\n", esp_mesh_get_total_node_num());
+		/*获取路由表信息*/
 		esp_mesh_get_routing_table((mesh_addr_t *) &route_table, 5 * 6, &route_table_size);
+		/* 向所有子设备发送信息 */
+		sprintf(c_data,"hello,I'am root");
+		mesh_data.size = sizeof("hello,I'am root");
 		for (int i = 0; i < route_table_size; i++) {
 			ret = esp_mesh_send(&route_table[i], &mesh_data, MESH_DATA_P2P, NULL, 0);
+		}
+		/*读数据*/
+		ret = esp_mesh_recv(&from, &mesh_data, timeout_ms, &flag, NULL, 0);
+		if(ret == ESP_OK)
+		{
+			ESP_LOGI(MESH_TAG,"left read data....\n");
+			/* 打印接收的信息 */ 
+			for(int i = 0;i < mesh_data.size; i++)
+			{
+				printf("%c",c_data[i]);
+			}
+			printf("\nrecv_addr:%02x:%02x:%02x:%02x:%02x:%02x\n",MAC2STR(from.addr));	
 		}
 		vTaskDelay(1000 / portTICK_RATE_MS);
 	}
@@ -203,28 +214,18 @@ void root_task(void * arg)
 #else
 void leaf_send_task(void * arg)
 {
-	static int flag = MESH_DATA_P2P;
-	static mesh_opt_t opt;
-	//opt.type = MESH_OPT_RECV_DS_ADDR;    /**< option type */
-    //opt.len = SEND_LEN;    /**< option length */
-    //opt.val = ;    /**< option value */
 	char *c_data = (char *)malloc(SEND_LEN*sizeof(char));
-	sprintf(c_data,"hello,I'am left\n");
 	static mesh_data_t mesh_data;
 	mesh_data.data = (uint8_t *)c_data;
-	mesh_data.size = SEND_LEN;
 	mesh_data.proto = MESH_PROTO_BIN;
 	for(;;)
 	{
 		if(is_mesh_connected)
 		{
-			/* 打印发送的信息 */
-			for(int i = 0;i < mesh_data.size; i++)
-			{
-				ESP_LOGI(MESH_TAG,"%c",mesh_data.data[i]);
-			}
 			//发送到根节点
-			esp_mesh_send(NULL, &mesh_data, flag, NULL, 0);
+			sprintf(c_data,"hello,I'am left");
+			mesh_data.size = sizeof("hello,I'am left");
+			esp_mesh_send(NULL, &mesh_data, MESH_DATA_P2P, NULL, 0);
 			ESP_LOGI(MESH_TAG,"send ok!!!!!\n");
 			ESP_LOGI(MESH_TAG,"设备总数:%d\n", esp_mesh_get_total_node_num());
 		}
@@ -240,15 +241,13 @@ void leaf_recv_task(void * arg)
 	static uint8_t rx_buf[SEND_LEN] = { 0, };
 	static int flag = MESH_DATA_P2P;
 	int timeout_ms = portMAX_DELAY;
-	static mesh_opt_t opt;
 	static mesh_data_t mesh_data;
 	mesh_data.data = rx_buf;
-    mesh_data.size = SEND_LEN;
+    // mesh_data.size = SEND_LEN;
 	for(;;)
 	{
 		if(is_mesh_connected)
 		{
-			printf("leaf_recv_task...\n");
 			ret = esp_mesh_recv(&from, &mesh_data, timeout_ms, &flag, NULL, 0);
 			if(ret == ESP_OK)
 			{
@@ -256,7 +255,7 @@ void leaf_recv_task(void * arg)
 				/* 打印接收的信息 */ 
 				for(int i = 0;i < mesh_data.size; i++)
 				{
-					printf("%c",mesh_data.data[i]);
+					printf("%c",rx_buf[i]);
 				}
 				printf("\nrecv_addr:%02x:%02x:%02x:%02x:%02x:%02x\n",MAC2STR(from.addr));
 			}

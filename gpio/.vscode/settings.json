@@ -1,6 +1,7 @@
 {
 	"files.associations": {
 		"freertos.h": "c",
+		"timer.h": "c",
 		"nvs_flash.h": "c"
 	}
 }
