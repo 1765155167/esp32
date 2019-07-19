@@ -18,7 +18,7 @@
 /*******************************************************
  *                Macros
  *******************************************************/
-#define MESH_SET_ROOT
+//#define MESH_SET_ROOT
 
 #ifndef MESH_SET_ROOT
 #define MESH_SET_NODE
@@ -32,11 +32,11 @@
  *                Variable Definitions
  *******************************************************/
 static const char *MESH_TAG = "mesh_main";
-static const uint8_t MESH_ID[6] = { 0x75, 0x77, 0x77, 0x77, 0x77, 0x77};
-static mesh_addr_t mesh_parent_addr;/* 父节点地址 */
+static const uint8_t MESH_ID[6]   = {0x75, 0x77, 0x77, 0x77, 0x77, 0x77};
+static mesh_addr_t mesh_parent_addr;
 static int mesh_layer = -1;/* 层 */
-static mesh_data_t mesh_data1;
 static bool is_mesh_connected = false;/* 是否链接进mesh网络的标志 */
+static bool is_mesh_start = false;/* 是否链接进mesh网络的标志 */
 /*******************************************************
  *                Function Declarations
  *******************************************************/
@@ -51,11 +51,13 @@ void mesh_event_handler(mesh_event_t event)
         esp_mesh_get_id(&id);
         ESP_LOGI(MESH_TAG, "<MESH_EVENT_STARTED>ID:"MACSTR"", MAC2STR(id.addr));
         is_mesh_connected = false;
+		is_mesh_start = true;
         mesh_layer = esp_mesh_get_layer();
         break;
     case MESH_EVENT_STOPPED:/* mesh stop */
         ESP_LOGI(MESH_TAG, "<MESH_EVENT_STOPPED>");
         is_mesh_connected = false;
+		is_mesh_start = false;
         mesh_layer = esp_mesh_get_layer();
         break;
     case MESH_EVENT_CHILD_CONNECTED:/* < a child is connected on softAP interface > */
@@ -96,14 +98,6 @@ void mesh_event_handler(mesh_event_t event)
         is_mesh_connected = true;
         if (esp_mesh_is_root()) {/* 是根节点 */
             tcpip_adapter_dhcpc_start(TCPIP_ADAPTER_IF_STA);
-        }else /* 向父节点发送数据 */
-		{
-			char *c_data;
-			c_data = (char *)malloc(SEND_LEN*sizeof(char));
-			sprintf(c_data,"Hi Master,I'am Left\n");
-			mesh_data1.data = (uint8_t *)c_data;
-			esp_mesh_send(&mesh_parent_addr, &mesh_data1, 0, NULL, 0);
-			free(c_data);
 		}
         break;
     case MESH_EVENT_PARENT_DISCONNECTED:/* 与父节点断开链接 */
@@ -181,27 +175,27 @@ void mesh_event_handler(mesh_event_t event)
 #ifdef MESH_SET_ROOT
 void root_task(void * arg)
 {
-	mesh_addr_t mac;
-	static int flag = MESH_DATA_P2P;
-	int timeout_ms = portMAX_DELAY;
-	static mesh_opt_t opt;
+	uint8_t addr[6];
+	esp_err_t ret;
+	mesh_addr_t route_table[5];
+	int route_table_size = 0;
+	// static int flag = MESH_DATA_P2P;
+	// int timeout_ms = portMAX_DELAY;
+	// static mesh_opt_t opt;
+	char *c_data = (char *)malloc(SEND_LEN*sizeof(char));
+	sprintf(c_data,"hello,I'am root\n");
 	static mesh_data_t mesh_data;
+	mesh_data.data = (uint8_t *)c_data;
+	mesh_data.size = SEND_LEN;
+	mesh_data.proto = MESH_PROTO_BIN;
+	
 	for(;;)
 	{
 		printf("root start...\n");
 		printf("设备总数:%d\n", esp_mesh_get_total_node_num());
-		if(is_mesh_connected)
-		{
-			if(esp_mesh_recv(&mac, &mesh_data, timeout_ms, &flag, &opt, 1) == ESP_OK)
-			{
-				printf("recv接受到信息...:");
-				for(int i = 0;i < mesh_data.size; i++)
-				{
-					printf("%c ",mesh_data.data[i]);
-				}
-				printf("\nsrc_addr:%02x:%02x:%02x:%02x:%02x:%02x\n",MAC2STR(mac.addr));
-				esp_mesh_send(&mac, &mesh_data, flag, NULL, 0);
-			}
+		esp_mesh_get_routing_table((mesh_addr_t *) &route_table, 5 * 6, &route_table_size);
+		for (int i = 0; i < route_table_size; i++) {
+			ret = esp_mesh_send(&route_table[i], &mesh_data, MESH_DATA_P2P, NULL, 0);
 		}
 		vTaskDelay(1000 / portTICK_RATE_MS);
 	}
@@ -209,25 +203,30 @@ void root_task(void * arg)
 #else
 void leaf_send_task(void * arg)
 {
-	static int flag = 0;
-	static mesh_data_t mesh_data;
+	static int flag = MESH_DATA_P2P;
+	static mesh_opt_t opt;
+	//opt.type = MESH_OPT_RECV_DS_ADDR;    /**< option type */
+    //opt.len = SEND_LEN;    /**< option length */
+    //opt.val = ;    /**< option value */
 	char *c_data = (char *)malloc(SEND_LEN*sizeof(char));
 	sprintf(c_data,"hello,I'am left\n");
+	static mesh_data_t mesh_data;
 	mesh_data.data = (uint8_t *)c_data;
-	mesh_data.size = 5;
-	/* 打印发送的信息 */
-	for(int i = 0;i < mesh_data.size; i++)
-	{
-		printf("%c",mesh_data.data[i]);
-	}
+	mesh_data.size = SEND_LEN;
+	mesh_data.proto = MESH_PROTO_BIN;
 	for(;;)
 	{
 		if(is_mesh_connected)
 		{
+			/* 打印发送的信息 */
+			for(int i = 0;i < mesh_data.size; i++)
+			{
+				ESP_LOGI(MESH_TAG,"%c",mesh_data.data[i]);
+			}
 			//发送到根节点
-			ESP_ERROR_CHECK(esp_mesh_send(NULL, &mesh_data, flag, NULL, 0));
-			printf("send ok!!!!!\n");
-			printf("设备总数:%d\n", esp_mesh_get_total_node_num());
+			esp_mesh_send(NULL, &mesh_data, flag, NULL, 0);
+			ESP_LOGI(MESH_TAG,"send ok!!!!!\n");
+			ESP_LOGI(MESH_TAG,"设备总数:%d\n", esp_mesh_get_total_node_num());
 		}
 		vTaskDelay(1000 / portTICK_RATE_MS);
 	}
@@ -236,23 +235,31 @@ void leaf_send_task(void * arg)
 
 void leaf_recv_task(void * arg)
 {
-	mesh_addr_t mac;
+	mesh_addr_t from;
+	esp_err_t ret;
+	static uint8_t rx_buf[SEND_LEN] = { 0, };
 	static int flag = MESH_DATA_P2P;
 	int timeout_ms = portMAX_DELAY;
 	static mesh_opt_t opt;
 	static mesh_data_t mesh_data;
+	mesh_data.data = rx_buf;
+    mesh_data.size = SEND_LEN;
 	for(;;)
 	{
 		if(is_mesh_connected)
 		{
 			printf("leaf_recv_task...\n");
-			ESP_ERROR_CHECK(esp_mesh_recv(&mac, &mesh_data, timeout_ms, &flag, &opt, 1));
-			/* 打印接收的信息 */ 
-			for(int i = 0;i < mesh_data.size; i++)
+			ret = esp_mesh_recv(&from, &mesh_data, timeout_ms, &flag, NULL, 0);
+			if(ret == ESP_OK)
 			{
-				printf("%c ",mesh_data.data[i]);
+				ESP_LOGI(MESH_TAG,"left read data....\n");
+				/* 打印接收的信息 */ 
+				for(int i = 0;i < mesh_data.size; i++)
+				{
+					printf("%c",mesh_data.data[i]);
+				}
+				printf("\nrecv_addr:%02x:%02x:%02x:%02x:%02x:%02x\n",MAC2STR(from.addr));
 			}
-			printf("recv_addr:%02x:%02x:%02x:%02x:%02x:%02x\n",MAC2STR(mac.addr));
 		}
 		vTaskDelay(1000 / portTICK_RATE_MS);
 	}
@@ -307,7 +314,7 @@ void app_main(void)
 #else
 	//esp_mesh_set_type(MESH_LEAF);
 	ESP_LOGI(MESH_TAG,"MESH_LEAF");
-	//xTaskCreate(leaf_send_task, "leaf_send_task", 4096, NULL, 10, NULL);
+	xTaskCreate(leaf_send_task, "leaf_send_task", 4096, NULL, 10, NULL);
 	xTaskCreate(leaf_recv_task, "leaf_recv_task", 4096, NULL, 10, NULL);
 #endif
 
