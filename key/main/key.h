@@ -16,10 +16,10 @@
 #include "nvs_flash.h"
 #include "freertos/portmacro.h"
 
-#define KEY1_GPIO 4  /* key　引脚号 */
-#define KEY2_GPIO 27 /* key　引脚号 */
-#define KEY3_GPIO 26 /* key　引脚号 */
-#define KEY4_GPIO 25 /* key　引脚号 */
+#define KEY1_GPIO 36 /* key　引脚号 */
+#define KEY2_GPIO 39 /* key　引脚号 */
+#define KEY3_GPIO 34 /* key　引脚号 */
+#define KEY4_GPIO 35 /* key　引脚号 */
 
 #define clickTime 150   /* 按键多击间隔 ms */
 #define longTime  800  /* 长按最短时间 ms */

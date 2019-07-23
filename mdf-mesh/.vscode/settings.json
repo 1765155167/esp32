@@ -1,0 +1,6 @@
+{
+	"files.associations": {
+		"mdf_common.h": "c",
+		"mdf-mesh.h": "c"
+	}
+}

@@ -14,8 +14,10 @@
 
 #include "pwm.h"
 #include "key.h"
-
-#define LED_GPIO 17 /* led 引脚号 */
+// LED1 10
+// LED2 11
+// LED3 12
+#define LED_GPIO 10 /* led 引脚号 */
 void led_init(void);/* led 初始化 */
 
 extern ledc_timer_config_t ledc_timer;

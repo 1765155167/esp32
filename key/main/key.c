@@ -72,20 +72,20 @@ void key_init()
 		key[i].keyclick   = 1;              /* 按键单击次数 */
 	}
 
-	io_conf.pin_bit_mask = BIT(KEY1_GPIO);    /*!< GPIO pin: set with bit mask, each bit maps to a GPIO */
+	io_conf.pin_bit_mask = BIT64(KEY1_GPIO);    /*!< GPIO pin: set with bit mask, each bit maps to a GPIO */
     io_conf.mode = GPIO_MODE_INPUT;           /*!< GPIO mode: set input/output mode                     */
-    io_conf.pull_up_en = 1;       			  /*!< GPIO pull-up                                         */
-    io_conf.pull_down_en = 0;                 /*!< GPIO pull-down                                       */
+    // io_conf.pull_up_en = 1;       			  /*!< GPIO pull-up                                         */
+    // io_conf.pull_down_en = 0;                 /*!< GPIO pull-down                                       */
     io_conf.intr_type = GPIO_INTR_ANYEDGE;    /*!< GPIO interrupt type   								*/
 	gpio_config(&io_conf);
 
-	io_conf.pin_bit_mask = BIT(KEY2_GPIO);
+	io_conf.pin_bit_mask = BIT64(KEY2_GPIO);
 	gpio_config(&io_conf);
 
-	io_conf.pin_bit_mask = BIT(KEY3_GPIO);
+	io_conf.pin_bit_mask = BIT64(KEY3_GPIO);
 	gpio_config(&io_conf);
 
-	io_conf.pin_bit_mask = BIT(KEY4_GPIO);
+	io_conf.pin_bit_mask = BIT64(KEY4_GPIO);
 	gpio_config(&io_conf);
 
 	//注册中断服务
