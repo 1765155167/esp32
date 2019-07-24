@@ -1,0 +1,8 @@
+{
+	"files.associations": {
+		"freertos.h": "c",
+		"task.h": "c",
+		"nvs_flash.h": "c",
+		"uart.h": "c"
+	}
+}

@@ -219,7 +219,7 @@
         }
     ]
 }
-{"Devs":[{"ID":1,"Cmd":"tempAdjust","Params":{"Temp":25}}]}
+{"Devs":[{"ID":-1,"Cmd":"tempAdjust","Params":{"Temp":25}}]}
 ```
 
 > `Devices` 目标设备对象数组，可以为有多个目标id
@@ -245,7 +245,7 @@
     ]
 }
 
-{"Devs":[{"ID":2,"Cmd":"getInfo","Params":{}}]}
+{"Devs":[{"ID":-1,"Cmd":"getInfo","Params":{}}]}
 ```
 
 > `Devices` 目标设备对象数组，可以为有多个目标id

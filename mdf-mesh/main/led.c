@@ -47,13 +47,28 @@ void key_led_press(int key)
 		break;
 	case KEY4_SHORT_ONCE:
 		MDF_LOGI("切换操作风口");
-		gpio_set_level(led+LED1_GPIO, 1);
-		led = (led+1)%2;
-		MDF_LOGI("open led %d",led);
-		gpio_set_level(led+LED1_GPIO, 0);
+		led = (led+1)%3;
+		switch (led)
+		{
+		case 0:/*选择第一个放风机*/
+			gpio_set_level(LED1_GPIO, 0);
+			gpio_set_level(LED2_GPIO, 1);
+			break;
+		case 1:
+			gpio_set_level(LED1_GPIO, 1);
+			gpio_set_level(LED2_GPIO, 0);
+			break;
+		case 2:
+			gpio_set_level(LED1_GPIO, 0);
+			gpio_set_level(LED2_GPIO, 0);
+			break;
+		default:
+			break;
+		}
 		break;
 	case KEY4_LONG:
 		MDF_LOGI("切换风口控制模式");
+		moter_set_mode(led+1);
 		break;
 	default:
 		break;
@@ -80,7 +95,7 @@ void json_led_press(char * data)
 	}
 
 	json_cmd = cJSON_GetObjectItem(json_root, "Cmd");
-	if (!json_cmd) {/* json id 不存在 */
+	if (!json_cmd) {/* json cmd 不存在 */
 		MDF_LOGW("Cmd not found");
 		cJSON_Delete(json_root);
 		goto ret;
@@ -103,8 +118,16 @@ void json_led_press(char * data)
 	}else if(strcmp(json_cmd->valuestring,"getInfo") == 0)
 	{
 		MDF_LOGI("触发实时数据上传");
-		get_json_info(json_info, json_id->valueint);
-		mesh_write(NULL,json_info);
+		if(json_id->valueint == -1)
+		{
+			get_json_info(json_info, CONFIG_DEVICE_NUM * 2 - 1);
+			mesh_write(NULL,json_info);
+			get_json_info(json_info, CONFIG_DEVICE_NUM * 2);
+			mesh_write(NULL,json_info);
+		}else {
+			get_json_info(json_info, json_id->valueint);
+			mesh_write(NULL,json_info);
+		}
 	}else
 	{
 		MDF_LOGW("Unknown json cmd");

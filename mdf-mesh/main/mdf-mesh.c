@@ -4,29 +4,34 @@
 #include "led.h"
 static const char *TAG = "mdf-mesh";
 
-uint8_t dest_addr[2][MWIFI_ADDR_LEN] = {
-	{0x3c, 0x71, 0xbf, 0xe0, 0x92, 0xb8},
-	{0x30, 0xae, 0xa4, 0xdd, 0xb0, 0x1c}
+uint8_t dest_addr[3][MWIFI_ADDR_LEN] = {
+	{0x24, 0x6f, 0x28, 0xd9, 0x5f, 0x84},//root
+	// {0x3c, 0x71, 0xbf, 0xe0, 0x92, 0xb8},//root
+	// {0x30, 0xae, 0xa4, 0xdd, 0xb0, 0x1c},//node1
+	{0x30, 0xae, 0xa4, 0xdd, 0xb0, 0x68},//node 1
+	{0x3c, 0x71, 0xbf, 0xe0, 0x92, 0x28}//node2
 };
 
 /**
  * @brief uart initialization
  */
-static mdf_err_t uart_initialize()
+mdf_err_t uart_initialize(void)
 {
-    uart_config_t uart_config = {
-        .baud_rate = CONFIG_UART_BAUD_RATE,
-        .data_bits = UART_DATA_8_BITS,
-        .parity    = UART_PARITY_DISABLE,
-        .stop_bits = UART_STOP_BITS_1,
-        .flow_ctrl = UART_HW_FLOWCTRL_DISABLE
-    };
-    MDF_ERROR_ASSERT(uart_param_config(CONFIG_UART_PORT_NUM, &uart_config));
-    MDF_ERROR_ASSERT(uart_set_pin(CONFIG_UART_PORT_NUM, CONFIG_UART_TX_IO, CONFIG_UART_RX_IO, UART_PIN_NO_CHANGE, UART_PIN_NO_CHANGE));
-    MDF_ERROR_ASSERT(uart_driver_install(CONFIG_UART_PORT_NUM, 2*BUF_SIZE, 2*BUF_SIZE, 0, NULL, 0));
-    return MDF_OK;
+	//串口配置结构体
+	uart_config_t uart_config;
+	//串口参数配置->uart1
+	uart_config.baud_rate = 115200;					//波特率
+	uart_config.data_bits = UART_DATA_8_BITS;			//数据位
+	uart_config.parity = UART_PARITY_DISABLE;			//校验位
+	uart_config.stop_bits = UART_STOP_BITS_1;			//停止位
+	uart_config.flow_ctrl = UART_HW_FLOWCTRL_DISABLE;	//硬件流控
+	uart_param_config(CONFIG_UART_PORT_NUM, &uart_config);		//设置串口
+	//IO映射-> T:IO4  R:IO5
+	uart_set_pin(CONFIG_UART_PORT_NUM, CONFIG_UART_TX_IO, CONFIG_UART_RX_IO, UART_PIN_NO_CHANGE, UART_PIN_NO_CHANGE);
+	//注册串口服务即使能+设置缓存区大小
+	uart_driver_install(CONFIG_UART_PORT_NUM, BUF_SIZE * 2, BUF_SIZE * 2, 0, NULL, 0);
+	return MDF_OK;
 }
-
 /**
  * @接收串口发来的信息并通过mesh转发出去
  */
@@ -52,20 +57,22 @@ static void uart_handle_task(void *arg)
 
     /* uart initialization */
     MDF_ERROR_ASSERT(uart_initialize());
-	uart_write_bytes(CONFIG_UART_PORT_NUM, "uart init ok\r\n", 14);//串口能收到
-
+	// uart_write_bytes(CONFIG_UART_PORT_NUM, "1uart init ok\r\n", 14);//串口能收到
 	
     while (1) {
         memset(data, 0, BUF_SIZE);
-		recv_length = uart_read_bytes(CONFIG_UART_PORT_NUM, data, BUF_SIZE, 100 / portTICK_PERIOD_MS);
+		recv_length = uart_read_bytes(CONFIG_UART_PORT_NUM, data, BUF_SIZE, 100);
         if (recv_length <= 0) {
-			MDF_LOGI("recv_length = %d",recv_length);
+			// MDF_LOGI("recv_length = %d",recv_length);
             continue;
         }
-		data[recv_length] = 0;
+		
         MDF_LOGI("UART Recv data:%s recv_length:%d", data, recv_length);
-		uart_write_bytes(CONFIG_UART_PORT_NUM, (char*)data, recv_length+1);//串口不能收到
-        
+		/*串口数据回发*/
+		data[recv_length] = '\0';
+		uart_write_bytes(CONFIG_UART_PORT_NUM, (char*)data, recv_length+1);
+        uart_write_bytes(CONFIG_UART_PORT_NUM, "\r\n", 2);
+
 		json_root = cJSON_Parse((char *)data);
         MDF_ERROR_CONTINUE(!json_root, "cJSON_Parse, data format error, data: %s", data);
 		
@@ -94,7 +101,7 @@ static void uart_handle_task(void *arg)
 
 			jsonstring = cJSON_PrintUnformatted(json_dev->child);
 
-			if(id == 1) { /*数据发给自己的不需要转发*/
+			if(id == 1 || id == 2) { /*数据发给自己的不需要转发*/
 				//信息处理(自己)
 				MDF_LOGI("自己的信息");
 				json_led_press(jsonstring);
@@ -102,6 +109,7 @@ static void uart_handle_task(void *arg)
 			{
 				//信息处理(自己)
 				MDF_LOGI("自己的信息");
+				json_led_press(jsonstring);
 				for(int i = 1; i < 2; i++)
 				{
 					ret = mwifi_write(dest_addr[i], &data_type, jsonstring, size, true);
@@ -109,7 +117,7 @@ static void uart_handle_task(void *arg)
 				}
 			} else
 			{
-				ret = mwifi_write(dest_addr[id-1], &data_type, jsonstring, size, true);
+				ret = mwifi_write(dest_addr[(id-1)/2], &data_type, jsonstring, size, true);
 				MDF_ERROR_GOTO(ret != MDF_OK, FREE_MEM, "<%s> mwifi_root_write", mdf_err_to_name(ret));
 			}
 			json_dev->child = json_dev->child->next;
@@ -170,8 +178,6 @@ static void root_read_task(void *arg)
     uint8_t src_addr[MWIFI_ADDR_LEN] = {0x0};
     mwifi_data_type_t data_type      = {0};
 
-	// uart_write_bytes(CONFIG_UART_PORT_NUM, "Root is running\n", 20);
-    
 	MDF_LOGI("Root is running");
 
     for (int i = 0;; ++i) {
@@ -185,11 +191,9 @@ static void root_read_task(void *arg)
         ret = mwifi_root_read(src_addr, &data_type, data, &size, portMAX_DELAY);
         MDF_ERROR_CONTINUE(ret != MDF_OK, "<%s> mwifi_root_read", mdf_err_to_name(ret));
         MDF_LOGI("Root receive, addr: " MACSTR ", size: %d, data: %s", MAC2STR(src_addr), size, data);
-		MDF_LOGI("uart send start");
         /* forwoad to uart */
         uart_write_bytes(CONFIG_UART_PORT_NUM, data, size);
         uart_write_bytes(CONFIG_UART_PORT_NUM, "\r\n", 2);
-		MDF_LOGI("uart sned ok");
 	}
 
     MDF_LOGW("ROOT read task is exit");
@@ -204,7 +208,7 @@ mdf_err_t mesh_write(uint8_t src_addr[],char *data)
     mdf_err_t err = MDF_OK;
     size_t size   = strlen(data);
     mwifi_data_type_t data_type = {0x0};
-    MDF_LOGI("Node write src_addr = %p size = %d data = %s",src_addr, size, data);
+    // MDF_LOGI("Node write src_addr = %p size = %d data = %s",src_addr, size, data);
 
 	if (!mwifi_is_connected()) {
 		vTaskDelay(500 / portTICK_RATE_MS);

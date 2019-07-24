@@ -5,7 +5,7 @@
 #include "mwifi.h"
 
 // #define MEMORY_DEBUG
-#define BUF_SIZE 512
+#define BUF_SIZE 1024
 
 mdf_err_t mdf_mesh_init();
 mdf_err_t mesh_write(uint8_t src_addr[],char *data);

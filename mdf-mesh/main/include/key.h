@@ -10,7 +10,8 @@
 #define KEY4_GPIO 35 /* key　引脚号 */
 
 #define longTime  1000  /* 长按最短时间 ms */
-#define keyxd 15 /* 按键消抖时长 ms */
+#define keypresstime 25 /* 按键消抖时长 ms */
+#define keylifttime 25 /* 按键消抖时长 ms */
 
 typedef enum {
     KEY1_SHORT_ONCE = 0x0,    /**/

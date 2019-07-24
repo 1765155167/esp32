@@ -35,29 +35,28 @@ void IRAM_ATTR key_handler(void *arg)
 //定时器回调函数(按键按下消抖)
 static void test_timer_ej_cb(void* arg)
 {
-	esp_timer_delete(test_ej_handle);
 	uint32_t num = (uint32_t)arg;
 	if(gpio_get_level(key[num].io_num) == 0)
 	{
 		key[num].tick = esp_timer_get_time();
-		// MDF_LOGI("press %d:tick = %lld", num, key[num].tick);
+		MDF_LOGI("press %d:tick = %lld", num, key[num].tick);
 		key[num].press_key = pdTRUE;
 	}
 	key[num].time_start = pdFALSE;
+	esp_timer_delete(test_ej_handle);
 }
 //定时器回调函数(按键松开消抖)
 static void test_timer_el_cb(void* arg)
-{
-	esp_timer_delete(test_el_handle);
+{	
 	uint32_t num = (uint32_t)arg;
 	if(gpio_get_level(key[num].io_num) == 1)
 	{
-		key[num].lift_key = pdTRUE;
-		key[num].tick = esp_timer_get_time() - key[num].tick;
-		MDF_LOGI("lift %d:tick = %lld", num, key[num].tick);
-
 		key[num].press_key = pdFALSE;
-		key[num].lift_key = pdFALSE;
+		// key[num].lift_key = pdFALSE;
+		key[num].tick = esp_timer_get_time() - key[num].tick;
+		MDF_LOGI("1:lift %d:tick = %lld", num, esp_timer_get_time());
+		MDF_LOGI("2:lift %d:tick = %lld", num, key[num].tick);
+
 		if(key[num].tick > longTime * 1000)/* longTime ms */
 		{
 			ESP_LOGI(TAG,"按键%d长按",num+1);/* 按键长按 */
@@ -84,9 +83,9 @@ static void test_timer_el_cb(void* arg)
 				break;
 			}
 		}
-
 	}
 	key[num].time_start = pdFALSE;
+	esp_timer_delete(test_el_handle);
 }
 mdf_err_t key_init(void)
 {
@@ -101,7 +100,7 @@ mdf_err_t key_init(void)
 		key[i].press_key  = pdFALSE;        /* 按键状态 按下*/
 		key[i].lift_key   = pdFALSE;        /* 按键状态 抬起*/
 		key[i].time_start = pdFALSE;        /* 消抖动定时器开始标志 */
-		key[i].keyclick   = 1;              /* 按键单击次数 */
+		// key[i].keyclick   = 1;              /* 按键单击次数 */
 	}
 	io_conf.pin_bit_mask = BIT64(KEY1_GPIO);    /*!< GPIO pin: set with bit mask, each bit maps to a GPIO */
     io_conf.mode = GPIO_MODE_INPUT;           /*!< GPIO mode: set input/output mode                     */
@@ -155,11 +154,11 @@ void key_process(void *arg)
 			if(gpio_get_level(io_num) == 0)
 			{
 				/* 开启10ms定时器 消抖处理　*/
-				if(key[num].time_start == pdFALSE)
+				if(key[num].time_start == pdFALSE && !key[num].press_key)
 				{
 					test_ej_arg.arg = (void *)num;
 					ESP_ERROR_CHECK( esp_timer_create(&test_ej_arg, &test_ej_handle) );
-					err = esp_timer_start_once(test_ej_handle, keyxd * 1000);
+					err = esp_timer_start_once(test_ej_handle, keypresstime * 1000);
 					
 					if(err == ESP_OK)
 					{
@@ -176,7 +175,7 @@ void key_process(void *arg)
 				{
 					test_el_arg.arg = (void *)num;
 					ESP_ERROR_CHECK( esp_timer_create(&test_el_arg, &test_el_handle) );
-					err = esp_timer_start_once(test_el_handle, keyxd * 1000);
+					err = esp_timer_start_once(test_el_handle, keylifttime * 1000);
 					if(err == ESP_OK)
 					{
 						key[num].time_start = pdTRUE;
