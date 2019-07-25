@@ -108,7 +108,7 @@
     ]
 }
 
-{"Devs":[{"ID":1,"Cmd":"cfg","Params":{"AlarmTempMax":30,"AlarmTempMin":15,"SetTempMax":31,"SetTempMin":14,"TotalTime":600}},{"ID":2,"Cmd":"cfg","Params":{"AlarmTempMax":30,"AlarmTempMin":15,"SetTempMax":31,"SetTempMin":14,"TotalTime":100}}]}
+{"Devs":[{"ID":1,"Cmd":"cfg","Params":{"AlarmTempMax":30,"AlarmTempMin":15,"SetTempMax":31,"SetTempMin":14,"TotalTime":600}},{"ID":3,"Cmd":"cfg","Params":{"AlarmTempMax":30,"AlarmTempMin":15,"SetTempMax":31,"SetTempMin":14,"TotalTime":100}}]}
 ```
 
 
@@ -134,11 +134,12 @@
                 "Sta": "forward",
                 "TimeS": 23
             }
-        },      
+        },
     ]
 }
 
-{"Devs":[{"ID":2,"Cmd":"conMan","Params":{"Sta":"forward","TimeS":23}}]}
+{"Devs":[{"ID":-1,"Cmd":"conMan","Params":{"Sta":"forward","TimeS":60}}]}
+{"Devs":[{"ID":1,"Cmd":"conMan","Params":{"Sta":"reverse","TimeS":60}}]}
 ```
 
 > - `Devices` 目标设备对象数组，可以为有多个目标id
@@ -167,7 +168,9 @@
     ]
 }
 
-{"Devs":[{"ID":1,"Cmd":"conMode","Params":{"Sta":"auto"}}]}
+{"Devs":[{"ID":3,"Cmd":"conMode","Params":{"Sta":"auto"}}]}
+{"Devs":[{"ID":-1,"Cmd":"conMode","Params":{"Sta":"auto"}}]}
+{"Devs":[{"ID":-1,"Cmd":"conMode","Params":{"Sta":"manual"}}]}
 ```
 
 > - `Devices` 目标设备对象数组，可以为有多个目标id
@@ -193,7 +196,7 @@
         }
     ]
 }
-{"Devs":[{"ID":1,"Cmd":"openAdjust","Params":{"Openper":0}}]}
+{"Devs":[{"ID":-1,"Cmd":"openAdjust","Params":{"Openper":15}}]}
 ```
 
 > `Devices` 目标设备对象数组，可以为有多个目标id
@@ -219,7 +222,7 @@
         }
     ]
 }
-{"Devs":[{"ID":-1,"Cmd":"tempAdjust","Params":{"Temp":25}}]}
+{"Devs":[{"ID":3,"Cmd":"tempAdjust","Params":{"Temp":18}}]}
 ```
 
 > `Devices` 目标设备对象数组，可以为有多个目标id

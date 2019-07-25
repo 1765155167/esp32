@@ -11,5 +11,7 @@
 mdf_err_t led_init(void);
 void key_led_press(int key);/* 按键处理 */
 void json_led_press(char * data);/* json 信息处理 */
+mdf_err_t information_Upload(char * json_info);/*上传信息*/
+
 
 #endif

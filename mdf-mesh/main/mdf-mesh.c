@@ -26,7 +26,7 @@ mdf_err_t uart_initialize(void)
 	uart_config.stop_bits = UART_STOP_BITS_1;			//停止位
 	uart_config.flow_ctrl = UART_HW_FLOWCTRL_DISABLE;	//硬件流控
 	uart_param_config(CONFIG_UART_PORT_NUM, &uart_config);		//设置串口
-	//IO映射-> T:IO4  R:IO5
+	//IO映射-> T:IO2  R:IO15
 	uart_set_pin(CONFIG_UART_PORT_NUM, CONFIG_UART_TX_IO, CONFIG_UART_RX_IO, UART_PIN_NO_CHANGE, UART_PIN_NO_CHANGE);
 	//注册串口服务即使能+设置缓存区大小
 	uart_driver_install(CONFIG_UART_PORT_NUM, BUF_SIZE * 2, BUF_SIZE * 2, 0, NULL, 0);
@@ -57,7 +57,6 @@ static void uart_handle_task(void *arg)
 
     /* uart initialization */
     MDF_ERROR_ASSERT(uart_initialize());
-	// uart_write_bytes(CONFIG_UART_PORT_NUM, "1uart init ok\r\n", 14);//串口能收到
 	
     while (1) {
         memset(data, 0, BUF_SIZE);
@@ -130,7 +129,6 @@ FREE_MEM:
     }
 
     MDF_LOGI("Uart handle task is exit");
-
     MDF_FREE(data);
     vTaskDelete(NULL);
 }

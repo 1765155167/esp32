@@ -34,15 +34,12 @@ void key_led_press(int key)
 	switch (key)
 	{
 	case KEY1_SHORT_ONCE:
-		MDF_LOGI("风口打开(电机正转)");
 		moter_forward(led+1);
 		break;
 	case KEY2_SHORT_ONCE:
-		MDF_LOGI("风口关闭(电机反转)");
 		moter_reverse(led+1);
 		break;
 	case KEY3_SHORT_ONCE:
-		MDF_LOGI("风口保持不动(电机停止)");
 		moter_stop(led+1);
 		break;
 	case KEY4_SHORT_ONCE:
@@ -68,7 +65,7 @@ void key_led_press(int key)
 		break;
 	case KEY4_LONG:
 		MDF_LOGI("切换风口控制模式");
-		moter_set_mode(led+1);
+		moter_change_mode(led+1);
 		break;
 	default:
 		break;
@@ -100,40 +97,74 @@ void json_led_press(char * data)
 		cJSON_Delete(json_root);
 		goto ret;
 	}
-	if(strcmp(json_cmd->valuestring,"cfg") == 0)
-	{
+	if (strcmp(json_cmd->valuestring,"cfg") == 0) {
 		MDF_LOGI("参数配置");
-	}else if(strcmp(json_cmd->valuestring,"conMan") == 0)
-	{
+		if(json_id->valueint == -1) {
+			set_args_info(data,CONFIG_DEVICE_NUM * 2 - 1);
+			set_args_info(data,CONFIG_DEVICE_NUM * 2);
+		}else {
+			set_args_info(data,json_id->valueint);
+		}
+	}else if (strcmp(json_cmd->valuestring,"conMan") == 0) {
 		MDF_LOGI("手动控制");
-	}else if(strcmp(json_cmd->valuestring,"conMode") == 0)
-	{
+		if(json_id->valueint == -1) {
+			manual_moter(data,CONFIG_DEVICE_NUM * 2 - 1);
+			manual_moter(data,CONFIG_DEVICE_NUM * 2);
+		}else {
+			manual_moter(data,json_id->valueint);
+		}
+	}else if (strcmp(json_cmd->valuestring,"conMode") == 0) {
 		MDF_LOGI("控制模式");
-	}else if(strcmp(json_cmd->valuestring,"openAdjust") == 0)
-	{
+		if(json_id->valueint == -1) {
+			moter_set_mode(data,CONFIG_DEVICE_NUM * 2 - 1);
+			moter_set_mode(data,CONFIG_DEVICE_NUM * 2);
+		}else {
+			moter_set_mode(data,json_id->valueint);
+		}
+	}else if (strcmp(json_cmd->valuestring,"openAdjust") == 0) {
 		MDF_LOGI("风口校准");
-	}else if(strcmp(json_cmd->valuestring,"tempAdjust") == 0)
-	{
+		if(json_id->valueint == -1) {
+			moter_openAdjust(data,CONFIG_DEVICE_NUM * 2 - 1);
+			moter_openAdjust(data,CONFIG_DEVICE_NUM * 2);
+		}else {
+			moter_openAdjust(data,json_id->valueint);
+		}
+	}else if (strcmp(json_cmd->valuestring,"tempAdjust") == 0) {
 		MDF_LOGI("温度校准");
-	}else if(strcmp(json_cmd->valuestring,"getInfo") == 0)
-	{
+		if(json_id->valueint == -1) {
+			moter_tempAdjust(data,CONFIG_DEVICE_NUM * 2 - 1);
+			moter_tempAdjust(data,CONFIG_DEVICE_NUM * 2);
+		}else {
+			moter_tempAdjust(data,json_id->valueint);
+		}
+	}else if (strcmp(json_cmd->valuestring,"getInfo") == 0) {
 		MDF_LOGI("触发实时数据上传");
-		if(json_id->valueint == -1)
-		{
+		if (json_id->valueint == -1) {
 			get_json_info(json_info, CONFIG_DEVICE_NUM * 2 - 1);
-			mesh_write(NULL,json_info);
+			information_Upload(json_info);
 			get_json_info(json_info, CONFIG_DEVICE_NUM * 2);
-			mesh_write(NULL,json_info);
+			information_Upload(json_info);
 		}else {
 			get_json_info(json_info, json_id->valueint);
-			mesh_write(NULL,json_info);
+			information_Upload(json_info);
 		}
-	}else
-	{
+	}else {
 		MDF_LOGW("Unknown json cmd");
 	}
 ret:
 	cJSON_Delete(json_root);
 	MDF_FREE(json_info);
 	return;
+}
+/*上传信息*/
+mdf_err_t information_Upload(char * json_info)
+{
+	if(esp_mesh_is_root()) {
+		size_t size = strlen(json_info);
+		uart_write_bytes(CONFIG_UART_PORT_NUM, json_info, size);
+        uart_write_bytes(CONFIG_UART_PORT_NUM, "\r\n", 2);
+	}else {
+		mesh_write(NULL,json_info);
+	}
+	return MDF_OK;
 }
