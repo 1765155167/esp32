@@ -476,7 +476,7 @@ mdf_err_t manual_moter(char * data, uint8_t id)
 	cJSON *json_params= NULL;
 	cJSON *json_sta   = NULL;
 	cJSON *json_times = NULL;
-	MDF_LOGI("start set_args_info");
+	MDF_LOGI("start manual_moter");
 	json_root = cJSON_Parse((char *)data);
 	MDF_ERROR_GOTO(!json_root, ret, "cJSON_Parse, data format error, data: %s", data);
 
@@ -554,7 +554,7 @@ mdf_err_t moter_set_mode(char * data, uint8_t id)
 	cJSON *json_cmd   = NULL;
 	cJSON *json_params= NULL;
 	cJSON *json_sta   = NULL;
-	MDF_LOGI("start set_args_info");
+	MDF_LOGI("start moter_set_mode");
 	json_root = cJSON_Parse((char *)data);
 	MDF_ERROR_GOTO(!json_root, ret, "cJSON_Parse, data format error, data: %s", data);
 
@@ -613,7 +613,7 @@ mdf_err_t moter_openAdjust(char * data, uint8_t id)
 	cJSON *json_cmd   = NULL;
 	cJSON *json_params= NULL;
 	cJSON *json_openper   = NULL;
-	MDF_LOGI("start set_args_info");
+	MDF_LOGI("start moter_openAdjust");
 	json_root = cJSON_Parse((char *)data);
 	MDF_ERROR_GOTO(!json_root, ret, "cJSON_Parse, data format error, data: %s", data);
 
@@ -666,7 +666,7 @@ mdf_err_t moter_tempAdjust(char * data, uint8_t id)
 	cJSON *json_cmd   = NULL;
 	cJSON *json_params= NULL;
 	cJSON *json_temp   = NULL;
-	MDF_LOGI("start set_args_info");
+	MDF_LOGI("start moter_tempAdjust");
 	json_root = cJSON_Parse((char *)data);
 	MDF_ERROR_GOTO(!json_root, ret, "cJSON_Parse, data format error, data: %s", data);
 
