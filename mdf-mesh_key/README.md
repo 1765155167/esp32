@@ -88,8 +88,8 @@
             "Params": {
                 "AlarmTempMax": 30,
                 "AlarmTempMin": 15,
-                "SetTempMax": 31,
-                "SetTempMin": 14,
+                "SetTempMax": 30,
+                "SetTempMin": 20,
                 "TotalTime": 600
             }
         },
@@ -100,15 +100,15 @@
             "Params": {
                 "AlarmTempMax": 30,
                 "AlarmTempMin": 15,
-                "SetTempMax": 31,
-                "SetTempMin": 14,
+                "SetTempMax": 20,
+                "SetTempMin": 30,
 				"TotalTime": 100
             }
         }
     ]
 }
 
-{"Devs":[{"ID":1,"Cmd":"cfg","Params":{"AlarmTempMax":30,"AlarmTempMin":15,"SetTempMax":31,"SetTempMin":14,"TotalTime":600}},{"ID":3,"Cmd":"cfg","Params":{"AlarmTempMax":30,"AlarmTempMin":15,"SetTempMax":31,"SetTempMin":14,"TotalTime":100}}]}
+{"Devs":[{"ID":1,"Cmd":"cfg","Params":{"AlarmTempMax":30,"AlarmTempMin":15,"SetTempMax":31,"SetTempMin":20,"TotalTime":600}},{"ID":3,"Cmd":"cfg","Params":{"AlarmTempMax":30,"AlarmTempMin":15,"SetTempMax":31,"SetTempMin":20,"TotalTime":100}}]}
 ```
 
 
@@ -138,7 +138,7 @@
     ]
 }
 
-{"Devs":[{"ID":-1,"Cmd":"conMan","Params":{"Sta":"forward","TimeS":60}}]}
+@{"Devs":[{"ID":-1,"Cmd":"conMan","Params":{"Sta":"forward","TimeS":60}}]}@
 {"Devs":[{"ID":1,"Cmd":"conMan","Params":{"Sta":"reverse","TimeS":60}}]}
 ```
 

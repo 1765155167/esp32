@@ -6,7 +6,8 @@
 
 // #define MEMORY_DEBUG
 #define BUF_SIZE 1024
-
+void send_unlock();
+void send_lock();
 mdf_err_t mdf_mesh_init();
 mdf_err_t mesh_write(uint8_t src_addr[],char *data);
 // #define MEMORY_DEBUG

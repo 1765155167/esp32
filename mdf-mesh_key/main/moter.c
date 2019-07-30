@@ -5,16 +5,16 @@ static const char *TAG = "mdf-moter";
 moter_args moter_args1 = {
 	.AlarmTempMax = 30,	//报警高温
 	.AlarmTempMin = 10,	//报警低温
-	.SetTempMax = 35,	//设定控制温度上限
-	.SetTempMin = 0,	//设定控制温度下限
+	.SetTempMax = 20,	//设定控制温度上限
+	.SetTempMin = 15,	//设定控制温度下限
 	.TotalTime = 600,   //风口完整开启或关闭一次所需时间，单位s
 };/*参数信息*/
 
 moter_args moter_args2= {
 	.AlarmTempMax = 30,	//报警高温
 	.AlarmTempMin = 10,	//报警低温
-	.SetTempMax = 35,	//设定控制温度上限
-	.SetTempMin = 0,	//设定控制温度下限
+	.SetTempMax = 20,	//设定控制温度上限
+	.SetTempMin = 15,	//设定控制温度下限
 	.TotalTime = 600,   //风口完整开启或关闭一次所需时间，单位s
 };/*参数信息*/
 
@@ -33,7 +33,7 @@ moter_stu moter_flag2 = {/*实时信息*/
 	.ConSta = "manual",
 	.MoSta = "stop"
 };
-
+/*手动*/
 static void test_timer_once(void* arg);
 //定义定时器句柄
 esp_timer_handle_t test_once1_handle = 0;
@@ -49,6 +49,23 @@ esp_timer_create_args_t test_once2_arg = {
 	.arg = (void *)2,
 	.name = "moter time 2" //定时器名字
 };
+/*自动*/
+static void test_timer_once_auto(void* arg);
+//定义定时器句柄
+esp_timer_handle_t test_once1_auto_handle = 0;
+esp_timer_handle_t test_once2_auto_handle = 0;
+//定义一个单次运行的定时器结构体
+esp_timer_create_args_t test_once1_auto_arg = {
+	.callback = &test_timer_once_auto, //设置回调函数
+	.arg = (void *)1,
+	.name = "moter time 1" //定时器名字
+};
+esp_timer_create_args_t test_once2_auto_arg = {
+	.callback = &test_timer_once_auto, //设置回调函数
+	.arg = (void *)2,
+	.name = "moter time 2" //定时器名字
+};
+
 //定时器回调函数
 static void test_timer_once(void* arg)
 {
@@ -59,18 +76,59 @@ static void test_timer_once(void* arg)
 		moter_stop(io);
 	}
 }
+
+//定时器回调函数
+static void test_timer_once_auto(void* arg)
+{
+	uint32_t io = (uint32_t)arg;
+	if(io == 1) {
+		moter_flag1.MoSta = "stop";
+		nvs_save_OpenPer(1);
+	}else if(io == 2) {
+		moter_flag2.MoSta = "stop";
+		nvs_save_OpenPer(2);
+	}
+}
 /*自动控制*/
 static void moter_auto_ctrl(void *arg)
 {
 	for(;;)
 	{
 		if(strcmp(moter_flag1.ConSta,"auto") == 0) {
-			moter_flag1.MoSta = "stop";
+			if(moter_flag1.NTemp >= moter_args1.SetTempMin && moter_flag1.NTemp <= moter_args1.SetTempMax)
+			{
+				moter_flag1.MoSta = "stop";
+			}else if(moter_flag1.NTemp < moter_args1.SetTempMin)
+			{
+				moter_flag1.MoSta = "forward";
+				esp_timer_stop(test_once1_auto_handle);
+				esp_timer_start_once(test_once1_auto_handle, 
+					moter_args1.SetTempMin - moter_flag1.NTemp * 100 * moter_args1.TotalTime);
+			}else {
+				moter_flag1.MoSta = "reverse";
+				esp_timer_stop(test_once1_auto_handle);
+				esp_timer_start_once(test_once1_auto_handle, 
+					moter_flag1.NTemp - moter_args1.SetTempMax * 100 * moter_args1.TotalTime);
+			}
 		}
 		if(strcmp(moter_flag2.ConSta,"auto") == 0) {
-			moter_flag2.MoSta = "stop";
+			if(moter_flag2.NTemp >= moter_args2.SetTempMin && moter_flag2.NTemp <= moter_args2.SetTempMax)
+			{
+				moter_flag2.MoSta = "stop";
+			}else if(moter_flag2.NTemp < moter_args2.SetTempMin)
+			{
+				moter_flag2.MoSta = "forward";
+				esp_timer_stop(test_once2_handle);
+				esp_timer_start_once(test_once2_handle, 
+					moter_args2.SetTempMin - moter_flag2.NTemp * 100 * moter_args2.TotalTime);
+			}else {
+				moter_flag2.MoSta = "reverse";
+				esp_timer_stop(test_once2_handle);
+				esp_timer_start_once(test_once2_handle,
+					moter_flag2.NTemp - moter_args2.SetTempMax * 100 * moter_args2.TotalTime);
+			}
 		}
-		vTaskDelay(1000 / portTICK_RATE_MS);
+		vTaskDelay(60 * 1000 / portTICK_RATE_MS);
 	}
 	vTaskDelete(NULL);
 }
@@ -132,7 +190,7 @@ static void moter_ctrl(void *arg)
 	}
 	vTaskDelete(NULL);
 }
-/* 定时上传信息 */
+/* 定时上传信息 UP_INFO_TIMER s*/
 static void uploadinfor(void *timer)
 {
 	char *json_info   = MDF_MALLOC(MWIFI_PAYLOAD_LEN);
@@ -142,34 +200,48 @@ static void uploadinfor(void *timer)
 	information_Upload(json_info);
 	MDF_FREE(json_info);
 }
-/*计算风口开度 0.6s 计算一次*/
+
+/*计算风口开度并保存 0.6s 计算一次 */
 static void Calculation(void *timer)
 {
+	static uint8_t caltimers1 = 0;
+	static uint8_t caltimers2 = 0;
 	if(strcmp(moter_flag1.MoSta,"forward")==0) {
 		moter_flag1.OpenPer += 600 / moter_args1.TotalTime;
+		caltimers1 ++;
 		if(moter_flag1.OpenPer >= 1000) {
 			moter_flag1.OpenPer = 1000;
 		}
 	}else if(strcmp(moter_flag1.MoSta,"reverse")==0) {
 		moter_flag1.OpenPer -= 600 / moter_args1.TotalTime;
+		caltimers1 ++;
 		if(moter_flag1.OpenPer <= 0){
 			moter_flag1.OpenPer = 0;
 		}
 	}
-
+	if(caltimers1 > 20) {
+		nvs_save_OpenPer(1);
+		caltimers1  = 0;
+	}
 	if(strcmp(moter_flag2.MoSta,"forward")==0) {
 		moter_flag2.OpenPer += 600 / moter_args2.TotalTime;
+		caltimers2 ++;
 		if(moter_flag2.OpenPer >= 1000) {
 			moter_flag2.OpenPer = 1000;
 		}
 	}else if(strcmp(moter_flag2.MoSta,"reverse")==0) {
 		moter_flag2.OpenPer -= 600 / moter_args2.TotalTime;
+		caltimers2 ++;
 		if(moter_flag2.OpenPer <= 0){
 			moter_flag2.OpenPer = 0;
 		}
 	}
+	if(caltimers2 > 20) {
+		nvs_save_OpenPer(2);
+		caltimers2  = 0;
+	}
 }
-/*方风机ＩＯ初始化*/
+/*放风机IO初始化*/
 mdf_err_t moter_init(void)
 {
 	static bool init_flag = pdFALSE;
@@ -199,16 +271,21 @@ mdf_err_t moter_init(void)
 	ESP_ERROR_CHECK( esp_timer_create(&test_once1_arg, &test_once1_handle) );
 	ESP_ERROR_CHECK( esp_timer_create(&test_once2_arg, &test_once2_handle) );
 
+	ESP_ERROR_CHECK( esp_timer_create(&test_once1_auto_arg, &test_once1_auto_handle) );
+	ESP_ERROR_CHECK( esp_timer_create(&test_once2_auto_arg, &test_once2_auto_handle) );
+
 	xTaskCreate(moter_ctrl, "moter_ctrl", 2 * 1024, NULL, 10, NULL);
 	xTaskCreate(moter_auto_ctrl, "moter_auto_ctrl", 2 * 1024, NULL, 10, NULL);
 	/* 定时计算风口开度 */
     TimerHandle_t timer1 = xTimerCreate("Calculation", 600 / portTICK_RATE_MS,
                                        true, NULL, Calculation);
     xTimerStart(timer1, 0);
+
 	/* 定时上传信息 */
-    TimerHandle_t timer2 = xTimerCreate("Upload information", UP_INFO_TIMER * 1000 / portTICK_RATE_MS,
+    TimerHandle_t timer2 = xTimerCreate("Upload information", UP_INFO_TIMER*1000 / portTICK_RATE_MS,
                                        true, NULL, uploadinfor);
     xTimerStart(timer2, 0);
+
 	init_flag = pdTRUE;
 	return MDF_OK;
 }
@@ -235,7 +312,7 @@ mdf_err_t moter_forward(int io)
 		if(moter_flag1.OpenPer < 1000 && strcmp(moter_flag1.ConSta,"manual") == 0) {
 			moter_flag1.MoSta = "forward";
 		}else {
-			MDF_LOGW("风口1开度已达到100 or 自动模式");
+			MDF_LOGW("风口1开度已达到100 or 自动模式");		
 		}
 		if(moter_flag2.OpenPer < 1000 && strcmp(moter_flag2.ConSta,"manual") == 0) {
 			moter_flag2.MoSta = "forward";
@@ -274,7 +351,6 @@ mdf_err_t moter_reverse(int io)
 		}else {
 			MDF_LOGW("风口1开度为0 or 自动模式");
 		}
-		
 		if(moter_flag2.OpenPer > 0 && strcmp(moter_flag2.ConSta,"manual") == 0) {
 			moter_flag2.MoSta = "reverse";
 		}else {
@@ -292,25 +368,34 @@ mdf_err_t moter_stop(int io)
 {
 	switch (io)
 	{
+	
 	case 1:/* 电机１*/
-		if(strcmp(moter_flag1.ConSta,"manual") == 0)
+		if(strcmp(moter_flag1.ConSta,"manual") == 0) {
 			moter_flag1.MoSta = "stop";
+			nvs_save_OpenPer(1);
+		}
 		else
 			MDF_LOGW("电机1自动模式");
 		break;
 	case 2:/* 电机２*/
-		if(strcmp(moter_flag2.ConSta,"manual") == 0)
+		if(strcmp(moter_flag2.ConSta,"manual") == 0) {
 			moter_flag2.MoSta = "stop";
+			nvs_save_OpenPer(2);
+		}
 		else
 			MDF_LOGW("电机2自动模式");
 		break;
 	case 3:/* 电机１&2*/
-		if(strcmp(moter_flag1.ConSta,"manual") == 0)
+		if(strcmp(moter_flag1.ConSta,"manual") == 0) {
 			moter_flag1.MoSta = "stop";
+			nvs_save_OpenPer(1);
+		}
 		else
 			MDF_LOGW("电机1自动模式");
-		if(strcmp(moter_flag2.ConSta,"manual") == 0)
+		if(strcmp(moter_flag2.ConSta,"manual") == 0) {
 			moter_flag2.MoSta = "stop";
+			nvs_save_OpenPer(2);
+		}
 		else
 			MDF_LOGW("电机2自动模式");
 		break;
@@ -350,6 +435,7 @@ mdf_err_t moter_change_mode(int io)
 		}else {
 			moter_flag2.ConSta = "auto";
 		}
+		break;
 	default:
 		MDF_LOGW("风口IO选择错误:%d",io);
 		break;
@@ -451,6 +537,7 @@ mdf_err_t set_args_info(char * data, uint8_t id)
 				,moter_args1.SetTempMax
 				,moter_args1.SetTempMin
 				,moter_args1.TotalTime);
+		nvs_save_arg(1);//保存设置的信息
 	}else if(id%2+1 == 2)
 	{
 		moter_args2.AlarmTempMax = json_atmax->valueint;
@@ -464,6 +551,7 @@ mdf_err_t set_args_info(char * data, uint8_t id)
 				,moter_args2.SetTempMax
 				,moter_args2.SetTempMin
 				,moter_args2.TotalTime);
+		nvs_save_arg(2);//保存设置的信息
 	}
 
 ret:	

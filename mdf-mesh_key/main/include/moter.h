@@ -4,6 +4,7 @@
 #include "mdf_common.h"
 #include "mwifi.h"
 #include "mdf-mesh.h"
+#include "moter_nvs.h"
 #include "key.h"
 #include "led.h"
 
@@ -41,4 +42,5 @@ mdf_err_t moter_forward(int io);
 mdf_err_t moter_reverse(int io);
 mdf_err_t moter_stop(int io);
 mdf_err_t moter_init(void);
+
 #endif

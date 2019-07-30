@@ -2,7 +2,7 @@
 #include "key.h"
 #include "mdf-mesh.h"
 #include "driver/uart.h"
-
+#include "moter_nvs.h"
 static const char *TAG = "mesh-led";
 
 mdf_err_t led_init(void)
@@ -166,8 +166,10 @@ mdf_err_t information_Upload(char * json_info)
 {
 	if(esp_mesh_is_root()) {
 		size_t size = strlen(json_info);
+		send_lock();
 		uart_write_bytes(CONFIG_UART_PORT_NUM, json_info, size);
         uart_write_bytes(CONFIG_UART_PORT_NUM, "\r\n", 2);
+		send_unlock();
 	}else {
 		mesh_write(NULL,json_info);
 	}
