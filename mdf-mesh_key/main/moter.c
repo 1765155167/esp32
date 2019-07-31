@@ -190,6 +190,7 @@ static void moter_ctrl(void *arg)
 	}
 	vTaskDelete(NULL);
 }
+
 /* 定时上传信息 UP_INFO_TIMER s*/
 static void uploadinfor(void *timer)
 {

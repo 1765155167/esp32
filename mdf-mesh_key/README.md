@@ -138,7 +138,7 @@
     ]
 }
 
-@{"Devs":[{"ID":-1,"Cmd":"conMan","Params":{"Sta":"forward","TimeS":60}}]}@
+{"Devs":[{"ID":-1,"Cmd":"conMan","Params":{"Sta":"forward","TimeS":60}}]}
 {"Devs":[{"ID":1,"Cmd":"conMan","Params":{"Sta":"reverse","TimeS":60}}]}
 ```
 

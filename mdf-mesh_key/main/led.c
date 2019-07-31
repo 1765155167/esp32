@@ -3,6 +3,7 @@
 #include "mdf-mesh.h"
 #include "driver/uart.h"
 #include "moter_nvs.h"
+#include "check.h"
 static const char *TAG = "mesh-led";
 
 mdf_err_t led_init(void)
@@ -156,20 +157,40 @@ void json_led_press(char * data)
 	}else {
 		MDF_LOGW("Unknown json cmd");
 	}
+	/*
+	 *@每次收到一条指令就上传一次状态信息
+	 * */
+	MDF_LOGI("触发实时数据上传");
+	if (json_id->valueint == -1) {
+		get_json_info(json_info, CONFIG_DEVICE_NUM * 2 - 1);
+		information_Upload(json_info);
+		get_json_info(json_info, CONFIG_DEVICE_NUM * 2);
+		information_Upload(json_info);
+	}else {
+		get_json_info(json_info, json_id->valueint);
+		information_Upload(json_info);
+	}
 ret:
 	cJSON_Delete(json_root);
 	MDF_FREE(json_info);
 	return;
 }
+
 /*上传信息*/
 mdf_err_t information_Upload(char * json_info)
 {
 	if(esp_mesh_is_root()) {
 		size_t size = strlen(json_info);
 		send_lock();
-		uart_write_bytes(CONFIG_UART_PORT_NUM, json_info, size);
+		uart_encryption((uint8_t *)json_info,&size);/*加密　crc检验位*/
+		uart_write_bytes(CONFIG_UART_PORT_NUM, (char *)json_info, size);
         uart_write_bytes(CONFIG_UART_PORT_NUM, "\r\n", 2);
 		send_unlock();
+		for (size_t i = 0; i < size; i++)
+		{
+			printf("%c ",json_info[i]);
+		}
+		printf("\n%d %d %d %d %d %d\n",json_info[2],json_info[3],json_info[4],json_info[5],json_info[6],json_info[size - 1]);
 	}else {
 		mesh_write(NULL,json_info);
 	}

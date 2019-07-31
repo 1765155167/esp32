@@ -13,7 +13,7 @@
 #define MOTER1_REVERSE_IO 5//电机1反转 io口
 #define MOTER2_FORWARD_IO 18//电机2正转 io口
 #define MOTER2_REVERSE_IO 19//电机2反转 io口
-#define UP_INFO_TIMER 5 //定时上传时间间隔 s
+#define UP_INFO_TIMER 120 //定时上传时间间隔 s
 
 typedef struct moter_stu {
 	char * Typ;			//设备类型

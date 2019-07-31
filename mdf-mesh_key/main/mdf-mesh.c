@@ -2,12 +2,14 @@
 #include "driver/uart.h"
 #include "key.h"
 #include "led.h"
+#include "check.h"
+
 static const char *TAG = "mdf-mesh";
 static xSemaphoreHandle g_send_lock;
 
 uint8_t dest_addr[3][MWIFI_ADDR_LEN] = {
-	{0x30, 0xae, 0xa4, 0xdd, 0xb0, 0x68},//root 1
-	{0x30, 0xae, 0xa4, 0xdd, 0xb0, 0x1c},//node 1
+	{0x30, 0xae, 0xa4, 0xdd, 0xb0, 0x1c},//root 1
+	{0x30, 0xae, 0xa4, 0xdd, 0xb0, 0x68},//node 1
 	{0x3c, 0x71, 0xbf, 0xe0, 0x92, 0xb8},//node 2
 };
 void send_lock()
@@ -51,8 +53,7 @@ mdf_err_t uart_initialize(void)
  */
 static void uart_handle_task(void *arg)
 {
-    int recv_length   = 0;
-	int i             = 0;
+    size_t recv_length   = 0;
 	uint32_t id       = 0;
     mdf_err_t ret     = MDF_OK;
     cJSON *json_root  = NULL;
@@ -61,7 +62,6 @@ static void uart_handle_task(void *arg)
 
     // Configure a temporary buffer for the incoming data
     uint8_t *data                     = (uint8_t *) MDF_MALLOC(BUF_SIZE);
-	uint8_t *udata                    = data;
     size_t size                       = MWIFI_PAYLOAD_LEN;
     char *jsonstring                  = NULL;
     mwifi_data_type_t data_type       = {0};
@@ -75,39 +75,25 @@ static void uart_handle_task(void *arg)
     MDF_ERROR_ASSERT(uart_initialize());
 	
     while (1) {
-		data = udata;
         memset(data, 0, BUF_SIZE);
 		recv_length = uart_read_bytes(CONFIG_UART_PORT_NUM, data, BUF_SIZE, 100 / portTICK_PERIOD_MS);
-        if (recv_length <= 0) {
+		if (recv_length <= 0) {
 			// MDF_LOGI("recv_length = %d",recv_length);
             continue;
         }
-		MDF_LOGI("1:UART Recv data:%s recv_length:%d", data, recv_length);
-
-		for(i = 0; i < recv_length - 1; i++) {
-			if(data[i] == '{') {
-				break;
-			}
-		}
-		data = data + i;
-		recv_length = recv_length - i;
-		for(i = 0; i < recv_length - 1; i++) {
-			if(data[recv_length - i - 1] == '}') {
-				break;
-			}
-			data[recv_length - i - 1] = '\0';
-		}
-		recv_length = recv_length - i;
-		MDF_LOGI("2:UART Recv data:%s recv_length:%d", data, recv_length);
-		json_root = cJSON_Parse((char *)data);
-        MDF_ERROR_CONTINUE(!json_root, "cJSON_Parse, data format error, data: %s", data);
-		
+	
 		/*串口数据回发*/
 		send_lock();
-		uart_write_bytes(CONFIG_UART_PORT_NUM, (char*)data, recv_length - i);
+		uart_write_bytes(CONFIG_UART_PORT_NUM, (char*)data, recv_length);
         uart_write_bytes(CONFIG_UART_PORT_NUM, "\r\n", 2);
 		send_unlock();
 
+		uart_decrypt(data,&recv_length);//串口数据解密
+		MDF_LOGI("1:UART Recv data:%s recv_length:%d", data, recv_length);
+		
+		json_root = cJSON_Parse((char *)data);
+        MDF_ERROR_CONTINUE(!json_root, "cJSON_Parse, data format error, data: %s", data);
+		
 		json_dev = cJSON_GetObjectItem(json_root, "Devs");
 		MDF_ERROR_CONTINUE(!json_dev, "json_root, data format error, data: %s", json_root->valuestring);
 
@@ -163,7 +149,7 @@ FREE_MEM:
     }
 
     MDF_LOGI("Uart handle task is exit");
-    MDF_FREE(udata);
+    MDF_FREE(data);
     vTaskDelete(NULL);
 }
 
@@ -225,9 +211,15 @@ static void root_read_task(void *arg)
         MDF_LOGI("Root receive, addr: " MACSTR ", size: %d, data: %s", MAC2STR(src_addr), size, data);
         /* forwoad to uart */
 		send_lock();
-        uart_write_bytes(CONFIG_UART_PORT_NUM, data, size);
+		uart_encryption((uint8_t *)data,&size);/*加密 crc*/
+        uart_write_bytes(CONFIG_UART_PORT_NUM, (char *)data, size);
         uart_write_bytes(CONFIG_UART_PORT_NUM, "\r\n", 2);
 		send_unlock();
+		for (size_t i = 0; i < size; i++)
+		{
+			printf("%c ",data[i]);
+		}
+		printf("\n%d %d %d %d %d %d\n",data[2],data[3],data[4],data[5],data[6],data[size - 1]);
 	}
 
     MDF_LOGW("ROOT read task is exit");
@@ -399,12 +391,12 @@ mdf_err_t mdf_mesh_init()
 	return MDF_OK;
 }
 
-// /*追加root标志*/
-// void data_add_root(char * data)
-// {
-//     char path[30] = ":{Root}";
-//     strncat(data, path, 1000);  // 1000远远超过path的长度
-// }
+/*追加root标志*/
+void data_add_root(char * data)
+{
+    char path[30] = ":{Root}";
+    strncat(data, path, 1000);  // 1000远远超过path的长度
+}
 
 // /*追加mac地址*/
 // void data_add_mac(char * data,uint8_t src_addr[])
