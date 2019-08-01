@@ -12,9 +12,9 @@ static void ntc_task(void *arg)
 	{
 		int val1 = adc1_get_raw(NTC1_CHANNEL);
 		int val2 = adc1_get_raw(NTC2_CHANNEL);
-		printf("ntc1_val = %d\n", val1);
-		printf("ntc2_val = %d\n", val2);
-		vTaskDelay(1000 / portTICK_PERIOD_MS);
+		MDF_LOGI("ntc1_val = %d", val1);
+		MDF_LOGI("ntc2_val = %d", val2);
+		vTaskDelay(5000 / portTICK_PERIOD_MS);
 	}
 	vTaskDelete(NULL);
 }

@@ -31,9 +31,19 @@ typedef struct moter_args{
 	uint32_t TotalTime;		//风口完整开启或关闭一次所需时间，单位s
 }moter_args;
 
+BaseType_t moter_3;//设备是否存在的标志
+BaseType_t moter_4;//设备是否存在的标志
+BaseType_t moter_5;//设备是否存在的标志
+BaseType_t moter_6;//设备是否存在的标志
+char * json_moter_3;//保存设备3上传的设备信息
+char * json_moter_4;
+char * json_moter_5;
+char * json_moter_6;
+
 mdf_err_t manual_moter(char * data, uint8_t id);/*手动控制*/
 mdf_err_t set_args_info(char * data, uint8_t id);/*参数配置*/
 mdf_err_t get_json_info(char * json_info,int id);
+mdf_err_t get_json_info_all(char * json_info);
 mdf_err_t moter_change_mode(int io);/*改变放风机模式*/
 mdf_err_t moter_set_mode(char * data, uint8_t id);/*设置放风机模式*/
 mdf_err_t moter_openAdjust(char * data, uint8_t id);/*风口校准*/

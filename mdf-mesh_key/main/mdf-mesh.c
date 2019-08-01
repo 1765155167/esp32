@@ -4,6 +4,7 @@
 #include "led.h"
 #include "check.h"
 
+extern esp_timer_handle_t test_root_handle;
 static const char *TAG = "mdf-mesh";
 static xSemaphoreHandle g_send_lock;
 
@@ -185,18 +186,65 @@ static void node_read_task(void *arg)
     MDF_FREE(data);
     vTaskDelete(NULL);
 }
+void mystrcpy(char *des,char *src)
+{
+    while(*src != '\0')
+	{
+		*des++ = *src++;
+	}
+	*des = '\0';
+}
+/*处理从设备发送的信息*/
+mdf_err_t root_recv_data_process(char * data)
+{
+	mdf_err_t err = MDF_OK;
+	cJSON * json_id;
+	cJSON  * json_root;
+	json_root = cJSON_Parse((char *)data);
+	MDF_ERROR_GOTO(!json_root, ret, "cJSON_Parse, data format error, data: %s", data);
+	
+	json_id = cJSON_GetObjectItem(json_root, "ID");
+	MDF_ERROR_GOTO(!json_id, ret, "json_id, data format error, data: %s", json_root->valuestring);
+	MDF_LOGI("ID:%d",json_id->valueint);
+	switch (json_id->valueint)
+	{
+	case 3:
+		moter_3 = pdTRUE;
+		mystrcpy(json_moter_3,data);
+		break;
+	case 4:
+		moter_4 = pdTRUE;
+		mystrcpy(json_moter_4,data);
+		break;
+	case 5:
+		moter_5 = pdTRUE;
+		mystrcpy(json_moter_5,data);
+		break;
+	case 6:
+		moter_6 = pdTRUE;
+		mystrcpy(json_moter_6,data);
+		break;
+	default:
+		break;
+	}
+	esp_timer_stop(test_root_handle);
+	esp_timer_start_once(test_root_handle, 25 * 1000);
+ret:
+	cJSON_Delete(json_root);	
+	return err;
+}
 /**
- *@ROOT接收信息通过串口发送
+ *@ROOT接收从设备发送的信息
  **/
 static void root_read_task(void *arg)
 {
     mdf_err_t ret                    = MDF_OK;
-    char *data                       = MDF_MALLOC(MWIFI_PAYLOAD_LEN);
+    char * data                      = MDF_MALLOC(MWIFI_PAYLOAD_LEN);
     size_t size                      = MWIFI_PAYLOAD_LEN;
     uint8_t src_addr[MWIFI_ADDR_LEN] = {0x0};
     mwifi_data_type_t data_type      = {0};
 
-	MDF_LOGI("Root is running");
+	MDF_LOGI("Root read is running");
 
     for (int i = 0;; ++i) {
         if (!mwifi_is_started()) {
@@ -209,17 +257,8 @@ static void root_read_task(void *arg)
         ret = mwifi_root_read(src_addr, &data_type, data, &size, portMAX_DELAY);
         MDF_ERROR_CONTINUE(ret != MDF_OK, "<%s> mwifi_root_read", mdf_err_to_name(ret));
         MDF_LOGI("Root receive, addr: " MACSTR ", size: %d, data: %s", MAC2STR(src_addr), size, data);
-        /* forwoad to uart */
-		send_lock();
-		uart_encryption((uint8_t *)data,&size);/*加密 crc*/
-        uart_write_bytes(CONFIG_UART_PORT_NUM, (char *)data, size);
-        uart_write_bytes(CONFIG_UART_PORT_NUM, "\r\n", 2);
-		send_unlock();
-		for (size_t i = 0; i < size; i++)
-		{
-			printf("%c ",data[i]);
-		}
-		printf("\n%d %d %d %d %d %d\n",data[2],data[3],data[4],data[5],data[6],data[size - 1]);
+        
+		root_recv_data_process(data);/*处理从设备发送的信息*/
 	}
 
     MDF_LOGW("ROOT read task is exit");
@@ -390,19 +429,3 @@ mdf_err_t mdf_mesh_init()
 	init_flag = pdTRUE;
 	return MDF_OK;
 }
-
-/*追加root标志*/
-void data_add_root(char * data)
-{
-    char path[30] = ":{Root}";
-    strncat(data, path, 1000);  // 1000远远超过path的长度
-}
-
-// /*追加mac地址*/
-// void data_add_mac(char * data,uint8_t src_addr[])
-// {
-// 	char * mac = MDF_MALLOC(MWIFI_PAYLOAD_LEN);
-// 	sprintf(mac,":" MACSTR "",MAC2STR(src_addr));
-//     strncat(data, mac, 1000);  // 1000远远超过path的长度
-// 	MDF_FREE(mac);
-// }

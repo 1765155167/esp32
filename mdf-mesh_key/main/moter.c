@@ -190,15 +190,38 @@ static void moter_ctrl(void *arg)
 	}
 	vTaskDelete(NULL);
 }
-
+/*查询设备是否断开连接*/
+static void device_is_disconnected(void *timer)
+{
+	if(!moter_3) {
+		MDF_LOGI("设备3已断开链接");
+	}
+	moter_3 = pdFALSE;
+	if(!moter_4) {
+		MDF_LOGI("设备4已断开链接");
+	}
+	moter_4 = pdFALSE;
+	if(!moter_5) {
+		MDF_LOGI("设备5已断开链接");
+	}
+	moter_5 = pdFALSE;
+	if(!moter_6) {
+		MDF_LOGI("设备6已断开链接");
+	}
+	moter_6 = pdFALSE;
+}
 /* 定时上传信息 UP_INFO_TIMER s*/
 static void uploadinfor(void *timer)
 {
 	char *json_info   = MDF_MALLOC(MWIFI_PAYLOAD_LEN);
-	get_json_info(json_info, CONFIG_DEVICE_NUM * 2 - 1);
-	information_Upload(json_info);
-	get_json_info(json_info, CONFIG_DEVICE_NUM * 2);
-	information_Upload(json_info);
+	if (esp_mesh_is_root()) {//主设备
+		information_Upload(json_info);
+	} else {
+		get_json_info(json_info, CONFIG_DEVICE_NUM * 2 - 1);
+		information_Upload(json_info);
+		get_json_info(json_info, CONFIG_DEVICE_NUM * 2);
+		information_Upload(json_info);
+	} 
 	MDF_FREE(json_info);
 }
 
@@ -212,12 +235,14 @@ static void Calculation(void *timer)
 		caltimers1 ++;
 		if(moter_flag1.OpenPer >= 1000) {
 			moter_flag1.OpenPer = 1000;
+			nvs_save_OpenPer(1);
 		}
 	}else if(strcmp(moter_flag1.MoSta,"reverse")==0) {
 		moter_flag1.OpenPer -= 600 / moter_args1.TotalTime;
 		caltimers1 ++;
 		if(moter_flag1.OpenPer <= 0){
 			moter_flag1.OpenPer = 0;
+			nvs_save_OpenPer(1);
 		}
 	}
 	if(caltimers1 > 20) {
@@ -229,12 +254,14 @@ static void Calculation(void *timer)
 		caltimers2 ++;
 		if(moter_flag2.OpenPer >= 1000) {
 			moter_flag2.OpenPer = 1000;
+			nvs_save_OpenPer(1);
 		}
 	}else if(strcmp(moter_flag2.MoSta,"reverse")==0) {
 		moter_flag2.OpenPer -= 600 / moter_args2.TotalTime;
 		caltimers2 ++;
 		if(moter_flag2.OpenPer <= 0){
 			moter_flag2.OpenPer = 0;
+			nvs_save_OpenPer(1);
 		}
 	}
 	if(caltimers2 > 20) {
@@ -249,6 +276,15 @@ mdf_err_t moter_init(void)
 	if(init_flag) {
 		return MDF_OK;
 	}
+	moter_3 = pdFALSE;
+	moter_4 = pdFALSE;
+	moter_5 = pdFALSE;
+	moter_6 = pdFALSE;
+	json_moter_3 = MDF_MALLOC(MWIFI_PAYLOAD_LEN);
+	json_moter_4 = MDF_MALLOC(MWIFI_PAYLOAD_LEN);
+	json_moter_5 = MDF_MALLOC(MWIFI_PAYLOAD_LEN);
+	json_moter_6 = MDF_MALLOC(MWIFI_PAYLOAD_LEN);
+
 	gpio_config_t io_config;
 	io_config.pin_bit_mask = BIT64(MOTER1_FORWARD_IO);  /*!< GPIO pin: set with bit mask, each bit maps to a GPIO */
     io_config.mode = GPIO_MODE_OUTPUT;         	/*!< GPIO mode: set input/output mode*/
@@ -286,6 +322,11 @@ mdf_err_t moter_init(void)
     TimerHandle_t timer2 = xTimerCreate("Upload information", UP_INFO_TIMER*1000 / portTICK_RATE_MS,
                                        true, NULL, uploadinfor);
     xTimerStart(timer2, 0);
+
+	/* 定时查询设备是否断开连接 */
+    TimerHandle_t timer3 = xTimerCreate("Query whether the device is disconnected", 5 * UP_INFO_TIMER*1000 / portTICK_RATE_MS,
+                                       true, NULL, device_is_disconnected);
+    xTimerStart(timer3, 0);
 
 	init_flag = pdTRUE;
 	return MDF_OK;
@@ -462,7 +503,40 @@ mdf_err_t get_json_info(char * json_info, int id)
 	}
 	return MDF_OK;
 }
-
+/*主设备获取所有放风机信息并整合*/
+mdf_err_t get_json_info_all(char * json_info)
+{
+	char * json_info_1 = MDF_MALLOC(MWIFI_PAYLOAD_LEN);
+	char * json_info_2 = MDF_MALLOC(MWIFI_PAYLOAD_LEN);
+	get_json_info(json_info_1, 1);
+	get_json_info(json_info_2, 2);
+	sprintf(json_info,"{\"Devs\":[%s,%s",json_info_1,json_info_2);
+	if (moter_3) {
+		strncat(json_info, ",", 1); 
+		strncat(json_info, json_moter_3, 1000);  // 1000远远超过path的长度
+	}
+	if (moter_4) {
+		strncat(json_info, ",", 1); 
+		strncat(json_info, json_moter_4, 1000);  // 1000远远超过path的长度
+	}
+	if (moter_5) {
+		strncat(json_info, ",", 1); 
+		strncat(json_info, json_moter_5, 1000);  // 1000远远超过path的长度
+	}
+	if (moter_6) {
+		strncat(json_info, ",", 1); 
+		strncat(json_info, json_moter_6, 1000);  // 1000远远超过path的长度
+	}
+	strncat(json_info, "]}", 2);  // 1000远远超过path的长度
+	// sprintf(json_info,"{\"Devs\":[%s,%s,%s,%s,%s,%s]}",json_info_1,json_info_2,
+	// 												   moter_3 ? json_moter_3:"{}",
+	// 												   moter_4 ? json_moter_4:"{}",
+	// 												   moter_5 ? json_moter_5:"{}",
+	// 												   moter_6 ? json_moter_6:"{}");
+	MDF_FREE(json_info_1);
+	MDF_FREE(json_info_2);
+	return MDF_OK;
+}
 /*设置参数信息 参数配置*/
 mdf_err_t set_args_info(char * data, uint8_t id)
 {

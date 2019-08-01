@@ -8,6 +8,7 @@ git push origin master
 #历史记录
 git log
 
+UART--Air202  IO : 21 15 
 
 KEY1 4
 KEY2 5

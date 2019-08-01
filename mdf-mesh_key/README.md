@@ -287,5 +287,8 @@
 >   - `reverse` 反转
 >   - `stop` 停止
 
-{"Typ":"fan","ID": 1,"Cmd": "Info","Params": {"NTemp": 22,"OpenPer": 50,"ConSta": "manual","MoSta": "stop"}}
 
+{"Devs":[json1,json2,json3,json4]}
+{"Devs":[{"Typ":"fan","ID": 1,"Cmd": "Info","Params":{"NTemp": 15,"OpenPer": 38,"ConSta": "manual","MoSta": "stop"}},{"Typ":"fan","ID": 2,"Cmd": "Info","Params": {"NTemp": 15,"OpenPer": 100,"ConSta": "manual","MoSta": "stop"}},{},{},{"Typ":"fan","ID": 5,"Cmd": "Info","Params": {"NTemp": 15,"OpenPer": 0,"ConSta": "manual","MoSta": "stop"}},{"Typ":"fan","ID": 6,"Cmd": "Info","Params": {"NTemp": 15,"OpenPer": 0,"ConSta": "manual","MoSta": "stop"}}]}
+
+{"Devs":[{"Typ":"fan","ID": 1,"Cmd": "Info","Params": {"NTemp": 15,"OpenPer": 38,"ConSta": "manual","MoSta": "stop"}},{"Typ":"fan","ID": 2,"Cmd": "Info","Params": {"NTemp": 15,"OpenPer": 100,"ConSta": "manual","MoSta": "stop"}}]}
