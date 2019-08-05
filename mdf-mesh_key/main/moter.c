@@ -1,7 +1,7 @@
 #include "moter.h"
 
 static const char *TAG = "mdf-moter";
-
+static temp_info_t *temp_info[2] = {0};/*定义两个温度结构体指针*/
 moter_args moter_args1 = {
 	.AlarmTempMax = 30,	//报警高温
 	.AlarmTempMin = 10,	//报警低温
@@ -94,24 +94,24 @@ static void moter_auto_ctrl(void *arg)
 {
 	for(;;)
 	{
-		if(strcmp(moter_flag1.ConSta,"auto") == 0) {
-			if(moter_flag1.NTemp >= moter_args1.SetTempMin && moter_flag1.NTemp <= moter_args1.SetTempMax)
+		if (strcmp(moter_flag1.ConSta,"auto") == 0) {
+			if (moter_flag1.NTemp >= moter_args1.SetTempMin && moter_flag1.NTemp <= moter_args1.SetTempMax)
 			{
 				moter_flag1.MoSta = "stop";
-			}else if(moter_flag1.NTemp < moter_args1.SetTempMin)
+			} else if (moter_flag1.NTemp < moter_args1.SetTempMin)
 			{
 				moter_flag1.MoSta = "forward";
 				esp_timer_stop(test_once1_auto_handle);
 				esp_timer_start_once(test_once1_auto_handle, 
 					moter_args1.SetTempMin - moter_flag1.NTemp * 100 * moter_args1.TotalTime);
-			}else {
+			} else {
 				moter_flag1.MoSta = "reverse";
 				esp_timer_stop(test_once1_auto_handle);
 				esp_timer_start_once(test_once1_auto_handle, 
 					moter_flag1.NTemp - moter_args1.SetTempMax * 100 * moter_args1.TotalTime);
 			}
 		}
-		if(strcmp(moter_flag2.ConSta,"auto") == 0) {
+		if (strcmp(moter_flag2.ConSta,"auto") == 0) {
 			if(moter_flag2.NTemp >= moter_args2.SetTempMin && moter_flag2.NTemp <= moter_args2.SetTempMax)
 			{
 				moter_flag2.MoSta = "stop";
@@ -190,6 +190,18 @@ static void moter_ctrl(void *arg)
 	}
 	vTaskDelete(NULL);
 }
+
+/*定时计算温度*/
+static void get_temp_info(void *timer)
+{
+	MDF_LOGD("定时计算温度");
+	// moter_flag1.NTemp = get_temp(temp_info[0]);
+	moter_flag2.NTemp = get_temp(temp_info[1]);
+	moter_flag1.NTemp = moter_flag2.NTemp;//
+	// print_temp_info(temp_info[0]);
+	print_temp_info(temp_info[1]);
+}
+
 /*查询设备是否断开连接*/
 static void device_is_disconnected(void *timer)
 {
@@ -311,6 +323,10 @@ mdf_err_t moter_init(void)
 	ESP_ERROR_CHECK( esp_timer_create(&test_once1_auto_arg, &test_once1_auto_handle) );
 	ESP_ERROR_CHECK( esp_timer_create(&test_once2_auto_arg, &test_once2_auto_handle) );
 
+	/*温度信息*/
+	temp_info[0] = build_temp_info(ADC_CH1);
+	temp_info[1] = build_temp_info(ADC_CH2);
+
 	xTaskCreate(moter_ctrl, "moter_ctrl", 2 * 1024, NULL, 10, NULL);
 	xTaskCreate(moter_auto_ctrl, "moter_auto_ctrl", 2 * 1024, NULL, 10, NULL);
 	/* 定时计算风口开度 */
@@ -327,6 +343,11 @@ mdf_err_t moter_init(void)
     TimerHandle_t timer3 = xTimerCreate("Query whether the device is disconnected", 5 * UP_INFO_TIMER*1000 / portTICK_RATE_MS,
                                        true, NULL, device_is_disconnected);
     xTimerStart(timer3, 0);
+
+	/* 定时计算温度 */
+    TimerHandle_t timer4 = xTimerCreate("Get temp information", GET_TEMP_INFO  * 1000 / portTICK_RATE_MS,
+                                       true, NULL, get_temp_info);
+    xTimerStart(timer4, 0);
 
 	init_flag = pdTRUE;
 	return MDF_OK;

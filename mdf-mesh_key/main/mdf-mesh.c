@@ -54,6 +54,7 @@ mdf_err_t uart_initialize(void)
  */
 static void uart_handle_task(void *arg)
 {
+	mdf_err_t err;
     size_t recv_length   = 0;
 	uint32_t id       = 0;
     mdf_err_t ret     = MDF_OK;
@@ -89,8 +90,8 @@ static void uart_handle_task(void *arg)
         uart_write_bytes(CONFIG_UART_PORT_NUM, "\r\n", 2);
 		send_unlock();
 
-		uart_decrypt(data,&recv_length);//串口数据解密
-		MDF_LOGI("1:UART Recv data:%s recv_length:%d", data, recv_length);
+		err = uart_decrypt(data,&recv_length);//串口数据解密
+		MDF_ERROR_CONTINUE(err == MDF_FAIL,"uart recv data crc error!");
 		
 		json_root = cJSON_Parse((char *)data);
         MDF_ERROR_CONTINUE(!json_root, "cJSON_Parse, data format error, data: %s", data);

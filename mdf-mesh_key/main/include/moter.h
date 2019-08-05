@@ -5,6 +5,7 @@
 #include "mwifi.h"
 #include "mdf-mesh.h"
 #include "moter_nvs.h"
+#include "temp_info.h"
 #include "key.h"
 #include "led.h"
 
@@ -14,6 +15,7 @@
 #define MOTER2_FORWARD_IO 18//电机2正转 io口
 #define MOTER2_REVERSE_IO 19//电机2反转 io口
 #define UP_INFO_TIMER 120 //定时上传时间间隔 s
+#define GET_TEMP_INFO 20 //计算温度时间间隔　s
 
 typedef struct moter_stu {
 	char * Typ;			//设备类型
@@ -31,10 +33,10 @@ typedef struct moter_args{
 	uint32_t TotalTime;		//风口完整开启或关闭一次所需时间，单位s
 }moter_args;
 
-BaseType_t moter_3;//设备是否存在的标志
-BaseType_t moter_4;//设备是否存在的标志
-BaseType_t moter_5;//设备是否存在的标志
-BaseType_t moter_6;//设备是否存在的标志
+BaseType_t moter_3;//设备3是否存在的标志
+BaseType_t moter_4;
+BaseType_t moter_5;
+BaseType_t moter_6;
 char * json_moter_3;//保存设备3上传的设备信息
 char * json_moter_4;
 char * json_moter_5;

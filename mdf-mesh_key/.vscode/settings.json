@@ -5,6 +5,9 @@
 		"adc.h": "c",
 		"check.h": "c",
 		"array": "c",
-		"string_view": "c"
+		"string_view": "c",
+		"moter_nvs.h": "c",
+		"temp_table.h": "c",
+		"esp_adc_cal.h": "c"
 	}
 }
