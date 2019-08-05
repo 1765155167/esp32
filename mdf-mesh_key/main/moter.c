@@ -128,7 +128,7 @@ static void moter_auto_ctrl(void *arg)
 					moter_flag2.NTemp - moter_args2.SetTempMax * 100 * moter_args2.TotalTime);
 			}
 		}
-		vTaskDelay(60 * 1000 / portTICK_RATE_MS);
+		vTaskDelay(5 * 60 * 1000 / portTICK_RATE_MS);
 	}
 	vTaskDelete(NULL);
 }
@@ -832,12 +832,14 @@ mdf_err_t moter_openAdjust(char * data, uint8_t id)
 	if(id%2+1 == 1) {
 		if(json_openper->valueint>=0&&json_openper->valueint<=100) {
 			moter_flag1.OpenPer = json_openper->valueint * 10;
+			nvs_save_OpenPer(1);
 		} else {
 			MDF_LOGW("Openper value >100 || < 0");	
 		} 
 	} else if(id%2+1 == 2) {
 		if(json_openper->valueint>=0&&json_openper->valueint<=100) {
 			moter_flag2.OpenPer = json_openper->valueint * 10;
+			nvs_save_OpenPer(2);
 		} else {
 			MDF_LOGW("Openper value >100 || < 0");	
 		} 
@@ -890,6 +892,8 @@ mdf_err_t moter_tempAdjust(char * data, uint8_t id)
 		// } 
 		if(json_temp->valueint<=100&&json_temp->valueint>=-100) {
 			moter_flag1.NTemp = json_temp->valueint;
+			tempCal(temp_info[0],(float)moter_flag1.NTemp);
+			nvs_save_tempCal(1);
 		} else {
 			MDF_LOGW("１Temp value 超出温度上下限");	
 		} 
@@ -901,6 +905,8 @@ mdf_err_t moter_tempAdjust(char * data, uint8_t id)
 		// } 
 		if(json_temp->valueint<=100&&json_temp->valueint>=-100) {
 			moter_flag2.NTemp = json_temp->valueint;
+			tempCal(temp_info[1],(float)moter_flag2.NTemp);
+			nvs_save_tempCal(2);
 		} else {
 			MDF_LOGW("２Temp value 超出温度上下限");
 		} 

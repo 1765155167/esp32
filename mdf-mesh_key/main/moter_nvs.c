@@ -4,6 +4,7 @@ extern moter_args moter_args1;/*参数信息*/
 extern moter_args moter_args2;/*参数信息*/
 extern moter_stu moter_flag1;/*实时信息*/
 extern moter_stu moter_flag2;/*实时信息*/
+extern int32_t TempCalOff[];/*温度校准偏移 真正偏移的10倍*/
 
 mdf_err_t nvs_init()
 {
@@ -45,6 +46,9 @@ mdf_err_t nvs_load()
 
 		err = nvs_get_i32(moter_handle, "OpenPer", &moter_flag1.OpenPer);
 		printf((err != MDF_OK) ? "OpenPer1 Failed!\n" : "OpenPer1 Done\n"); 
+
+		err = nvs_get_i32(moter_handle, "TempCalOff1", &TempCalOff[0]);
+		printf((err != MDF_OK) ? "TempCalOff1 Failed!\n" : "TempCalOff1 Done\n"); 
 	}
 	nvs_close(moter_handle);// Close
 	/*load drives 2*/
@@ -69,10 +73,14 @@ mdf_err_t nvs_load()
 
 		err = nvs_get_i32(moter_handle, "OpenPer", &moter_flag2.OpenPer);
 		printf((err != MDF_OK) ? "OpenPer2 Failed!\n" : "OpenPer2 Done\n"); 
+
+		err = nvs_get_i32(moter_handle, "TempCalOff2", &TempCalOff[1]);
+		printf((err != MDF_OK) ? "TempCalOff2 Failed!\n" : "TempCalOff2 Done\n"); 
 	}
 	nvs_close(moter_handle);// Close
 	return MDF_OK;
 }
+
 /**
  *@保存设备对应的参数信息
  **/
@@ -162,4 +170,33 @@ mdf_err_t nvs_save_OpenPer(uint8_t drive)
 	}
 	nvs_close(moter_handle);// Close
 	return MDF_OK;
+}
+/**
+ *@保存温度校准值
+ **/
+mdf_err_t nvs_save_tempCal(uint8_t drive)
+{
+	mdf_err_t err;
+	nvs_handle moter_handle;
+	if(drive == 1) {
+		err = nvs_open("moter1", NVS_READWRITE, &moter_handle);
+		if (err != MDF_OK) {
+			printf("Error (%s) opening NVS handle!\n", esp_err_to_name(err));
+		} else {
+			err = nvs_set_i32(moter_handle, "TempCalOff1", TempCalOff[0]);
+			err = nvs_commit(moter_handle);
+			printf((err != MDF_OK) ? "TempCalOff1 Failed!\n" : "TempCalOff1 Done\n"); 
+		}
+	}else if(drive == 2) {
+		err = nvs_open("moter2", NVS_READWRITE, &moter_handle);
+		if (err != MDF_OK) {
+			printf("Error (%s) opening NVS handle!\n", esp_err_to_name(err));
+		} else {
+			err = nvs_set_i32(moter_handle, "TempCalOff2", TempCalOff[1]);
+			err = nvs_commit(moter_handle);
+			printf((err != MDF_OK) ? "TempCalOff2 Failed!\n" : "TempCalOff2 Done\n"); 
+		}
+	}
+	nvs_close(moter_handle);// Close
+	return MDF_OK;	
 }

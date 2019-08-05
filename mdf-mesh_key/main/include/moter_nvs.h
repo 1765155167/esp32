@@ -10,6 +10,9 @@
 #include "nvs_flash.h"
 #include "nvs.h"
 
+/**
+ *@nvs初始化
+ **/
 mdf_err_t nvs_init(void);
 /**
  *@保存设备对应的风口开度
@@ -20,7 +23,12 @@ mdf_err_t nvs_save_OpenPer(uint8_t drive);
  **/
 mdf_err_t nvs_save_arg(uint8_t drive);
 /**
- *@加载设备对应的参数信息、风口开度
+ *@保存温度校准值
+ **/
+mdf_err_t nvs_save_tempCal(uint8_t drive);
+/**
+ *@加载设备对应的参数信息、风口开度、温度校准值
  **/
 mdf_err_t nvs_load(void);
+
 #endif

@@ -12,7 +12,8 @@ static const char *TAG = "temp_info";
 #define REF_MV 3300
 #define INI_VAL 50/*默认为25度*/
 #define MAX_TEMP 2
-static int32_t TempCalOff = 0;/*温度校准偏移*/
+
+int32_t TempCalOff[MAX_TEMP] = {0};/*温度校准偏移 真正偏移的10倍*/
 static temp_info_t *g_info[MAX_TEMP] = {0};
 
 static esp_adc_cal_characteristics_t *adc_chars;
@@ -22,6 +23,34 @@ static float mv2kom(uint16_t raw)
     float i = (REF_MV - raw) / RNF;
     float kom = raw / i;//raw 2 kom transfrom
     return kom;
+}
+
+static void check_efuse()
+{
+    //Check TP is burned into eFuse
+    if (esp_adc_cal_check_efuse(ESP_ADC_CAL_VAL_EFUSE_TP) == ESP_OK) {
+        printf("eFuse Two Point: Supported\n");
+    } else {
+        printf("eFuse Two Point: NOT supported\n");
+    }
+
+    //Check Vref is burned into eFuse
+    if (esp_adc_cal_check_efuse(ESP_ADC_CAL_VAL_EFUSE_VREF) == ESP_OK) {
+        printf("eFuse Vref: Supported\n");
+    } else {
+        printf("eFuse Vref: NOT supported\n");
+    }
+}
+
+static void print_char_val_type(esp_adc_cal_value_t val_type)
+{
+    if (val_type == ESP_ADC_CAL_VAL_EFUSE_TP) {
+        printf("Characterized using Two Point Value\n");
+    } else if (val_type == ESP_ADC_CAL_VAL_EFUSE_VREF) {
+        printf("Characterized using eFuse Vref\n");
+    } else {
+        printf("Characterized using Default Vref\n");
+    }
 }
 
 static void temp_task(void *argc)
@@ -38,30 +67,27 @@ static void temp_task(void *argc)
             adc1_config_channel_atten(g_info[n]->channel, ADC_ATTEN_DB_11);
             val = adc1_get_raw(g_info[n]->channel);
             val = esp_adc_cal_raw_to_voltage(val, adc_chars);/*将ADC读数转换为以mV为单位的电压*/
-            MDF_LOGI("adc[%d] 电压:[%d]mV", g_info[n]->channel, val);
+            MDF_LOGD("adc[%d] 电压:[%d]mV", g_info[n]->channel, val);
             float kom = mv2kom(val);
-            MDF_LOGI("adc[%d] kom[%f]",  g_info[n]->channel, kom);
+            MDF_LOGD("adc[%d] kom[%f]",  g_info[n]->channel, kom);
             g_info[n]->kom = mdf_calcu_kalman(g_info[n]->kalman, kom);
-            MDF_LOGI("adc[%d] after kalman kom[%f]", g_info[n]->channel, g_info[n]->kom);
+            MDF_LOGD("adc[%d] after kalman kom[%f]", g_info[n]->channel, g_info[n]->kom);
         }
 		vTaskDelay(TP_MEASURE_PEROID_MS / portTICK_PERIOD_MS);
     }
 }
-
+/*温度校准*/
+void tempCal(temp_info_t *info,float temp)
+{
+	info->TempCalOff = temp - convert2temp(info->kom + info->kom_offset);
+	MDF_LOGI("TempCalOff:%f",info->TempCalOff);
+	TempCalOff[0] = (int32_t)(g_info[0]->TempCalOff * 10);
+	TempCalOff[1] = (int32_t)(g_info[1]->TempCalOff * 10);
+}
+/*读取温度*/
 float get_temp(temp_info_t *info)
 {
-    return convert2temp(info->kom + info->kom_offset) + TempCalOff;
-}
-
-float _get_temp(int moter)
-{
-	if(moter == 1) {
-		return get_temp(g_info[0]);
-	}else if(moter == 2) {
-		return get_temp(g_info[1]);
-	}
-	MDF_LOGW("moter num error");
-	return 0;
+    return convert2temp(info->kom + info->kom_offset) + info->TempCalOff;
 }
 
 float calcu_kom_offset(temp_info_t *info, int true_temp)
@@ -71,15 +97,15 @@ float calcu_kom_offset(temp_info_t *info, int true_temp)
     return kom - info->kom;
 }
 
-
 int _temp_init()
 {
 	esp_adc_cal_value_t val_type;
     // MDF_ASSERT(ADC_UNIT == 1);
+	check_efuse();
     adc1_config_width(ADC_WIDTH_BIT_12);
     adc_chars = calloc(1, sizeof(esp_adc_cal_characteristics_t));
 	val_type = esp_adc_cal_characterize(ADC_UNIT_1 , ADC_ATTEN_DB_11, ADC_WIDTH_BIT_12, DEFAULT_VREF, adc_chars);
-	MDF_LOGD("esp_adc_cal_characterize :%d",val_type);
+	print_char_val_type(val_type);
     xTaskCreate(temp_task, "temp task", TEMP_TASK_SIZE, NULL, TEMP_TASK_PRI, NULL);
     return 0;
 }
@@ -101,8 +127,9 @@ temp_info_t *build_temp_info(int channel)
     {
         if(g_info[n] == NULL)
         {
+			info->TempCalOff = TempCalOff[n] / 10.0;
             g_info[n] = info;
-            MDF_LOGD("register temp info[%d]", channel);
+    		MDF_LOGI("register temp info[%d],TempCalOff:%d", channel, TempCalOff[n]);
             return info;
         } 
     }
