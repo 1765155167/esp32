@@ -1,0 +1,15 @@
+{
+	"files.associations": {
+		"mdf_common.h": "c",
+		"mdf-mesh.h": "c",
+		"adc.h": "c",
+		"check.h": "c",
+		"array": "c",
+		"string_view": "c",
+		"moter_nvs.h": "c",
+		"temp_table.h": "c",
+		"esp_adc_cal.h": "c",
+		"mupgrade_ota.h": "c"
+	},
+	"C_Cpp.errorSquiggles": "Disabled"
+}
