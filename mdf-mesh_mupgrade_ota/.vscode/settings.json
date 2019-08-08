@@ -9,7 +9,9 @@
 		"moter_nvs.h": "c",
 		"temp_table.h": "c",
 		"esp_adc_cal.h": "c",
-		"mupgrade_ota.h": "c"
+		"mupgrade_ota.h": "c",
+		"rtu.h": "c",
+		"screen_info.h": "c"
 	},
 	"C_Cpp.errorSquiggles": "Disabled"
 }

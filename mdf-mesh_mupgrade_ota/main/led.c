@@ -5,7 +5,7 @@
 #include "moter_nvs.h"
 #include "check.h"
 #include "mupgrade_ota.h"
-
+#include "screen_info.h"
 static const char *TAG = "mesh-led";
 /*主设备等待从设备发送信息*/
 static void test_root_once(void* arg);
@@ -52,46 +52,33 @@ mdf_err_t led_init(void)
  **/
 void key_led_press(int key)
 {
-	static int led = 0;
+	static int id = 0;
+	if(id == 0) {
+		id =  get_drive_id(); //获取id
+	}
 	switch (key)
 	{
 	case KEY1_SHORT_ONCE:
-		moter_forward(led+1);
+		moter_forward(id);
 		break;
 	case KEY2_SHORT_ONCE:
-		moter_reverse(led+1);
+		moter_reverse(id);
 		break;
 	case KEY3_SHORT_ONCE:
-		moter_stop(led+1);
+		moter_stop(id);
 		break;
 	case KEY4_SHORT_ONCE:
 		MDF_LOGI("切换操作风口");
-		led = (led+1)%3;
-		switch (led)
-		{
-		case 0:/*选择第一个放风机*/
-			gpio_set_level(LED1_GPIO, 0);
-			gpio_set_level(LED2_GPIO, 1);
-			break;
-		case 1:
-			gpio_set_level(LED1_GPIO, 1);
-			gpio_set_level(LED2_GPIO, 0);
-			break;
-		case 2:
-			gpio_set_level(LED1_GPIO, 0);
-			gpio_set_level(LED2_GPIO, 0);
-			break;
-		default:
-			break;
-		}
+		id =  change_screen_info();
 		break;
 	case KEY4_LONG:
 		MDF_LOGI("切换风口控制模式");
-		moter_change_mode(led+1);
+		moter_change_mode(id);
 		break;
 	default:
 		break;
 	}
+	trig_screen_info_refresh();//屏幕刷新
 }
 /*
  *@json 信息控制

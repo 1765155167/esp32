@@ -1,20 +1,22 @@
 #include "moter.h"
 
 static const char *TAG = "mdf-moter";
+
 static temp_info_t *temp_info[2] = {0};/*定义两个温度结构体指针*/
+
 moter_args moter_args1 = {
 	.AlarmTempMax = 30,	//报警高温
 	.AlarmTempMin = 10,	//报警低温
-	.SetTempMax = 20,	//设定控制温度上限
-	.SetTempMin = 15,	//设定控制温度下限
+	.SetTempMax = 28,	//设定控制温度上限
+	.SetTempMin = 20,	//设定控制温度下限
 	.TotalTime = 600,   //风口完整开启或关闭一次所需时间，单位s
 };/*参数信息*/
 
 moter_args moter_args2= {
 	.AlarmTempMax = 30,	//报警高温
 	.AlarmTempMin = 10,	//报警低温
-	.SetTempMax = 20,	//设定控制温度上限
-	.SetTempMin = 15,	//设定控制温度下限
+	.SetTempMax = 29,	//设定控制温度上限
+	.SetTempMin = 20,	//设定控制温度下限
 	.TotalTime = 600,   //风口完整开启或关闭一次所需时间，单位s
 };/*参数信息*/
 
@@ -72,8 +74,10 @@ static void test_timer_once(void* arg)
 	uint32_t io = (uint32_t)arg;
 	if(io == 1) {
 		moter_stop(io);
+		MDF_LOGI("dev 1 manual stop");
 	}else if(io == 2) {
 		moter_stop(io);
+		MDF_LOGI("dev 2 manual stop");
 	}
 }
 
@@ -84,9 +88,11 @@ static void test_timer_once_auto(void* arg)
 	if(io == 1) {
 		moter_flag1.MoSta = "stop";
 		nvs_save_OpenPer(1);
+		MDF_LOGI("dev 1 auto stop");
 	}else if(io == 2) {
 		moter_flag2.MoSta = "stop";
 		nvs_save_OpenPer(2);
+		MDF_LOGI("dev 2 auto stop");
 	}
 }
 /*自动控制*/
@@ -98,37 +104,47 @@ static void moter_auto_ctrl(void *arg)
 			if (moter_flag1.NTemp >= moter_args1.SetTempMin && moter_flag1.NTemp <= moter_args1.SetTempMax)
 			{
 				moter_flag1.MoSta = "stop";
+				MDF_LOGI("设备1自动控制:stop");
 			} else if (moter_flag1.NTemp < moter_args1.SetTempMin)
 			{
-				moter_flag1.MoSta = "forward";
-				esp_timer_stop(test_once1_auto_handle);
-				esp_timer_start_once(test_once1_auto_handle, 
-					moter_args1.SetTempMin - moter_flag1.NTemp * 100 * moter_args1.TotalTime);
-			} else {
 				moter_flag1.MoSta = "reverse";
+				MDF_LOGI("设备1自动控制:reverse");
 				esp_timer_stop(test_once1_auto_handle);
 				esp_timer_start_once(test_once1_auto_handle, 
-					moter_flag1.NTemp - moter_args1.SetTempMax * 100 * moter_args1.TotalTime);
+					((moter_args1.SetTempMin + moter_args1.SetTempMax)/2 - moter_flag1.NTemp) * 50000 * moter_args1.TotalTime);
+				vTaskDelay(5 * 60 * 1000 / portTICK_RATE_MS);
+			} else {
+				moter_flag1.MoSta = "forward";
+				MDF_LOGI("设备1自动控制:forward");
+				esp_timer_stop(test_once1_auto_handle);
+				esp_timer_start_once(test_once1_auto_handle, 
+					(moter_flag1.NTemp - (moter_args1.SetTempMin + moter_args1.SetTempMax)/2) * 50000 * moter_args1.TotalTime);
+				vTaskDelay(5 * 60 * 1000 / portTICK_RATE_MS);
 			}
 		}
 		if (strcmp(moter_flag2.ConSta,"auto") == 0) {
 			if(moter_flag2.NTemp >= moter_args2.SetTempMin && moter_flag2.NTemp <= moter_args2.SetTempMax)
 			{
 				moter_flag2.MoSta = "stop";
+				MDF_LOGI("设备2自动控制:stop");
 			}else if(moter_flag2.NTemp < moter_args2.SetTempMin)
 			{
-				moter_flag2.MoSta = "forward";
-				esp_timer_stop(test_once2_handle);
-				esp_timer_start_once(test_once2_handle, 
-					moter_args2.SetTempMin - moter_flag2.NTemp * 100 * moter_args2.TotalTime);
-			}else {
 				moter_flag2.MoSta = "reverse";
-				esp_timer_stop(test_once2_handle);
-				esp_timer_start_once(test_once2_handle,
-					moter_flag2.NTemp - moter_args2.SetTempMax * 100 * moter_args2.TotalTime);
+				MDF_LOGI("设备2自动控制:reverse");
+				esp_timer_stop(test_once2_auto_handle);
+				esp_timer_start_once(test_once2_auto_handle, 
+					((moter_args1.SetTempMin + moter_args1.SetTempMax)/2 - moter_flag2.NTemp) * 50000 * moter_args2.TotalTime);//%20
+				vTaskDelay(5 * 60 * 1000 / portTICK_RATE_MS);
+			}else {
+				moter_flag2.MoSta = "forward";
+				MDF_LOGI("设备2自动控制:forward");
+				esp_timer_stop(test_once2_auto_handle);
+				esp_timer_start_once(test_once2_auto_handle,
+					(moter_flag2.NTemp - (moter_args1.SetTempMin + moter_args1.SetTempMax)/2) * 50000 * moter_args2.TotalTime);
+				vTaskDelay(5 * 60 * 1000 / portTICK_RATE_MS);
 			}
 		}
-		vTaskDelay(5 * 60 * 1000 / portTICK_RATE_MS);
+		vTaskDelay(1000 * 10 / portTICK_RATE_MS);
 	}
 	vTaskDelete(NULL);
 }
@@ -357,26 +373,18 @@ mdf_err_t moter_forward(int io)
 {
 	switch (io)
 	{
-	case 1:/* 电机１正转 */
+	case 1:
+	case 3:
+	case 5:/* 电机１正转 */
 		if(moter_flag1.OpenPer < 1000 && strcmp(moter_flag1.ConSta,"manual") == 0) {
 			moter_flag1.MoSta = "forward";
 		}else {
 			MDF_LOGW("风口1开度已达到100 or 自动模式");		
 		}
 		break;
-	case 2:/* 电机２正转 */
-		if(moter_flag2.OpenPer < 1000 && strcmp(moter_flag2.ConSta,"manual") == 0) {
-			moter_flag2.MoSta = "forward";
-		}else {
-			MDF_LOGW("风口2开度已达到100 or 自动模式");
-		}
-		break;
-	case 3:/* 电机１&2正转 */
-		if(moter_flag1.OpenPer < 1000 && strcmp(moter_flag1.ConSta,"manual") == 0) {
-			moter_flag1.MoSta = "forward";
-		}else {
-			MDF_LOGW("风口1开度已达到100 or 自动模式");		
-		}
+	case 2:
+	case 4:
+	case 6:/* 电机２正转 */
 		if(moter_flag2.OpenPer < 1000 && strcmp(moter_flag2.ConSta,"manual") == 0) {
 			moter_flag2.MoSta = "forward";
 		}else {
@@ -394,26 +402,18 @@ mdf_err_t moter_reverse(int io)
 {
 	switch (io)
 	{
-	case 1:/* 电机１反转 */
+	case 1:
+	case 3:
+	case 5:/* 电机１反转 */
 		if(moter_flag1.OpenPer > 0 && strcmp(moter_flag2.ConSta,"manual") == 0) {
 			moter_flag1.MoSta = "reverse";
 		}else {
 			MDF_LOGW("风口1开度为0 or 自动模式");
 		}
 		break;
-	case 2:/* 电机２反转 */
-		if(moter_flag2.OpenPer > 0 && strcmp(moter_flag2.ConSta,"manual") == 0) {
-			moter_flag2.MoSta = "reverse";
-		}else {
-			MDF_LOGW("风口2开度为0 or 自动模式");
-		}
-		break;
-	case 3:/* 电机１&2反转 */
-		if(moter_flag1.OpenPer > 0 && strcmp(moter_flag2.ConSta,"manual") == 0) {
-			moter_flag1.MoSta = "reverse";
-		}else {
-			MDF_LOGW("风口1开度为0 or 自动模式");
-		}
+	case 2:
+	case 4:
+	case 6:/* 电机２反转 */
 		if(moter_flag2.OpenPer > 0 && strcmp(moter_flag2.ConSta,"manual") == 0) {
 			moter_flag2.MoSta = "reverse";
 		}else {
@@ -431,8 +431,9 @@ mdf_err_t moter_stop(int io)
 {
 	switch (io)
 	{
-	
-	case 1:/* 电机１*/
+	case 1:
+	case 3:
+	case 5:/* 电机１*/
 		if(strcmp(moter_flag1.ConSta,"manual") == 0) {
 			moter_flag1.MoSta = "stop";
 			nvs_save_OpenPer(1);
@@ -440,21 +441,9 @@ mdf_err_t moter_stop(int io)
 		else
 			MDF_LOGW("电机1自动模式");
 		break;
-	case 2:/* 电机２*/
-		if(strcmp(moter_flag2.ConSta,"manual") == 0) {
-			moter_flag2.MoSta = "stop";
-			nvs_save_OpenPer(2);
-		}
-		else
-			MDF_LOGW("电机2自动模式");
-		break;
-	case 3:/* 电机１&2*/
-		if(strcmp(moter_flag1.ConSta,"manual") == 0) {
-			moter_flag1.MoSta = "stop";
-			nvs_save_OpenPer(1);
-		}
-		else
-			MDF_LOGW("电机1自动模式");
+	case 2:
+	case 4:
+	case 6:/* 电机２*/
 		if(strcmp(moter_flag2.ConSta,"manual") == 0) {
 			moter_flag2.MoSta = "stop";
 			nvs_save_OpenPer(2);
@@ -473,26 +462,18 @@ mdf_err_t moter_change_mode(int io)
 {
 	switch (io)
 	{
-	case 1:/* 电机１*/
+	case 1:
+	case 3:
+	case 5:/* 电机１*/
 		if(strcmp(moter_flag1.ConSta,"auto") == 0) {
 			moter_flag1.ConSta = "manual";
 		}else {
 			moter_flag1.ConSta = "auto";
 		}
 		break;
-	case 2:/* 电机２*/
-		if(strcmp(moter_flag2.ConSta,"auto") == 0) {
-			moter_flag2.ConSta = "manual";
-		}else {
-			moter_flag2.ConSta = "auto";
-		}
-		break;
-	case 3:/* 电机１&2*/
-		if(strcmp(moter_flag1.ConSta,"auto") == 0) {
-			moter_flag1.ConSta = "manual";
-		}else {
-			moter_flag1.ConSta = "auto";
-		}
+	case 2:
+	case 4:
+	case 6:/* 电机２*/
 		if(strcmp(moter_flag2.ConSta,"auto") == 0) {
 			moter_flag2.ConSta = "manual";
 		}else {
@@ -549,11 +530,7 @@ mdf_err_t get_json_info_all(char * json_info)
 		strncat(json_info, json_moter_6, 1000);  // 1000远远超过path的长度
 	}
 	strncat(json_info, "]}", 2);  // 1000远远超过path的长度
-	// sprintf(json_info,"{\"Devs\":[%s,%s,%s,%s,%s,%s]}",json_info_1,json_info_2,
-	// 												   moter_3 ? json_moter_3:"{}",
-	// 												   moter_4 ? json_moter_4:"{}",
-	// 												   moter_5 ? json_moter_5:"{}",
-	// 												   moter_6 ? json_moter_6:"{}");
+
 	MDF_FREE(json_info_1);
 	MDF_FREE(json_info_2);
 	return MDF_OK;

@@ -94,23 +94,23 @@ mdf_err_t nvs_save_arg(uint8_t drive)
 			printf("Error (%s) opening NVS handle!\n", esp_err_to_name(err));
 		} else {
 			err = nvs_set_i32(moter_handle, "AlarmTempMax", moter_args1.AlarmTempMax);
-			err = nvs_commit(moter_handle);
+			// err = nvs_commit(moter_handle);
 			printf((err != MDF_OK) ? "AlarmTempMax1 Failed!\n" : "AlarmTempMax1 Done\n"); 
 			
 			err = nvs_set_i32(moter_handle, "AlarmTempMin", moter_args1.AlarmTempMin);
-			err = nvs_commit(moter_handle);
+			// err = nvs_commit(moter_handle);
 			printf((err != MDF_OK) ? "AlarmTempMin1 Failed!\n" : "AlarmTempMin1 Done\n"); 
 
 			err = nvs_set_i32(moter_handle, "SetTempMax", moter_args1.SetTempMax);
-			err = nvs_commit(moter_handle);
+			// err = nvs_commit(moter_handle);
 			printf((err != MDF_OK) ? "SetTempMax1 Failed!\n" : "SetTempMax1 Done\n"); 
 
 			err = nvs_set_i32(moter_handle, "SetTempMin", moter_args1.SetTempMin);
-			err = nvs_commit(moter_handle);
+			// err = nvs_commit(moter_handle);
 			printf((err != MDF_OK) ? "SetTempMin1 Failed!\n" : "SetTempMin1 Done\n"); 
 
 			err = nvs_set_u32(moter_handle, "TotalTime", moter_args1.TotalTime);
-			err = nvs_commit(moter_handle);
+			// err = nvs_commit(moter_handle);
 			printf((err != MDF_OK) ? "TotalTime1 Failed!\n" : "TotalTime1 Done\n"); 
 		}
 	}else if(drive == 2) {
@@ -119,26 +119,28 @@ mdf_err_t nvs_save_arg(uint8_t drive)
 			printf("Error (%s) opening NVS handle!\n", esp_err_to_name(err));
 		} else {
 			err = nvs_set_i32(moter_handle, "AlarmTempMax", moter_args2.AlarmTempMax);
-			err = nvs_commit(moter_handle);
+			// err = nvs_commit(moter_handle);
 			printf((err != MDF_OK) ? "AlarmTempMax2 Failed!\n" : "AlarmTempMax2 Done\n"); 
 			
 			err = nvs_set_i32(moter_handle, "AlarmTempMin", moter_args2.AlarmTempMin);
-			err = nvs_commit(moter_handle);
+			// err = nvs_commit(moter_handle);
 			printf((err != MDF_OK) ? "AlarmTempMin2 Failed!\n" : "AlarmTempMin2 Done\n"); 
 
 			err = nvs_set_i32(moter_handle, "SetTempMax", moter_args2.SetTempMax);
-			err = nvs_commit(moter_handle);
+			// err = nvs_commit(moter_handle);
 			printf((err != MDF_OK) ? "SetTempMax2 Failed!\n" : "SetTempMax2 Done\n"); 
 
 			err = nvs_set_i32(moter_handle, "SetTempMin", moter_args2.SetTempMin);
-			err = nvs_commit(moter_handle);
+			// err = nvs_commit(moter_handle);
 			printf((err != MDF_OK) ? "SetTempMin2 Failed!\n" : "SetTempMin2 Done\n"); 
 
 			err = nvs_set_u32(moter_handle, "TotalTime", moter_args2.TotalTime);
-			err = nvs_commit(moter_handle);
+			// err = nvs_commit(moter_handle);
 			printf((err != MDF_OK) ? "TotalTime2 Failed!\n" : "TotalTime2 Done\n"); 
 		}
 	}
+	err = nvs_commit(moter_handle);
+	printf((err != MDF_OK) ? "保存设备对应的参数信息 Failed!\n" : "保存设备对应的参数信息 OK\n"); 
 	nvs_close(moter_handle);// Close
 	return MDF_OK;
 }
