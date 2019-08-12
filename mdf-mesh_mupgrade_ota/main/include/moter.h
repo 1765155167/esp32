@@ -9,14 +9,8 @@
 
 #include "key.h"
 #include "led.h"
+#include "config.h"
 
-/*moter cfg*/
-#define MOTER1_FORWARD_IO 17//电机1正转 io口
-#define MOTER1_REVERSE_IO 5//电机1反转 io口
-#define MOTER2_FORWARD_IO 18//电机2正转 io口
-#define MOTER2_REVERSE_IO 19//电机2反转 io口
-#define UP_INFO_TIMER 120 //定时上传时间间隔 s
-#define GET_TEMP_INFO 20 //计算温度时间间隔　s
 
 typedef struct moter_stu {
 	char * Typ;			//设备类型
@@ -43,8 +37,10 @@ char * json_moter_4;
 char * json_moter_5;
 char * json_moter_6;
 
+mdf_err_t add_dev_info(char * data);/*追加信息*/
 mdf_err_t manual_moter(char * data, uint8_t id);/*手动控制*/
 mdf_err_t set_args_info(char * data, uint8_t id);/*参数配置*/
+mdf_err_t get_alarm_temp_info(char * json_info,int id);/*获取温度报警信息*/
 mdf_err_t get_json_info(char * json_info,int id);
 mdf_err_t get_json_info_all(char * json_info);
 mdf_err_t moter_change_mode(int io);/*改变放风机模式*/

@@ -256,42 +256,6 @@
 > `id` 目标设备id，为-1时代表对所有设备生效
 
 
-
-### 设备上传
-
-#### 实时数据
-
-```json
-{
-    "Typ":"fan",
-    "ID": 1,
-    "Cmd": "Info",
-    "Params": {
-        "NTemp": 22,
-        "OpenPer": 50,
-        "ConSta": "manual",
-        "MoSta": "stop"
-    }
-}
-{"Devs":[json1,json2,json3,json4]}
-{"Devs":[{"Typ":"fan","ID": 1,"Cmd": "Info","Params":{"NTemp": 15,"OpenPer": 38,"ConSta": "manual","MoSta": "stop"}},{"Typ":"fan","ID": 2,"Cmd": "Info","Params": {"NTemp": 15,"OpenPer": 100,"ConSta": "manual","MoSta": "stop"}},{},{},{"Typ":"fan","ID": 5,"Cmd": "Info","Params": {"NTemp": 15,"OpenPer": 0,"ConSta": "manual","MoSta": "stop"}},{"Typ":"fan","ID": 6,"Cmd": "Info","Params": {"NTemp": 15,"OpenPer": 0,"ConSta": "manual","MoSta": "stop"}}]}
-
-{"Devs":[{"Typ":"fan","ID": 1,"Cmd": "Info","Params": {"NTemp": 15,"OpenPer": 38,"ConSta": "manual","MoSta": "stop"}},{"Typ":"fan","ID": 2,"Cmd": "Info","Params": {"NTemp": 15,"OpenPer": 100,"ConSta": "manual","MoSta": "stop"}}]}
-
-```
-
-> - `Typ` 设备类型
->   - `fan` 放风机
-> - `NTemp`实时温度
-> - `OpenPer`风口当前打开程度百分比
-> - `ConSta`当前控制模式
->   - `auto` 自动模式
->   - `manual` 手动模式
-> - `MoSta`电机状态
->   - `forward` 正转
->   - `reverse` 反转
->   - `stop` 停止
-
 #### ota升级
 
 ```json
@@ -310,6 +274,62 @@
 
 {"Devs":[{"ID": 1,"Cmd": "OAT","Params": {"table_size": 1024, "name": "helloworld.bin"}}]}
 ```
+
+### 设备上传
+
+#### 实时数据
+
+```json
+{
+    "Typ":"fan",
+    "ID": 1,
+    "Cmd": "Info",
+    "Params": {
+        "NTemp": 22,
+        "OpenPer": 50,
+        "ConSta": "manual",
+        "MoSta": "stop"
+    }
+}
+{"Devs":[{"Typ":"fan","ID": 1,"Cmd": "Info","Params":{"NTemp": 15,"OpenPer": 38,"ConSta": "manual","MoSta": "stop"}},{"Typ":"fan","ID": 2,"Cmd": "Info","Params": {"NTemp": 15,"OpenPer": 100,"ConSta": "manual","MoSta": "stop"}},{"Typ":"fan","ID": 5,"Cmd": "Info","Params": {"NTemp": 15,"OpenPer": 0,"ConSta": "manual","MoSta": "stop"}},{"Typ":"fan","ID": 6,"Cmd": "Info","Params": {"NTemp": 15,"OpenPer": 0,"ConSta": "manual","MoSta": "stop"}}]}
+
+{"Devs":[{"Typ":"fan","ID": 1,"Cmd": "Info","Params": {"NTemp": 15,"OpenPer": 38,"ConSta": "manual","MoSta": "stop"}},{"Typ":"fan","ID": 2,"Cmd": "Info","Params": {"NTemp": 15,"OpenPer": 100,"ConSta": "manual","MoSta": "stop"}}]}
+
+```
+
+> - `Typ` 设备类型
+>   - `fan` 放风机
+> - `NTemp`实时温度
+> - `OpenPer`风口当前打开程度百分比
+> - `ConSta`当前控制模式
+>   - `auto` 自动模式
+>   - `manual` 手动模式
+> - `MoSta`电机状态
+>   - `forward` 正转
+>   - `reverse` 反转
+>   - `stop` 停止
+
+#### 温度报警
+
+```json
+{
+    "Devs": [
+        {
+            "ID": 1,
+            "Cmd": "tempAlarm",
+            "Params": {
+                "Temp": 25
+            }
+        }
+    ]
+}
+
+{"Devs":[{"ID": 6,"Cmd": "tempAlarm","Params": {"Temp": 25}}]}
+{"Devs":[{"ID": 1,"Cmd": "tempAlarm","Params": {"Temp": 18}}]}
+{"Devs":[{"ID": 1,"Cmd": "OAT","Params": {"table_size": 1024, "name": "helloworld.bin"}}]}
+
+```
+
 
 > `Devices` 目标设备对象数组，可以为有多个目标id
 >

@@ -1,29 +1,5 @@
 menu "Example Configuration"
 
-choice DEVICE_TYPE
-    bool "Configure the device type"
-    default DEVICE_TYPE_NODE
-    help
-        Configure the device type
-
-config DEVICE_TYPE_ROOT
-   bool "Root device"
-config DEVICE_TYPE_NODE
-   bool "Non-Root device"
-endchoice
-
-config DEVICE_TYPE
-    int
-    default 1 if DEVICE_TYPE_ROOT
-    default 2 if DEVICE_TYPE_NODE
-
-config DEVICE_NUM
-    int "DEVICE_NUM"
-    range 1 3
-    default 1
-    help
-        Mesh network drive num.
-
 config MESH_ID
     string "Mesh ID"
         default "123456"

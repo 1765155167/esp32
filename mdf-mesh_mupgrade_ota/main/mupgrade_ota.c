@@ -95,7 +95,7 @@ void mupgrade_ota(char * data)
             goto ret;
         }
     }
-
+	// mupgrade_firmware_check(const esp_partition_t *partition);
     MDF_LOGI("The service download firmware is complete, Spend time: %ds", 
 				(xTaskGetTickCount() - start_time) * portTICK_RATE_MS / 1000);
 
@@ -127,7 +127,7 @@ void mupgrade_ota(char * data)
     MDF_ERROR_GOTO(err != MDF_OK, ret, "<%s> mwifi_root_recv", mdf_err_to_name(err));
 
 ret:
-	cJSON_Delete(json_root);	
+	cJSON_Delete(json_root);
 	MDF_FREE(ota_data);
     mupgrade_result_free(&upgrade_result);
 	return ;

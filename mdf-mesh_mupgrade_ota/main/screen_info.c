@@ -1,6 +1,8 @@
 #include "screen_info.h"
 
 static const char *TAG = "screen_info";
+extern int CONFIG_DEVICE_NUM;/*设备号*/
+extern int DEVICE_TYPE;/*设备类型*/
 
 #define SCAN_TASK_SIZE 2048
 #define SCAN_TASK_PRI ESP_TASK_MAIN_PRIO

@@ -5,15 +5,50 @@
 #include "check.h"
 #include "mupgrade_ota.h"
 
-extern esp_timer_handle_t test_root_handle;
 static const char *TAG = "mdf-mesh";
 static xSemaphoreHandle g_send_lock;
 
+int CONFIG_DEVICE_NUM = 1;/*设备号*/
+int DEVICE_TYPE = MWIFI_MESH_ROOT;/*设备类型*/
+
 uint8_t dest_addr[3][MWIFI_ADDR_LEN] = {
 	{0x30, 0xae, 0xa4, 0xdd, 0xb0, 0x1c},//root 1
-	{0x30, 0xae, 0xa4, 0xdd, 0xb0, 0x68},//node 1
+	{0x24, 0x6f, 0x28, 0xd9, 0x5f, 0x84},//node 1
 	{0x3c, 0x71, 0xbf, 0xe0, 0x92, 0xb8},//node 2
+	// {0x30, 0xae, 0xa4, 0xdd, 0xb0, 0x68},
 };
+
+BaseType_t mac_cmp(uint8_t * sta_mac, uint8_t * dest_addr)
+{
+	int resault = pdTRUE;
+	for(int i = 0; i < MWIFI_ADDR_LEN; i++)
+	{
+		if(sta_mac[i] != dest_addr[i])
+		{
+			resault = pdFALSE;
+			break;
+		}
+	}
+	return resault;
+}
+
+/*获取该设备的设备号*/
+int get_dev_num()
+{
+	int num;
+	uint8_t sta_mac[MWIFI_ADDR_LEN]   = {0};
+	
+    MDF_LOGI("get_dev_num");
+    esp_wifi_get_mac(ESP_IF_WIFI_STA, sta_mac);
+
+	for(num = 0;num < 3; num ++)/*总共3个设备*/
+	{
+		if(mac_cmp(sta_mac,dest_addr[num]))
+		break;
+	}
+	if(num == 3) MDF_LOGE("该设备MAC地址不在dest_addr中");
+	return num + 1;
+}
 
 void send_lock(void)
 {
@@ -45,8 +80,7 @@ static mdf_err_t uart_initialize(void)
 	if(init_flag) {
 		return MDF_OK;
 	}
-	g_send_lock = xSemaphoreCreateBinary();
-    xSemaphoreGive(g_send_lock);
+	
 	//串口配置结构体
 	uart_config_t uart_config;
 	//串口参数配置->uart1
@@ -60,6 +94,9 @@ static mdf_err_t uart_initialize(void)
 	uart_set_pin(CONFIG_UART_PORT_NUM, CONFIG_UART_TX_IO, CONFIG_UART_RX_IO, UART_PIN_NO_CHANGE, UART_PIN_NO_CHANGE);
 	//注册串口服务即使能+设置缓存区大小
 	uart_driver_install(CONFIG_UART_PORT_NUM, BUF_SIZE * 2, BUF_SIZE * 2, 0, NULL, 0);
+	
+	g_send_lock = xSemaphoreCreateBinary();
+    xSemaphoreGive(g_send_lock);
 	init_flag = pdTRUE;
 	return MDF_OK;
 }
@@ -100,16 +137,12 @@ static void uart_handle_task(void *arg)
 			// MDF_LOGI("recv_length = %d",recv_length);
             continue;
 		}
-		// /*串口数据回发*/
-		// send_lock();
-		// uart_write_bytes(CONFIG_UART_PORT_NUM, (char*)data, recv_length);
-        // uart_write_bytes(CONFIG_UART_PORT_NUM, "\r\n", 2);
-		// send_unlock();
 
 		err = uart_decrypt(data,&recv_length,&ack_typ,&typ);//串口数据解密
 		MDF_ERROR_CONTINUE(err == MDF_FAIL,"uart recv data crc error!");
 		if(ack_typ == DUPLEX_NEED_ACK) send_ack();/*发送应答信号*/
 		MDF_ERROR_CONTINUE(typ != STR,"uart recv data type is not STR!");
+		
 		json_root = cJSON_Parse((char *)data);
         MDF_ERROR_CONTINUE(!json_root, "cJSON_Parse, data format error, data: %s", data);
 		
@@ -137,7 +170,7 @@ static void uart_handle_task(void *arg)
 				//信息处理(自己)
 				MDF_LOGI("自己的信息");
 				json_led_press(jsonstring);
-			}else if(id == -1)/*发给所有人*/
+			} else if(id == -1)/*发给所有人*/
 			{
 				//信息处理(自己)
 				MDF_LOGI("自己的信息");
@@ -148,11 +181,6 @@ static void uart_handle_task(void *arg)
 					ret = mwifi_write(wifi_sta_list.sta[i].mac, &data_type, jsonstring, size, true);
 					MDF_ERROR_GOTO(ret != MDF_OK, FREE_MEM, "<%s> mwifi_root_write", mdf_err_to_name(ret));
 				}
-				// for(int i = 1; i < 3; i++)
-				// {
-				// 	ret = mwifi_write(dest_addr[i], &data_type, jsonstring, size, true);
-				// 	MDF_ERROR_GOTO(ret != MDF_OK, FREE_MEM, "<%s> mwifi_root_write", mdf_err_to_name(ret));
-				// }
 			} else
 			{
 				ret = mwifi_write(dest_addr[(id-1)/2], &data_type, jsonstring, size, true);
@@ -235,36 +263,56 @@ static mdf_err_t root_recv_data_process(char * data)
 {
 	mdf_err_t err = MDF_OK;
 	cJSON * json_id;
+	cJSON * json_cmd;
 	cJSON  * json_root;
 	json_root = cJSON_Parse((char *)data);
 	MDF_ERROR_GOTO(!json_root, ret, "cJSON_Parse, data format error, data: %s", data);
-	
+
 	json_id = cJSON_GetObjectItem(json_root, "ID");
-	MDF_ERROR_GOTO(!json_id, ret, "json_id, data format error, data: %s", json_root->valuestring);
-	MDF_LOGI("ID:%d",json_id->valueint);
-	switch (json_id->valueint)
+	MDF_ERROR_GOTO(!json_id, ret, "json_id, data format error, data: %s", data);
+
+	json_cmd = cJSON_GetObjectItem(json_root, "Cmd");
+	MDF_ERROR_GOTO(!json_cmd, ret, "json_cmd, data format error, data: %s", data);
+	
+	if(strcmp(json_cmd->valuestring,"tempAlarm") == 0)
 	{
-	case 3:
-		moter_3 = pdTRUE;
-		mystrcpy(json_moter_3,data);
-		break;
-	case 4:
-		moter_4 = pdTRUE;
-		mystrcpy(json_moter_4,data);
-		break;
-	case 5:
-		moter_5 = pdTRUE;
-		mystrcpy(json_moter_5,data);
-		break;
-	case 6:
-		moter_6 = pdTRUE;
-		mystrcpy(json_moter_6,data);
-		break;
-	default:
-		break;
+		/*温度报警*/
+		add_dev_info(data);/*追加信息*/
+		size_t size = strlen(data);
+		MDF_LOGI("温度报警:%s",data);
+		
+		send_lock();
+		uart_encryption((uint8_t *)data,&size,DUPLEX_NO_ACK,STR);/*加密　crc检验位*/
+		uart_write_bytes(CONFIG_UART_PORT_NUM, (char *)data, size);
+        uart_write_bytes(CONFIG_UART_PORT_NUM, "\r\n", 2);
+		send_unlock();
+	}else
+	{
+		switch (json_id->valueint)
+		{
+		case 3:
+			moter_3 = pdTRUE;
+			mystrcpy(json_moter_3,data);
+			break;
+		case 4:
+			moter_4 = pdTRUE;
+			mystrcpy(json_moter_4,data);
+			break;
+		case 5:
+			moter_5 = pdTRUE;
+			mystrcpy(json_moter_5,data);
+			break;
+		case 6:
+			moter_6 = pdTRUE;
+			mystrcpy(json_moter_6,data);
+			break;
+		default:
+			break;
+		}
+		// esp_timer_stop(test_root_handle);
+		// esp_timer_start_once(test_root_handle, 25 * 1000);
 	}
-	esp_timer_stop(test_root_handle);
-	esp_timer_start_once(test_root_handle, 25 * 1000);
+	
 ret:
 	cJSON_Delete(json_root);	
 	return err;
@@ -320,6 +368,7 @@ mdf_err_t mesh_write(uint8_t src_addr[],char *data)
 
 	if (!mwifi_is_connected()) {
 		vTaskDelay(500 / portTICK_RATE_MS);
+		MDF_LOGW("mwifi is not connected.");
 		return MDF_FAIL;
 	}
 	
@@ -409,11 +458,13 @@ static mdf_err_t event_loop_cb(mdf_event_loop_t event, void *ctx)
             break;
 
         case MDF_EVENT_MWIFI_PARENT_CONNECTED:
+			led_status_unset(MESH_CONNECTION_ERROR);
             MDF_LOGI("Parent is connected on station interface");
             break;
 
         case MDF_EVENT_MWIFI_PARENT_DISCONNECTED:
             MDF_LOGI("Parent is disconnected on station interface");
+			led_status_set(MESH_CONNECTION_ERROR);
             break;
 
         default:
@@ -429,12 +480,7 @@ mdf_err_t mdf_mesh_init()
 	if(init_flag) {
 		return MDF_OK;
 	}
-	mwifi_init_config_t cfg = MWIFI_INIT_CONFIG_DEFAULT();
-    mwifi_config_t config   = {
-        .channel   = CONFIG_MESH_CHANNEL,
-        .mesh_id   = CONFIG_MESH_ID,
-        .mesh_type = CONFIG_DEVICE_TYPE,
-    };
+	
 	MDF_LOGI("start mdf_mesh_init");
     /**
      * @brief Set the log level for serial port printing.
@@ -445,12 +491,30 @@ mdf_err_t mdf_mesh_init()
     /**
      * @brief Initialize wifi mesh.
      */
+	mwifi_init_config_t cfg = MWIFI_INIT_CONFIG_DEFAULT();
     MDF_ERROR_ASSERT(mdf_event_loop_init(event_loop_cb));
     MDF_ERROR_ASSERT(wifi_init());
     MDF_ERROR_ASSERT(mwifi_init(&cfg));
+
+	CONFIG_DEVICE_NUM =  get_dev_num();/*获取该设备的设备号*/
+	if(CONFIG_DEVICE_NUM == 1)
+	{
+		DEVICE_TYPE = MWIFI_MESH_ROOT;
+		MDF_LOGI("ROOT device:%d",CONFIG_DEVICE_NUM);
+	}else{
+		DEVICE_TYPE = MWIFI_MESH_NODE;
+		MDF_LOGI("NODE device:%d",CONFIG_DEVICE_NUM);
+	}
+	
+    mwifi_config_t config   = {
+        .channel   = CONFIG_MESH_CHANNEL,
+        .mesh_id   = CONFIG_MESH_ID,
+        .mesh_type = DEVICE_TYPE,
+    };
+
     MDF_ERROR_ASSERT(mwifi_set_config(&config));
     MDF_ERROR_ASSERT(mwifi_start());
-	
+	led_status_set(MESH_CONNECTION_ERROR);
     /**
      * @brief Data transfer between wifi mesh devices
      */
@@ -465,7 +529,7 @@ mdf_err_t mdf_mesh_init()
         xTaskCreate(node_read_task, "node_read_task", 2 * 1024,
                     NULL, CONFIG_MDF_TASK_DEFAULT_PRIOTY, NULL);
     }
-	/* 定时打印 */
+	/* 定时打印 10s*/
     TimerHandle_t timer = xTimerCreate("print_system_info", 10000 / portTICK_RATE_MS,
                                        true, NULL, print_system_info_timercb);
     xTimerStart(timer, 0);

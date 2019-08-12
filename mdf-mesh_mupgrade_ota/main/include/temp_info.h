@@ -9,8 +9,6 @@
 #include "moter.h"
 
 /*temp cfg*/
-#define ADC_CH1 ADC1_CHANNEL_4 //温度测量通道1使用的adc
-#define ADC_CH2 ADC1_CHANNEL_5 //温度测量通道2使用的adc
 #define TP_MEASURE_PEROID_MS 1000 //温度测量间隔
 #define TP_Q 0.005 //温度滤波参数
 #define TP_R 1//温度滤波参数

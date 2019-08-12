@@ -4,14 +4,7 @@
 #include "mdf_common.h"
 #include "mwifi.h"
 #include "mdf-mesh.h"
-#define KEY1_GPIO 36 /* key　引脚号 */
-#define KEY2_GPIO 39 /* key　引脚号 */
-#define KEY3_GPIO 34 /* key　引脚号 */
-#define KEY4_GPIO 35 /* key　引脚号 */
-
-#define longTime  1000  /* 长按最短时间 ms */
-#define keypresstime 15 /* 按键消抖时长 ms */
-#define keylifttime 15 /* 按键消抖时长 ms */
+#include "config.h"
 
 typedef enum {
     KEY1_SHORT_ONCE = 0x0,    /**/

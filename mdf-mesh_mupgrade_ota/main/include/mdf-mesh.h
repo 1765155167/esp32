@@ -4,11 +4,12 @@
 #include "mdf_common.h"
 #include "mwifi.h"
 
-// #define MEMORY_DEBUG
 #define BUF_SIZE 1024
+
 void send_unlock();
 void send_lock();
-mdf_err_t mdf_mesh_init();
+int get_dev_num(void);/*获取该设备的设备号*/
+mdf_err_t mdf_mesh_init(void);
 mdf_err_t mesh_write(uint8_t src_addr[],char *data);
 // #define MEMORY_DEBUG
 void data_add_root(char * data);/*追加root标志*/

@@ -7,6 +7,8 @@
 #include "mupgrade_ota.h"
 #include "screen_info.h"
 static const char *TAG = "mesh-led";
+extern int CONFIG_DEVICE_NUM;/*设备号*/
+extern int DEVICE_TYPE;/*设备类型*/
 /*主设备等待从设备发送信息*/
 static void test_root_once(void* arg);
 //定义定时器句柄
@@ -46,6 +48,42 @@ mdf_err_t led_init(void)
 	ESP_ERROR_CHECK( esp_timer_create(&test_root_arg, &test_root_handle) );
 	init_flag =pdTRUE;
 	return MDF_OK;
+}
+/*设置等的状态*/
+void led_status_set(int status)
+{
+    switch(status)
+    {
+        case MESH_CONNECTION_ERROR:
+            gpio_set_level(LED1_GPIO, 1);
+            break;
+
+        case HIGH_TEMP:
+            gpio_set_level(LED2_GPIO, 1);
+            break;
+
+        case LOW_TEMP:
+            gpio_set_level(LED3_GPIO, 1);
+            break;
+    }
+}
+
+void led_status_unset(int status)
+{
+    switch(status)
+    {
+        case MESH_CONNECTION_ERROR:
+            gpio_set_level(LED1_GPIO, 0);
+            break;
+
+        case HIGH_TEMP:
+            gpio_set_level(LED2_GPIO, 0);
+            break;
+
+        case LOW_TEMP:
+            gpio_set_level(LED3_GPIO, 0);
+            break;
+    }
 }
 /*
  *@按键控制
@@ -94,18 +132,11 @@ void json_led_press(char * data)
 	MDF_ERROR_GOTO(!json_root, ret, "cJSON_Parse, data format error, data: %s", data);
 
 	json_id = cJSON_GetObjectItem(json_root, "ID");
-	if (!json_id) {/* json id 不存在 */
-		MDF_LOGW("ID not found");
-		cJSON_Delete(json_root);
-		return;
-	}
+	MDF_ERROR_GOTO(!json_id, ret, "json id 不存在 , data: %s", data);
 
 	json_cmd = cJSON_GetObjectItem(json_root, "Cmd");
-	if (!json_cmd) {/* json cmd 不存在 */
-		MDF_LOGW("Cmd not found");
-		cJSON_Delete(json_root);
-		goto ret;
-	}
+	MDF_ERROR_GOTO(!json_cmd, ret, "json_cmd 不存在 , data: %s", data);
+
 	if (strcmp(json_cmd->valuestring,"cfg") == 0) {
 		MDF_LOGI("参数配置");
 		if(json_id->valueint == -1) {
@@ -186,6 +217,30 @@ ret:
 	return;
 }
 
+/*上传温度报警信息*/
+mdf_err_t up_alarm_temp_info(int id)
+{
+	char * json_info = MDF_MALLOC(MWIFI_PAYLOAD_LEN);
+	if(esp_mesh_is_root()) {//主设备
+		get_alarm_temp_info(json_info,id);
+		add_dev_info(json_info);/*追加信息*/
+		MDF_LOGI("up_alarm_temp_info:%s",json_info);
+		size_t size = strlen(json_info);
+		send_lock();
+		uart_encryption((uint8_t *)json_info,&size,DUPLEX_NO_ACK,STR);/*加密　crc检验位*/
+		uart_write_bytes(CONFIG_UART_PORT_NUM, (char *)json_info, size);
+        uart_write_bytes(CONFIG_UART_PORT_NUM, "\r\n", 2);
+		send_unlock();
+	}else
+	{
+		get_alarm_temp_info(json_info,id);
+		mesh_write(NULL,json_info);
+		MDF_LOGI("up_alarm_temp_info:%s",json_info);
+	}
+	MDF_FREE(json_info);
+	return MDF_OK;
+}
+
 /*上传信息*/
 mdf_err_t information_Upload(char * json_info)
 {
@@ -206,7 +261,7 @@ mdf_err_t information_Upload(char * json_info)
 		MDF_FREE(json_info_all);
 	}else {//从设备通过mesh网络发送到主设备
 		mesh_write(NULL,json_info);
-		MDF_LOGI("information_Upload to ROOT ok");
+		MDF_LOGI("information_Upload to ROOT ok data:%s",json_info);
 	}
 	return MDF_OK;
 }

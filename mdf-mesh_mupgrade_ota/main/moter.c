@@ -1,21 +1,24 @@
 #include "moter.h"
 
+extern int CONFIG_DEVICE_NUM;/*设备号*/
+extern int DEVICE_TYPE;/*设备类型*/
+
 static const char *TAG = "mdf-moter";
 
 static temp_info_t *temp_info[2] = {0};/*定义两个温度结构体指针*/
 
 moter_args moter_args1 = {
-	.AlarmTempMax = 30,	//报警高温
-	.AlarmTempMin = 10,	//报警低温
-	.SetTempMax = 28,	//设定控制温度上限
+	.AlarmTempMax = 35,	//报警高温
+	.AlarmTempMin = 15,	//报警低温
+	.SetTempMax = 27,	//设定控制温度上限
 	.SetTempMin = 20,	//设定控制温度下限
 	.TotalTime = 600,   //风口完整开启或关闭一次所需时间，单位s
 };/*参数信息*/
 
 moter_args moter_args2= {
 	.AlarmTempMax = 30,	//报警高温
-	.AlarmTempMin = 10,	//报警低温
-	.SetTempMax = 29,	//设定控制温度上限
+	.AlarmTempMin = 15,	//报警低温
+	.SetTempMax = 23,	//设定控制温度上限
 	.SetTempMin = 20,	//设定控制温度下限
 	.TotalTime = 600,   //风口完整开启或关闭一次所需时间，单位s
 };/*参数信息*/
@@ -95,58 +98,100 @@ static void test_timer_once_auto(void* arg)
 		MDF_LOGI("dev 2 auto stop");
 	}
 }
-/*自动控制*/
-static void moter_auto_ctrl(void *arg)
+/*
+ *@温度报警
+ *温度过高向Air202上传报警信息，并将模式改成自动模式
+ * */
+static void moter_temp_alarm(void *timer)
 {
-	for(;;)
-	{
-		if (strcmp(moter_flag1.ConSta,"auto") == 0) {
-			if (moter_flag1.NTemp >= moter_args1.SetTempMin && moter_flag1.NTemp <= moter_args1.SetTempMax)
-			{
-				moter_flag1.MoSta = "stop";
-				MDF_LOGI("设备1自动控制:stop");
-			} else if (moter_flag1.NTemp < moter_args1.SetTempMin)
-			{
-				moter_flag1.MoSta = "reverse";
-				MDF_LOGI("设备1自动控制:reverse");
-				esp_timer_stop(test_once1_auto_handle);
-				esp_timer_start_once(test_once1_auto_handle, 
-					((moter_args1.SetTempMin + moter_args1.SetTempMax)/2 - moter_flag1.NTemp) * 50000 * moter_args1.TotalTime);
-				vTaskDelay(5 * 60 * 1000 / portTICK_RATE_MS);
-			} else {
-				moter_flag1.MoSta = "forward";
-				MDF_LOGI("设备1自动控制:forward");
-				esp_timer_stop(test_once1_auto_handle);
-				esp_timer_start_once(test_once1_auto_handle, 
-					(moter_flag1.NTemp - (moter_args1.SetTempMin + moter_args1.SetTempMax)/2) * 50000 * moter_args1.TotalTime);
-				vTaskDelay(5 * 60 * 1000 / portTICK_RATE_MS);
-			}
+	if(moter_flag1.NTemp > moter_args1.AlarmTempMax) {
+		MDF_LOGW("设备1温度过高");
+		led_status_set(HIGH_TEMP);
+		if(strcmp(moter_flag1.ConSta, "manual") == 0) {
+			moter_flag1.ConSta = "auto";
 		}
-		if (strcmp(moter_flag2.ConSta,"auto") == 0) {
-			if(moter_flag2.NTemp >= moter_args2.SetTempMin && moter_flag2.NTemp <= moter_args2.SetTempMax)
-			{
-				moter_flag2.MoSta = "stop";
-				MDF_LOGI("设备2自动控制:stop");
-			}else if(moter_flag2.NTemp < moter_args2.SetTempMin)
-			{
-				moter_flag2.MoSta = "reverse";
-				MDF_LOGI("设备2自动控制:reverse");
-				esp_timer_stop(test_once2_auto_handle);
-				esp_timer_start_once(test_once2_auto_handle, 
-					((moter_args1.SetTempMin + moter_args1.SetTempMax)/2 - moter_flag2.NTemp) * 50000 * moter_args2.TotalTime);//%20
-				vTaskDelay(5 * 60 * 1000 / portTICK_RATE_MS);
-			}else {
-				moter_flag2.MoSta = "forward";
-				MDF_LOGI("设备2自动控制:forward");
-				esp_timer_stop(test_once2_auto_handle);
-				esp_timer_start_once(test_once2_auto_handle,
-					(moter_flag2.NTemp - (moter_args1.SetTempMin + moter_args1.SetTempMax)/2) * 50000 * moter_args2.TotalTime);
-				vTaskDelay(5 * 60 * 1000 / portTICK_RATE_MS);
-			}
-		}
-		vTaskDelay(1000 * 10 / portTICK_RATE_MS);
+		up_alarm_temp_info(CONFIG_DEVICE_NUM * 2 - 1);/*上传温度报警信息*/
+	}else {
+		led_status_unset(HIGH_TEMP);
 	}
-	vTaskDelete(NULL);
+	
+	if(moter_flag1.NTemp < moter_args1.AlarmTempMin) {
+		MDF_LOGW("设备1温度过低");
+		led_status_set(LOW_TEMP);
+		if(strcmp(moter_flag1.ConSta, "manual") == 0) {
+			moter_flag1.ConSta = "auto";
+		}
+		up_alarm_temp_info(CONFIG_DEVICE_NUM * 2 - 1);/*上传温度报警信息*/
+	}else {
+		led_status_unset(LOW_TEMP);
+	}
+	
+	
+	if(moter_flag2.NTemp > moter_args2.AlarmTempMax) {
+		MDF_LOGW("温度2过高");
+		led_status_set(HIGH_TEMP);
+		if(strcmp(moter_flag2.ConSta, "manual") == 0) {
+			moter_flag2.ConSta = "auto";
+		}
+		up_alarm_temp_info(CONFIG_DEVICE_NUM * 2);/*上传温度报警信息*/
+	}else {
+		led_status_unset(HIGH_TEMP);
+	}
+	
+	if(moter_flag2.NTemp < moter_args2.AlarmTempMin) {
+		MDF_LOGW("设备2温度过低");
+		led_status_set(LOW_TEMP);
+		if(strcmp(moter_flag2.ConSta, "manual") == 0) {
+			moter_flag2.ConSta = "auto";
+		}
+		up_alarm_temp_info(CONFIG_DEVICE_NUM * 2);/*上传温度报警信息*/
+	}else {
+		led_status_unset(LOW_TEMP);
+	}
+}
+/*自动控制*/
+static void moter_auto_ctrl(void *timer)
+{
+	if (strcmp(moter_flag1.ConSta,"auto") == 0) {
+		if (moter_flag1.NTemp >= moter_args1.SetTempMin && moter_flag1.NTemp <= moter_args1.SetTempMax)
+		{
+			moter_flag1.MoSta = "stop";
+			MDF_LOGI("设备1自动控制:stop");
+		} else if (moter_flag1.NTemp < moter_args1.SetTempMin)
+		{
+			moter_flag1.MoSta = "reverse";
+			MDF_LOGI("设备1自动控制:reverse");
+			esp_timer_stop(test_once1_auto_handle);
+			esp_timer_start_once(test_once1_auto_handle, 
+				((moter_args1.SetTempMin + moter_args1.SetTempMax)/2 - moter_flag1.NTemp) * 50000 * moter_args1.TotalTime);
+		} else {
+			moter_flag1.MoSta = "forward";
+			MDF_LOGI("设备1自动控制:forward");
+			esp_timer_stop(test_once1_auto_handle);
+			esp_timer_start_once(test_once1_auto_handle, 
+				(moter_flag1.NTemp - (moter_args1.SetTempMin + moter_args1.SetTempMax)/2) * 50000 * moter_args1.TotalTime);
+		}
+	}
+	if (strcmp(moter_flag2.ConSta,"auto") == 0) {
+		if(moter_flag2.NTemp >= moter_args2.SetTempMin && moter_flag2.NTemp <= moter_args2.SetTempMax)
+		{
+			moter_flag2.MoSta = "stop";
+			MDF_LOGI("设备2自动控制:stop");
+		}else if(moter_flag2.NTemp < moter_args2.SetTempMin)
+		{
+			moter_flag2.MoSta = "reverse";
+			MDF_LOGI("设备2自动控制:reverse");
+			esp_timer_stop(test_once2_auto_handle);
+			esp_timer_start_once(test_once2_auto_handle, 
+				((moter_args1.SetTempMin + moter_args1.SetTempMax)/2 - moter_flag2.NTemp) * 50000 * moter_args2.TotalTime);//%20
+		}else {
+			moter_flag2.MoSta = "forward";
+			MDF_LOGI("设备2自动控制:forward");
+			esp_timer_stop(test_once2_auto_handle);
+			esp_timer_start_once(test_once2_auto_handle,
+				(moter_flag2.NTemp - (moter_args1.SetTempMin + moter_args1.SetTempMax)/2) * 50000 * moter_args2.TotalTime);
+		}
+	}
 }
 
 static void moter_ctrl(void *arg)
@@ -238,6 +283,7 @@ static void device_is_disconnected(void *timer)
 	}
 	moter_6 = pdFALSE;
 }
+
 /* 定时上传信息 UP_INFO_TIMER s*/
 static void uploadinfor(void *timer)
 {
@@ -304,10 +350,12 @@ mdf_err_t moter_init(void)
 	if(init_flag) {
 		return MDF_OK;
 	}
+
 	moter_3 = pdFALSE;
 	moter_4 = pdFALSE;
 	moter_5 = pdFALSE;
 	moter_6 = pdFALSE;
+
 	json_moter_3 = MDF_MALLOC(MWIFI_PAYLOAD_LEN);
 	json_moter_4 = MDF_MALLOC(MWIFI_PAYLOAD_LEN);
 	json_moter_5 = MDF_MALLOC(MWIFI_PAYLOAD_LEN);
@@ -342,9 +390,10 @@ mdf_err_t moter_init(void)
 	/*温度信息*/
 	temp_info[0] = build_temp_info(ADC_CH1);
 	temp_info[1] = build_temp_info(ADC_CH2);
-
-	xTaskCreate(moter_ctrl, "moter_ctrl", 2 * 1024, NULL, 10, NULL);
-	xTaskCreate(moter_auto_ctrl, "moter_auto_ctrl", 2 * 1024, NULL, 10, NULL);
+	
+	/*根据方风机状态具体实现*/
+	xTaskCreate(moter_ctrl, "moter_ctrl", 2 * 1024, NULL, 4, NULL);
+	
 	/* 定时计算风口开度 */
     TimerHandle_t timer1 = xTimerCreate("Calculation", 600 / portTICK_RATE_MS,
                                        true, NULL, Calculation);
@@ -364,6 +413,16 @@ mdf_err_t moter_init(void)
     TimerHandle_t timer4 = xTimerCreate("Get temp information", GET_TEMP_INFO  * 1000 / portTICK_RATE_MS,
                                        true, NULL, get_temp_info);
     xTimerStart(timer4, 0);
+
+	/* 定时自动控制处理*/
+    TimerHandle_t timer5 = xTimerCreate("moter_auto_ctrl", AUTO_CTRL_TIME * 1000 / portTICK_RATE_MS,
+                                       true, NULL, moter_auto_ctrl);
+    xTimerStart(timer5, 0);
+
+	/* 定时检测温度是否超多报警上限/下限 */
+    TimerHandle_t timer6 = xTimerCreate("moter_temp_alarm", TEMP_ALARM_TIME * 1000 / portTICK_RATE_MS,
+                                       true, NULL, moter_temp_alarm);
+    xTimerStart(timer6, 0);
 
 	init_flag = pdTRUE;
 	return MDF_OK;
@@ -487,6 +546,40 @@ mdf_err_t moter_change_mode(int io)
 	return MDF_OK;
 }
 
+static void mystrcpy(char *des,char *src)
+{
+    while(*src != '\0')
+	{
+		*des++ = *src++;
+	}
+	*des = '\0';
+}
+
+/*追加信息*/
+mdf_err_t add_dev_info(char * data)
+{
+	char * json_info = MDF_MALLOC(MWIFI_PAYLOAD_LEN);
+	sprintf(json_info,"{\"Devs\":[%s]}",data);
+	mystrcpy(data,json_info);
+	MDF_FREE(json_info);
+	return MDF_OK;
+}
+
+/*获取温度报警信息*/
+mdf_err_t get_alarm_temp_info(char * json_info,int id)
+{
+	if(id%2+1 == 1)
+	{
+		sprintf(json_info,"{\"ID\":%d,\"Cmd\":\"tempAlarm\",\"Params\":{\"Temp\":%d}}",
+				id,moter_flag1.NTemp);
+	}else if(id%2+1 == 2)
+	{
+		sprintf(json_info,"{\"ID\":%d,\"Cmd\":\"tempAlarm\",\"Params\":{\"Temp\":%d}}",
+				id,moter_flag2.NTemp);
+	}
+	return MDF_OK;
+}
+
 /*获取放风机信息*/
 mdf_err_t get_json_info(char * json_info, int id)
 {
@@ -505,6 +598,7 @@ mdf_err_t get_json_info(char * json_info, int id)
 	}
 	return MDF_OK;
 }
+
 /*主设备获取所有放风机信息并整合*/
 mdf_err_t get_json_info_all(char * json_info)
 {
@@ -553,49 +647,33 @@ mdf_err_t set_args_info(char * data, uint8_t id)
 	MDF_ERROR_GOTO(!json_root, ret, "cJSON_Parse, data format error, data: %s", data);
 
 	json_id = cJSON_GetObjectItem(json_root, "ID");
-	if (!json_id) {/* json id 不存在 */
-		MDF_LOGW("ID not found");
-		goto ret;
-	}
+	MDF_ERROR_GOTO(!json_id, ret, "json id 不存在, data: %s", data);
+	
 	json_cmd = cJSON_GetObjectItem(json_root, "Cmd");
-	if (!json_cmd) {/* json cmd 不存在 */
-		MDF_LOGW("Cmd not found");
-		goto ret;
-	}
+	MDF_ERROR_GOTO(!json_cmd, ret, "json_cmd 不存在, data: %s", data);
+
 	if(strcmp(json_cmd->valuestring,"cfg") != 0) {
 		MDF_LOGW("Cmd not is cfg");
 		goto ret;
 	}
+
 	json_params = cJSON_GetObjectItem(json_root, "Params");
-	if (!json_params) {/* json cmd 不存在 */
-		MDF_LOGW("Params not found");
-		goto ret;
-	}
+	MDF_ERROR_GOTO(!json_params, ret, "json_params 不存在, data: %s", data);
+
 	json_atmax = cJSON_GetObjectItem(json_params, "AlarmTempMax");
-	if (!json_atmax) {
-		MDF_LOGW("AlarmTempMax not found");
-		goto ret;
-	}
+	MDF_ERROR_GOTO(!json_atmax, ret, "json_atmax 不存在, data: %s", data);
+
 	json_atmin = cJSON_GetObjectItem(json_params, "AlarmTempMin");
-	if (!json_atmin) {
-		MDF_LOGW("AlarmTempMin not found");
-		goto ret;
-	}
+	MDF_ERROR_GOTO(!json_atmin, ret, "json_atmin 不存在, data: %s", data);
+
 	json_tmax = cJSON_GetObjectItem(json_params, "SetTempMax");
-	if (!json_tmax) {
-		MDF_LOGW("SetTempMax not found");
-		goto ret;
-	}
+	MDF_ERROR_GOTO(!json_tmax, ret, "json_tmax 不存在, data: %s", data);
+
 	json_tmin = cJSON_GetObjectItem(json_params, "SetTempMin");
-	if (!json_tmin) {
-		MDF_LOGW("SetTempMin not found");
-		goto ret;
-	}
+	MDF_ERROR_GOTO(!json_tmin, ret, "json_tmin 不存在, data: %s", data);
+
 	json_ttime = cJSON_GetObjectItem(json_params, "TotalTime");
-	if (!json_ttime) {
-		MDF_LOGW("TotalTime not found");
-		goto ret;
-	}
+	MDF_ERROR_GOTO(!json_ttime, ret, "json_ttime 不存在, data: %s", data);
 
 	if(id%2+1 == 1)
 	{
@@ -646,34 +724,25 @@ mdf_err_t manual_moter(char * data, uint8_t id)
 	MDF_ERROR_GOTO(!json_root, ret, "cJSON_Parse, data format error, data: %s", data);
 
 	json_id = cJSON_GetObjectItem(json_root, "ID");
-	if (!json_id) {/* json id 不存在 */
-		MDF_LOGW("ID not found");
-		goto ret;
-	}
+	MDF_ERROR_GOTO(!json_id, ret, "json_id 不存在, data: %s", data);
+
 	json_cmd = cJSON_GetObjectItem(json_root, "Cmd");
-	if (!json_cmd) {/* json cmd 不存在 */
-		MDF_LOGW("Cmd not found");
-		goto ret;
-	}
+	MDF_ERROR_GOTO(!json_cmd, ret, "json_cmd 不存在, data: %s", data);
+	
 	if(strcmp(json_cmd->valuestring,"conMan") != 0) {
 		MDF_LOGW("Cmd not is conMan");
 		goto ret;
 	}
+
 	json_params = cJSON_GetObjectItem(json_root, "Params");
-	if (!json_params) {
-		MDF_LOGW("Params not found");
-		goto ret;
-	}
+	MDF_ERROR_GOTO(!json_params, ret, "json_params 不存在, data: %s", data);
+	
 	json_sta = cJSON_GetObjectItem(json_params, "Sta");
-	if (!json_sta) {
-		MDF_LOGW("Sta not found");
-		goto ret;
-	}
+	MDF_ERROR_GOTO(!json_sta, ret, "json_sta 不存在, data: %s", data);
+	
 	json_times = cJSON_GetObjectItem(json_params, "TimeS");
-	if (!json_times) {
-		MDF_LOGW("TimeS not found");
-		goto ret;
-	}
+	MDF_ERROR_GOTO(!json_times, ret, "json_times 不存在, data: %s", data);
+	
 	if(id%2+1 == 1) {
 		if(strcmp(json_sta->valuestring,"forward") == 0) {
 			moter_forward(1);
@@ -724,29 +793,22 @@ mdf_err_t moter_set_mode(char * data, uint8_t id)
 	MDF_ERROR_GOTO(!json_root, ret, "cJSON_Parse, data format error, data: %s", data);
 
 	json_id = cJSON_GetObjectItem(json_root, "ID");
-	if (!json_id) {/* json id 不存在 */
-		MDF_LOGW("ID not found");
-		goto ret;
-	}
+	MDF_ERROR_GOTO(!json_id, ret, "json_id 不存在, data: %s", data);
+	
 	json_cmd = cJSON_GetObjectItem(json_root, "Cmd");
-	if (!json_cmd) {/* json cmd 不存在 */
-		MDF_LOGW("Cmd not found");
-		goto ret;
-	}
+	MDF_ERROR_GOTO(!json_cmd, ret, "json_cmd 不存在, data: %s", data);
+	
 	if(strcmp(json_cmd->valuestring,"conMode") != 0) {
 		MDF_LOGW("Cmd not is conMode");
 		goto ret;
 	}
+
 	json_params = cJSON_GetObjectItem(json_root, "Params");
-	if (!json_params) {
-		MDF_LOGW("Params not found");
-		goto ret;
-	}
+	MDF_ERROR_GOTO(!json_params, ret, "json_params 不存在, data: %s", data);
+	
 	json_sta = cJSON_GetObjectItem(json_params, "Sta");
-	if (!json_sta) {
-		MDF_LOGW("Sta not found");
-		goto ret;
-	}
+	MDF_ERROR_GOTO(!json_sta, ret, "json_sta 不存在, data: %s", data);
+	
 	if (id%2+1 == 1) {
 		if(strcmp(json_sta->valuestring,"manual") == 0) {
 			moter_flag1.ConSta = "manual";
@@ -783,29 +845,22 @@ mdf_err_t moter_openAdjust(char * data, uint8_t id)
 	MDF_ERROR_GOTO(!json_root, ret, "cJSON_Parse, data format error, data: %s", data);
 
 	json_id = cJSON_GetObjectItem(json_root, "ID");
-	if (!json_id) {/* json id 不存在 */
-		MDF_LOGW("ID not found");
-		goto ret;
-	}
+	MDF_ERROR_GOTO(!json_id, ret, "json_id 不存在, data: %s", data);
+	
 	json_cmd = cJSON_GetObjectItem(json_root, "Cmd");
-	if (!json_cmd) {/* json cmd 不存在 */
-		MDF_LOGW("Cmd not found");
-		goto ret;
-	}
+	MDF_ERROR_GOTO(!json_cmd, ret, "json_cmd 不存在, data: %s", data);
+	
 	if(strcmp(json_cmd->valuestring,"openAdjust") != 0) {
 		MDF_LOGW("Cmd not is openAdjust");
 		goto ret;
 	}
+
 	json_params = cJSON_GetObjectItem(json_root, "Params");
-	if (!json_params) {
-		MDF_LOGW("Params not found");
-		goto ret;
-	}
+	MDF_ERROR_GOTO(!json_params, ret, "json_params 不存在, data: %s", data);
+	
 	json_openper = cJSON_GetObjectItem(json_params, "Openper");
-	if (!json_openper) {
-		MDF_LOGW("Openper not found");
-		goto ret;
-	}
+	MDF_ERROR_GOTO(!json_openper, ret, "json_openper 不存在, data: %s", data);
+	
 	if(id%2+1 == 1) {
 		if(json_openper->valueint>=0&&json_openper->valueint<=100) {
 			moter_flag1.OpenPer = json_openper->valueint * 10;
@@ -838,29 +893,22 @@ mdf_err_t moter_tempAdjust(char * data, uint8_t id)
 	MDF_ERROR_GOTO(!json_root, ret, "cJSON_Parse, data format error, data: %s", data);
 
 	json_id = cJSON_GetObjectItem(json_root, "ID");
-	if (!json_id) {/* json id 不存在 */
-		MDF_LOGW("ID not found");
-		goto ret;
-	}
+	MDF_ERROR_GOTO(!json_id, ret, "json_id 不存在, data: %s", data);
+	
 	json_cmd = cJSON_GetObjectItem(json_root, "Cmd");
-	if (!json_cmd) {/* json cmd 不存在 */
-		MDF_LOGW("Cmd not found");
-		goto ret;
-	}
+	MDF_ERROR_GOTO(!json_cmd, ret, "json_cmd 不存在, data: %s", data);
+	
 	if(strcmp(json_cmd->valuestring,"tempAdjust") != 0) {
 		MDF_LOGW("Cmd not is tempAdjust");
 		goto ret;
 	}
+
 	json_params = cJSON_GetObjectItem(json_root, "Params");
-	if (!json_params) {
-		MDF_LOGW("Params not found");
-		goto ret;
-	}
+	MDF_ERROR_GOTO(!json_params, ret, "json_params 不存在, data: %s", data);
+	
 	json_temp = cJSON_GetObjectItem(json_params, "Temp");
-	if (!json_temp) {
-		MDF_LOGW("Temp not found");
-		goto ret;
-	}
+	MDF_ERROR_GOTO(!json_temp, ret, "json_temp 不存在, data: %s", data);
+	
 	if(id%2+1 == 1) {
 		// if(json_temp->valueint<=moter_args1.AlarmTempMax&&json_temp->valueint>=moter_args1.AlarmTempMin) {
 		// 	moter_flag1.NTemp = json_temp->valueint;

@@ -11,7 +11,9 @@
 		"esp_adc_cal.h": "c",
 		"mupgrade_ota.h": "c",
 		"rtu.h": "c",
-		"screen_info.h": "c"
+		"screen_info.h": "c",
+		"string": "cpp",
+		"led.h": "c"
 	},
 	"C_Cpp.errorSquiggles": "Disabled"
 }
