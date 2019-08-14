@@ -59,6 +59,7 @@ void send_unlock(void)
 {
     xSemaphoreGive(g_send_lock);
 }
+
 /**
  *@重启设备
  */
@@ -133,16 +134,25 @@ static void uart_handle_task(void *arg)
     while (1) {
         memset(data, 0, BUF_SIZE);
 		recv_length = uart_read_bytes(CONFIG_UART_PORT_NUM, data, BUF_SIZE, 100 / portTICK_PERIOD_MS);
-		if (recv_length <= 0) {
+		if ((int)recv_length <= 0) {
 			// MDF_LOGI("recv_length = %d",recv_length);
             continue;
 		}
 
-		err = uart_decrypt(data,&recv_length,&ack_typ,&typ);//串口数据解密
-		MDF_ERROR_CONTINUE(err == MDF_FAIL,"uart recv data crc error!");
-		if(ack_typ == DUPLEX_NEED_ACK) send_ack();/*发送应答信号*/
-		MDF_ERROR_CONTINUE(typ != STR,"uart recv data type is not STR!");
+		err = uart_decrypt(data,(size_t * )&recv_length,&ack_typ,&typ);//串口数据解密
+		MDF_ERROR_CONTINUE(err == MDF_FAIL,"uart recv data crc error!recv_length = %d",recv_length);
 		
+		if(ack_typ == DUPLEX_NEED_ACK) send_ack();/*发送应答信号*/
+		if(typ == BIN)
+		{
+			set_ota_data(data, recv_length);
+			MDF_LOGI("data:BIN");
+			continue;
+		}
+		MDF_LOGI("data:STR");
+		// MDF_ERROR_CONTINUE(typ != STR,"uart recv data type is not STR!");
+		
+		MDF_LOGI("uart recv data %s,len = %d", data, recv_length);
 		json_root = cJSON_Parse((char *)data);
         MDF_ERROR_CONTINUE(!json_root, "cJSON_Parse, data format error, data: %s", data);
 		

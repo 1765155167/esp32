@@ -25,13 +25,12 @@
 /* Constants that aren't configurable in menuconfig */
 #define WEB_SERVER "runoob.com"
 #define WEB_PORT 80
-#define WEB_URL "https://www.runoob.com/http/http-status-codes.html"
+#define WEB_URL "http://101.132.42.189:8070"
 
 static const char *TAG = "example";
 /* GET 请求 */
 static const char *REQUEST = 
 	"GET " WEB_URL " HTTP/1.1\r\n"
-    "Host: "WEB_SERVER"\r\n"
     "User-Agent: esp-idf/1.0 esp32\r\n"
     "\r\n";
 

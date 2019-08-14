@@ -39,7 +39,7 @@ mdf_err_t uart_decrypt(unsigned char * data,
 		MDF_LOGI("crc check success crc:%d",crc);
 		err = MDF_OK;
 	}else {
-		MDF_LOGI("crc check failure crc:%d,data_crc:%d",crc,data[len - 1]);
+		MDF_LOGE("crc check failure crc:%d,data_crc:%d",crc,data[len - 1]);
 		err = MDF_FAIL;
 	}
 	data[len - 2] = '\0';
