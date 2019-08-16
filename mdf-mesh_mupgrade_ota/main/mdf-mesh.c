@@ -7,7 +7,7 @@
 
 static const char *TAG = "mdf-mesh";
 static xSemaphoreHandle g_send_lock;
-
+static xSemaphoreHandle _recv_lock;
 int CONFIG_DEVICE_NUM = 1;/*设备号*/
 int DEVICE_TYPE = MWIFI_MESH_ROOT;/*设备类型*/
 
@@ -59,6 +59,15 @@ void send_unlock(void)
 {
     xSemaphoreGive(g_send_lock);
 }
+static void recv_lock_(void)
+{
+    xSemaphoreTake(_recv_lock, portMAX_DELAY);
+}
+
+static void recv_unlock_(void)
+{
+    xSemaphoreGive(_recv_lock);
+}
 
 /**
  *@重启设备
@@ -82,14 +91,14 @@ static mdf_err_t uart_initialize(void)
 		return MDF_OK;
 	}
 	
-	//串口配置结构体
-	uart_config_t uart_config;
 	//串口参数配置->uart1
-	uart_config.baud_rate = 115200;					    //波特率
-	uart_config.data_bits = UART_DATA_8_BITS;			//数据位
-	uart_config.parity = UART_PARITY_DISABLE;			//校验位
-	uart_config.stop_bits = UART_STOP_BITS_1;			//停止位
-	uart_config.flow_ctrl = UART_HW_FLOWCTRL_DISABLE;	//硬件流控
+	uart_config_t uart_config = {
+		.baud_rate = 115200,
+		.data_bits = UART_DATA_8_BITS,
+		.parity = UART_PARITY_DISABLE,
+		.stop_bits = UART_STOP_BITS_1,
+		.flow_ctrl = UART_HW_FLOWCTRL_DISABLE
+	};
 	uart_param_config(CONFIG_UART_PORT_NUM, &uart_config);		//设置串口
 	//IO映射-> T:IO2  R:IO15
 	uart_set_pin(CONFIG_UART_PORT_NUM, CONFIG_UART_TX_IO, CONFIG_UART_RX_IO, UART_PIN_NO_CHANGE, UART_PIN_NO_CHANGE);
@@ -98,6 +107,10 @@ static mdf_err_t uart_initialize(void)
 	
 	g_send_lock = xSemaphoreCreateBinary();
     xSemaphoreGive(g_send_lock);
+
+	_recv_lock = xSemaphoreCreateBinary();
+    xSemaphoreGive(_recv_lock);
+
 	init_flag = pdTRUE;
 	return MDF_OK;
 }
@@ -106,6 +119,7 @@ static mdf_err_t uart_initialize(void)
  */
 static void uart_handle_task(void *arg)
 {
+	int i = 0;
 	mdf_err_t err;
 	uint8_t ack_typ;
 	uint8_t typ;
@@ -122,18 +136,20 @@ static void uart_handle_task(void *arg)
     char *jsonstring                  = NULL;
     mwifi_data_type_t data_type       = {0};
 	wifi_sta_list_t wifi_sta_list   = {0x0};
-    uint8_t sta_mac[MWIFI_ADDR_LEN]   = {0};
+    // uint8_t sta_mac[MWIFI_ADDR_LEN]   = {0};
 
     MDF_LOGI("Uart handle task is running");
 
-    esp_wifi_get_mac(ESP_IF_WIFI_STA, sta_mac);
+    // esp_wifi_get_mac(ESP_IF_WIFI_STA, sta_mac);
 
     /* uart initialization */
     MDF_ERROR_ASSERT(uart_initialize());
 	
     while (1) {
         memset(data, 0, BUF_SIZE);
+		recv_lock_();
 		recv_length = uart_read_bytes(CONFIG_UART_PORT_NUM, data, BUF_SIZE, 100 / portTICK_PERIOD_MS);
+		recv_unlock_();
 		if ((int)recv_length <= 0) {
 			// MDF_LOGI("recv_length = %d",recv_length);
             continue;
@@ -143,10 +159,24 @@ static void uart_handle_task(void *arg)
 		MDF_ERROR_CONTINUE(err == MDF_FAIL,"uart recv data crc error!recv_length = %d",recv_length);
 		
 		if(ack_typ == DUPLEX_NEED_ACK) send_ack();/*发送应答信号*/
+
 		if(typ == BIN)
 		{
-			set_ota_data(data, recv_length);
-			MDF_LOGI("data:BIN");
+			i = 0;
+			while(!wail_ota()) {
+				i ++;
+				if(i > 10) {
+					MDF_LOGI("ota未准备...");
+					break;
+				}
+				vTaskDelay(30 / portTICK_PERIOD_MS);
+			}
+			err = set_ota_data(data, recv_length);
+			MDF_LOGI("data:BIN,recv_length:%d",recv_length);
+			if(err == MDF_OK)
+				MDF_LOGI("set_ota_data ok");
+			else
+				MDF_LOGI("set_ota_data err");
 			continue;
 		}
 		MDF_LOGI("data:STR");
@@ -232,12 +262,15 @@ static void node_read_task(void *arg)
         size = MWIFI_PAYLOAD_LEN;
         memset(data, 0, MWIFI_PAYLOAD_LEN);
         ret = mwifi_read(src_addr, &data_type, data, &size, portMAX_DELAY);
+		MDF_ERROR_CONTINUE(ret != MDF_OK, "<%s> mwifi_root_recv", mdf_err_to_name(ret));
+		
 		if (data_type.upgrade) { // This mesh package contains upgrade data.
             ret = mupgrade_handle(src_addr, data, size);/*处理ROOT发送的升级数据*/
             MDF_ERROR_CONTINUE(ret != MDF_OK, "<%s> mupgrade_handle", mdf_err_to_name(ret));
-        }else{
-			MDF_ERROR_CONTINUE(ret != MDF_OK, "mwifi_read, ret: %x", ret);
-			MDF_LOGI("Node receive, addr: " MACSTR ", size: %d, \ndata: %s", MAC2STR(src_addr), size, data);
+        } else {
+			MDF_LOGI("Receive [ROOT] addr: " MACSTR ", size: %d, data: %s",
+                     MAC2STR(src_addr), size, data);
+
 			/**
              * @brief Finally, the node receives a restart notification. Restart it yourself..
              */
@@ -349,12 +382,14 @@ static void root_read_task(void *arg)
         size = MWIFI_PAYLOAD_LEN;
         memset(data, 0, MWIFI_PAYLOAD_LEN);
         ret = mwifi_root_read(src_addr, &data_type, data, &size, portMAX_DELAY);
+		MDF_ERROR_CONTINUE(ret != MDF_OK, "<%s> mwifi_root_recv", mdf_err_to_name(ret));
+		
 		if (data_type.upgrade) { // This mesh package contains upgrade data.
             ret = mupgrade_root_handle(src_addr, data, size);/*ota*/
             MDF_ERROR_CONTINUE(ret != MDF_OK, "<%s> mupgrade_root_handle", mdf_err_to_name(ret));
         } else {
-			MDF_ERROR_CONTINUE(ret != MDF_OK, "<%s> mwifi_root_read", mdf_err_to_name(ret));
-			MDF_LOGI("Root receive, addr: " MACSTR ", size: %d, data: %s", MAC2STR(src_addr), size, data);
+			MDF_LOGI("Receive [NODE] addr: " MACSTR ", size: %d, data: %s",
+                     MAC2STR(src_addr), size, data);
 			
 			root_recv_data_process(data);/*处理从设备发送的信息*/
 		}
@@ -470,11 +505,25 @@ static mdf_err_t event_loop_cb(mdf_event_loop_t event, void *ctx)
         case MDF_EVENT_MWIFI_PARENT_CONNECTED:
 			led_status_unset(MESH_CONNECTION_ERROR);
             MDF_LOGI("Parent is connected on station interface");
+            
             break;
 
         case MDF_EVENT_MWIFI_PARENT_DISCONNECTED:
             MDF_LOGI("Parent is disconnected on station interface");
 			led_status_set(MESH_CONNECTION_ERROR);
+            break;
+		
+		case MDF_EVENT_MUPGRADE_STARTED: {
+            mupgrade_status_t status = {0x0};
+            mupgrade_get_status(&status);
+
+            MDF_LOGI("MDF_EVENT_MUPGRADE_STARTED, name: %s, size: %d",
+                     status.name, status.total_size);
+            break;
+        }
+
+        case MDF_EVENT_MUPGRADE_STATUS:
+            MDF_LOGI("Upgrade progress: %d%%", (int)ctx);
             break;
 
         default:
@@ -532,12 +581,14 @@ mdf_err_t mdf_mesh_init()
 		MDF_LOGI("MESH_ROOT");
         xTaskCreate(uart_handle_task, "uart_handle_task", 4 * 1024,
                     NULL, CONFIG_MDF_TASK_DEFAULT_PRIOTY, NULL);
-		xTaskCreate(root_read_task, "root_read_task", 2 * 1024,
-                    NULL, CONFIG_MDF_TASK_DEFAULT_PRIOTY, NULL);
+		xTaskCreate(node_read_task, "node_read_task", 4 * 1024,
+                        NULL, CONFIG_MDF_TASK_DEFAULT_PRIOTY, NULL);	
+		xTaskCreate(root_read_task, "root_read_task", 4 * 1024,
+					NULL, CONFIG_MDF_TASK_DEFAULT_PRIOTY, NULL);
     } else {
 		MDF_LOGI("MESH_NODE");
-        xTaskCreate(node_read_task, "node_read_task", 2 * 1024,
-                    NULL, CONFIG_MDF_TASK_DEFAULT_PRIOTY, NULL);
+		xTaskCreate(node_read_task, "node_read_task", 4 * 1024,
+                        NULL, CONFIG_MDF_TASK_DEFAULT_PRIOTY, NULL);
     }
 	/* 定时打印 10s*/
     TimerHandle_t timer = xTimerCreate("print_system_info", 10000 / portTICK_RATE_MS,

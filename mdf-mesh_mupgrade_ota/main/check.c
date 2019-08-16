@@ -10,12 +10,13 @@ static const char *TAG = "mesh-check";
 void send_ack(void)/*发送应答信号*/
 {
 	uint8_t *data = (uint8_t *) MDF_MALLOC(BUF_SIZE);
-	size_t size;
+	size_t size = 0;
 	uart_encryption(data, &size, DUPLEX_IS_ACK, STR);//加密
 	send_lock();
 	uart_write_bytes(CONFIG_UART_PORT_NUM, (char*)data, size);
-	uart_write_bytes(CONFIG_UART_PORT_NUM, "\r\n", 2);
+	// uart_write_bytes(CONFIG_UART_PORT_NUM, "\r\n", 2);
 	send_unlock();
+	MDF_LOGI("发送ACK...");
 	MDF_FREE(data);
 }
 
@@ -32,7 +33,7 @@ mdf_err_t uart_decrypt(unsigned char * data,
 	*ack_typ = data[5];
 	*typ = data[6];
 
-	MDF_LOGI("uart id:%d,ack_typ:%d,typ:%d",id,*ack_typ,*typ);
+	MDF_LOGI("uart id:%d,ack_typ:%d,typ:%d,len:%d",id,*ack_typ,*typ,data[2]*256+data[3]);
 	
 	crc = crc8_com(data + 4, len - 5);
 	if(crc == data[len - 1]) {
@@ -42,13 +43,13 @@ mdf_err_t uart_decrypt(unsigned char * data,
 		MDF_LOGE("crc check failure crc:%d,data_crc:%d",crc,data[len - 1]);
 		err = MDF_FAIL;
 	}
-	data[len - 2] = '\0';
+	data[len - 1] = '\0';
 	for(int i = 0; i < len; i++)
 	{
 		data[i] = data[i + 7];
 	}
 	
-	*size = len - 9;
+	*size = len - 8;
 	return err;
 }
 

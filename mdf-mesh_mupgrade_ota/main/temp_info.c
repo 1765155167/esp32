@@ -8,7 +8,8 @@ static const char *TAG = "temp_info";
 
 #define ADC_UNIT 1
 #define DEFAULT_VREF 1100 
-#define RNF 10
+#define RNF2 47
+#define RNF1 47
 #define REF_MV 3300
 #define INI_VAL 50/*默认为25度*/
 #define MAX_TEMP 2
@@ -17,11 +18,24 @@ int32_t TempCalOff[MAX_TEMP] = {0};/*温度校准偏移 真正偏移的10倍*/
 static temp_info_t *g_info[MAX_TEMP] = {0};
 
 static esp_adc_cal_characteristics_t *adc_chars;
+
 /*电压值转成kom*/
-static float mv2kom(uint16_t raw)
-{   
-    float i = (REF_MV - raw) / RNF;
-    float kom = raw / i;//raw 2 kom transfrom
+static float mv2kom(uint16_t raw,int dev)
+{ 
+	float i, kom;
+	if(dev == 2)  
+	{
+		i = (float)(REF_MV - raw) / RNF2;
+	} else if(dev == 1)
+	{
+		i = (float)(REF_MV - raw) / RNF1;
+	} else {
+		i = 1;
+		MDF_LOGI("dev err.........");
+	}
+
+    kom = raw / i;//raw 2 kom transfrom
+
     return kom;
 }
 
@@ -67,11 +81,11 @@ static void temp_task(void *argc)
             adc1_config_channel_atten(g_info[n]->channel, ADC_ATTEN_DB_11);
             val = adc1_get_raw(g_info[n]->channel);
             val = esp_adc_cal_raw_to_voltage(val, adc_chars);/*将ADC读数转换为以mV为单位的电压*/
-            MDF_LOGD("adc[%d] 电压:[%d]mV", g_info[n]->channel, val);
-            float kom = mv2kom(val);
-            MDF_LOGD("adc[%d] kom[%f]",  g_info[n]->channel, kom);
+            // MDF_LOGD("adc[%d] 电压:[%d]mV", g_info[n]->channel, val);
+            float kom = mv2kom(val,n+1);
+            // MDF_LOGD("adc[%d] kom[%f]",  g_info[n]->channel, kom);
             g_info[n]->kom = mdf_calcu_kalman(g_info[n]->kalman, kom);
-            MDF_LOGD("adc[%d] after kalman kom[%f]", g_info[n]->channel, g_info[n]->kom);
+            // MDF_LOGD("adc[%d] after kalman kom[%f]", g_info[n]->channel, g_info[n]->kom);
         }
 		vTaskDelay(TP_MEASURE_PEROID_MS / portTICK_PERIOD_MS);
     }
@@ -93,7 +107,7 @@ float get_temp(temp_info_t *info)
 float calcu_kom_offset(temp_info_t *info, int true_temp)
 {
     float kom = convert2kom(true_temp);
-    MDF_LOGD("temp info kom[%f]", info->kom);
+    // MDF_LOGD("temp info kom[%f]", info->kom);
     return kom - info->kom;
 }
 
@@ -129,7 +143,7 @@ temp_info_t *build_temp_info(int channel)
         {
 			info->TempCalOff = TempCalOff[n] / 10.0;
             g_info[n] = info;
-    		MDF_LOGI("register temp info[%d],TempCalOff:%d", channel, TempCalOff[n]);
+    		// MDF_LOGI("register temp info[%d],TempCalOff:%d", channel, TempCalOff[n]);
             return info;
         } 
     }

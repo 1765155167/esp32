@@ -193,6 +193,7 @@ void json_led_press(char * data)
 		if(json_id->valueint == 1)
 		{
 			mupgrade_ota(data);//id=1
+			get_version();
 		}
 	} else {
 		MDF_LOGW("Unknown json cmd");
@@ -200,17 +201,20 @@ void json_led_press(char * data)
 	/*
 	 *@每次收到一条指令就上传一次状态信息
 	 * */
-
-	MDF_LOGI("触发实时数据上传");
-	if(esp_mesh_is_root()) {//主设备
-		esp_timer_stop(test_root_handle);
-		esp_timer_start_once(test_root_handle, 25 * 1000);
-	}else{
-		get_json_info(json_info, CONFIG_DEVICE_NUM * 2 - 1);
-		information_Upload(json_info);
-		get_json_info(json_info, CONFIG_DEVICE_NUM * 2);
-		information_Upload(json_info);
+	if (strcmp(json_cmd->valuestring,"ota") != 0)
+	{
+		MDF_LOGI("触发实时数据上传");
+		if(esp_mesh_is_root()) {//主设备
+			esp_timer_stop(test_root_handle);
+			esp_timer_start_once(test_root_handle, 25 * 1000);
+		}else{
+			get_json_info(json_info, CONFIG_DEVICE_NUM * 2 - 1);
+			information_Upload(json_info);
+			get_json_info(json_info, CONFIG_DEVICE_NUM * 2);
+			information_Upload(json_info);
+		}
 	}
+	
 ret:
 	cJSON_Delete(json_root);
 	MDF_FREE(json_info);

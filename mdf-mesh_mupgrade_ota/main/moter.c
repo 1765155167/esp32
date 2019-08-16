@@ -255,11 +255,11 @@ static void moter_ctrl(void *arg)
 /*定时计算温度*/
 static void get_temp_info(void *timer)
 {
-	MDF_LOGD("定时计算温度");
-	// moter_flag1.NTemp = get_temp(temp_info[0]);
+	// MDF_LOGD("定时计算温度");
+	moter_flag1.NTemp = get_temp(temp_info[0]);
 	moter_flag2.NTemp = get_temp(temp_info[1]);
-	moter_flag1.NTemp = moter_flag2.NTemp;//
-	// print_temp_info(temp_info[0]);
+	// moter_flag1.NTemp = moter_flag2.NTemp;//
+	print_temp_info(temp_info[0]);
 	print_temp_info(temp_info[1]);
 }
 

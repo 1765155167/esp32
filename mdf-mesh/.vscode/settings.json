@@ -1,7 +1,5 @@
 {
 	"files.associations": {
-		"mdf_common.h": "c",
-		"mdf-mesh.h": "c",
-		"adc.h": "c"
+		"mdf_common.h": "c"
 	}
 }

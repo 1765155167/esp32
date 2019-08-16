@@ -4,7 +4,7 @@
 #include "mdf_common.h"
 #include "mwifi.h"
 
-#define BUF_SIZE 1024
+#define BUF_SIZE MWIFI_PAYLOAD_LEN
 
 void send_unlock(void);
 void send_lock(void);

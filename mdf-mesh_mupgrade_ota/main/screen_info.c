@@ -51,7 +51,7 @@ extern moter_stu moter_flag2;
 
 static void screen_info_refresh(screen_info_t *info)
 {
-    MDF_LOGD("screen info refresh");
+    // MDF_LOGD("screen info refresh");
     
     int16_t temp;
 

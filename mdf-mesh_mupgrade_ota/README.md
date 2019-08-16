@@ -272,7 +272,7 @@
     ]
 }
 
-{"Devs":[{"ID": 1,"Cmd": "OAT","Params": {"table_size": 1024, "name": "helloworld.bin"}}]}
+{"Devs":[{"ID": 1,"Cmd": "ota","Params": {"table_size": 1024, "name": "helloworld.bin"}}]}
 ```
 
 ### 设备上传
