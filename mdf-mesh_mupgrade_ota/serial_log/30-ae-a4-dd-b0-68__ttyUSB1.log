@@ -1,0 +1,393 @@
+ entropy source...[0m
+[2019-08-19 11:04:03] [0;32mI (17) boot: SPI Speed      : 40MHz[0m
+[2019-08-19 11:04:03] [0;32mI (21) boot: SPI Mode       : DIO[0m
+[2019-08-19 11:04:03] [0;32mI (25) boot: SPI Flash Size : 4MB[0m
+[2019-08-19 11:04:03] [0;32mI (29) boot: Partition Table:[0m
+[2019-08-19 11:04:03] [0;32mI (33) boot: ## Label            Usage          Type ST Offset   Length[0m
+[2019-08-19 11:04:03] [0;32mI (40) boot:  0 nvs              WiFi data        01 02 00009000 00004000[0m
+[2019-08-19 11:04:03] [0;32mI (47) boot:  1 otadata          OTA data         01 00 0000d000 00002000[0m
+[2019-08-19 11:04:03] [0;32mI (55) boot:  2 phy_init         RF data          01 01 0000f000 00001000[0m
+[2019-08-19 11:04:03] [0;32mI (62) boot:  3 ota_0            OTA app          00 10 00010000 001e0000[0m
+[2019-08-19 11:04:03] [0;32mI (70) boot:  4 ota_1            OTA app          00 11 001f0000 001e0000[0m
+[2019-08-19 11:04:03] [0;32mI (77) boot:  5 coredump         Unknown data     01 03 003d0000 00010000[0m
+[2019-08-19 11:04:03] [0;32mI (85) boot:  6 reserved         Unknown data     01 fe 003e0000 00020000[0m
+[2019-08-19 11:04:03] [0;32mI (92) boot: End of partition table[0m
+[2019-08-19 11:04:03] [0;32mI (96) boot: No factory image, trying OTA 0[0m
+[2019-08-19 11:04:03] [0;32mI (101) esp_image: segment 0: paddr=0x00010020 vaddr=0x3f400020 size=0x266d4 (157396) map[0m
+[2019-08-19 11:04:03] [0;32mI (165) esp_image: segment 1: paddr=0x000366fc vaddr=0x3ffb0000 size=0x02d50 ( 11600) load[0m
+[2019-08-19 11:04:03] [0;32mI (170) esp_image: segment 2: paddr=0x00039454 vaddr=0x40080000 size=0x00400 (  1024) load[0m
+[2019-08-19 11:04:03] [0;32mI (173) esp_image: segment 3: paddr=0x0003985c vaddr=0x40080400 size=0x067b4 ( 26548) load[0m
+[2019-08-19 11:04:03] [0;32mI (192) esp_image: segment 4: paddr=0x00040018 vaddr=0x400d0018 size=0xa713c (684348) map[0m
+[2019-08-19 11:04:03] [0;32mI (432) esp_image: segment 5: paddr=0x000e715c vaddr=0x40086bb4 size=0x09dcc ( 40396) load[0m
+[2019-08-19 11:04:03] [0;32mI (459) boot: Loaded app from partition at offset 0x10000[0m
+[2019-08-19 11:04:03] [0;32mI (459) boot: Disabling RNG early entropy source...[0m
+[2019-08-19 11:04:03] [0;32mI (459) cpu_start: Pro cpu up.[0m
+[2019-08-19 11:04:03] [0;32mI (463) cpu_start: Single core mode[0m
+[2019-08-19 11:04:03] [0;32mI (467) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[2019-08-19 11:04:03] [0;32mI (474) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[2019-08-19 11:04:03] [0;32mI (480) heap_init: At 3FFB9C98 len 00026368 (152 KiB): DRAM[0m
+[2019-08-19 11:04:03] [0;32mI (487) heap_init: At 3FFE0440 len 0001FBC0 (126 KiB): D/IRAM[0m
+[2019-08-19 11:04:03] [0;32mI (493) heap_init: At 40078000 len 00008000 (32 KiB): IRAM[0m
+[2019-08-19 11:04:03] [0;32mI (499) heap_init: At 40090980 len 0000F680 (61 KiB): IRAM[0m
+[2019-08-19 11:04:03] [0;32mI (505) cpu_start: Pro cpu start user code[0m
+[2019-08-19 11:04:03] D (187) [mupgrade_check, 142]: Add an identifier to the firmware: ** MUPGRADE_FIRMWARE_FLAG **[0m
+[2019-08-19 11:04:03] [0;32mI (198) cpu_start: Starting scheduler on PRO CPU.[0m
+[2019-08-19 11:04:03] 
+[2019-08-19 11:04:03] Opening Non-Volatile moter1 && moter2 (NVS) handle...
+[2019-08-19 11:04:03] AlarmTempMax1 Failed!
+[2019-08-19 11:04:03] AlarmTempMin1 Failed!
+[2019-08-19 11:04:03] SetTempMax1 Failed!
+[2019-08-19 11:04:03] SetTempMin1 Failed!
+[2019-08-19 11:04:03] TotalTime1 Failed!
+[2019-08-19 11:04:03] OpenPer1 Failed!
+[2019-08-19 11:04:03] TempCalOff1 Failed!
+[2019-08-19 11:04:03] AlarmTempMax2 Failed!
+[2019-08-19 11:04:03] AlarmTempMin2 Failed!
+[2019-08-19 11:04:03] SetTempMax2 Failed!
+[2019-08-19 11:04:03] SetTempMin2 Failed!
+[2019-08-19 11:04:03] TotalTime2 Failed!
+[2019-08-19 11:04:03] OpenPer2 Failed!
+[2019-08-19 11:04:03] TempCalOff2 Failed!
+[2019-08-19 11:04:03] [0;32mI (248) [mdf-mesh, 543]: start mdf_mesh_init[0m
+[2019-08-19 11:04:03] I (257) wifi: wifi driver task: 3ffc1f48, prio:23, stack:3584, core=0
+[2019-08-19 11:04:03] [0;32mI (260) system_api: Base MAC address is not set, read default base MAC address from BLK0 of EFUSE[0m
+[2019-08-19 11:04:03] [0;32mI (269) system_api: Base MAC address is not set, read default base MAC address from BLK0 of EFUSE[0m
+[2019-08-19 11:04:03] I (290) wifi: wifi firmware version: 0c3a77a
+[2019-08-19 11:04:03] I (290) wifi: config NVS flash: enabled
+[2019-08-19 11:04:03] I (290) wifi: config nano formating: disabled
+[2019-08-19 11:04:03] I (291) wifi: Init dynamic tx buffer num: 32
+[2019-08-19 11:04:03] I (294) wifi: Init data frame dynamic rx buffer num: 32
+[2019-08-19 11:04:03] I (299) wifi: Init management frame dynamic rx buffer num: 32
+[2019-08-19 11:04:03] I (305) wifi: Init management short buffer num: 32
+[2019-08-19 11:04:03] I (310) wifi: Init static rx buffer size: 1600
+[2019-08-19 11:04:03] I (314) wifi: Init static rx buffer num: 10
+[2019-08-19 11:04:03] I (317) wifi: Init dynamic rx buffer num: 32
+[2019-08-19 11:04:03] I (322) wifi: Set ps type: 0
+[2019-08-19 11:04:03] 
+[2019-08-19 11:04:03] [0;33mW (325) phy_init: failed to load RF calibration data (0x1102), falling back to full calibration[0m
+[2019-08-19 11:04:03] [0;32mI (487) phy: phy_version: 4008, 544f89f, Jan 24 2019, 14:54:06, 0, 2[0m
+[2019-08-19 11:04:03] I (495) wifi: mode : sta (30:ae:a4:dd:b0:68)
+[2019-08-19 11:04:03] [0;32mI (497) [mwifi, 177]: esp-mdf version: v1.0-beta1-dirty[0m
+[2019-08-19 11:04:03] W (497) wifi: [beacon]interval:100ms
+[2019-08-19 11:04:03] I (499) wifi: mode : sta (30:ae:a4:dd:b0:68) + softAP (30:ae:a4:dd:b0:69)
+[2019-08-19 11:04:03] I (507) wifi: Total power save buffer number: 16
+[2019-08-19 11:04:03] I (510) wifi: Init max length of beacon: 752/752
+[2019-08-19 11:04:03] I (515) wifi: Init max length of beacon: 752/752
+[2019-08-19 11:04:03] I (521) mesh: <nvs>read layer:0, err:0x1102
+[2019-08-19 11:04:03] I (522) mesh: <nvs>read assoc:0, err:0x1102
+[2019-08-19 11:04:03] [0;32mI (527) [mdf-mesh, 41]: get_dev_num[0m
+[2019-08-19 11:04:03] [0;31mE (530) [mdf-mesh, 49]: 该设备MAC地址不在dest_addr中[0m
+[2019-08-19 11:04:03] [0;32mI (537) [mdf-mesh, 565]: NODE device:4[0m
+[2019-08-19 11:04:03] W (542) wifi: [beacon]interval:100ms
+[2019-08-19 11:04:03] I (544) mesh: [CONFIG]invalid router settings, ssid_len:0, ssid:, bssid:00:00:00:00:00:00
+[2019-08-19 11:04:03] I (557) wifi: Total power save buffer number: 16
+[2019-08-19 11:04:03] I (1556) wifi: Set ps type: 0
+[2019-08-19 11:04:04] 
+[2019-08-19 11:04:04] [0;32mI (1562) [mwifi, 113]: MESH is started[0m
+[2019-08-19 11:04:04] [0;32mI (1562) [mdf-mesh, 498]: event_loop_cb, event: 0[0m
+[2019-08-19 11:04:04] [0;32mI (1562) [mdf-mesh, 502]: MESH is started[0m
+[2019-08-19 11:04:04] [0;32mI (1565) [mdf-mesh, 589]: MESH_NODE[0m
+[2019-08-19 11:04:04] [0;32mI (1569) [mdf-mesh, 254]: Note read task is running[0m
+[2019-08-19 11:04:04] [0;32mI (1575) gpio: GPIO[25]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[2019-08-19 11:04:04] [0;32mI (1586) gpio: GPIO[26]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[2019-08-19 11:04:05] [0;32mI (1594) gpio: GPIO[27]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[2019-08-19 11:04:05] [0;32mI (1603) gpio: GPIO[17]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[2019-08-19 11:04:05] [0;32mI (1612) gpio: GPIO[5]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[2019-08-19 11:04:05] [0;32mI (1622) gpio: GPIO[18]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[2019-08-19 11:04:05] [0;32mI (1631) gpio: GPIO[19]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[2019-08-19 11:04:05] eFuse Two Point: NOT supported
+[2019-08-19 11:04:05] eFuse Vref: Supported
+[2019-08-19 11:04:05] Characterized using eFuse Vref
+[2019-08-19 11:04:05] [0;32mI (1648) [temp_info, 73]: temp task is start[0m
+[2019-08-19 11:04:05] [0;32mI (1654) gpio: GPIO[36]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:3 [0m
+[2019-08-19 11:04:05] [0;32mI (1662) gpio: GPIO[39]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:3 [0m
+[2019-08-19 11:04:05] [0;32mI (1672) gpio: GPIO[34]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:3 [0m
+[2019-08-19 11:04:05] [0;32mI (1681) gpio: GPIO[35]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:3 [0m
+[2019-08-19 11:04:05] [0;32mI (1692) uart: queue free spaces: 10[0m
+[2019-08-19 11:04:05] Hello .................W (1862) wifi: scan number 0
+[2019-08-19 11:04:05] 
+[2019-08-19 11:04:05] I (1863) mesh: [SCAN][ch:12]AP:0, other(ID:0, RD:0), MAP:0, idle:0, candidate:0, root:0, topMAP:0[c:0,i:0][00:00:00:00:00:00][FIXED-ROOT]<>
+[2019-08-19 11:04:05] I (1869) mesh: [FAIL][1]root:0, fail:1, normal:0
+[2019-08-19 11:04:05] 
+[2019-08-19 11:04:05] W (2175) wifi: scan number 0
+[2019-08-19 11:04:05] 
+[2019-08-19 11:04:05] I (2175) mesh: [SCAN][ch:12]AP:0, other(ID:0, RD:0), MAP:0, idle:0, candidate:0, root:0, topMAP:0[c:0,i:0][00:00:00:00:00:00][FIXED-ROOT]<>
+[2019-08-19 11:04:05] I (2179) mesh: [FAIL][2]root:0, fail:2, normal:0
+[2019-08-19 11:04:05] 
+[2019-08-19 11:04:05] W (2485) wifi: scan number 0
+[2019-08-19 11:04:05] 
+[2019-08-19 11:04:05] I (2485) mesh: [SCAN][ch:12]AP:0, other(ID:0, RD:0), MAP:0, idle:0, candidate:0, root:0, topMAP:0[c:0,i:0][00:00:00:00:00:00][FIXED-ROOT]<>
+[2019-08-19 11:04:05] I (2489) mesh: [FAIL][3]root:0, fail:3, normal:0
+[2019-08-19 11:04:05] 
+[2019-08-19 11:04:05] W (2795) wifi: scan number 0
+[2019-08-19 11:04:06] 
+[2019-08-19 11:04:06] I (2795) mesh: [SCAN][ch:12]AP:0, other(ID:0, RD:0), MAP:0, idle:0, candidate:0, root:0, topMAP:0[c:0,i:0][00:00:00:00:00:00][FIXED-ROOT]<>
+[2019-08-19 11:04:06] I (2799) mesh: [FAIL][4]root:0, fail:4, normal:0
+[2019-08-19 11:04:06] 
+[2019-08-19 11:04:06] W (3105) wifi: scan number 0
+[2019-08-19 11:04:06] 
+[2019-08-19 11:04:06] I (3105) mesh: [SCAN][ch:12]AP:0, other(ID:0, RD:0), MAP:0, idle:0, candidate:0, root:0, topMAP:0[c:0,i:0][00:00:00:00:00:00][FIXED-ROOT]<>
+[2019-08-19 11:04:06] I (3109) mesh: [FAIL][5]root:0, fail:5, normal:0
+[2019-08-19 11:04:06] 
+[2019-08-19 11:04:06] W (3415) wifi: scan number 0
+[2019-08-19 11:04:06] 
+[2019-08-19 11:04:06] I (3415) mesh: [SCAN][ch:12]AP:0, other(ID:0, RD:0), MAP:0, idle:0, candidate:0, root:0, topMAP:0[c:0,i:0][00:00:00:00:00:00][FIXED-ROOT]<>
+[2019-08-19 11:04:06] I (3419) mesh: [FAIL][6]root:0, fail:6, normal:0
+[2019-08-19 11:04:06] 
+[2019-08-19 11:04:06] W (3725) wifi: scan number 0
+[2019-08-19 11:04:07] 
+[2019-08-19 11:04:07] I (3726) mesh: [SCAN][ch:12]AP:0, other(ID:0, RD:0), MAP:0, idle:0, candidate:0, root:0, topMAP:0[c:0,i:0][00:00:00:00:00:00][FIXED-ROOT]<>
+[2019-08-19 11:04:07] I (3729) mesh: [FAIL][7]root:0, fail:7, normal:0
+[2019-08-19 11:04:07] 
+[2019-08-19 11:04:07] W (4035) wifi: scan number 0
+[2019-08-19 11:04:07] 
+[2019-08-19 11:04:07] I (4036) mesh: [SCAN][ch:12]AP:0, other(ID:0, RD:0), MAP:0, idle:0, candidate:0, root:0, topMAP:0[c:0,i:0][00:00:00:00:00:00][FIXED-ROOT]<>
+[2019-08-19 11:04:07] I (4039) mesh: [FAIL][8]root:0, fail:8, normal:0
+[2019-08-19 11:04:07] 
+[2019-08-19 11:04:07] W (4345) wifi: scan number 0
+[2019-08-19 11:04:07] 
+[2019-08-19 11:04:07] I (4346) mesh: [SCAN][ch:12]AP:0, other(ID:0, RD:0), MAP:0, idle:0, candidate:0, root:0, topMAP:0[c:0,i:0][00:00:00:00:00:00][FIXED-ROOT]<>
+[2019-08-19 11:04:07] I (4350) mesh: [FAIL][9]root:0, fail:9, normal:0
+[2019-08-19 11:04:07] 
+[2019-08-19 11:04:07] W (4655) wifi: scan number 0
+[2019-08-19 11:04:08] 
+[2019-08-19 11:04:08] I (4656) mesh: [SCAN][ch:12]AP:0, other(ID:0, RD:0), MAP:0, idle:0, candidate:0, root:0, topMAP:0[c:0,i:0][00:00:00:00:00:00][FIXED-ROOT]<>
+[2019-08-19 11:04:08] I (4660) mesh: [FAIL][10]root:0, fail:10, normal:0
+[2019-08-19 11:04:08] 
+[2019-08-19 11:04:08] [0;32mI (4695) [get_started, 32]: heap free: 151080[0m
+[2019-08-19 11:04:08] W (4966) wifi: scan number 0
+[2019-08-19 11:04:08] 
+[2019-08-19 11:04:08] I (4966) mesh: [SCAN][ch:12]AP:0, other(ID:0, RD:0), MAP:0, idle:0, candidate:0, root:0, topMAP:0[c:0,i:0][00:00:00:00:00:00][FIXED-ROOT]<>
+[2019-08-19 11:04:08] I (4970) mesh: [FAIL][11]root:0, fail:11, normal:0
+[2019-08-19 11:04:08] 
+[2019-08-19 11:04:08] W (5276) wifi: scan number 0
+[2019-08-19 11:04:08] 
+[2019-08-19 11:04:08] I (5277) mesh: [SCAN][ch:12]AP:0, other(ID:0, RD:0), MAP:0, idle:0, candidate:0, root:0, topMAP:0[c:0,i:0][00:00:00:00:00:00][FIXED-ROOT]<>
+[2019-08-19 11:04:08] I (5281) mesh: [FAIL][12]root:0, fail:12, normal:0
+[2019-08-19 11:04:08] 
+[2019-08-19 11:04:08] W (5586) wifi: scan number 0
+[2019-08-19 11:04:08] 
+[2019-08-19 11:04:08] I (5587) mesh: [SCAN][ch:12]AP:0, other(ID:0, RD:0), MAP:0, idle:0, candidate:0, root:0, topMAP:0[c:0,i:0][00:00:00:00:00:00][FIXED-ROOT]<>
+[2019-08-19 11:04:08] I (5591) mesh: [FAIL][13]root:0, fail:13, normal:0
+[2019-08-19 11:04:09] 
+[2019-08-19 11:04:09] W (5897) wifi: scan number 0
+[2019-08-19 11:04:09] 
+[2019-08-19 11:04:09] I (5897) mesh: [SCAN][ch:12]AP:0, other(ID:0, RD:0), MAP:0, idle:0, candidate:0, root:0, topMAP:0[c:0,i:0][00:00:00:00:00:00][FIXED-ROOT]<>
+[2019-08-19 11:04:09] I (5901) mesh: [FAIL][14]root:0, fail:14, normal:0
+[2019-08-19 11:04:09] 
+[2019-08-19 11:04:09] W (6207) wifi: scan number 0
+[2019-08-19 11:04:09] 
+[2019-08-19 11:04:09] I (6207) mesh: [SCAN][ch:12]AP:0, other(ID:0, RD:0), MAP:0, idle:0, candidate:0, root:0, topMAP:0[c:0,i:0][00:00:00:00:00:00][FIXED-ROOT]<>
+[2019-08-19 11:04:09] I (6211) mesh: [FAIL][15]root:0, fail:15, normal:0
+[2019-08-19 11:04:09] 
+[2019-08-19 11:04:09] W (6517) wifi: scan number 0
+[2019-08-19 11:04:09] 
+[2019-08-19 11:04:09] I (6518) mesh: [SCAN][ch:12]AP:0, other(ID:0, RD:0), MAP:0, idle:0, candidate:0, root:0, topMAP:0[c:0,i:0][00:00:00:00:00:00][FIXED-ROOT]<>
+[2019-08-19 11:04:09] I (6522) mesh: [FAIL][16]root:0, fail:16, normal:0
+[2019-08-19 11:04:09] 
+[2019-08-19 11:04:09] [0;32mI (6653) [temp_table, 93]: n[41] kom[60.494755] temp[20.680243][0m
+[2019-08-19 11:04:10] [0;32mI (6654) [temp_table, 93]: n[28] kom[109.055420] temp[7.970956][0m
+[2019-08-19 11:04:10] *************temp_info**************
+[2019-08-19 11:04:10] kom[60.494755] offset[0.000000]
+[2019-08-19 11:04:10] [0;32mI (6662) [temp_table, 93]: n[41] kom[60.494755] temp[20.680243][0m
+[2019-08-19 11:04:10] temp[20.680243]
+[2019-08-19 11:04:10] -------------------------------------
+[2019-08-19 11:04:10] *************temp_info**************
+[2019-08-19 11:04:10] kom[109.055420] offset[0.000000]
+[2019-08-19 11:04:10] [0;32mI (6681) [temp_table, 93]: n[28] kom[109.055420] temp[7.970956][0m
+[2019-08-19 11:04:10] temp[7.970956]
+[2019-08-19 11:04:10] -------------------------------------
+[2019-08-19 11:04:10] [0;33mW (6692) [mdf-moter, 142]: 设备2温度过低[0m
+[2019-08-19 11:04:10] W (6828) wifi: scan number 0
+[2019-08-19 11:04:10] 
+[2019-08-19 11:04:10] I (6828) mesh: [SCAN][ch:12]AP:0, other(ID:0, RD:0), MAP:0, idle:0, candidate:0, root:0, topMAP:0[c:0,i:0][00:00:00:00:00:00][FIXED-ROOT]<>
+[2019-08-19 11:04:10] I (6832) mesh: [FAIL][17]root:0, fail:17, normal:0
+[2019-08-19 11:04:10] 
+[2019-08-19 11:04:10] W (7138) wifi: scan number 0
+[2019-08-19 11:04:10] 
+[2019-08-19 11:04:10] I (7138) mesh: [SCAN][ch:12]AP:0, other(ID:0, RD:0), MAP:0, idle:0, candidate:0, root:0, topMAP:0[c:0,i:0][00:00:00:00:00:00][FIXED-ROOT]<>
+[2019-08-19 11:04:10] I (7142) mesh: [FAIL][18]root:0, fail:18, normal:0
+[2019-08-19 11:04:10] 
+[2019-08-19 11:04:10] [0;33mW (7198) [mdf-mesh, 416]: mwifi is not connected.[0m
+[2019-08-19 11:04:10] [0;32mI (7198) [mesh-led, 242]: up_alarm_temp_info:{"ID":8,"Cmd":"tempAlarm","Params":{"Temp":20}}[0m
+[2019-08-19 11:04:10] W (7448) wifi: scan number 0
+[2019-08-19 11:04:10] 
+[2019-08-19 11:04:10] I (7449) mesh: [SCAN][ch:12]AP:0, other(ID:0, RD:0), MAP:0, idle:0, candidate:0, root:0, topMAP:0[c:0,i:0][00:00:00:00:00:00][FIXED-ROOT]<>
+[2019-08-19 11:04:10] I (7453) mesh: [FAIL][19]root:0, fail:19, normal:0
+[2019-08-19 11:04:10] 
+[2019-08-19 11:04:10] [0;32mI (7695) [get_started, 32]: heap free: 150912[0m
+[2019-08-19 11:04:11] W (7758) wifi: scan number 0
+[2019-08-19 11:04:11] 
+[2019-08-19 11:04:11] I (7759) mesh: [SCAN][ch:12]AP:0, other(ID:0, RD:0), MAP:0, idle:0, candidate:0, root:0, topMAP:0[c:0,i:0][00:00:00:00:00:00][FIXED-ROOT]<>
+[2019-08-19 11:04:11] I (7763) mesh: [FAIL][20]root:0, fail:20, normal:0
+[2019-08-19 11:04:11] 
+[2019-08-19 11:04:11] W (8069) wifi: scan number 0
+[2019-08-19 11:04:11] 
+[2019-08-19 11:04:11] I (8069) mesh: [SCAN][ch:12]AP:0, other(ID:0, RD:0), MAP:0, idle:0, candidate:0, root:0, topMAP:0[c:0,i:0][00:00:00:00:00:00][FIXED-ROOT]<>
+[2019-08-19 11:04:11] I (8073) mesh: [FAIL][21]root:0, fail:21, normal:0
+[2019-08-19 11:04:11] 
+[2019-08-19 11:04:11] W (8379) wifi: scan number 0
+[2019-08-19 11:04:11] 
+[2019-08-19 11:04:11] I (8379) mesh: [SCAN][ch:12]AP:0, other(ID:0, RD:0), MAP:0, idle:0, candidate:0, root:0, topMAP:0[c:0,i:0][00:00:00:00:00:00][FIXED-ROOT]<>
+[2019-08-19 11:04:11] I (8383) mesh: [FAIL][22]root:0, fail:22, normal:0
+[2019-08-19 11:04:11] 
+[2019-08-19 11:04:11] W (8689) wifi: scan number 0
+[2019-08-19 11:04:12] 
+[2019-08-19 11:04:12] I (8689) mesh: [SCAN][ch:12]AP:0, other(ID:0, RD:0), MAP:0, idle:0, candidate:0, root:0, topMAP:0[c:0,i:0][00:00:00:00:00:00][FIXED-ROOT]<>
+[2019-08-19 11:04:12] I (8693) mesh: [FAIL][23]root:0, fail:23, normal:0
+[2019-08-19 11:04:12] 
+[2019-08-19 11:04:12] W (8999) wifi: scan number 0
+[2019-08-19 11:04:12] 
+[2019-08-19 11:04:12] I (9000) mesh: [SCAN][ch:12]AP:0, other(ID:0, RD:0), MAP:0, idle:0, candidate:0, root:0, topMAP:0[c:0,i:0][00:00:00:00:00:00][FIXED-ROOT]<>
+[2019-08-19 11:04:12] I (9003) mesh: [FAIL][24]root:0, fail:24, normal:0
+[2019-08-19 11:04:12] 
+[2019-08-19 11:04:12] W (9309) wifi: scan number 0
+[2019-08-19 11:04:12] 
+[2019-08-19 11:04:12] I (9310) mesh: [SCAN][ch:12]AP:0, other(ID:0, RD:0), MAP:0, idle:0, candidate:0, root:0, topMAP:0[c:0,i:0][00:00:00:00:00:00][FIXED-ROOT]<>
+[2019-08-19 11:04:12] I (9314) mesh: [FAIL][25]root:0, fail:25, normal:0
+[2019-08-19 11:04:12] 
+[2019-08-19 11:04:12] W (9619) wifi: scan number 0
+[2019-08-19 11:04:13] 
+[2019-08-19 11:04:13] I (9620) mesh: [SCAN][ch:12]AP:0, other(ID:0, RD:0), MAP:0, idle:0, candidate:0, root:0, topMAP:0[c:0,i:0][00:00:00:00:00:00][FIXED-ROOT]<>
+[2019-08-19 11:04:13] I (9624) mesh: [FAIL][26]root:0, fail:26, normal:0
+[2019-08-19 11:04:13] 
+[2019-08-19 11:04:13] W (9930) wifi: scan number 0
+[2019-08-19 11:04:13] 
+[2019-08-19 11:04:13] I (9930) mesh: [SCAN][ch:12]AP:0, other(ID:0, RD:0), MAP:0, idle:0, candidate:0, root:0, topMAP:0[c:0,i:0][00:00:00:00:00:00][FIXED-ROOT]<>
+[2019-08-19 11:04:13] I (9934) mesh: [FAIL][27]root:0, fail:27, normal:0
+[2019-08-19 11:04:13] 
+[2019-08-19 11:04:13] W (10240) wifi: scan number 0
+[2019-08-19 11:04:13] 
+[2019-08-19 11:04:13] I (10240) mesh: [SCAN][ch:12]AP:0, other(ID:0, RD:0), MAP:0, idle:0, candidate:0, root:0, topMAP:0[c:0,i:0][00:00:00:00:00:00][FIXED-ROOT]<>
+[2019-08-19 11:04:13] I (10244) mesh: [FAIL][28]root:0, fail:28, normal:0
+[2019-08-19 11:04:13] 
+[2019-08-19 11:04:13] W (10550) wifi: scan number 0
+[2019-08-19 11:04:13] 
+[2019-08-19 11:04:13] I (10551) mesh: [SCAN][ch:12]AP:0, other(ID:0, RD:0), MAP:0, idle:0, candidate:0, root:0, topMAP:0[c:0,i:0][00:00:00:00:00:00][FIXED-ROOT]<>
+[2019-08-19 11:04:13] I (10555) mesh: [FAIL][29]root:0, fail:29, normal:0
+[2019-08-19 11:04:13] 
+[2019-08-19 11:04:13] [0;32mI (10695) [get_started, 32]: heap free: 150912[0m
+[2019-08-19 11:04:14] W (10861) wifi: scan number 0
+[2019-08-19 11:04:14] 
+[2019-08-19 11:04:14] I (10861) mesh: [SCAN][ch:12]AP:0, other(ID:0, RD:0), MAP:0, idle:0, candidate:0, root:0, topMAP:0[c:0,i:0][00:00:00:00:00:00][FIXED-ROOT]<>
+[2019-08-19 11:04:14] I (10865) mesh: [FAIL][30]root:0, fail:30, normal:0
+[2019-08-19 11:04:14] 
+[2019-08-19 11:04:14] W (11171) wifi: scan number 0
+[2019-08-19 11:04:14] 
+[2019-08-19 11:04:14] I (11172) mesh: [SCAN][ch:12]AP:0, other(ID:0, RD:0), MAP:0, idle:0, candidate:0, root:0, topMAP:0[c:0,i:0][00:00:00:00:00:00][FIXED-ROOT]<>
+[2019-08-19 11:04:14] I (11176) mesh: [FAIL][31]root:0, fail:31, normal:0
+[2019-08-19 11:04:14] 
+[2019-08-19 11:04:14] W (11482) wifi: scan number 0
+[2019-08-19 11:04:14] 
+[2019-08-19 11:04:14] I (11482) mesh: [SCAN][ch:12]AP:0, other(ID:0, RD:0), MAP:0, idle:0, candidate:0, root:0, topMAP:0[c:0,i:0][00:00:00:00:00:00][FIXED-ROOT]<>
+[2019-08-19 11:04:14] I (11486) mesh: [FAIL][32]root:0, fail:32, normal:0
+[2019-08-19 11:04:14] 
+[2019-08-19 11:04:14] [0;32mI (11575) [mdf-mesh, 448]: System information, channel: 12, layer: -1, self mac: 30:ae:a4:dd:b0:68, parent bssid: 00:00:00:00:00:00, parent rssi: -120, node num: 0, free heap: 150796[0m
+[2019-08-19 11:04:14] [0;32mI (11653) [temp_table, 93]: n[34] kom[85.303284] temp[13.123632][0m
+[2019-08-19 11:04:15] [0;32mI (11654) [temp_table, 93]: n[13] kom[237.025146] temp[-7.502846][0m
+[2019-08-19 11:04:15] *************temp_info**************
+[2019-08-19 11:04:15] kom[85.303284] offset[0.000000]
+[2019-08-19 11:04:15] [0;32mI (11662) [temp_table, 93]: n[34] kom[85.303284] temp[13.123632][0m
+[2019-08-19 11:04:15] temp[13.123632]
+[2019-08-19 11:04:15] -------------------------------------
+[2019-08-19 11:04:15] *************temp_info**************
+[2019-08-19 11:04:15] kom[237.025146] offset[0.000000]
+[2019-08-19 11:04:15] [0;32mI (11681) [temp_table, 93]: n[13] kom[237.025146] temp[-7.502846][0m
+[2019-08-19 11:04:15] temp[-7.502846]
+[2019-08-19 11:04:15] -------------------------------------
+[2019-08-19 11:04:15] [0;33mW (11692) [mdf-moter, 119]: 设备1温度过低[0m
+[2019-08-19 11:04:15] W (11792) wifi: scan number 0
+[2019-08-19 11:04:15] 
+[2019-08-19 11:04:15] I (11793) mesh: [SCAN][ch:12]AP:0, other(ID:0, RD:0), MAP:0, idle:0, candidate:0, root:0, topMAP:0[c:0,i:0][00:00:00:00:00:00][FIXED-ROOT]<>
+[2019-08-19 11:04:15] I (11797) mesh: [FAIL][33]root:0, fail:33, normal:0
+[2019-08-19 11:04:15] 
+[2019-08-19 11:04:15] W (12103) wifi: scan number 0
+[2019-08-19 11:04:15] 
+[2019-08-19 11:04:15] I (12103) mesh: [SCAN][ch:12]AP:0, other(ID:0, RD:0), MAP:0, idle:0, candidate:0, root:0, topMAP:0[c:0,i:0][00:00:00:00:00:00][FIXED-ROOT]<>
+[2019-08-19 11:04:15] I (12107) mesh: [FAIL][34]root:0, fail:34, normal:0
+[2019-08-19 11:04:15] 
+[2019-08-19 11:04:15] [0;33mW (12198) [mdf-mesh, 416]: mwifi is not connected.[0m
+[2019-08-19 11:04:15] [0;32mI (12198) [mesh-led, 242]: up_alarm_temp_info:{"ID":7,"Cmd":"tempAlarm","Params":{"Temp":-7}}[0m
+[2019-08-19 11:04:15] [0;33mW (12201) [mdf-moter, 142]: 设备2温度过低[0m
+[2019-08-19 11:04:15] W (12413) wifi: scan number 0
+[2019-08-19 11:04:15] 
+[2019-08-19 11:04:15] I (12414) mesh: [SCAN][ch:12]AP:0, other(ID:0, RD:0), MAP:0, idle:0, candidate:0, root:0, topMAP:0[c:0,i:0][00:00:00:00:00:00][FIXED-ROOT]<>
+[2019-08-19 11:04:15] I (12418) mesh: [FAIL][35]root:0, fail:35, normal:0
+[2019-08-19 11:04:15] 
+[2019-08-19 11:04:15] [0;33mW (12707) [mdf-mesh, 416]: mwifi is not connected.[0m
+[2019-08-19 11:04:16] [0;32mI (12707) [mesh-led, 242]: up_alarm_temp_info:{"ID":8,"Cmd":"tempAlarm","Params":{"Temp":13}}[0m
+[2019-08-19 11:04:16] W (12724) wifi: scan number 0
+[2019-08-19 11:04:16] 
+[2019-08-19 11:04:16] I (12724) mesh: [SCAN][ch:12]AP:0, other(ID:0, RD:0), MAP:0, idle:0, candidate:0, root:0, topMAP:0[c:0,i:0][00:00:00:00:00:00][FIXED-ROOT]<>
+[2019-08-19 11:04:16] I (12728) mesh: [FAIL][36]root:0, fail:36, normal:0
+[2019-08-19 11:04:16] 
+[2019-08-19 11:04:16] W (13034) wifi: scan number 0
+[2019-08-19 11:04:16] 
+[2019-08-19 11:04:16] I (13034) mesh: [SCAN][ch:12]AP:0, other(ID:0, RD:0), MAP:0, idle:0, candidate:0, root:0, topMAP:0[c:0,i:0][00:00:00:00:00:00][FIXED-ROOT]<>
+[2019-08-19 11:04:16] I (13039) mesh: [FAIL][37]root:0, fail:37, normal:0
+[2019-08-19 11:04:16] 
+[2019-08-19 11:04:16] W (13345) wifi: scan number 0
+[2019-08-19 11:04:16] 
+[2019-08-19 11:04:16] I (13345) mesh: [SCAN][ch:12]AP:0, other(ID:0, RD:0), MAP:0, idle:0, candidate:0, root:0, topMAP:0[c:0,i:0][00:00:00:00:00:00][FIXED-ROOT]<>
+[2019-08-19 11:04:16] I (13349) mesh: [FAIL][38]root:0, fail:38, normal:0
+[2019-08-19 11:04:16] 
+[2019-08-19 11:04:16] W (13655) wifi: scan number 0
+[2019-08-19 11:04:17] 
+[2019-08-19 11:04:17] I (13655) mesh: [SCAN][ch:12]AP:0, other(ID:0, RD:0), MAP:0, idle:0, candidate:0, root:0, topMAP:0[c:0,i:0][00:00:00:00:00:00][FIXED-ROOT]<>
+[2019-08-19 11:04:17] I (13660) mesh: [FAIL][39]root:0, fail:39, normal:0
+[2019-08-19 11:04:17] 
+[2019-08-19 11:04:17] [0;32mI (13696) [get_started, 32]: heap free: 150796[0m
+[2019-08-19 11:04:17] W (13966) wifi: scan number 0
+[2019-08-19 11:04:17] 
+[2019-08-19 11:04:17] I (13966) mesh: [SCAN][ch:12]AP:0, other(ID:0, RD:0), MAP:0, idle:0, candidate:0, root:0, topMAP:0[c:0,i:0][00:00:00:00:00:00][FIXED-ROOT]<>
+[2019-08-19 11:04:17] I (13970) mesh: [FAIL][40]root:0, fail:40, normal:0
+[2019-08-19 11:04:17] 
+[2019-08-19 11:04:17] W (14276) wifi: scan number 0
+[2019-08-19 11:04:17] 
+[2019-08-19 11:04:17] I (14277) mesh: [SCAN][ch:12]AP:0, other(ID:0, RD:0), MAP:0, idle:0, candidate:0, root:0, topMAP:0[c:0,i:0][00:00:00:00:00:00][FIXED-ROOT]<>
+[2019-08-19 11:04:17] I (14281) mesh: [FAIL][41]root:0, fail:41, normal:0
+[2019-08-19 11:04:17] 
+[2019-08-19 11:04:17] W (14587) wifi: scan number 0
+[2019-08-19 11:04:17] 
+[2019-08-19 11:04:17] I (14587) mesh: [SCAN][ch:12]AP:0, other(ID:0, RD:0), MAP:0, idle:0, candidate:0, root:0, topMAP:0[c:0,i:0][00:00:00:00:00:00][FIXED-ROOT]<>
+[2019-08-19 11:04:17] I (14591) mesh: [FAIL][42]root:0, fail:42, normal:0
+[2019-08-19 11:04:17] 
+[2019-08-19 11:04:17] W (14897) wifi: scan number 0
+[2019-08-19 11:04:18] 
+[2019-08-19 11:04:18] I (14898) mesh: [SCAN][ch:12]AP:0, other(ID:0, RD:0), MAP:0, idle:0, candidate:0, root:0, topMAP:0[c:0,i:0][00:00:00:00:00:00][FIXED-ROOT]<>
+[2019-08-19 11:04:18] I (14902) mesh: [FAIL][43]root:0, fail:43, normal:0
+[2019-08-19 11:04:18] 
+[2019-08-19 11:04:18] W (15208) wifi: scan number 0
+[2019-08-19 11:04:18] 
+[2019-08-19 11:04:18] I (15208) mesh: [SCAN][ch:12]AP:0, other(ID:0, RD:0), MAP:0, idle:0, candidate:0, root:0, topMAP:0[c:0,i:0][00:00:00:00:00:00][FIXED-ROOT]<>
+[2019-08-19 11:04:18] I (15212) mesh: [FAIL][44]root:0, fail:44, normal:0
+[2019-08-19 11:04:18] 
+[2019-08-19 11:04:18] W (15518) wifi: scan number 0
+[2019-08-19 11:04:18] 
+[2019-08-19 11:04:18] I (15519) mesh: [SCAN][ch:12]AP:0, other(ID:0, RD:0), MAP:0, idle:0, candidate:0, root:0, topMAP:0[c:0,i:0][00:00:00:00:00:00][FIXED-ROOT]<>
+[2019-08-19 11:04:18] I (15523) mesh: [FAIL][45]root:0, fail:45, normal:0
+[2019-08-19 11:04:18] 
+[2019-08-19 11:04:18] W (15829) wifi: scan number 0
+[2019-08-19 11:04:19] 
+[2019-08-19 11:04:19] I (15829) mesh: [SCAN][ch:12]AP:0, other(ID:0, RD:0), MAP:0, idle:0, candidate:0, root:0, topMAP:0[c:0,i:0][00:00:00:00:00:00][FIXED-ROOT]<>
+[2019-08-19 11:04:19] I (15833) mesh: [FAIL][46]root:0, fail:46, normal:0
+[2019-08-19 11:04:19] 
+[2019-08-19 11:04:19] W (16139) wifi: scan number 0
+[2019-08-19 11:04:19] 
+[2019-08-19 11:04:19] I (16140) mesh: [SCAN][ch:12]AP:0, other(ID:0, RD:0), MAP:0, idle:0, candidate:0, root:0, topMAP:0[c:0,i:0][00:00:00:00:00:00][FIXED-ROOT]<>
+[2019-08-19 11:04:19] I (16144) mesh: [FAIL][47]root:0, fail:47, normal:0
+[2019-08-19 11:04:19] 
+[2019-08-19 11:04:19] W (16450) wifi: scan number 0
+[2019-08-19 11:04:19] 
+[2019-08-19 11:04:19] I (16450) mesh: [SCAN][ch:12]AP:0, other(ID:0, RD:0), MAP:0, idle:0, candidate:0, root:0, topMAP:0[c:0,i:0][00:00:00:00:00:00][FIXED-ROOT]<>
+[2019-08-19 11:04:19] I (16454) mesh: [FAIL][48]root:0, fail:48, normal:0
+[2019-08-19 11:04:19] 
+[2019-08-19 11:04:19] [0;32mI (16653) [temp_table, 93]: n[27] kom[114.418396] temp[6.973876][0m
+[2019-08-19 11:04:20] [0;32mI (16654) [temp_table, 93]: n[4] kom[383.485046] temp[-16.397972][0m
+[2019-08-19 11:04:20] *************temp_info**************
+[2019-08-19 11:04:20] kom[114.418396] offset[0.000000]
+[2019-08-19 11:04:20] [0;32mI (16663) [temp_table, 93]: n[27] kom[114.418396] temp[6.973876][0m
+[2019-08-19 11:04:20] temp[6.973876]
+[2019-08-19 11:04:20] -------------------------------------
+[2019-08-19 11:04:20] *************temp_info**************
+[2019-08-19 11:04:20] kom[383.4

@@ -3,7 +3,8 @@
 		"queue.h": "c",
 		"esp_timer.h": "c",
 		"typeinfo": "c",
-		"esp_log.h": "c"
+		"esp_log.h": "c",
+		"nvs_flash.h": "c"
 	},
 	"git.ignoreLimitWarning": true
 }

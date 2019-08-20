@@ -271,8 +271,8 @@
         }
     ]
 }
-
-{"Devs":[{"ID": 1,"Cmd": "ota","Params": {"table_size": 1024, "name": "helloworld.bin"}}]}
+packet_num: 901, total_size: 921872
+{"Devs":[{"ID": 1,"Cmd": "ota","Params": {"table_size": 921872, "name": "hello-world.bin"}}]}
 ```
 
 ### 设备上传

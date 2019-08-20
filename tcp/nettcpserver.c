@@ -26,8 +26,8 @@ int main()
 
 	//设置本地地址信息
 	my_addr.sin_family=AF_INET; 				//协议族
-	my_addr.sin_port=htons(1234); 		        //端口
-	my_addr.sin_addr.s_addr=inet_addr("10.42.0.1");//IP地址
+	my_addr.sin_port=htons(8070); 		        //端口
+	my_addr.sin_addr.s_addr=inet_addr("192.168.43.131");//IP地址
 	bzero(&(my_addr.sin_zero),8); 				//填充0
 
 	//绑定地址到套接字描述符上

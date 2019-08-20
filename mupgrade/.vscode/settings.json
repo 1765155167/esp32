@@ -1,0 +1,7 @@
+{
+	"files.associations": {
+		"key.h": "c",
+		"mupgrade.h": "c",
+		"mesh_mupgrade.h": "c"
+	}
+}

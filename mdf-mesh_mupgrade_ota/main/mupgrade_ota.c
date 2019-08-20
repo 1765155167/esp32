@@ -117,9 +117,16 @@ mdf_err_t set_ota_data(uint8_t * ota_data,size_t size)
 
 	/* @brief  Write firmware to flash */
 	if(get_ota_flag != pdTRUE) goto ret;
-	err = mupgrade_firmware_download(ota_data, size);
-	MDF_ERROR_GOTO(err != MDF_OK, ret, "<%s> Write firmware to flash, size: %d, ota_data: %.*s",
-					mdf_err_to_name(err), size, size, ota_data);
+	if(size > 0)
+	{
+		err = mupgrade_firmware_download(ota_data, size);
+		MDF_ERROR_GOTO(err != MDF_OK, ret, "<%s> Write firmware to flash, size: %d, ota_data: %.*s",
+						mdf_err_to_name(err), size, size, ota_data);
+	}else {
+		MDF_LOGI("size <= 0");
+		goto ret;
+	}
+	
 	total_size -= size;
 	MDF_LOGI("...................total_size = %d,size = %d",total_size, size);
 	if((int)total_size <= 0)

@@ -2,8 +2,7 @@
 
 # Mupgrade 示例
 
-## 介绍
-
+## 介绍packet_num: 901, total_size: 921872
 本示例将介绍如何快速使用 `Mupgrade` 进行 ESP-MESH 设备的升级。
 
 [Mesh Upgrade 介绍](https://docs.espressif.com/projects/esp-mdf/en/latest/api-guides/mupgrade.html)
