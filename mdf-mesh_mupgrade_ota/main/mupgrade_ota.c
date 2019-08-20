@@ -88,8 +88,7 @@ void mupgrade_ota(char * data)
 	 * @brief 2. 初始化升级状态并清除升级分区。
      */
 	MDF_LOGI("2. 初始化升级状态并清除升级分区。");
-    err = mupgrade_firmware_init(json_name->valuestring, total_size);
-	MDF_LOGI("name:%s,total_size:%d",json_name->valuestring,total_size);
+    err = mupgrade_firmware_init("hello-word.bin", total_size);
     MDF_ERROR_GOTO(err != MDF_OK, ret, "<%s> Initialize the upgrade status", mdf_err_to_name(err));
 	/**
      * @brief 3. Read firmware from the server and write it to the flash of the root node

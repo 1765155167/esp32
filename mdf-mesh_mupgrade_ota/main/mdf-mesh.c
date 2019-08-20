@@ -12,10 +12,11 @@ int CONFIG_DEVICE_NUM = 1;/*设备号*/
 int DEVICE_TYPE = MWIFI_MESH_ROOT;/*设备类型*/
 
 uint8_t dest_addr[3][MWIFI_ADDR_LEN] = {
-	{0x30, 0xae, 0xa4, 0xdd, 0xb0, 0x1c},//root 1
+	// {0x30, 0xae, 0xa4, 0xdd, 0xb0, 0x1c},//root 1
+	{0x30, 0xae, 0xa4, 0xdd, 0xb0, 0x68},
 	{0x24, 0x6f, 0x28, 0xd9, 0x5f, 0x84},//node 1
 	{0x3c, 0x71, 0xbf, 0xe0, 0x92, 0xb8},//node 2
-	// {0x30, 0xae, 0xa4, 0xdd, 0xb0, 0x68},
+	
 };
 
 BaseType_t mac_cmp(uint8_t * sta_mac, uint8_t * dest_addr)
@@ -580,7 +581,7 @@ mdf_err_t mdf_mesh_init()
     if (config.mesh_type == MESH_ROOT) {
 		MDF_LOGI("MESH_ROOT");
         xTaskCreate(uart_handle_task, "uart_handle_task", 4 * 1024,
-                    NULL, CONFIG_MDF_TASK_DEFAULT_PRIOTY, NULL);
+                    NULL, CONFIG_MDF_TASK_DEFAULT_PRIOTY, pvCreatedTask);
 		xTaskCreate(node_read_task, "node_read_task", 4 * 1024,
                         NULL, CONFIG_MDF_TASK_DEFAULT_PRIOTY, NULL);	
 		xTaskCreate(root_read_task, "root_read_task", 4 * 1024,

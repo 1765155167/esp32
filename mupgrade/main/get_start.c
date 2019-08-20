@@ -17,9 +17,8 @@ void app_main()
         ret = nvs_flash_init();
     }
 	MDF_ERROR_ASSERT(ret);
-	
-	MDF_ERROR_ASSERT( key_init() );
 	MDF_ERROR_ASSERT( led_init() );
+	MDF_ERROR_ASSERT( key_init() );
 	MDF_ERROR_ASSERT( mupgrade_init() );
 	
 	for(;;)

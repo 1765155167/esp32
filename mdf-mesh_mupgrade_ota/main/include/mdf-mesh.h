@@ -5,7 +5,7 @@
 #include "mwifi.h"
 
 #define BUF_SIZE MWIFI_PAYLOAD_LEN
-
+xTaskHandle *pvCreatedTask;
 void send_unlock(void);
 void send_lock(void);
 
