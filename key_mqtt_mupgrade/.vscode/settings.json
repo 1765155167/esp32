@@ -1,0 +1,8 @@
+{
+	"files.associations": {
+		"key.h": "c",
+		"mupgrade.h": "c",
+		"mesh_mupgrade.h": "c",
+		"mesh_mqtt_handle.h": "c"
+	}
+}

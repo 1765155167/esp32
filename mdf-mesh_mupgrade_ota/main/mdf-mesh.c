@@ -6,10 +6,16 @@
 #include "mupgrade_ota.h"
 
 static const char *TAG = "mdf-mesh";
+static xQueueHandle g_queue_handle       = NULL;
 static xSemaphoreHandle g_send_lock;
 static xSemaphoreHandle _recv_lock;
 int CONFIG_DEVICE_NUM = 1;/*设备号*/
 int DEVICE_TYPE = MWIFI_MESH_ROOT;/*设备类型*/
+
+typedef struct {/*OAT升级固件信息*/
+    size_t size;     /**< Received size */
+    uint8_t *data; /**< Received data */
+} queue_data_t;
 
 uint8_t dest_addr[3][MWIFI_ADDR_LEN] = {
 	// {0x30, 0xae, 0xa4, 0xdd, 0xb0, 0x1c},//root 1
@@ -120,7 +126,6 @@ static mdf_err_t uart_initialize(void)
  */
 static void uart_handle_task(void *arg)
 {
-	int i = 0;
 	mdf_err_t err;
 	uint8_t ack_typ;
 	uint8_t typ;
@@ -163,25 +168,18 @@ static void uart_handle_task(void *arg)
 
 		if(typ == BIN)
 		{
-			i = 0;
-			while(!wail_ota()) {
-				i ++;
-				if(i > 10) {
-					MDF_LOGI("ota未准备...");
-					break;
-				}
-				vTaskDelay(30 / portTICK_PERIOD_MS);
-			}
-			err = set_ota_data(data, recv_length);
-			MDF_LOGI("data:BIN,recv_length:%d",recv_length);
-			if(err == MDF_OK)
-				MDF_LOGI("set_ota_data ok");
-			else
-				MDF_LOGI("set_ota_data err");
-			continue;
+			queue_data_t q_data = {0x0};
+            q_data.data = MDF_MALLOC(recv_length);
+            q_data.size = recv_length;
+			memcpy(q_data.data,data,recv_length);
+
+			if (xQueueSend(g_queue_handle, &q_data, 0) != pdPASS) {
+                MDF_LOGD("OTA Send receive queue failed");
+                MDF_FREE(q_data.data);
+            }
 		}
 		MDF_LOGI("data:STR");
-		// MDF_ERROR_CONTINUE(typ != STR,"uart recv data type is not STR!");
+		MDF_ERROR_CONTINUE(typ != STR,"uart recv data type is not STR!");
 		
 		MDF_LOGI("uart recv data %s,len = %d", data, recv_length);
 		json_root = cJSON_Parse((char *)data);
@@ -266,6 +264,7 @@ static void node_read_task(void *arg)
 		MDF_ERROR_CONTINUE(ret != MDF_OK, "<%s> mwifi_root_recv", mdf_err_to_name(ret));
 		
 		if (data_type.upgrade) { // This mesh package contains upgrade data.
+			MDF_LOGI("node upgrade.......");
             ret = mupgrade_handle(src_addr, data, size);/*处理ROOT发送的升级数据*/
             MDF_ERROR_CONTINUE(ret != MDF_OK, "<%s> mupgrade_handle", mdf_err_to_name(ret));
         } else {
@@ -353,8 +352,6 @@ static mdf_err_t root_recv_data_process(char * data)
 		default:
 			break;
 		}
-		// esp_timer_stop(test_root_handle);
-		// esp_timer_start_once(test_root_handle, 25 * 1000);
 	}
 	
 ret:
@@ -386,6 +383,7 @@ static void root_read_task(void *arg)
 		MDF_ERROR_CONTINUE(ret != MDF_OK, "<%s> mwifi_root_recv", mdf_err_to_name(ret));
 		
 		if (data_type.upgrade) { // This mesh package contains upgrade data.
+			MDF_LOGI("root upgrade........");
             ret = mupgrade_root_handle(src_addr, data, size);/*ota*/
             MDF_ERROR_CONTINUE(ret != MDF_OK, "<%s> mupgrade_root_handle", mdf_err_to_name(ret));
         } else {
@@ -486,6 +484,158 @@ static mdf_err_t wifi_init()
     return MDF_OK;
 }
 
+void mupgrade_ota(char * data)
+{
+	mdf_err_t err = MDF_OK;
+
+	static bool init_flag = pdFALSE;
+	if(init_flag) {
+		return ;
+	}
+	init_flag = pdTRUE;
+	
+	cJSON *json_root   = NULL;
+    cJSON *json_id     = NULL;
+	cJSON *json_cmd    = NULL;
+	cJSON *json_params = NULL;
+	cJSON *json_size   = NULL;
+	cJSON *json_name   = NULL;
+	size_t total_size  = 0;
+	// char name[32]       = {0x0};
+	int start_time      = 0;
+    mupgrade_result_t upgrade_result = {0};
+    mwifi_data_type_t data_type = {.communicate = MWIFI_COMMUNICATE_MULTICAST};	
+
+	/**
+     * @note If you need to upgrade all devices, pass MWIFI_ADDR_ANY;
+     *       If you upgrade the incoming address list to the specified device
+     */
+    // uint8_t dest_addr[][MWIFI_ADDR_LEN] = {{0x1, 0x1, 0x1, 0x1, 0x1, 0x1}, {0x2, 0x2, 0x2, 0x2, 0x2, 0x2},};
+    uint8_t dest_addr[][MWIFI_ADDR_LEN] = {MWIFI_ADDR_ANY};
+	
+	MDF_LOGI("start mupgrade_ota");
+	json_root = cJSON_Parse((char *)data);
+	MDF_ERROR_GOTO(!json_root, EXIT, "cJSON_Parse, data format error, data: %s", data);
+
+	json_id = cJSON_GetObjectItem(json_root, "ID");
+	if (!json_id) {/* json id 不存在 */
+		MDF_LOGW("ID not found");
+		goto EXIT;
+	}
+	json_cmd = cJSON_GetObjectItem(json_root, "Cmd");
+	if (!json_cmd) {/* json cmd 不存在 */
+		MDF_LOGW("Cmd not found");
+		goto EXIT;
+	}
+	if(strcmp(json_cmd->valuestring,"ota") != 0) {
+		MDF_LOGW("Cmd not is ota");
+		goto EXIT;
+	}
+	json_params = cJSON_GetObjectItem(json_root, "Params");
+	if (!json_params) {
+		MDF_LOGW("Params not found");
+		goto EXIT;
+	}
+	json_size = cJSON_GetObjectItem(json_params, "table_size");
+	if (!json_size) {
+		MDF_LOGW("table_size not found");
+		goto EXIT;
+	}
+	json_name = cJSON_GetObjectItem(json_params, "name");
+	if (!json_name) {
+		MDF_LOGW("name not found");
+		goto EXIT;
+	}
+	// memcpy(name, json_name->valuestring, sizeof(json_name->valuestring));
+	total_size = json_size->valueint;
+	
+	start_time = xTaskGetTickCount();
+	if (total_size <= 0) {
+        MDF_LOGW("Please check the address of the server");
+		MDF_LOGW("Recv data: %.*s", err, data);
+        goto EXIT;
+    }
+	/**
+     * @brief 2. Initialize the upgrade status and erase the upgrade partition.
+	 * @brief 2. 初始化升级状态并清除升级分区。
+     */
+	MDF_LOGI("2. 初始化升级状态并清除升级分区。");
+    err = mupgrade_firmware_init("hello-world.bin", total_size);
+    MDF_ERROR_GOTO(err != MDF_OK, EXIT, "<%s> Initialize the upgrade status", mdf_err_to_name(err));
+	/**
+     * @brief 3. Read firmware from the server and write it to the flash of the root node
+	 * @brief 3. 从服务器读取固件并将其写入根节点的闪存
+     */
+	MDF_LOGI("3. 从服务器读取固件并将其写入根节点的闪存");
+
+	for (ssize_t size = 0, recv_size = 0; recv_size < total_size; recv_size += size) {
+        // size = esp_http_client_read(client, (char *)data, MWIFI_PAYLOAD_LEN);
+        
+		queue_data_t q_data = {0x0};
+
+		if (xQueueReceive(g_queue_handle, &q_data, 100000) != pdPASS) {
+			MDF_LOGD("Read queue timeout");
+			goto EXIT;
+		}
+
+		size = q_data.size;
+
+		MDF_ERROR_GOTO(size < 0, EXIT, "<%s> Read data from http stream", mdf_err_to_name(err));
+
+        if (size > 0) {
+            /* @brief  Write firmware to flash */
+            err = mupgrade_firmware_download(q_data.data, size);
+			MDF_FREE(q_data.data);
+            MDF_ERROR_GOTO(err != MDF_OK, EXIT, "<%s> Write firmware to flash, size: %d, data: %.*s",
+                           mdf_err_to_name(err), size, size, data);
+        } else {
+			MDF_FREE(q_data.data);
+            MDF_LOGW("<%s> esp_http_client_read", mdf_err_to_name(err));
+            goto EXIT;
+        }
+    }
+
+    MDF_LOGI("The service download firmware is complete, Spend time: %ds",
+             (xTaskGetTickCount() - start_time) * portTICK_RATE_MS / 1000);
+
+    start_time = xTaskGetTickCount();
+
+    /**
+     * @brief 4. The firmware will be sent to each node.
+     */
+    err = mupgrade_firmware_send((uint8_t *)dest_addr, sizeof(dest_addr) / MWIFI_ADDR_LEN, &upgrade_result);
+    MDF_ERROR_GOTO(err != MDF_OK, EXIT, "<%s> mupgrade_firmware_send", mdf_err_to_name(err));
+
+    if (upgrade_result.successed_num == 0) {
+        MDF_LOGW("Devices upgrade failed, unfinished_num: %d", upgrade_result.unfinished_num);
+        goto EXIT;
+    }
+
+    MDF_LOGI("Firmware is sent to the device to complete, Spend time: %ds",
+             (xTaskGetTickCount() - start_time) * portTICK_RATE_MS / 1000);
+    MDF_LOGI("Devices upgrade completed, successed_num: %d, unfinished_num: %d", upgrade_result.successed_num, upgrade_result.unfinished_num);
+
+    /**
+     * @brief 5. the root notifies nodes to restart
+     */
+    const char *restart_str = "restart";
+    err = mwifi_root_write(upgrade_result.successed_addr, upgrade_result.successed_num,
+                           &data_type, restart_str, strlen(restart_str), true);
+    MDF_ERROR_GOTO(err != MDF_OK, EXIT, "<%s> mwifi_root_recv", mdf_err_to_name(err));
+
+EXIT:
+    MDF_FREE(data);
+    mupgrade_result_free(&upgrade_result);
+    // esp_http_client_close(client);
+    // esp_http_client_cleanup(client);
+    vTaskDelete(NULL);
+	cJSON_Delete(json_root);
+    
+	return ;
+}
+
+
+
 /**
  * @brief All module events will be sent to this task in esp-mdf
  *
@@ -571,6 +721,8 @@ mdf_err_t mdf_mesh_init()
         .mesh_id   = CONFIG_MESH_ID,
         .mesh_type = DEVICE_TYPE,
     };
+
+	g_queue_handle = xQueueCreate(10, sizeof(queue_data_t));
 
     MDF_ERROR_ASSERT(mwifi_set_config(&config));
     MDF_ERROR_ASSERT(mwifi_start());

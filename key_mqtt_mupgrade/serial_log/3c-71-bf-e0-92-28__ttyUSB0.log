@@ -1,0 +1,279 @@
+SP-IDF v3.2.2ýets Jun  8 2016 00:22:57
+[2019-08-21 15:59:08] 
+[2019-08-21 15:59:08] rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[2019-08-21 15:59:08] configsip: 0, SPIWP:0xee
+[2019-08-21 15:59:08] clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+[2019-08-21 15:59:08] mode:DIO, clock div:2
+[2019-08-21 15:59:08] load:0x3fff0018,len:4
+[2019-08-21 15:59:08] load:0x3fff001c,len:6192
+[2019-08-21 15:59:08] ho 0 tail 12 room 4
+[2019-08-21 15:59:08] load:0x40078000,len:10272
+[2019-08-21 15:59:08] load:0x40080400,len:6608
+[2019-08-21 15:59:08] entry 0x40080764
+[2019-08-21 15:59:08] [0;32mI (30) boot: ESP-IDF v3.2.2-42-g4a9f33944-dirty 2nd stage bootloader[0m
+[2019-08-21 15:59:08] [0;32mI (30) boot: compile time 15:29:28[0m
+[2019-08-21 15:59:08] [0;32mI (30) boot: Enabling RNG early entropy source...[0m
+[2019-08-21 15:59:08] [0;32mI (36) boot: SPI Speed      : 40MHz[0m
+[2019-08-21 15:59:08] [0;32mI (41) boot: SPI Mode       : DIO[0m
+[2019-08-21 15:59:08] [0;32mI (45) boot: SPI Flash Size : 4MB[0m
+[2019-08-21 15:59:08] [0;32mI (49) boot: Partition Table:[0m
+[2019-08-21 15:59:08] [0;32mI (52) boot: ## Label            Usage          Type ST Offset   Length[0m
+[2019-08-21 15:59:08] [0;32mI (59) boot:  0 nvs              WiFi data        01 02 00009000 00004000[0m
+[2019-08-21 15:59:08] [0;32mI (67) boot:  1 otadata          OTA data         01 00 0000d000 00002000[0m
+[2019-08-21 15:59:08] [0;32mI (74) boot:  2 phy_init         RF data          01 01 0000f000 00001000[0m
+[2019-08-21 15:59:08] [0;32mI (82) boot:  3 ota_0            OTA app          00 10 00010000 001e0000[0m
+[2019-08-21 15:59:08] [0;32mI (89) boot:  4 ota_1            OTA app          00 11 001f0000 001e0000[0m
+[2019-08-21 15:59:08] [0;32mI (97) boot:  5 coredump         Unknown data     01 03 003d0000 00010000[0m
+[2019-08-21 15:59:08] [0;32mI (104) boot:  6 reserved         Unknown data     01 fe 003e0000 00020000[0m
+[2019-08-21 15:59:08] [0;32mI (112) boot: End of partition table[0m
+[2019-08-21 15:59:08] [0;32mI (116) boot: No factory image, trying OTA 0[0m
+[2019-08-21 15:59:08] [0;32mI (121) esp_image: segment 0: paddr=0x00010020 vaddr=0x3f400020 size=0x2b104 (176388) map[0m
+[2019-08-21 15:59:08] [0;32mI (192) esp_image: segment 1: paddr=0x0003b12c vaddr=0x3ffb0000 size=0x02c84 ( 11396) load[0m
+[2019-08-21 15:59:08] [0;32mI (197) esp_image: segment 2: paddr=0x0003ddb8 vaddr=0x40080000 size=0x00400 (  1024) load[0m
+[2019-08-21 15:59:08] [0;32mI (199) esp_image: segment 3: paddr=0x0003e1c0 vaddr=0x40080400 size=0x01e50 (  7760) load[0m
+[2019-08-21 15:59:08] [0;32mI (211) esp_image: segment 4: paddr=0x00040018 vaddr=0x400d0018 size=0xc3a3c (801340) map[0m
+[2019-08-21 15:59:08] [0;32mI (497) esp_image: segment 5: paddr=0x00103a5c vaddr=0x40082250 size=0x0db6c ( 56172) load[0m
+[2019-08-21 15:59:09] [0;32mI (530) boot: Loaded app from partition at offset 0x10000[0m
+[2019-08-21 15:59:09] [0;32mI (530) boot: Disabling RNG early entropy source...[0m
+[2019-08-21 15:59:09] [0;32mI (531) cpu_start: Pro cpu up.[0m
+[2019-08-21 15:59:09] [0;32mI (534) cpu_start: Single core mode[0m
+[2019-08-21 15:59:09] [0;32mI (539) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[2019-08-21 15:59:09] [0;32mI (545) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[2019-08-21 15:59:09] [0;32mI (552) heap_init: At 3FFB9D98 len 00026268 (152 KiB): DRAM[0m
+[2019-08-21 15:59:09] [0;32mI (558) heap_init: At 3FFE0440 len 0001FBC0 (126 KiB): D/IRAM[0m
+[2019-08-21 15:59:09] [0;32mI (564) heap_init: At 40078000 len 00008000 (32 KiB): IRAM[0m
+[2019-08-21 15:59:09] [0;32mI (570) heap_init: At 4008FDBC len 00010244 (64 KiB): IRAM[0m
+[2019-08-21 15:59:09] [0;32mI (577) cpu_start: Pro cpu start user code[0m
+[2019-08-21 15:59:09] D (258) [mupgrade_check, 142]: Add an identifier to the firmware: ** MUPGRADE_FIRMWARE_FLAG **[0m
+[2019-08-21 15:59:09] [0;32mI (269) cpu_start: Starting scheduler on PRO CPU.[0m
+[2019-08-21 15:59:09] [0;32mI (270) gpio: GPIO[4]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[2019-08-21 15:59:09] [0;32mI (273) gpio: GPIO[13]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[2019-08-21 15:59:09] [0;32mI (282) gpio: GPIO[21]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[2019-08-21 15:59:09] [0;32mI (292) gpio: GPIO[22]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[2019-08-21 15:59:09] [0;32mI (301) gpio: GPIO[23]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[2019-08-21 15:59:09] [0;32mI (310) gpio: GPIO[17]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[2019-08-21 15:59:09] [0;32mI (320) gpio: GPIO[5]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[2019-08-21 15:59:09] [0;32mI (329) gpio: GPIO[18]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[2019-08-21 15:59:09] [0;32mI (338) gpio: GPIO[19]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[2019-08-21 15:59:09] [0;32mI (348) gpio: GPIO[33]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:3 [0m
+[2019-08-21 15:59:09] [0;32mI (357) gpio: GPIO[25]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:3 [0m
+[2019-08-21 15:59:09] [0;32mI (366) gpio: GPIO[26]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:3 [0m
+[2019-08-21 15:59:09] [0;32mI (375) gpio: GPIO[32]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 1| Intr:3 [0m
+[2019-08-21 15:59:09] [0;32mI (385) [mupgrade_example, 576]: Starting OTA example ...[0m
+[2019-08-21 15:59:09] I (394) wifi: wifi driver task: 3ffc2cac, prio:23, stack:3584, core=0
+[2019-08-21 15:59:09] [0;32mI (397) system_api: Base MAC address is not set, read default base MAC address from BLK0 of EFUSE[0m
+[2019-08-21 15:59:09] [0;32mI (406) system_api: Base MAC address is not set, read default base MAC address from BLK0 of EFUSE[0m
+[2019-08-21 15:59:09] I (427) wifi: wifi firmware version: 0c3a77a
+[2019-08-21 15:59:09] I (427) wifi: config NVS flash: enabled
+[2019-08-21 15:59:09] I (427) wifi: config nano formating: disabled
+[2019-08-21 15:59:09] I (428) wifi: Init dynamic tx buffer num: 32
+[2019-08-21 15:59:09] I (432) wifi: Init data frame dynamic rx buffer num: 32
+[2019-08-21 15:59:09] I (436) wifi: Init management frame dynamic rx buffer num: 32
+[2019-08-21 15:59:09] I (442) wifi: Init management short buffer num: 32
+[2019-08-21 15:59:09] I (447) wifi: Init static rx buffer size: 1600
+[2019-08-21 15:59:09] I (451) wifi: Init static rx buffer num: 10
+[2019-08-21 15:59:09] I (455) wifi: Init dynamic rx buffer num: 32
+[2019-08-21 15:59:09] I (459) wifi: Set ps type: 0
+[2019-08-21 15:59:09] 
+[2019-08-21 15:59:09] [0;33mW (462) phy_init: failed to load RF calibration data (0x1102), falling back to full calibration[0m
+[2019-08-21 15:59:09] [0;32mI (656) phy: phy_version: 4008, 544f89f, Jan 24 2019, 14:54:06, 0, 2[0m
+[2019-08-21 15:59:09] I (664) wifi: mode : sta (3c:71:bf:e0:92:28)
+[2019-08-21 15:59:09] [0;32mI (666) [mwifi, 177]: esp-mdf version: v1.0-beta1-dirty[0m
+[2019-08-21 15:59:09] W (666) wifi: [beacon]interval:100ms
+[2019-08-21 15:59:09] I (668) wifi: mode : sta (3c:71:bf:e0:92:28) + softAP (3c:71:bf:e0:92:29)
+[2019-08-21 15:59:09] I (676) wifi: Total power save buffer number: 16
+[2019-08-21 15:59:09] I (678) wifi: Init max length of beacon: 752/752
+[2019-08-21 15:59:09] I (683) wifi: Init max length of beacon: 752/752
+[2019-08-21 15:59:09] I (690) mesh: <nvs>read layer:0, err:0x1102
+[2019-08-21 15:59:09] I (691) mesh: <nvs>read assoc:0, err:0x1102
+[2019-08-21 15:59:09] W (696) wifi: [beacon]interval:100ms
+[2019-08-21 15:59:09] I (1692) wifi: Total power save buffer number: 16
+[2019-08-21 15:59:10] I (2693) wifi: Set ps type: 0
+[2019-08-21 15:59:11] 
+[2019-08-21 15:59:11] I (2698) wifi: mode : sta (3c:71:bf:e0:92:28)
+[2019-08-21 15:59:11] I (2700) mesh: <MESH_NWK_LOOK_FOR_NETWORK>need_scan:0x3, need_scan_router:0x0, look_for_nwk_count:1
+[2019-08-21 15:59:11] [0;32mI (2702) [mwifi, 113]: MESH is started[0m
+[2019-08-21 15:59:11] [0;32mI (2705) [mupgrade_example, 386]: event_loop_cb, event: 0[0m
+[2019-08-21 15:59:11] [0;32mI (5711) [get_started, 27]: heap free: 176004[0m
+[2019-08-21 15:59:14] I (6612) mesh: [S15]Mr.Hu, e0:dc:ff:64:03:71, channel:8, rssi:-29
+[2019-08-21 15:59:15] I (6612) mesh: find router:[ssid_len:5]Mr.Hu, rssi:-29, e0:dc:ff:64:03:71(encrypted), new channel:8, old channel:0
+[2019-08-21 15:59:15] I (6618) mesh: [FIND][ch:0]AP:30, otherID:0, MAP:1, idle:1, candidate:0, root:0[e0:dc:ff:64:03:71]router found
+[2019-08-21 15:59:15] I (6627) mesh: [FIND:1]find a network, channel:8, cfg<channel:0, router:Mr.Hu, 00:00:00:00:00:00>
+[2019-08-21 15:59:15] 
+[2019-08-21 15:59:15] [0;32mI (6636) [mupgrade_example, 386]: event_loop_cb, event: 24[0m
+[2019-08-21 15:59:15] I (6637) wifi: mode : sta (3c:71:bf:e0:92:28) + softAP (3c:71:bf:e0:92:29)
+[2019-08-21 15:59:15] W (6650) wifi: <MESH AP>adjust channel:1, secondary channel offset:1(40U)
+[2019-08-21 15:59:15] I (6658) wifi: Total power save buffer number: 16
+[2019-08-21 15:59:15] W (6666) wifi: <MESH AP>adjust channel:8, secondary channel offset:1(40U)
+[2019-08-21 15:59:15] I (6669) wifi: Total power save buffer number: 16
+[2019-08-21 15:59:15] I (6976) mesh: [SCAN][ch:8]AP:4, other(ID:0, RD:0), MAP:1, idle:0, candidate:1, root:1, topMAP:0[c:0,i:0][e0:dc:ff:64:03:71]router found<>
+[2019-08-21 15:59:15] I (6980) mesh: 6563[selection]try rssi_threshold:-78, backoff times:0, max:5<-78,-82,-85>
+[2019-08-21 15:59:15] I (6987) mesh: [DONE]connect to parent:ESPM_E092B8, channel:8, rssi:-20, 3c:71:bf:e0:92:b9[layer:1, assoc:0], my_vote_num:0/voter_num:0, rc[00:00:00:00:00:00/-120/0]
+[2019-08-21 15:59:15] I (7001) mesh: set router bssid:e0:dc:ff:64:03:71
+[2019-08-21 15:59:15] I (8513) wifi: n:8 1, o:8 1, ap:8 1, sta:8 1, prof:8
+[2019-08-21 15:59:17] I (9503) wifi: state: init -> auth (b0)
+[2019-08-21 15:59:18] I (9511) wifi: state: auth -> assoc (0)
+[2019-08-21 15:59:18] [0;32mI (9513) [get_started, 27]: heap free: 175148[0m
+[2019-08-21 15:59:18] I (9527) wifi: state: assoc -> run (10)
+[2019-08-21 15:59:18] I (9533) wpa: <EAPOL>state:6
+[2019-08-21 15:59:18] I (9533) wpa: <EAPOL>receiving the 1/4 EAPOL-Key, state:6
+[2019-08-21 15:59:18] I (9546) wpa: <EAPOL>state:7
+[2019-08-21 15:59:18] I (9547) wpa: <EAPOL>receiving the 3/4 EAPOL-Key, state:7
+[2019-08-21 15:59:18] I (9547) wifi: connected with ESPM_E092B8, channel 8, 40U
+[2019-08-21 15:59:18] I (9551) wifi: pm start, type: 0
+[2019-08-21 15:59:18] 
+[2019-08-21 15:59:18] I (9555) mesh: [scan]new scanning time:600ms
+[2019-08-21 15:59:18] W (9556) wifi: [beacon]new interval:300ms
+[2019-08-21 15:59:18] I (9561) mesh: 1891<arm>parent monitor, my layer:2(cap:16)(node), interval:8888ms, retries:1<normal connected>
+[2019-08-21 15:59:18] [0;32mI (9569) [mwifi, 80]: Parent is connected[0m
+[2019-08-21 15:59:18] [0;32mI (9574) [mupgrade_example, 386]: event_loop_cb, event: 7[0m
+[2019-08-21 15:59:18] [0;32mI (9575) [mwifi, 149]: State represents: 0[0m
+[2019-08-21 15:59:18] [0;32mI (9581) [mupgrade_example, 391]: MDF_EVENT_PARENT_CONNECTED[0m
+[2019-08-21 15:59:18] [0;32mI (9591) [mupgrade_example, 386]: event_loop_cb, event: 11[0m
+[2019-08-21 15:59:18] [0;32mI (9597) [mupgrade_example, 386]: event_loop_cb, event: 14[0m
+[2019-08-21 15:59:18] [0;32mI (9604) [mupgrade_example, 195]: Node task is running[0m
+[2019-08-21 15:59:18] [0;32mI (9605) [mupgrade_example, 146]: Node read task is running[0m
+[2019-08-21 15:59:18] [0;32mI (12513) [get_started, 27]: heap free: 163300[0m
+[2019-08-21 15:59:21] I (13380) mesh: <MESH_NWK_MIE_CHANGE><><TODS><><><><><>
+[2019-08-21 15:59:22] [0;32mI (13381) [mwifi, 149]: State represents: 0[0m
+[2019-08-21 15:59:22] [0;32mI (13381) [mupgrade_example, 386]: event_loop_cb, event: 11[0m
+[2019-08-21 15:59:22] D (13611) [mupgrade_example, 211]: Node send, size: 42, data: {"mac": "3c71bfe09228", "seq":0,"layer":2}[0m
+[2019-08-21 15:59:22] [0;32mI (15513) [get_started, 27]: heap free: 163204[0m
+[2019-08-21 15:59:24] D (16623) [mupgrade_example, 211]: Node send, size: 42, data: {"mac": "3c71bfe09228", "seq":1,"layer":2}[0m
+[2019-08-21 15:59:25] [0;32mI (18513) [get_started, 27]: heap free: 163204[0m
+[2019-08-21 15:59:27] I (18671) mesh: 4433<active>parent layer:1(node), channel:8, rssi:-17, assoc:0(cnx rssi threshold:-120)my_assoc:0
+[2019-08-21 15:59:27] D (19627) [mupgrade_example, 211]: Node send, size: 42, data: {"mac": "3c71bfe09228", "seq":2,"layer":2}[0m
+[2019-08-21 15:59:28] I (20175) mesh: 5177<scan>parent layer:1, rssi:-18, assoc:1(cnx rssi threshold:-120)
+[2019-08-21 15:59:29] I (20176) mesh: [SCAN][ch:8]AP:1, other(ID:0, RD:0), MAP:1, idle:0, candidate:1, root:1, topMAP:0[c:2,i:2][e0:dc:ff:64:03:71]<weak>
+[2019-08-21 15:59:29] I (20184) mesh: 6563[weak]try rssi_threshold:-120, backoff times:0, max:5<-78,-82,-85>
+[2019-08-21 15:59:29] I (20191) mesh: 616[monitor]no change, parent:3c:71:bf:e0:92:b9, rssi:-18
+[2019-08-21 15:59:29] I (20197) mesh: 1891<arm>parent monitor, my layer:2(cap:16)(node), interval:7781ms, retries:2<>
+[2019-08-21 15:59:29] [0;32mI (21513) [get_started, 27]: heap free: 162980[0m
+[2019-08-21 15:59:30] D (22641) [mupgrade_example, 211]: Node send, size: 42, data: {"mac": "3c71bfe09228", "seq":3,"layer":2}[0m
+[2019-08-21 15:59:31] [0;32mI (24513) [get_started, 27]: heap free: 162980[0m
+[2019-08-21 15:59:33] D (25645) [mupgrade_example, 211]: Node send, size: 42, data: {"mac": "3c71bfe09228", "seq":4,"layer":2}[0m
+[2019-08-21 15:59:34] [0;32mI (27513) [get_started, 27]: heap free: 162980[0m
+[2019-08-21 15:59:36] I (28175) mesh: 4433<active>parent layer:1(node), channel:8, rssi:-17, assoc:1(cnx rssi threshold:-120)my_assoc:0
+[2019-08-21 15:59:37] D (28661) [mupgrade_example, 211]: Node send, size: 42, data: {"mac": "3c71bfe09228", "seq":5,"layer":2}[0m
+[2019-08-21 15:59:37] I (29679) mesh: 5177<scan>parent layer:1, rssi:-18, assoc:1(cnx rssi threshold:-120)
+[2019-08-21 15:59:38] I (29680) mesh: [SCAN][ch:8]AP:1, other(ID:0, RD:0), MAP:1, idle:0, candidate:1, root:1, topMAP:0[c:0,i:2][e0:dc:ff:64:03:71]<weak>
+[2019-08-21 15:59:38] I (29688) mesh: 6563[weak]try rssi_threshold:-120, backoff times:0, max:5<-78,-82,-85>
+[2019-08-21 15:59:38] I (29695) mesh: 616[monitor]no change, parent:3c:71:bf:e0:92:b9, rssi:-18
+[2019-08-21 15:59:38] I (29702) mesh: 1891<arm>parent monitor, my layer:2(cap:16)(node), interval:10733ms, retries:3<>
+[2019-08-21 15:59:38] [0;32mI (30513) [get_started, 27]: heap free: 162984[0m
+[2019-08-21 15:59:39] D (31664) [mupgrade_example, 211]: Node send, size: 42, data: {"mac": "3c71bfe09228", "seq":6,"layer":2}[0m
+[2019-08-21 15:59:40] [0;32mI (33513) [get_started, 27]: heap free: 162984[0m
+[2019-08-21 15:59:42] D (34676) [mupgrade_example, 211]: Node send, size: 42, data: {"mac": "3c71bfe09228", "seq":7,"layer":2}[0m
+[2019-08-21 15:59:43] [0;32mI (36513) [get_started, 27]: heap free: 162984[0m
+[2019-08-21 15:59:45] D (37680) [mupgrade_example, 211]: Node send, size: 42, data: {"mac": "3c71bfe09228", "seq":8,"layer":2}[0m
+[2019-08-21 15:59:46] [0;32mI (39513) [get_started, 27]: heap free: 162984[0m
+[2019-08-21 15:59:48] D (40694) [mupgrade_example, 211]: Node send, size: 42, data: {"mac": "3c71bfe09228", "seq":9,"layer":2}[0m
+[2019-08-21 15:59:49] I (40701) mesh: 4433<active>parent layer:1(node), channel:8, rssi:-17, assoc:1(cnx rssi threshold:-120)my_assoc:0
+[2019-08-21 15:59:49] I (42207) mesh: 5177<scan>parent layer:1, rssi:-19, assoc:1(cnx rssi threshold:-120)
+[2019-08-21 15:59:51] I (42208) mesh: [SCAN][ch:8]AP:1, other(ID:0, RD:0), MAP:1, idle:0, candidate:1, root:1, topMAP:0[c:2,i:2][e0:dc:ff:64:03:71]<weak>
+[2019-08-21 15:59:51] I (42216) mesh: 6563[weak]try rssi_threshold:-120, backoff times:0, max:5<-78,-82,-85>
+[2019-08-21 15:59:51] I (42223) mesh: 616[monitor]no change, parent:3c:71:bf:e0:92:b9, rssi:-19
+[2019-08-21 15:59:51] I (42230) mesh: 1891<arm>parent monitor, my layer:2(cap:16)(node), interval:364777ms, retries:3<>
+[2019-08-21 15:59:51] [0;32mI (42513) [get_started, 27]: heap free: 162984[0m
+[2019-08-21 15:59:51] D (43697) [mupgrade_example, 211]: Node send, size: 43, data: {"mac": "3c71bfe09228", "seq":10,"layer":2}[0m
+[2019-08-21 15:59:52] [0;32mI (45513) [get_started, 27]: heap free: 162984[0m
+[2019-08-21 15:59:54] D (46708) [mupgrade_example, 211]: Node send, size: 43, data: {"mac": "3c71bfe09228", "seq":11,"layer":2}[0m
+[2019-08-21 15:59:55] [0;32mI (48513) [get_started, 27]: heap free: 162984[0m
+[2019-08-21 15:59:57] D (49715) [mupgrade_example, 211]: Node send, size: 43, data: {"mac": "3c71bfe09228", "seq":12,"layer":2}[0m
+[2019-08-21 15:59:58] [0;32mI (51513) [get_started, 27]: heap free: 162984[0m
+[2019-08-21 16:00:00] D (52725) [mupgrade_example, 211]: Node send, size: 43, data: {"mac": "3c71bfe09228", "seq":13,"layer":2}[0m
+[2019-08-21 16:00:01] [0;32mI (54513) [get_started, 27]: heap free: 162984[0m
+[2019-08-21 16:00:03] D (55731) [mupgrade_example, 211]: Node send, size: 43, data: {"mac": "3c71bfe09228", "seq":14,"layer":2}[0m
+[2019-08-21 16:00:04] [0;32mI (57513) [get_started, 27]: heap free: 162984[0m
+[2019-08-21 16:00:06] D (58747) [mupgrade_example, 211]: Node send, size: 43, data: {"mac": "3c71bfe09228", "seq":15,"layer":2}[0m
+[2019-08-21 16:00:07] [0;32mI (60513) [get_started, 27]: heap free: 162984[0m
+[2019-08-21 16:00:09] D (61756) [mupgrade_example, 211]: Node send, size: 43, data: {"mac": "3c71bfe09228", "seq":16,"layer":2}[0m
+[2019-08-21 16:00:10] [0;32mI (63513) [get_started, 27]: heap free: 162984[0m
+[2019-08-21 16:00:12] D (64769) [mupgrade_example, 211]: Node send, size: 43, data: {"mac": "3c71bfe09228", "seq":17,"layer":2}[0m
+[2019-08-21 16:00:13] [0;32mI (66513) [get_started, 27]: heap free: 162984[0m
+[2019-08-21 16:00:15] D (67774) [mupgrade_example, 211]: Node send, size: 43, data: {"mac": "3c71bfe09228", "seq":18,"layer":2}[0m
+[2019-08-21 16:00:16] [0;32mI (69513) [get_started, 27]: heap free: 162984[0m
+[2019-08-21 16:00:18] D (70782) [mupgrade_example, 211]: Node send, size: 43, data: {"mac": "3c71bfe09228", "seq":19,"layer":2}[0m
+[2019-08-21 16:00:19] [0;32mI (72513) [get_started, 27]: heap free: 162984[0m
+[2019-08-21 16:00:21] D (73800) [mupgrade_example, 211]: Node send, size: 43, data: {"mac": "3c71bfe09228", "seq":20,"layer":2}[0m
+[2019-08-21 16:00:22] [0;32mI (75513) [get_started, 27]: heap free: 162984[0m
+[2019-08-21 16:00:24] D (76818) [mupgrade_example, 211]: Node send, size: 43, data: {"mac": "3c71bfe09228", "seq":21,"layer":2}[0m
+[2019-08-21 16:00:25] [0;32mI (78513) [get_started, 27]: heap free: 162984[0m
+[2019-08-21 16:00:27] D (79826) [mupgrade_example, 211]: Node send, size: 43, data: {"mac": "3c71bfe09228", "seq":22,"layer":2}[0m
+[2019-08-21 16:00:28] [0;32mI (81513) [get_started, 27]: heap free: 162984[0m
+[2019-08-21 16:00:30] D (82840) [mupgrade_example, 211]: Node send, size: 43, data: {"mac": "3c71bfe09228", "seq":23,"layer":2}[0m
+[2019-08-21 16:00:31] [0;32mI (84513) [get_started, 27]: heap free: 162984[0m
+[2019-08-21 16:00:33] D (85844) [mupgrade_example, 211]: Node send, size: 43, data: {"mac": "3c71bfe09228", "seq":24,"layer":2}[0m
+[2019-08-21 16:00:34] [0;32mI (87513) [get_started, 27]: heap free: 162984[0m
+[2019-08-21 16:00:36] D (88857) [mupgrade_example, 211]: Node send, size: 43, data: {"mac": "3c71bfe09228", "seq":25,"layer":2}[0m
+[2019-08-21 16:00:37] [0;32mI (90513) [get_started, 27]: heap free: 162984[0m
+[2019-08-21 16:00:39] D (91865) [mupgrade_example, 211]: Node send, size: 43, data: {"mac": "3c71bfe09228", "seq":26,"layer":2}[0m
+[2019-08-21 16:00:40] [0;32mI (93513) [get_started, 27]: heap free: 162984[0m
+[2019-08-21 16:00:42] D (94886) [mupgrade_example, 211]: Node send, size: 43, data: {"mac": "3c71bfe09228", "seq":27,"layer":2}[0m
+[2019-08-21 16:00:43] [0;32mI (96513) [get_started, 27]: heap free: 162984[0m
+[2019-08-21 16:00:45] D (97892) [mupgrade_example, 211]: Node send, size: 43, data: {"mac": "3c71bfe09228", "seq":28,"layer":2}[0m
+[2019-08-21 16:00:46] [0;32mI (99513) [get_started, 27]: heap free: 162984[0m
+[2019-08-21 16:00:48] D (100915) [mupgrade_example, 211]: Node send, size: 43, data: {"mac": "3c71bfe09228", "seq":29,"layer":2}[0m
+[2019-08-21 16:00:49] [0;32mI (102513) [get_started, 27]: heap free: 162984[0m
+[2019-08-21 16:00:51] D (103925) [mupgrade_example, 211]: Node send, size: 43, data: {"mac": "3c71bfe09228", "seq":30,"layer":2}[0m
+[2019-08-21 16:00:52] [0;32mI (105513) [get_started, 27]: heap free: 162984[0m
+[2019-08-21 16:00:54] D (106935) [mupgrade_example, 211]: Node send, size: 43, data: {"mac": "3c71bfe09228", "seq":31,"layer":2}[0m
+[2019-08-21 16:00:55] [0;32mI (108513) [get_started, 27]: heap free: 162984[0m
+[2019-08-21 16:00:57] D (109938) [mupgrade_example, 211]: Node send, size: 43, data: {"mac": "3c71bfe09228", "seq":32,"layer":2}[0m
+[2019-08-21 16:00:58] W (110865) wifi: [beacon]new interval:1000ms
+[2019-08-21 16:00:59] I (110867) mesh: [scan]new scanning time:1500ms
+[2019-08-21 16:00:59] [0;32mI (111513) [get_started, 27]: heap free: 162984[0m
+[2019-08-21 16:01:00] D (112954) [mupgrade_example, 211]: Node send, size: 43, data: {"mac": "3c71bfe09228", "seq":33,"layer":2}[0m
+[2019-08-21 16:01:01] [0;32mI (114513) [get_started, 27]: heap free: 162984[0m
+[2019-08-21 16:01:03] D (115962) [mupgrade_example, 211]: Node send, size: 43, data: {"mac": "3c71bfe09228", "seq":34,"layer":2}[0m
+[2019-08-21 16:01:04] [0;32mI (117513) [get_started, 27]: heap free: 162984[0m
+[2019-08-21 16:01:06] D (118977) [mupgrade_example, 211]: Node send, size: 43, data: {"mac": "3c71bfe09228", "seq":35,"layer":2}[0m
+[2019-08-21 16:01:07] [0;32mI (120513) [get_started, 27]: heap free: 162984[0m
+[2019-08-21 16:01:09] D (121980) [mupgrade_example, 211]: Node send, size: 43, data: {"mac": "3c71bfe09228", "seq":36,"layer":2}[0m
+[2019-08-21 16:01:10] [0;32mI (123513) [get_started, 27]: heap free: 162984[0m
+[2019-08-21 16:01:12] D (124996) [mupgrade_example, 211]: Node send, size: 43, data: {"mac": "3c71bfe09228", "seq":37,"layer":2}[0m
+[2019-08-21 16:01:13] [0;32mI (126513) [get_started, 27]: heap free: 162984[0m
+[2019-08-21 16:01:15] D (128001) [mupgrade_example, 211]: Node send, size: 43, data: {"mac": "3c71bfe09228", "seq":38,"layer":2}[0m
+[2019-08-21 16:01:16] [0;32mI (129513) [get_started, 27]: heap free: 162984[0m
+[2019-08-21 16:01:18] D (131014) [mupgrade_example, 211]: Node send, size: 43, data: {"mac": "3c71bfe09228", "seq":39,"layer":2}[0m
+[2019-08-21 16:01:19] [0;32mI (132513) [get_started, 27]: heap free: 162984[0m
+[2019-08-21 16:01:21] D (134019) [mupgrade_example, 211]: Node send, size: 43, data: {"mac": "3c71bfe09228", "seq":40,"layer":2}[0m
+[2019-08-21 16:01:22] [0;32mI (135513) [get_started, 27]: heap free: 162984[0m
+[2019-08-21 16:01:24] I (136466) mesh: 4397<assoc>parent layer:1, channel:8, rssi:-16, assoc:1, rssi threshold<-78,-82,-85>
+[2019-08-21 16:01:25] D (137026) [mupgrade_example, 211]: Node send, size: 43, data: {"mac": "3c71bfe09228", "seq":41,"layer":2}[0m
+[2019-08-21 16:01:25] [0;32mI (138514) [get_started, 27]: heap free: 162984[0m
+[2019-08-21 16:01:27] D (140031) [mupgrade_example, 211]: Node send, size: 43, data: {"mac": "3c71bfe09228", "seq":42,"layer":2}[0m
+[2019-08-21 16:01:28] [0;32mI (141515) [get_started, 27]: heap free: 162984[0m
+[2019-08-21 16:01:30] D (143053) [mupgrade_example, 211]: Node send, size: 43, data: {"mac": "3c71bfe09228", "seq":43,"layer":2}[0m
+[2019-08-21 16:01:31] [0;32mI (144515) [get_started, 27]: heap free: 162984[0m
+[2019-08-21 16:01:33] D (146060) [mupgrade_example, 211]: Node send, size: 43, data: {"mac": "3c71bfe09228", "seq":44,"layer":2}[0m
+[2019-08-21 16:01:34] [0;32mI (147515) [get_started, 27]: heap free: 162984[0m
+[2019-08-21 16:01:36] D (149073) [mupgrade_example, 211]: Node send, size: 43, data: {"mac": "3c71bfe09228", "seq":45,"layer":2}[0m
+[2019-08-21 16:01:37] [0;32mI (150515) [get_started, 27]: heap free: 162984[0m
+[2019-08-21 16:01:39] D (152076) [mupgrade_example, 211]: Node send, size: 43, data: {"mac": "3c71bfe09228", "seq":46,"layer":2}[0m
+[2019-08-21 16:01:40] [0;32mI (153515) [get_started, 27]: heap free: 162984[0m
+[2019-08-21 16:01:42] D (155090) [mupgrade_example, 211]: Node send, size: 43, data: {"mac": "3c71bfe09228", "seq":47,"layer":2}[0m
+[2019-08-21 16:01:43] [0;32mI (156515) [get_started, 27]: heap free: 162984[0m
+[2019-08-21 16:01:45] D (158099) [mupgrade_example, 211]: Node send, size: 43, data: {"mac": "3c71bfe09228", "seq":48,"layer":2}[0m
+[2019-08-21 16:01:46] [0;32mI (159515) [get_started, 27]: heap free: 162984[0m
+[2019-08-21 16:01:48] D (161106) [mupgrade_example, 211]: Node send, size: 43, data: {"mac": "3c71bfe09228", "seq":49,"layer":2}[0m
+[2019-08-21 16:01:49] [0;32mI (162515) [get_started, 27]: heap free: 162984[0m
+[2019-08-21 16:01:51] D (164111) [mupgrade_example, 211]: Node send, size: 43, data: {"mac": "3c71bfe09228", "seq":50,"layer":2}[0m
+[2019-08-21 16:01:52] [0;32mI (165515) [get_started, 27]: heap free: 162984[0m
+[2019-08-21 16:01:54] D (167130) [mupgrade_example, 211]: Node send, size: 43, data: {"mac": "3c71bfe09228", "seq":51,"layer":2}[0m
+[2019-08-21 16:01:56] [0;32mI (168515) [get_started, 27]: heap free: 162984[0m
+[2019-08-21 16:01:57] D (170137) [mupgrade_example, 211]: Node send, size: 43, data: {"mac": "3c71bfe09228", "seq":52,"layer":2}[0m
+[2019-08-21 16:01:59] [0;32mI (171515) [get_started, 27]: heap free: 162984[0m
+[2019-08-21 16:02:00] D (173146) [mupgrade_example, 211]: Node send, size: 43, data: {"mac": "3c71bfe09228", "seq":53,"layer":2}[0m
+[2019-08-21 16:02:02] [0;32mI (174515) [get_started, 27]: heap free: 162984[0m
+[2019-08-21 16:02:03] D (176149) [mupgrade_example, 211]: Node send, size: 43, data: {"mac": "3c71bfe09228", "seq":54,"layer":2}[0m
+[2019-08-21 16:02:05] [0;32mI (177515) [get_started, 27]: heap free: 162984[0m
+[2019-08-21 16:02:06] D (179158) [mupgrade_example, 211]: Node send, size: 43, data: {"mac": "3c71bfe09228", "seq":55,"layer":2}[0m
+[2019-08-21 16:02:08] [0;32mI (180515) [get_started, 27]: heap free: 162984[0m
+[2019-08-21 16:02:09] D (182164) [mupgrade_example, 211]: Node send, size: 43, data: {"mac": "3c71bfe09228", "seq":56,"layer":2}[0m
+[2019-08-21 16:02:11] [0;32mI (183515) [get_started, 27]: heap free: 162984[0m
+[2019-08-21 16:02:12] D (185178) [mupgrade_example, 211]: Node send, size: 43, data: {"mac": "3c71bfe09228", "seq":57,"layer":2}[0m
+[2019-08-21 16:02:14] [0;32mI (186515) [get_started, 27]: heap free: 162984[0m
+[2019-08-21 16:02:15] D (188183) [mupgrade_example, 211]: Node send, size: 43, data: {"mac": "3c71bfe09228", "seq":58,"layer":2}[0m
+[2019-08-21 16:02:17] [0;32mI (189515) [get_started, 27]: heap free: 162984[0m
+[2019-08-21 16:02:18] 
