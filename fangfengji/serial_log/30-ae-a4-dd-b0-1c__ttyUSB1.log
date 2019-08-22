@@ -1,0 +1,952 @@
+0mú[0;32mI (12) boot: ESP-IDF v3.2.2-42-g4a9f33944-dirty 2nd stage bootloader[0m
+[2019-08-22 13:55:19] [0;32mI (12) boot: compile time 13:53:43[0m
+[2019-08-22 13:55:19] [0;32mI (12) boot: Enabling RNG early entropy source...[0m
+[2019-08-22 13:55:19] [0;32mI (17) boot: SPI Speed      : 40MHz[0m
+[2019-08-22 13:55:19] [0;32mI (21) boot: SPI Mode       : DIO[0m
+[2019-08-22 13:55:19] [0;32mI (25) boot: SPI Flash Size : 4MB[0m
+[2019-08-22 13:55:19] [0;32mI (29) boot: Partition Table:[0m
+[2019-08-22 13:55:19] [0;32mI (33) boot: ## Label            Usage          Type ST Offset   Length[0m
+[2019-08-22 13:55:19] [0;32mI (40) boot:  0 nvs              WiFi data        01 02 00009000 00004000[0m
+[2019-08-22 13:55:19] [0;32mI (47) boot:  1 otadata          OTA data         01 00 0000d000 00002000[0m
+[2019-08-22 13:55:19] [0;32mI (55) boot:  2 phy_init         RF data          01 01 0000f000 00001000[0m
+[2019-08-22 13:55:19] [0;32mI (62) boot:  3 ota_0            OTA app          00 10 00010000 001e0000[0m
+[2019-08-22 13:55:19] [0;32mI (70) boot:  4 ota_1            OTA app          00 11 001f0000 001e0000[0m
+[2019-08-22 13:55:19] [0;32mI (77) boot:  5 coredump         Unknown data     01 03 003d0000 00010000[0m
+[2019-08-22 13:55:19] [0;32mI (85) boot:  6 reserved         Unknown data     01 fe 003e0000 00020000[0m
+[2019-08-22 13:55:19] [0;32mI (92) boot: End of partition table[0m
+[2019-08-22 13:55:19] [0;32mI (96) boot: No factory image, trying OTA 0[0m
+[2019-08-22 13:55:19] [0;32mI (101) esp_image: segment 0: paddr=0x00010020 vaddr=0x3f400020 size=0x266b4 (157364) map[0m
+[2019-08-22 13:55:19] [0;32mI (165) esp_image: segment 1: paddr=0x000366dc vaddr=0x3ffb0000 size=0x02d50 ( 11600) load[0m
+[2019-08-22 13:55:19] [0;32mI (170) esp_image: segment 2: paddr=0x00039434 vaddr=0x40080000 size=0x00400 (  1024) load[0m
+[2019-08-22 13:55:19] [0;32mI (173) esp_image: segment 3: paddr=0x0003983c vaddr=0x40080400 size=0x067d4 ( 26580) load[0m
+[2019-08-22 13:55:19] [0;32mI (192) esp_image: segment 4: paddr=0x00040018 vaddr=0x400d0018 size=0xa7258 (684632) map[0m
+[2019-08-22 13:55:19] [0;32mI (432) esp_image: segment 5: paddr=0x000e7278 vaddr=0x40086bd4 size=0x09dac ( 40364) load[0m
+[2019-08-22 13:55:19] [0;32mI (459) boot: Loaded app from partition at offset 0x10000[0m
+[2019-08-22 13:55:19] [0;32mI (459) boot: Disabling RNG early entropy source...[0m
+[2019-08-22 13:55:19] [0;32mI (460) cpu_start: Pro cpu up.[0m
+[2019-08-22 13:55:19] [0;32mI (463) cpu_start: Single core mode[0m
+[2019-08-22 13:55:19] [0;32mI (468) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[2019-08-22 13:55:19] [0;32mI (475) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[2019-08-22 13:55:19] [0;32mI (481) heap_init: At 3FFB9C90 len 00026370 (152 KiB): DRAM[0m
+[2019-08-22 13:55:19] [0;32mI (487) heap_init: At 3FFE0440 len 0001FBC0 (126 KiB): D/IRAM[0m
+[2019-08-22 13:55:19] [0;32mI (493) heap_init: At 40078000 len 00008000 (32 KiB): IRAM[0m
+[2019-08-22 13:55:19] [0;32mI (499) heap_init: At 40090980 len 0000F680 (61 KiB): IRAM[0m
+[2019-08-22 13:55:19] [0;32mI (506) cpu_start: Pro cpu start user code[0m
+[2019-08-22 13:55:19] D (187) [mupgrade_check, 142]: Add an identifier to the firmware: ** MUPGRADE_FIRMWARE_FLAG **[0m
+[2019-08-22 13:55:19] [0;32mI (198) cpu_start: Starting scheduler on PRO CPU.[0m
+[2019-08-22 13:55:19] 
+[2019-08-22 13:55:19] Opening Non-Volatile moter1 && moter2 (NVS) handle...
+[2019-08-22 13:55:19] AlarmTempMax1 Failed!
+[2019-08-22 13:55:19] AlarmTempMin1 Failed!
+[2019-08-22 13:55:19] SetTempMax1 Failed!
+[2019-08-22 13:55:19] SetTempMin1 Failed!
+[2019-08-22 13:55:19] TotalTime1 Failed!
+[2019-08-22 13:55:19] OpenPer1 Failed!
+[2019-08-22 13:55:19] TempCalOff1 Failed!
+[2019-08-22 13:55:19] AlarmTempMax2 Failed!
+[2019-08-22 13:55:19] AlarmTempMin2 Failed!
+[2019-08-22 13:55:19] SetTempMax2 Failed!
+[2019-08-22 13:55:19] SetTempMin2 Failed!
+[2019-08-22 13:55:19] TotalTime2 Failed!
+[2019-08-22 13:55:19] OpenPer2 Failed!
+[2019-08-22 13:55:19] TempCalOff2 Failed!
+[2019-08-22 13:55:19] [0;32mI (248) [mdf-mesh, 696]: start mdf_mesh_init[0m
+[2019-08-22 13:55:19] I (257) wifi: wifi driver task: 3ffc1f40, prio:23, stack:3584, core=0
+[2019-08-22 13:55:19] [0;32mI (260) system_api: Base MAC address is not set, read default base MAC address from BLK0 of EFUSE[0m
+[2019-08-22 13:55:19] [0;32mI (269) system_api: Base MAC address is not set, read default base MAC address from BLK0 of EFUSE[0m
+[2019-08-22 13:55:19] I (289) wifi: wifi firmware version: 0c3a77a
+[2019-08-22 13:55:19] I (290) wifi: config NVS flash: enabled
+[2019-08-22 13:55:19] I (290) wifi: config nano formating: disabled
+[2019-08-22 13:55:19] I (290) wifi: Init dynamic tx buffer num: 32
+[2019-08-22 13:55:19] I (294) wifi: Init data frame dynamic rx buffer num: 32
+[2019-08-22 13:55:19] I (299) wifi: Init management frame dynamic rx buffer num: 32
+[2019-08-22 13:55:19] I (305) wifi: Init management short buffer num: 32
+[2019-08-22 13:55:19] I (309) wifi: Init static rx buffer size: 1600
+[2019-08-22 13:55:19] I (314) wifi: Init static rx buffer num: 10
+[2019-08-22 13:55:19] I (317) wifi: Init dynamic rx buffer num: 32
+[2019-08-22 13:55:19] I (322) wifi: Set ps type: 0
+[2019-08-22 13:55:19] 
+[2019-08-22 13:55:19] [0;33mW (325) phy_init: failed to load RF calibration data (0x1102), falling back to full calibration[0m
+[2019-08-22 13:55:19] 
+[2019-08-22 13:55:19] Brownout detector was triggered
+[2019-08-22 13:55:19] 
+[2019-08-22 13:55:19] [0;32mI (11) boot: ESP-IDF v3.2.2-42-g4a9f33944-dirty 2nd stage bootloader[0m
+[2019-08-22 13:55:19] [0;32mI (11) boot: compile time 13:53:43[0m
+[2019-08-22 13:55:19] [0;32mI (12) boot: Enabling RNG early entropy source...[0m
+[2019-08-22 13:55:19] [0;32mI (17) boot: SPI Speed      : 40MHz[0m
+[2019-08-22 13:55:19] [0;32mI (21) boot: SPI Mode       : DIO[0m
+[2019-08-22 13:55:19] [0;32mI (25) boot: SPI Flash Size : 4MB[0m
+[2019-08-22 13:55:20] [0;32mI (29) boot: Partition Table:[0m
+[2019-08-22 13:55:20] [0;32mI (32) boot: ## Label            Usage          Type ST Offset   Length[0m
+[2019-08-22 13:55:20] [0;32mI (40) boot:  0 nvs              WiFi data        01 02 00009000 00004000[0m
+[2019-08-22 13:55:20] [0;32mI (47) boot:  1 otadata          OTA data         01 00 0000d000 00002000[0m
+[2019-08-22 13:55:20] [0;32mI (55) boot:  2 phy_init         RF data          01 01 0000f000 00001000[0m
+[2019-08-22 13:55:20] [0;32mI (62) boot:  3 ota_0            OTA app          00 10 00010000 001e0000[0m
+[2019-08-22 13:55:20] [0;32mI (70) boot:  4 ota_1            OTA app          00 11 001f0000 001e0000[0m
+[2019-08-22 13:55:20] [0;32mI (77) boot:  5 coredump         Unknown data     01 03 003d0000 00010000[0m
+[2019-08-22 13:55:20] [0;32mI (84) boot:  6 reserved         Unknown data     01 fe 003e0000 00020000[0m
+[2019-08-22 13:55:20] [0;32mI (92) boot: End of partition table[0m
+[2019-08-22 13:55:20] [0;32mI (96) boot: No factory image, trying OTA 0[0m
+[2019-08-22 13:55:20] [0;32mI (101) esp_image: segment 0: paddr=0x00010020 vaddr=0x3f400020 size=0x266b4 (157364) map[0m
+[2019-08-22 13:55:20] [0;32mI (165) esp_image: segment 1: paddr=0x000366dc vaddr=0x3ffb0000 size=0x02d50 ( 11600) load[0m
+[2019-08-22 13:55:20] [0;32mI (170) esp_image: segment 2: paddr=0x00039434 vaddr=0x40080000 size=0x00400 (  1024) load[0m
+[2019-08-22 13:55:20] [0;32mI (172) esp_image: segment 3: paddr=0x0003983c vaddr=0x40080400 size=0x067d4 ( 26580) load[0m
+[2019-08-22 13:55:20] [0;32mI (192) esp_image: segment 4: paddr=0x00040018 vaddr=0x400d0018 size=0xa7258 (684632) map[0m
+[2019-08-22 13:55:20] [0;32mI (432) esp_image: segment 5: paddr=0x000e7278 vaddr=0x40086bd4 size=0x09dac ( 40364) load[0m
+[2019-08-22 13:55:20] [0;32mI (459) boot: Loaded app from partition at offset 0x10000[0m
+[2019-08-22 13:55:20] [0;32mI (459) boot: Disabling RNG early entropy source...[0m
+[2019-08-22 13:55:20] [0;32mI (459) cpu_start: Pro cpu up.[0m
+[2019-08-22 13:55:20] [0;32mI (463) cpu_start: Single core mode[0m
+[2019-08-22 13:55:20] [0;32mI (467) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[2019-08-22 13:55:20] [0;32mI (474) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[2019-08-22 13:55:20] [0;32mI (480) heap_init: At 3FFB9C90 len 00026370 (152 KiB): DRAM[0m
+[2019-08-22 13:55:20] [0;32mI (487) heap_init: At 3FFE0440 len 0001FBC0 (126 KiB): D/IRAM[0m
+[2019-08-22 13:55:20] [0;32mI (493) heap_init: At 40078000 len 00008000 (32 KiB): IRAM[0m
+[2019-08-22 13:55:20] [0;32mI (499) heap_init: At 40090980 len 0000F680 (61 KiB): IRAM[0m
+[2019-08-22 13:55:20] [0;32mI (505) cpu_start: Pro cpu start user code[0m
+[2019-08-22 13:55:20] D (187) [mupgrade_check, 142]: Add an identifier to the firmware: ** MUPGRADE_FIRMWARE_FLAG **[0m
+[2019-08-22 13:55:20] [0;33mW (201) [mupgrade_check, 96]: restart reason: 12, count: 2[0m
+[2019-08-22 13:55:20] [0;32mI (203) cpu_start: Starting scheduler on PRO CPU.[0m
+[2019-08-22 13:55:20] 
+[2019-08-22 13:55:20] Opening Non-Volatile moter1 && moter2 (NVS) handle...
+[2019-08-22 13:55:20] AlarmTempMax1 Failed!
+[2019-08-22 13:55:20] AlarmTempMin1 Failed!
+[2019-08-22 13:55:20] SetTempMax1 Failed!
+[2019-08-22 13:55:20] SetTempMin1 Failed!
+[2019-08-22 13:55:20] TotalTime1 Failed!
+[2019-08-22 13:55:20] OpenPer1 Failed!
+[2019-08-22 13:55:20] TempCalOff1 Failed!
+[2019-08-22 13:55:20] AlarmTempMax2 Failed!
+[2019-08-22 13:55:20] AlarmTempMin2 Failed!
+[2019-08-22 13:55:20] SetTempMax2 Failed!
+[2019-08-22 13:55:20] SetTempMin2 Failed!
+[2019-08-22 13:55:20] TotalTime2 Failed!
+[2019-08-22 13:55:20] OpenPer2 Failed!
+[2019-08-22 13:55:20] TempCalOff2 Failed!
+[2019-08-22 13:55:20] [0;32mI (260) [mdf-mesh, 696]: start mdf_mesh_init[0m
+[2019-08-22 13:55:20] I (268) wifi: wifi driver task: 3ffc1f84, prio:23, stack:3584, core=0
+[2019-08-22 13:55:20] [0;32mI (272) system_api: Base MAC address is not set, read default base MAC address from BLK0 of EFUSE[0m
+[2019-08-22 13:55:20] [0;32mI (281) system_api: Base MAC address is not set, read default base MAC address from BLK0 of EFUSE[0m
+[2019-08-22 13:55:20] I (298) wifi: wifi firmware version: 0c3a77a
+[2019-08-22 13:55:20] I (298) wifi: config NVS flash: enabled
+[2019-08-22 13:55:20] I (298) wifi: config nano formating: disabled
+[2019-08-22 13:55:20] I (302) wifi: Init dynamic tx buffer num: 32
+[2019-08-22 13:55:20] I (306) wifi: Init data frame dynamic rx buffer num: 32
+[2019-08-22 13:55:20] I (311) wifi: Init management frame dynamic rx buffer num: 32
+[2019-08-22 13:55:20] I (316) wifi: Init management short buffer num: 32
+[2019-08-22 13:55:20] I (321) wifi: Init static rx buffer size: 1600
+[2019-08-22 13:55:20] I (325) wifi: Init static rx buffer num: 10
+[2019-08-22 13:55:20] I (329) wifi: Init dynamic rx buffer num: 32
+[2019-08-22 13:55:20] I (334) wifi: Set ps type: 0
+[2019-08-22 13:55:20] 
+[2019-08-22 13:55:20] [0;33mW (336) phy_init: failed to load RF calibration data (0x1102), falling back to full calibration[0m
+[2019-08-22 13:55:20] [0;32mI (492) phy: phy_version: 4008, 544f89f, Jan 24 2019, 14:54:06, 0, 2[0m
+[2019-08-22 13:55:20] I (500) wifi: mode : sta (30:ae:a4:dd:b0:1c)
+[2019-08-22 13:55:20] [0;32mI (501) [mwifi, 177]: esp-mdf version: v1.0-beta1-dirty[0m
+[2019-08-22 13:55:20] W (502) wifi: [beacon]interval:100ms
+[2019-08-22 13:55:20] I (504) wifi: mode : sta (30:ae:a4:dd:b0:1c) + softAP (30:ae:a4:dd:b0:1d)
+[2019-08-22 13:55:20] I (511) wifi: Total power save buffer number: 16
+[2019-08-22 13:55:20] I (514) wifi: Init max length of beacon: 752/752
+[2019-08-22 13:55:20] I (519) wifi: Init max length of beacon: 752/752
+[2019-08-22 13:55:20] I (526) mesh: <nvs>read layer:0, err:0x1102
+[2019-08-22 13:55:20] I (527) mesh: <nvs>read assoc:0, err:0x1102
+[2019-08-22 13:55:20] [0;32mI (531) [mdf-mesh, 49]: get_dev_num[0m
+[2019-08-22 13:55:20] [0;32mI (535) [mdf-mesh, 715]: ROOT device:1[0m
+[2019-08-22 13:55:20] I (539) mesh: [IO]disable self-organizing<reconnect>
+[2019-08-22 13:55:20] W (544) wifi: [beacon]interval:100ms
+[2019-08-22 13:55:20] I (547) mesh: [CONFIG]invalid router settings, ssid_len:0, ssid:, bssid:00:00:00:00:00:00
+[2019-08-22 13:55:20] I (560) wifi: Total power save buffer number: 16
+[2019-08-22 13:55:20] I (1559) wifi: Set ps type: 0
+[2019-08-22 13:55:21] 
+[2019-08-22 13:55:21] I (1564) mesh: [MANUAL]designated as root and router is not set
+[2019-08-22 13:55:21] [0;32mI (1564) [mwifi, 113]: MESH is started[0m
+[2019-08-22 13:55:21] [0;32mI (1565) [mdf-mesh, 651]: event_loop_cb, event: 0[0m
+[2019-08-22 13:55:21] [0;32mI (1569) [mdf-mesh, 655]: MESH is started[0m
+[2019-08-22 13:55:21] [0;32mI (1573) [mdf-mesh, 736]: MESH_ROOT[0m
+[2019-08-22 13:55:21] [0;32mI (1578) [mdf-mesh, 148]: Uart handle task is running[0m
+[2019-08-22 13:55:21] [0;32mI (1585) [mdf-mesh, 256]: Note read task is running[0m
+[2019-08-22 13:55:21] [0;32mI (1589) [mdf-mesh, 375]: Root read is running[0m
+[2019-08-22 13:55:21] [0;32mI (1594) gpio: GPIO[25]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[2019-08-22 13:55:21] [0;32mI (1603) gpio: GPIO[26]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[2019-08-22 13:55:21] [0;32mI (1613) gpio: GPIO[27]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[2019-08-22 13:55:21] [0;32mI (1622) gpio: GPIO[17]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[2019-08-22 13:55:21] [0;32mI (1631) gpio: GPIO[5]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[2019-08-22 13:55:21] [0;32mI (1641) gpio: GPIO[18]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[2019-08-22 13:55:21] [0;32mI (1650) gpio: GPIO[19]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[2019-08-22 13:55:21] eFuse Two Point: NOT supported
+[2019-08-22 13:55:21] eFuse Vref: Supported
+[2019-08-22 13:55:21] Characterized using eFuse Vref
+[2019-08-22 13:55:21] [0;32mI (1667) [temp_info, 73]: temp task is start[0m
+[2019-08-22 13:55:21] [0;32mI (1673) gpio: GPIO[36]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:3 [0m
+[2019-08-22 13:55:21] [0;32mI (1681) gpio: GPIO[39]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:3 [0m
+[2019-08-22 13:55:21] [0;32mI (1685) [mesh-check, 36]: uart id:0,ack_typ:0,typ:0,len:0[0m
+[2019-08-22 13:55:21] [0;31mE (1697) [mesh-check, 43]: crc check failure crc:0,data_crc:255[0m
+[2019-08-22 13:55:21] [0;33mW (1703) [mdf-mesh, 166]: uart recv data crc error!recv_length = -6[0m
+[2019-08-22 13:55:21] [0;32mI (1711) gpio: GPIO[34]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:3 [0m
+[2019-08-22 13:55:22] [0;32mI (1720) gpio: GPIO[35]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:3 [0m
+[2019-08-22 13:55:22] [0;32mI (1730) uart: queue free spaces: 10[0m
+[2019-08-22 13:55:22] [0;32mI (1734) [get_started, 28]: Hello .................[0m
+[2019-08-22 13:55:22] [0;32mI (4739) [get_started, 32]: heap free: 136464[0m
+[2019-08-22 13:55:25] [0;32mI (6672) [temp_table, 93]: n[48] kom[45.215527] temp[27.287251][0m
+[2019-08-22 13:55:26] [0;32mI (6673) [temp_table, 93]: n[46] kom[49.804829] temp[25.046072][0m
+[2019-08-22 13:55:26] *************temp_info**************
+[2019-08-22 13:55:26] kom[45.215527] offset[0.000000]
+[2019-08-22 13:55:26] [0;32mI (6681) [temp_table, 93]: n[48] kom[45.215527] temp[27.287251][0m
+[2019-08-22 13:55:26] temp[27.287251]
+[2019-08-22 13:55:26] -------------------------------------
+[2019-08-22 13:55:26] *************temp_info**************
+[2019-08-22 13:55:26] kom[49.804829] offset[0.000000]
+[2019-08-22 13:55:26] [0;32mI (6699) [temp_table, 93]: n[46] kom[49.804829] temp[25.046072][0m
+[2019-08-22 13:55:26] temp[25.046072]
+[2019-08-22 13:55:26] -------------------------------------
+[2019-08-22 13:55:26] [0;32mI (7739) [get_started, 32]: heap free: 136296[0m
+[2019-08-22 13:55:28] [0;32mI (10739) [get_started, 32]: heap free: 136296[0m
+[2019-08-22 13:55:31] [0;32mI (11594) [mdf-mesh, 450]: System information, channel: 12, layer: 1, self mac: 30:ae:a4:dd:b0:1c, parent bssid: 00:00:00:00:00:00, parent rssi: -120, node num: 1, free heap: 136176[0m
+[2019-08-22 13:55:31] [0;32mI (11672) [temp_table, 93]: n[48] kom[45.139271] temp[27.328613][0m
+[2019-08-22 13:55:31] [0;32mI (11673) [temp_table, 93]: n[46] kom[49.322269] temp[25.283669][0m
+[2019-08-22 13:55:31] *************temp_info**************
+[2019-08-22 13:55:31] kom[45.139271] offset[0.000000]
+[2019-08-22 13:55:31] [0;32mI (11681) [temp_table, 93]: n[48] kom[45.139271] temp[27.328613][0m
+[2019-08-22 13:55:31] temp[27.328613]
+[2019-08-22 13:55:31] -------------------------------------
+[2019-08-22 13:55:31] *************temp_info**************
+[2019-08-22 13:55:31] kom[49.322269] offset[0.000000]
+[2019-08-22 13:55:31] [0;32mI (11699) [temp_table, 93]: n[46] kom[49.322269] temp[25.283669][0m
+[2019-08-22 13:55:31] temp[25.283669]
+[2019-08-22 13:55:31] -------------------------------------
+[2019-08-22 13:55:31] [0;32mI (13739) [get_started, 32]: heap free: 136176[0m
+[2019-08-22 13:55:33] [0;32mI (16672) [temp_table, 93]: n[48] kom[44.631126] temp[27.604239][0m
+[2019-08-22 13:55:36] [0;32mI (16673) [temp_table, 93]: n[46] kom[48.496620] temp[25.690193][0m
+[2019-08-22 13:55:36] *************temp_info**************
+[2019-08-22 13:55:36] kom[44.631126] offset[0.000000]
+[2019-08-22 13:55:36] [0;32mI (16681) [temp_table, 93]: n[48] kom[44.631126] temp[27.604239][0m
+[2019-08-22 13:55:36] temp[27.604239]
+[2019-08-22 13:55:36] -------------------------------------
+[2019-08-22 13:55:36] *************temp_info**************
+[2019-08-22 13:55:36] kom[48.496620] offset[0.000000]
+[2019-08-22 13:55:36] [0;32mI (16699) [temp_table, 93]: n[46] kom[48.496620] temp[25.690193][0m
+[2019-08-22 13:55:36] temp[25.690193]
+[2019-08-22 13:55:36] -------------------------------------
+[2019-08-22 13:55:36] [0;32mI (16739) [get_started, 32]: heap free: 136176[0m
+[2019-08-22 13:55:37] [0;32mI (19739) [get_started, 32]: heap free: 136176[0m
+[2019-08-22 13:55:39] 
+[2019-08-22 13:55:40] Brownout detector was triggered
+[2019-08-22 13:55:40] 
+[2019-08-22 13:55:40] [0;32mI (11) boot: ESP-IDF v3.2.2-42-g4a9f33944-dirty 2nd stage bootloader[0m
+[2019-08-22 13:55:40] [0;32mI (11) boot: compile time 13:53:43[0m
+[2019-08-22 13:55:40] [0;32mI (12) boot: Enabling RNG early entropy source...[0m
+[2019-08-22 13:55:40] [0;32mI (17) boot: SPI Speed      : 40MHz[0m
+[2019-08-22 13:55:40] [0;32mI (21) boot: SPI Mode       : DIO[0m
+[2019-08-22 13:55:40] [0;32mI (25) boot: SPI Flash Size : 4MB[0m
+[2019-08-22 13:55:40] [0;32mI (29) boot: Partition Table:[0m
+[2019-08-22 13:55:40] [0;32mI (32) boot: ## Label            Usage          Type ST Offset   Length[0m
+[2019-08-22 13:55:40] [0;32mI (40) boot:  0 nvs              WiFi data        01 02 00009000 00004000[0m
+[2019-08-22 13:55:40] [0;32mI (47) boot:  1 otadata          OTA data         01 00 0000d000 00002000[0m
+[2019-08-22 13:55:40] [0;32mI (55) boot:  2 phy_init         RF data          01 01 0000f000 00001000[0m
+[2019-08-22 13:55:40] [0;32mI (62) boot:  3 ota_0            OTA app          00 10 00010000 001e0000[0m
+[2019-08-22 13:55:40] [0;32mI (70) boot:  4 ota_1            OTA app          00 11 001f0000 001e0000[0m
+[2019-08-22 13:55:40] [0;32mI (77) boot:  5 coredump         Unknown data     01 03 003d0000 00010000[0m
+[2019-08-22 13:55:40] [0;32mI (84) boot:  6 reserved         Unknown data     01 fe 003e0000 00020000[0m
+[2019-08-22 13:55:40] [0;32mI (92) boot: End of partition table[0m
+[2019-08-22 13:55:40] [0;32mI (96) boot: No factory image, trying OTA 0[0m
+[2019-08-22 13:55:40] [0;32mI (101) esp_image: segment 0: paddr=0x00010020 vaddr=0x3f400020 size=0x266b4 (157364) map[0m
+[2019-08-22 13:55:40] [0;32mI (165) esp_image: segment 1: paddr=0x000366dc vaddr=0x3ffb0000 size=0x02d50 ( 11600) load[0m
+[2019-08-22 13:55:40] [0;32mI (170) esp_image: segment 2: paddr=0x00039434 vaddr=0x40080000 size=0x00400 (  1024) load[0m
+[2019-08-22 13:55:40] [0;32mI (172) esp_image: segment 3: paddr=0x0003983c vaddr=0x40080400 size=0x067d4 ( 26580) load[0m
+[2019-08-22 13:55:40] [0;32mI (192) esp_image: segment 4: paddr=0x00040018 vaddr=0x400d0018 size=0xa7258 (684632) map[0m
+[2019-08-22 13:55:40] [0;32mI (432) esp_image: segment 5: paddr=0x000e7278 vaddr=0x40086bd4 size=0x09dac ( 40364) load[0m
+[2019-08-22 13:55:40] [0;32mI (459) boot: Loaded app from partition at offset 0x10000[0m
+[2019-08-22 13:55:40] [0;32mI (459) boot: Disabling RNG early entropy source...[0m
+[2019-08-22 13:55:40] [0;32mI (459) cpu_start: Pro cpu up.[0m
+[2019-08-22 13:55:40] [0;32mI (463) cpu_start: Single core mode[0m
+[2019-08-22 13:55:40] [0;32mI (467) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[2019-08-22 13:55:40] [0;32mI (474) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[2019-08-22 13:55:40] [0;32mI (480) heap_init: At 3FFB9C90 len 00026370 (152 KiB): DRAM[0m
+[2019-08-22 13:55:40] [0;32mI (487) heap_init: At 3FFE0440 len 0001FBC0 (126 KiB): D/IRAM[0m
+[2019-08-22 13:55:40] [0;32mI (493) heap_init: At 40078000 len 00008000 (32 KiB): IRAM[0m
+[2019-08-22 13:55:40] [0;32mI (499) heap_init: At 40090980 len 0000F680 (61 KiB): IRAM[0m
+[2019-08-22 13:55:40] [0;32mI (505) cpu_start: Pro cpu start user code[0m
+[2019-08-22 13:55:40] D (187) [mupgrade_check, 142]: Add an identifier to the firmware: ** MUPGRADE_FIRMWARE_FLAG **[0m
+[2019-08-22 13:55:40] D (198) [mdf_info_store, 153]: <ESP_ERR_NVS_NOT_FOUND> Get value for given key, key: mupgrade_count[0m
+[2019-08-22 13:55:40] [0;33mW (199) [mupgrade_check, 96]: restart reason: 12, count: 1[0m
+[2019-08-22 13:55:40] [0;32mI (205) cpu_start: Starting scheduler on PRO CPU.[0m
+[2019-08-22 13:55:40] 
+[2019-08-22 13:55:40] Opening Non-Volatile moter1 && moter2 (NVS) handle...
+[2019-08-22 13:55:40] AlarmTempMax1 Failed!
+[2019-08-22 13:55:40] AlarmTempMin1 Failed!
+[2019-08-22 13:55:40] SetTempMax1 Failed!
+[2019-08-22 13:55:40] SetTempMin1 Failed!
+[2019-08-22 13:55:40] TotalTime1 Failed!
+[2019-08-22 13:55:40] OpenPer1 Failed!
+[2019-08-22 13:55:40] TempCalOff1 Failed!
+[2019-08-22 13:55:40] AlarmTempMax2 Failed!
+[2019-08-22 13:55:40] AlarmTempMin2 Failed!
+[2019-08-22 13:55:40] SetTempMax2 Failed!
+[2019-08-22 13:55:40] SetTempMin2 Failed!
+[2019-08-22 13:55:40] TotalTime2 Failed!
+[2019-08-22 13:55:40] OpenPer2 Failed!
+[2019-08-22 13:55:40] TempCalOff2 Failed!
+[2019-08-22 13:55:40] [0;32mI (269) [mdf-mesh, 696]: start mdf_mesh_init[0m
+[2019-08-22 13:55:40] I (277) wifi: wifi driver task: 3ffc2048, prio:23, stack:3584, core=0
+[2019-08-22 13:55:40] [0;32mI (280) system_api: Base MAC address is not set, read default base MAC address from BLK0 of EFUSE[0m
+[2019-08-22 13:55:40] [0;32mI (290) system_api: Base MAC address is not set, read default base MAC address from BLK0 of EFUSE[0m
+[2019-08-22 13:55:40] I (306) wifi: wifi firmware version: 0c3a77a
+[2019-08-22 13:55:40] I (306) wifi: config NVS flash: enabled
+[2019-08-22 13:55:40] I (307) wifi: config nano formating: disabled
+[2019-08-22 13:55:40] I (311) wifi: Init dynamic tx buffer num: 32
+[2019-08-22 13:55:40] I (315) wifi: Init data frame dynamic rx buffer num: 32
+[2019-08-22 13:55:40] I (320) wifi: Init management frame dynamic rx buffer num: 32
+[2019-08-22 13:55:40] I (325) wifi: Init management short buffer num: 32
+[2019-08-22 13:55:40] I (330) wifi: Init static rx buffer size: 1600
+[2019-08-22 13:55:40] I (334) wifi: Init static rx buffer num: 10úRþšÂJifi: Set ps type: 0
+[2019-08-22 13:55:40] 
+[2019-08-22 13:55:40] 
+[2019-08-22 13:55:40] Brownout detector was triggered
+[2019-08-22 13:55:40] 
+[2019-08-22 13:55:40] [0;32mI (11) boot: ESP-IDF v3.2.2-42-g4a9f33944-dirty 2nd stage bootloader[0m
+[2019-08-22 13:55:40] [0;32mI (11) boot: compile time 13:53:43[0m
+[2019-08-22 13:55:40] [0;32mI (12) boot: Enabling RNG early entropy source...[0m
+[2019-08-22 13:55:40] [0;32mI (17) boot: SPI Speed      : 40MHz[0m
+[2019-08-22 13:55:40] [0;32mI (21) boot: SPI Mode       : DIO[0m
+[2019-08-22 13:55:40] [0;32mI (25) boot: SPI Flash Size : 4MB[0m
+[2019-08-22 13:55:40] [0;32mI (29) boot: Partition Table:[0m
+[2019-08-22 13:55:40] [0;32mI (32) boot: ## Label            Usage          Type ST Offset   Length[0m
+[2019-08-22 13:55:40] [0;32mI (40) boot:  0 nvs              WiFi data        01 02 00009000 00004000[0m
+[2019-08-22 13:55:40] [0;32mI (47) boot:  1 otadata          OTA data         01 00 0000d000 00002000[0m
+[2019-08-22 13:55:40] [0;32mI (55) boot:  2 phy_init         RF data          01 01 0000f000 00001000[0m
+[2019-08-22 13:55:40] [0;32mI (62) boot:  3 ota_0            OTA app          00 10 00010000 001e0000[0m
+[2019-08-22 13:55:40] [0;32mI (70) boot:  4 ota_1            OTA app          00 11 001f0000 001e0000[0m
+[2019-08-22 13:55:40] [0;32mI (77) boot:  5 coredump         Unknown data     01 03 003d0000 00010000[0m
+[2019-08-22 13:55:40] [0;32mI (84) boot:  6 reserved         Unknown data     01 fe 003e0000 00020000[0m
+[2019-08-22 13:55:40] [0;32mI (92) boot: End of partition table[0m
+[2019-08-22 13:55:40] [0;32mI (96) boot: No factory image, trying OTA 0[0m
+[2019-08-22 13:55:40] [0;32mI (101) esp_image: segment 0: paddr=0x00010020 vaddr=0x3f400020 size=0x266b4 (157364) map[0m
+[2019-08-22 13:55:40] [0;32mI (165) esp_image: segment 1: paddr=0x000366dc vaddr=0x3ffb0000 size=0x02d50 ( 11600) load[0m
+[2019-08-22 13:55:40] [0;32mI (170) esp_image: segment 2: paddr=0x00039434 vaddr=0x40080000 size=0x00400 (  1024) load[0m
+[2019-08-22 13:55:40] [0;32mI (172) esp_image: segment 3: paddr=0x0003983c vaddr=0x40080400 size=0x067d4 ( 26580) load[0m
+[2019-08-22 13:55:40] [0;32mI (192) esp_image: segment 4: paddr=0x00040018 vaddr=0x400d0018 size=0xa7258 (684632) map[0m
+[2019-08-22 13:55:40] [0;32mI (432) esp_image: segment 5: paddr=0x000e7278 vaddr=0x40086bd4 size=0x09dac ( 40364) load[0m
+[2019-08-22 13:55:41] [0;32mI (459) boot: Loaded app from partition at offset 0x10000[0m
+[2019-08-22 13:55:41] [0;32mI (459) boot: Disabling RNG early entropy source...[0m
+[2019-08-22 13:55:41] [0;32mI (459) cpu_start: Pro cpu up.[0m
+[2019-08-22 13:55:41] [0;32mI (463) cpu_start: Single core mode[0m
+[2019-08-22 13:55:41] [0;32mI (467) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[2019-08-22 13:55:41] [0;32mI (474) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[2019-08-22 13:55:41] [0;32mI (480) heap_init: At 3FFB9C90 len 00026370 (152 KiB): DRAM[0m
+[2019-08-22 13:55:41] [0;32mI (487) heap_init: At 3FFE0440 len 0001FBC0 (126 KiB): D/IRAM[0m
+[2019-08-22 13:55:41] [0;32mI (493) heap_init: At 40078000 len 00008000 (32 KiB): IRAM[0m
+[2019-08-22 13:55:41] [0;32mI (499) heap_init: At 40090980 len 0000F680 (61 KiB): IRAM[0m
+[2019-08-22 13:55:41] [0;32mI (505) cpu_start: Pro cpu start user code[0m
+[2019-08-22 13:55:41] D (187) [mupgrade_check, 142]: Add an identifier to the firmware: ** MUPGRADE_FIRMWARE_FLAG **[0m
+[2019-08-22 13:55:41] [0;33mW (199) [mupgrade_check, 96]: restart reason: 12, count: 2[0m
+[2019-08-22 13:55:41] [0;32mI (201) cpu_start: Starting scheduler on PRO CPU.[0m
+[2019-08-22 13:55:41] 
+[2019-08-22 13:55:41] Opening Non-Volatile moter1 && moter2 (NVS) handle...
+[2019-08-22 13:55:41] AlarmTempMax1 Failed!
+[2019-08-22 13:55:41] AlarmTempMin1 Failed!
+[2019-08-22 13:55:41] SetTempMax1 Failed!
+[2019-08-22 13:55:41] SetTempMin1 Failed!
+[2019-08-22 13:55:41] TotalTime1 Failed!
+[2019-08-22 13:55:41] OpenPer1 Failed!
+[2019-08-22 13:55:41] TempCalOff1 Failed!
+[2019-08-22 13:55:41] AlarmTempMax2 Failed!
+[2019-08-22 13:55:41] AlarmTempMin2 Failed!
+[2019-08-22 13:55:41] SetTempMax2 Failed!
+[2019-08-22 13:55:41] SetTempMin2 Failed!
+[2019-08-22 13:55:41] TotalTime2 Failed!
+[2019-08-22 13:55:41] OpenPer2 Failed!
+[2019-08-22 13:55:41] TempCalOff2 Failed!
+[2019-08-22 13:55:41] [0;32mI (258) [mdf-mesh, 696]: start mdf_mesh_init[0m
+[2019-08-22 13:55:41] I (266) wifi: wifi driver task: 3ffc2048, prio:23, stack:3584, core=0
+[2019-08-22 13:55:41] [0;32mI (270) system_api: Base MAC address is not set, read default base MAC address from BLK0 of EFUSE[0m
+[2019-08-22 13:55:41] [0;32mI (279) system_api: Base MAC address is not set, read default base MAC address from BLK0 of EFUSE[0m
+[2019-08-22 13:55:41] I (295) wifi: wifi firmware version: 0c3a77a
+[2019-08-22 13:55:41] I (296) wifi: config NVS flash: enabled
+[2019-08-22 13:55:41] I (296) wifi: config nano formating: disabled
+[2019-08-22 13:55:41] I (300) wifi: Init dynamic tx buffer num: 32
+[2019-08-22 13:55:41] I (304) wifi: Init data frame dynamic rx buffer num: 32
+[2019-08-22 13:55:41] I (309) wifi: Init management frame dynamic rx buffer num: 32
+[2019-08-22 13:55:41] I (314) wifi: Init management short buffer num: 32
+[2019-08-22 13:55:41] I (319) wifi: Init static rx buffer size: 1600
+[2019-08-22 13:55:41] I (323) wifi: Init static rx buffer num: 10
+[2019-08-22 13:55:41] I (327) wifi: Init dynamic rx buffer num: 32
+[2019-08-22 13:55:41] I (332) wifi: Set ps type: 0
+[2019-08-22 13:55:41] 
+[2019-08-22 13:55:41] 
+[2019-08-22 13:55:41] Brownout detector was triggered
+[2019-08-22 13:55:41] 
+[2019-08-22 13:55:41] [0;32mI (11) boot: ESP-IDF v3.2.2-42-g4a9f33944-dirty 2nd stage bootloader[0m
+[2019-08-22 13:55:41] [0;32mI (11) boot: compile time 13:53:43[0m
+[2019-08-22 13:55:41] [0;32mI (12) boot: Enabling RNG early entropy source...[0m
+[2019-08-22 13:55:41] [0;32mI (17) boot: SPI Speed      : 40MHz[0m
+[2019-08-22 13:55:41] [0;32mI (21) boot: SPI Mode       : DIO[0m
+[2019-08-22 13:55:41] [0;32mI (25) boot: SPI Flash Size : 4MB[0m
+[2019-08-22 13:55:41] [0;32mI (29) boot: Partition Table:[0m
+[2019-08-22 13:55:41] [0;32mI (32) boot: ## Label            Usage          Type ST Offset   Length[0m
+[2019-08-22 13:55:41] [0;32mI (40) boot:  0 nvs              WiFi data        01 02 00009000 00004000[0m
+[2019-08-22 13:55:41] [0;32mI (47) boot:  1 otadata          OTA data         01 00 0000d000 00002000[0m
+[2019-08-22 13:55:41] [0;32mI (55) boot:  2 phy_init         RF data          01 01 0000f000 00001000[0m
+[2019-08-22 13:55:41] [0;32mI (62) boot:  3 ota_0            OTA app          00 10 00010000 001e0000[0m
+[2019-08-22 13:55:41] [0;32mI (70) boot:  4 ota_1            OTA app          00 11 001f0000 001e0000[0m
+[2019-08-22 13:55:41] [0;32mI (77) boot:  5 coredump         Unknown data     01 03 003d0000 00010000[0m
+[2019-08-22 13:55:41] [0;32mI (84) boot:  6 reserved         Unknown data     01 fe 003e0000 00020000[0m
+[2019-08-22 13:55:41] [0;32mI (92) boot: End of partition table[0m
+[2019-08-22 13:55:41] [0;32mI (96) boot: No factory image, trying OTA 0[0m
+[2019-08-22 13:55:41] [0;32mI (101) esp_image: segment 0: paddr=0x00010020 vaddr=0x3f400020 size=0x266b4 (157364) map[0m
+[2019-08-22 13:55:41] [0;32mI (165) esp_image: segment 1: paddr=0x000366dc vaddr=0x3ffb0000 size=0x02d50 ( 11600) load[0m
+[2019-08-22 13:55:41] [0;32mI (170) esp_image: segment 2: paddr=0x00039434 vaddr=0x40080000 size=0x00400 (  1024) load[0m
+[2019-08-22 13:55:41] [0;32mI (172) esp_image: segment 3: paddr=0x0003983c vaddr=0x40080400 size=0x067d4 ( 26580) load[0m
+[2019-08-22 13:55:41] [0;32mI (192) esp_image: segment 4: paddr=0x00040018 vaddr=0x400d0018 size=0xa7258 (684632) map[0m
+[2019-08-22 13:55:41] [0;32mI (432) esp_image: segment 5: paddr=0x000e7278 vaddr=0x40086bd4 size=0x09dac ( 40364) load[0m
+[2019-08-22 13:55:41] [0;32mI (459) boot: Loaded app from partition at offset 0x10000[0m
+[2019-08-22 13:55:41] [0;32mI (459) boot: Disabling RNG early entropy source...[0m
+[2019-08-22 13:55:41] [0;32mI (459) cpu_start: Pro cpu up.[0m
+[2019-08-22 13:55:41] [0;32mI (463) cpu_start: Single core mode[0m
+[2019-08-22 13:55:41] [0;32mI (467) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[2019-08-22 13:55:41] [0;32mI (474) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[2019-08-22 13:55:41] [0;32mI (480) heap_init: At 3FFB9C90 len 00026370 (152 KiB): DRAM[0m
+[2019-08-22 13:55:41] [0;32mI (487) heap_init: At 3FFE0440 len 0001FBC0 (126 KiB): D/IRAM[0m
+[2019-08-22 13:55:41] [0;32mI (493) heap_init: At 40078000 len 00008000 (32 KiB): IRAM[0m
+[2019-08-22 13:55:41] [0;32mI (499) heap_init: At 40090980 len 0000F680 (61 KiB): IRAM[0m
+[2019-08-22 13:55:41] [0;32mI (505) cpu_start: Pro cpu start user code[0m
+[2019-08-22 13:55:41] D (187) [mupgrade_check, 142]: Add an identifier to the firmware: ** MUPGRADE_FIRMWARE_FLAG **[0m
+[2019-08-22 13:55:41] [0;33mW (199) [mupgrade_check, 96]: restart reason: 12, count: 3[0m
+[2019-08-22 13:55:42] [0;32mI (201) cpu_start: Starting scheduler on PRO CPU.[0m
+[2019-08-22 13:55:42] 
+[2019-08-22 13:55:42] Opening Non-Volatile moter1 && moter2 (NVS) handle...
+[2019-08-22 13:55:42] AlarmTempMax1 Failed!
+[2019-08-22 13:55:42] AlarmTempMin1 Failed!
+[2019-08-22 13:55:42] SetTempMax1 Failed!
+[2019-08-22 13:55:42] SetTempMin1 Failed!
+[2019-08-22 13:55:42] TotalTime1 Failed!
+[2019-08-22 13:55:42] OpenPer1 Failed!
+[2019-08-22 13:55:42] TempCalOff1 Failed!
+[2019-08-22 13:55:42] AlarmTempMax2 Failed!
+[2019-08-22 13:55:42] AlarmTempMin2 Failed!
+[2019-08-22 13:55:42] SetTempMax2 Failed!
+[2019-08-22 13:55:42] SetTempMin2 Failed!
+[2019-08-22 13:55:42] TotalTime2 Failed!
+[2019-08-22 13:55:42] OpenPer2 Failed!
+[2019-08-22 13:55:42] TempCalOff2 Failed!
+[2019-08-22 13:55:42] [0;32mI (258) [mdf-mesh, 696]: start mdf_mesh_init[0m
+[2019-08-22 13:55:42] I (266) wifi: wifi driver task: 3ffc2048, prio:23, stack:3584, core=0
+[2019-08-22 13:55:42] [0;32mI (270) system_api: Base MAC address is not set, read default base MAC address from BLK0 of EFUSE[0m
+[2019-08-22 13:55:42] [0;32mI (279) system_api: Base MAC address is not set, read default base MAC address from BLK0 of EFUSE[0m
+[2019-08-22 13:55:42] I (295) wifi: wifi firmware version: 0c3a77a
+[2019-08-22 13:55:42] I (296) wifi: config NVS flash: enabled
+[2019-08-22 13:55:42] I (296) wifi: config nano formating: disabled
+[2019-08-22 13:55:42] I (300) wifi: Init dynamic tx buffer num: 32
+[2019-08-22 13:55:42] I (304) wifi: Init data frame dynamic rx buffer num: 32
+[2019-08-22 13:55:42] I (309) wifi: Init management frame dynamic rx buffer num: 32
+[2019-08-22 13:55:42] I (314) wifi: Init management short buffer num: 32
+[2019-08-22 13:55:42] I (319) wifi: Init static rx buffer size: 1600
+[2019-08-22 13:55:42] I (323) wifi: Init static rx buffer num: 10
+[2019-08-22 13:55:42] I (327) wifi: Init dynamic rx buffer num: 32
+[2019-08-22 13:55:42] I (332) wifi: Set ps type: 0
+[2019-08-22 13:55:42] 
+[2019-08-22 13:55:42] 
+[2019-08-22 13:55:42] Brownout detector was triggered
+[2019-08-22 13:55:42] 
+[2019-08-22 13:55:42] [0;32mI (11) boot: ESP-IDF v3.2.2-42-g4a9f33944-dirty 2nd stage bootloader[0m
+[2019-08-22 13:55:42] [0;32mI (11) boot: compile time 13:53:43[0m
+[2019-08-22 13:55:42] [0;32mI (12) boot: Enabling RNG early entropy source...[0m
+[2019-08-22 13:55:42] [0;32mI (17) boot: SPI Speed      : 40MHz[0m
+[2019-08-22 13:55:42] [0;32mI (21) boot: SPI Mode       : DIO[0m
+[2019-08-22 13:55:42] [0;32mI (25) boot: SPI Flash Size : 4MB[0m
+[2019-08-22 13:55:42] [0;32mI (29) boot: Partition Table:[0m
+[2019-08-22 13:55:42] [0;32mI (32) boot: ## Label            Usage          Type ST Offset   Length[0m
+[2019-08-22 13:55:42] [0;32mI (40) boot:  0 nvs              WiFi data        01 02 00009000 00004000[0m
+[2019-08-22 13:55:42] [0;32mI (47) boot:  1 otadata          OTA data         01 00 0000d000 00002000[0m
+[2019-08-22 13:55:42] [0;32mI (55) boot:  2 phy_init         RF data          01 01 0000f000 00001000[0m
+[2019-08-22 13:55:42] [0;32mI (62) boot:  3 ota_0            OTA app          00 10 00010000 001e0000[0m
+[2019-08-22 13:55:42] [0;32mI (70) boot:  4 ota_1            OTA app          00 11 001f0000 001e0000[0m
+[2019-08-22 13:55:42] [0;32mI (77) boot:  5 coredump         Unknown data     01 03 003d0000 00010000[0m
+[2019-08-22 13:55:42] [0;32mI (84) boot:  6 reserved         Unknown data     01 fe 003e0000 00020000[0m
+[2019-08-22 13:55:42] [0;32mI (92) boot: End of partition table[0m
+[2019-08-22 13:55:42] [0;32mI (96) boot: No factory image, trying OTA 0[0m
+[2019-08-22 13:55:42] [0;32mI (101) esp_image: segment 0: paddr=0x00010020 vaddr=0x3f400020 size=0x266b4 (157364) map[0m
+[2019-08-22 13:55:42] [0;32mI (165) esp_image: segment 1: paddr=0x000366dc vaddr=0x3ffb0000 size=0x02d50 ( 11600) load[0m
+[2019-08-22 13:55:42] [0;32mI (170) esp_image: segment 2: paddr=0x00039434 vaddr=0x40080000 size=0x00400 (  1024) load[0m
+[2019-08-22 13:55:42] [0;32mI (172) esp_image: segment 3: paddr=0x0003983c vaddr=0x40080400 size=0x067d4 ( 26580) load[0m
+[2019-08-22 13:55:42] [0;32mI (192) esp_image: segment 4: paddr=0x00040018 vaddr=0x400d0018 size=0xa7258 (684632) map[0m
+[2019-08-22 13:55:42] [0;32mI (432) esp_image: segment 5: paddr=0x000e7278 vaddr=0x40086bd4 size=0x09dac ( 40364) load[0m
+[2019-08-22 13:55:42] [0;32mI (459) boot: Loaded app from partition at offset 0x10000[0m
+[2019-08-22 13:55:42] [0;32mI (459) boot: Disabling RNG early entropy source...[0m
+[2019-08-22 13:55:42] [0;32mI (459) cpu_start: Pro cpu up.[0m
+[2019-08-22 13:55:42] [0;32mI (463) cpu_start: Single core mode[0m
+[2019-08-22 13:55:42] [0;32mI (467) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[2019-08-22 13:55:42] [0;32mI (474) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[2019-08-22 13:55:42] [0;32mI (480) heap_init: At 3FFB9C90 len 00026370 (152 KiB): DRAM[0m
+[2019-08-22 13:55:42] [0;32mI (487) heap_init: At 3FFE0440 len 0001FBC0 (126 KiB): D/IRAM[0m
+[2019-08-22 13:55:42] [0;32mI (493) heap_init: At 40078000 len 00008000 (32 KiB): IRAM[0m
+[2019-08-22 13:55:42] [0;32mI (499) heap_init: At 40090980 len 0000F680 (61 KiB): IRAM[0m
+[2019-08-22 13:55:42] [0;32mI (505) cpu_start: Pro cpu start user code[0m
+[2019-08-22 13:55:42] D (187) [mupgrade_check, 142]: Add an identifier to the firmware: ** MUPGRADE_FIRMWARE_FLAG **[0m
+[2019-08-22 13:55:42] [0;33mW (199) [mupgrade_check, 96]: restart reason: 12, count: 4[0m
+[2019-08-22 13:55:42] [0;32mI (201) cpu_start: Starting scheduler on PRO CPU.[0m
+[2019-08-22 13:55:42] 
+[2019-08-22 13:55:42] Opening Non-Volatile moter1 && moter2 (NVS) handle...
+[2019-08-22 13:55:42] AlarmTempMax1 Failed!
+[2019-08-22 13:55:42] AlarmTempMin1 Failed!
+[2019-08-22 13:55:42] SetTempMax1 Failed!
+[2019-08-22 13:55:42] SetTempMin1 Failed!
+[2019-08-22 13:55:42] TotalTime1 Failed!
+[2019-08-22 13:55:42] OpenPer1 Failed!
+[2019-08-22 13:55:42] TempCalOff1 Failed!
+[2019-08-22 13:55:42] AlarmTempMax2 Failed!
+[2019-08-22 13:55:42] AlarmTempMin2 Failed!
+[2019-08-22 13:55:42] SetTempMax2 Failed!
+[2019-08-22 13:55:42] SetTempMin2 Failed!
+[2019-08-22 13:55:42] TotalTime2 Failed!
+[2019-08-22 13:55:42] OpenPer2 Failed!
+[2019-08-22 13:55:42] TempCalOff2 Failed!
+[2019-08-22 13:55:42] [0;32mI (258) [mdf-mesh, 696]: start mdf_mesh_init[0m
+[2019-08-22 13:55:42] I (266) wifi: wifi driver task: 3ffc2048, prio:23, stack:3584, core=0
+[2019-08-22 13:55:42] [0;32mI (270) system_api: Base MAC address is not set, read default base MAC address from BLK0 of EFUSE[0m
+[2019-08-22 13:55:42] [0;32mI (279) system_api: Base MAC address is not set, read default base MAC address from BLK0 of EFUSE[0m
+[2019-08-22 13:55:42] I (295) wifi: wifi firmware version: 0c3a77a
+[2019-08-22 13:55:42] I (296) wifi: config NVS flash: enabled
+[2019-08-22 13:55:42] I (296) wifi: config nano formating: disabled
+[2019-08-22 13:55:42] I (300) wifi: Init dynamic tx buffer num: 32
+[2019-08-22 13:55:42] I (304) wifi: Init data frame dynamic rx buffer num: 32
+[2019-08-22 13:55:42] I (309) wifi: Init management frame dynamic rx buffer num: 32
+[2019-08-22 13:55:42] I (314) wifi: Init management short buffer num: 32
+[2019-08-22 13:55:42] I (319) wifi: Init static rx buffer size: 1600
+[2019-08-22 13:55:42] I (323) wifi: Init static rx buffer num: 10
+[2019-08-22 13:55:42] I (327) wifi: Init dynamic rx buffer num: 32
+[2019-08-22 13:55:42] I (332) wifi: Set ps type: 0
+[2019-08-22 13:55:42] 
+[2019-08-22 13:55:42] 
+[2019-08-22 13:55:42] Brownout detector was triggered
+[2019-08-22 13:55:42] 
+[2019-08-22 13:55:42] [0;32mI (11) boot: ESP-IDF v3.2.2-42-g4a9f33944-dirty 2nd stage bootloader[0m
+[2019-08-22 13:55:42] [0;32mI (11) boot: compile time 13:53:43[0m
+[2019-08-22 13:55:42] [0;32mI (12) boot: Enabling RNG early entropy source...[0m
+[2019-08-22 13:55:42] [0;32mI (17) boot: SPI Speed      : 40MHz[0m
+[2019-08-22 13:55:42] [0;32mI (21) boot: SPI Mode       : DIO[0m
+[2019-08-22 13:55:42] [0;32mI (25) boot: SPI Flash Size : 4MB[0m
+[2019-08-22 13:55:42] [0;32mI (29) boot: Partition Table:[0m
+[2019-08-22 13:55:42] [0;32mI (32) boot: ## Label            Usage          Type ST Offset   Length[0m
+[2019-08-22 13:55:42] [0;32mI (40) boot:  0 nvs              WiFi data        01 02 00009000 00004000[0m
+[2019-08-22 13:55:42] [0;32mI (47) boot:  1 otadata          OTA data         01 00 0000d000 00002000[0m
+[2019-08-22 13:55:42] [0;32mI (55) boot:  2 phy_init         RF data          01 01 0000f000 00001000[0m
+[2019-08-22 13:55:42] [0;32mI (62) boot:  3 ota_0            OTA app          00 10 00010000 001e0000[0m
+[2019-08-22 13:55:42] [0;32mI (70) boot:  4 ota_1            OTA app          00 11 001f0000 001e0000[0m
+[2019-08-22 13:55:42] [0;32mI (77) boot:  5 coredump         Unknown data     01 03 003d0000 00010000[0m
+[2019-08-22 13:55:42] [0;32mI (84) boot:  6 reserved         Unknown data     01 fe 003e0000 00020000[0m
+[2019-08-22 13:55:42] [0;32mI (92) boot: End of partition table[0m
+[2019-08-22 13:55:42] [0;32mI (96) boot: No factory image, trying OTA 0[0m
+[2019-08-22 13:55:42] [0;32mI (101) esp_image: segment 0: paddr=0x00010020 vaddr=0x3f400020 size=0x266b4 (157364) map[0m
+[2019-08-22 13:55:42] [0;32mI (165) esp_image: segment 1: paddr=0x000366dc vaddr=0x3ffb0000 size=0x02d50 ( 11600) load[0m
+[2019-08-22 13:55:42] [0;32mI (170) esp_image: segment 2: paddr=0x00039434 vaddr=0x40080000 size=0x00400 (  1024) load[0m
+[2019-08-22 13:55:43] [0;32mI (172) esp_image: segment 3: paddr=0x0003983c vaddr=0x40080400 size=0x067d4 ( 26580) load[0m
+[2019-08-22 13:55:43] [0;32mI (192) esp_image: segment 4: paddr=0x00040018 vaddr=0x400d0018 size=0xa7258 (684632) map[0m
+[2019-08-22 13:55:43] [0;32mI (432) esp_image: segment 5: paddr=0x000e7278 vaddr=0x40086bd4 size=0x09dac ( 40364) load[0m
+[2019-08-22 13:55:43] [0;32mI (459) boot: Loaded app from partition at offset 0x10000[0m
+[2019-08-22 13:55:43] [0;32mI (459) boot: Disabling RNG early entropy source...[0m
+[2019-08-22 13:55:43] [0;32mI (459) cpu_start: Pro cpu up.[0m
+[2019-08-22 13:55:43] [0;32mI (463) cpu_start: Single core mode[0m
+[2019-08-22 13:55:43] [0;32mI (467) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[2019-08-22 13:55:43] [0;32mI (474) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[2019-08-22 13:55:43] [0;32mI (480) heap_init: At 3FFB9C90 len 00026370 (152 KiB): DRAM[0m
+[2019-08-22 13:55:43] [0;32mI (487) heap_init: At 3FFE0440 len 0001FBC0 (126 KiB): D/IRAM[0m
+[2019-08-22 13:55:43] [0;32mI (493) heap_init: At 40078000 len 00008000 (32 KiB): IRAM[0m
+[2019-08-22 13:55:43] [0;32mI (499) heap_init: At 40090980 len 0000F680 (61 KiB): IRAM[0m
+[2019-08-22 13:55:43] [0;32mI (505) cpu_start: Pro cpu start user code[0m
+[2019-08-22 13:55:43] D (187) [mupgrade_check, 142]: Add an identifier to the firmware: ** MUPGRADE_FIRMWARE_FLAG **[0m
+[2019-08-22 13:55:43] [0;33mW (199) [mupgrade_check, 96]: restart reason: 12, count: 5[0m
+[2019-08-22 13:55:43] [0;32mI (201) cpu_start: Starting scheduler on PRO CPU.[0m
+[2019-08-22 13:55:43] 
+[2019-08-22 13:55:43] Opening Non-Volatile moter1 && moter2 (NVS) handle...
+[2019-08-22 13:55:43] AlarmTempMax1 Failed!
+[2019-08-22 13:55:43] AlarmTempMin1 Failed!
+[2019-08-22 13:55:43] SetTempMax1 Failed!
+[2019-08-22 13:55:43] SetTempMin1 Failed!
+[2019-08-22 13:55:43] TotalTime1 Failed!
+[2019-08-22 13:55:43] OpenPer1 Failed!
+[2019-08-22 13:55:43] TempCalOff1 Failed!
+[2019-08-22 13:55:43] AlarmTempMax2 Failed!
+[2019-08-22 13:55:43] AlarmTempMin2 Failed!
+[2019-08-22 13:55:43] SetTempMax2 Failed!
+[2019-08-22 13:55:43] SetTempMin2 Failed!
+[2019-08-22 13:55:43] TotalTime2 Failed!
+[2019-08-22 13:55:43] OpenPer2 Failed!
+[2019-08-22 13:55:43] TempCalOff2 Failed!
+[2019-08-22 13:55:43] [0;32mI (258) [mdf-mesh, 696]: start mdf_mesh_init[0m
+[2019-08-22 13:55:43] I (266) wifi: wifi driver task: 3ffc2048, prio:23, stack:3584, core=0
+[2019-08-22 13:55:43] [0;32mI (270) system_api: Base MAC address is not set, read default base MAC address from BLK0 of EFUSE[0m
+[2019-08-22 13:55:43] [0;32mI (279) system_api: Base MAC address is not set, read default base MAC address from BLK0 of EFUSE[0m
+[2019-08-22 13:55:43] I (295) wifi: wifi firmware version: 0c3a77a
+[2019-08-22 13:55:43] I (296) wifi: config NVS flash: enabled
+[2019-08-22 13:55:43] I (296) wifi: config nano formating: disabled
+[2019-08-22 13:55:43] I (300) wifi: Init dynamic tx buffer num: 32
+[2019-08-22 13:55:43] I (304) wifi: Init data frame dynamic rx buffer num: 32
+[2019-08-22 13:55:43] I (309) wifi: Init management frame dynamic rx buffer num: 32
+[2019-08-22 13:55:43] I (314) wifi: Init management short buffer num: 32
+[2019-08-22 13:55:43] I (319) wifi: Init static rx buffer size: 1600
+[2019-08-22 13:55:43] I (323) wifi: Init static rx buffer num: 10
+[2019-08-22 13:55:43] I (327) wifi: Init dynamic rx buffer num: 32
+[2019-08-22 13:55:43] I (332) wifi: Set ps type: 0
+[2019-08-22 13:55:43] 
+[2019-08-22 13:55:43] 
+[2019-08-22 13:55:43] Brownout detector was triggered
+[2019-08-22 13:55:43] 
+[2019-08-22 13:55:43] [0;32mI (11) boot: ESP-IDF v3.2.2-42-g4a9f33944-dirty 2nd stage bootloader[0m
+[2019-08-22 13:55:43] [0;32mI (11) boot: compile time 13:53:43[0m
+[2019-08-22 13:55:43] [0;32mI (12) boot: Enabling RNG early entropy source...[0m
+[2019-08-22 13:55:43] [0;32mI (17) boot: SPI Speed      : 40MHz[0m
+[2019-08-22 13:55:43] [0;32mI (21) boot: SPI Mode       : DIO[0m
+[2019-08-22 13:55:43] [0;32mI (25) boot: SPI Flash Size : 4MB[0m
+[2019-08-22 13:55:43] [0;32mI (29) boot: Partition Table:[0m
+[2019-08-22 13:55:43] [0;32mI (32) boot: ## Label            Usage          Type ST Offset   Length[0m
+[2019-08-22 13:55:43] [0;32mI (40) boot:  0 nvs              WiFi data        01 02 00009000 00004000[0m
+[2019-08-22 13:55:43] [0;32mI (47) boot:  1 otadata          OTA data         01 00 0000d000 00002000[0m
+[2019-08-22 13:55:43] [0;32mI (55) boot:  2 phy_init         RF data          01 01 0000f000 00001000[0m
+[2019-08-22 13:55:43] [0;32mI (62) boot:  3 ota_0            OTA app          00 10 00010000 001e0000[0m
+[2019-08-22 13:55:43] [0;32mI (70) boot:  4 ota_1            OTA app          00 11 001f0000 001e0000[0m
+[2019-08-22 13:55:43] [0;32mI (77) boot:  5 coredump         Unknown data     01 03 003d0000 00010000[0m
+[2019-08-22 13:55:43] [0;32mI (84) boot:  6 reserved         Unknown data     01 fe 003e0000 00020000[0m
+[2019-08-22 13:55:43] [0;32mI (92) boot: End of partition table[0m
+[2019-08-22 13:55:43] [0;32mI (96) boot: No factory image, trying OTA 0[0m
+[2019-08-22 13:55:43] [0;32mI (101) esp_image: segment 0: paddr=0x00010020 vaddr=0x3f400020 size=0x266b4 (157364) map[0m
+[2019-08-22 13:55:43] [0;32mI (165) esp_image: segment 1: paddr=0x000366dc vaddr=0x3ffb0000 size=0x02d50 ( 11600) load[0m
+[2019-08-22 13:55:43] [0;32mI (170) esp_image: segment 2: paddr=0x00039434 vaddr=0x40080000 size=0x00400 (  1024) load[0m
+[2019-08-22 13:55:43] [0;32mI (172) esp_image: segment 3: paddr=0x0003983c vaddr=0x40080400 size=0x067d4 ( 26580) load[0m
+[2019-08-22 13:55:43] [0;32mI (192) esp_image: segment 4: paddr=0x00040018 vaddr=0x400d0018 size=0xa7258 (684632) map[0m
+[2019-08-22 13:55:43] [0;32mI (432) esp_image: segment 5: paddr=0x000e7278 vaddr=0x40086bd4 size=0x09dac ( 40364) load[0m
+[2019-08-22 13:55:43] [0;32mI (459) boot: Loaded app from partition at offset 0x10000[0m
+[2019-08-22 13:55:43] [0;32mI (459) boot: Disabling RNG early entropy source...[0m
+[2019-08-22 13:55:43] [0;32mI (459) cpu_start: Pro cpu up.[0m
+[2019-08-22 13:55:43] [0;32mI (463) cpu_start: Single core mode[0m
+[2019-08-22 13:55:43] [0;32mI (467) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[2019-08-22 13:55:44] [0;32mI (474) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[2019-08-22 13:55:44] [0;32mI (480) heap_init: At 3FFB9C90 len 00026370 (152 KiB): DRAM[0m
+[2019-08-22 13:55:44] [0;32mI (487) heap_init: At 3FFE0440 len 0001FBC0 (126 KiB): D/IRAM[0m
+[2019-08-22 13:55:44] [0;32mI (493) heap_init: At 40078000 len 00008000 (32 KiB): IRAM[0m
+[2019-08-22 13:55:44] [0;32mI (499) heap_init: At 40090980 len 0000F680 (61 KiB): IRAM[0m
+[2019-08-22 13:55:44] [0;32mI (505) cpu_start: Pro cpu start user code[0m
+[2019-08-22 13:55:44] D (187) [mupgrade_check, 142]: Add an identifier to the firmware: ** MUPGRADE_FIRMWARE_FLAG **[0m
+[2019-08-22 13:55:44] [0;33mW (199) [mupgrade_check, 96]: restart reason: 12, count: 6[0m
+[2019-08-22 13:55:44] [0;32mI (201) cpu_start: Starting scheduler on PRO CPU.[0m
+[2019-08-22 13:55:44] 
+[2019-08-22 13:55:44] Opening Non-Volatile moter1 && moter2 (NVS) handle...
+[2019-08-22 13:55:44] AlarmTempMax1 Failed!
+[2019-08-22 13:55:44] AlarmTempMin1 Failed!
+[2019-08-22 13:55:44] SetTempMax1 Failed!
+[2019-08-22 13:55:44] SetTempMin1 Failed!
+[2019-08-22 13:55:44] TotalTime1 Failed!
+[2019-08-22 13:55:44] OpenPer1 Failed!
+[2019-08-22 13:55:44] TempCalOff1 Failed!
+[2019-08-22 13:55:44] AlarmTempMax2 Failed!
+[2019-08-22 13:55:44] AlarmTempMin2 Failed!
+[2019-08-22 13:55:44] SetTempMax2 Failed!
+[2019-08-22 13:55:44] SetTempMin2 Failed!
+[2019-08-22 13:55:44] TotalTime2 Failed!
+[2019-08-22 13:55:44] OpenPer2 Failed!
+[2019-08-22 13:55:44] TempCalOff2 Failed!
+[2019-08-22 13:55:44] [0;32mI (258) [mdf-mesh, 696]: start mdf_mesh_init[0m
+[2019-08-22 13:55:44] I (266) wifi: wifi driver task: 3ffc2048, prio:23, stack:3584, core=0
+[2019-08-22 13:55:44] [0;32mI (270) system_api: Base MAC address is not set, read default base MAC address from BLK0 of EFUSE[0m
+[2019-08-22 13:55:44] [0;32mI (279) system_api: Base MAC address is not set, read default base MAC address from BLK0 of EFUSE[0m
+[2019-08-22 13:55:44] I (295) wifi: wifi firmware version: 0c3a77a
+[2019-08-22 13:55:44] I (296) wifi: config NVS flash: enabled
+[2019-08-22 13:55:44] I (296) wifi: config nano formating: disabled
+[2019-08-22 13:55:44] I (300) wifi: Init dynamic tx buffer num: 32
+[2019-08-22 13:55:44] I (304) wifi: Init data frame dynamic rx buffer num: 32
+[2019-08-22 13:55:44] I (309) wifi: Init management frame dynamic rx buffer num: 32
+[2019-08-22 13:55:44] I (314) wifi: Init management short buffer num: 32
+[2019-08-22 13:55:44] I (319) wifi: Init static rx buffer size: 1600
+[2019-08-22 13:55:44] I (323) wifi: Init static rx buffer num: 10
+[2019-08-22 13:55:44] I (327) wifi: Init dynamic rx buffer num: 32
+[2019-08-22 13:55:44] I (332) wifi: Set ps type: 0
+[2019-08-22 13:55:44] 
+[2019-08-22 13:55:44] 
+[2019-08-22 13:55:44] Brownout detector was triggered
+[2019-08-22 13:55:44] 
+[2019-08-22 13:55:44] [0;32mI (11) boot: ESP-IDF v3.2.2-42-g4a9f33944-dirty 2nd stage bootloader[0m
+[2019-08-22 13:55:44] [0;32mI (11) boot: compile time 13:53:43[0m
+[2019-08-22 13:55:44] [0;32mI (12) boot: Enabling RNG early entropy source...[0m
+[2019-08-22 13:55:44] [0;32mI (17) boot: SPI Speed      : 40MHz[0m
+[2019-08-22 13:55:44] [0;32mI (21) boot: SPI Mode       : DIO[0m
+[2019-08-22 13:55:44] [0;32mI (25) boot: SPI Flash Size : 4MB[0m
+[2019-08-22 13:55:44] [0;32mI (29) boot: Partition Table:[0m
+[2019-08-22 13:55:44] [0;32mI (32) boot: ## Label            Usage          Type ST Offset   Length[0m
+[2019-08-22 13:55:44] [0;32mI (40) boot:  0 nvs              WiFi data        01 02 00009000 00004000[0m
+[2019-08-22 13:55:44] [0;32mI (47) boot:  1 otadata          OTA data         01 00 0000d000 00002000[0m
+[2019-08-22 13:55:44] [0;32mI (55) boot:  2 phy_init         RF data          01 01 0000f000 00001000[0m
+[2019-08-22 13:55:44] [0;32mI (62) boot:  3 ota_0            OTA app          00 10 00010000 001e0000[0m
+[2019-08-22 13:55:44] [0;32mI (70) boot:  4 ota_1            OTA app          00 11 001f0000 001e0000[0m
+[2019-08-22 13:55:44] [0;32mI (77) boot:  5 coredump         Unknown data     01 03 003d0000 00010000[0m
+[2019-08-22 13:55:44] [0;32mI (84) boot:  6 reserved         Unknown data     01 fe 003e0000 00020000[0m
+[2019-08-22 13:55:44] [0;32mI (92) boot: End of partition table[0m
+[2019-08-22 13:55:44] [0;32mI (96) boot: No factory image, trying OTA 0[0m
+[2019-08-22 13:55:44] [0;32mI (101) esp_image: segment 0: paddr=0x00010020 vaddr=0x3f400020 size=0x266b4 (157364) map[0m
+[2019-08-22 13:55:44] [0;32mI (165) esp_image: segment 1: paddr=0x000366dc vaddr=0x3ffb0000 size=0x02d50 ( 11600) load[0m
+[2019-08-22 13:55:44] [0;32mI (170) esp_image: segment 2: paddr=0x00039434 vaddr=0x40080000 size=0x00400 (  1024) load[0m
+[2019-08-22 13:55:44] [0;32mI (172) esp_image: segment 3: paddr=0x0003983c vaddr=0x40080400 size=0x067d4 ( 26580) load[0m
+[2019-08-22 13:55:44] [0;32mI (192) esp_image: segment 4: paddr=0x00040018 vaddr=0x400d0018 size=0xa7258 (684632) map[0m
+[2019-08-22 13:55:44] [0;32mI (432) esp_image: segment 5: paddr=0x000e7278 vaddr=0x40086bd4 size=0x09dac ( 40364) load[0m
+[2019-08-22 13:55:44] [0;32mI (459) boot: Loaded app from partition at offset 0x10000[0m
+[2019-08-22 13:55:44] [0;32mI (459) boot: Disabling RNG early entropy source...[0m
+[2019-08-22 13:55:44] [0;32mI (459) cpu_start: Pro cpu up.[0m
+[2019-08-22 13:55:44] [0;32mI (463) cpu_start: Single core mode[0m
+[2019-08-22 13:55:44] [0;32mI (467) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[2019-08-22 13:55:44] [0;32mI (474) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[2019-08-22 13:55:44] [0;32mI (480) heap_init: At 3FFB9C90 len 00026370 (152 KiB): DRAM[0m
+[2019-08-22 13:55:44] [0;32mI (487) heap_init: At 3FFE0440 len 0001FBC0 (126 KiB): D/IRAM[0m
+[2019-08-22 13:55:44] [0;32mI (493) heap_init: At 40078000 len 00008000 (32 KiB): IRAM[0m
+[2019-08-22 13:55:44] [0;32mI (499) heap_init: At 40090980 len 0000F680 (61 KiB): IRAM[0m
+[2019-08-22 13:55:44] [0;32mI (505) cpu_start: Pro cpu start user code[0m
+[2019-08-22 13:55:44] D (187) [mupgrade_check, 142]: Add an identifier to the firmware: ** MUPGRADE_FIRMWARE_FLAG **[0m
+[2019-08-22 13:55:44] [0;33mW (199) [mupgrade_check, 96]: restart reason: 12, count: 7[0m
+[2019-08-22 13:55:44] [0;32mI (201) cpu_start: Starting scheduler on PRO CPU.[0m
+[2019-08-22 13:55:44] 
+[2019-08-22 13:55:44] Opening Non-Volatile moter1 && moter2 (NVS) handle...
+[2019-08-22 13:55:44] AlarmTempMax1 Failed!
+[2019-08-22 13:55:44] AlarmTempMin1 Failed!
+[2019-08-22 13:55:44] SetTempMax1 Failed!
+[2019-08-22 13:55:44] SetTempMin1 Failed!
+[2019-08-22 13:55:44] TotalTime1 Failed!
+[2019-08-22 13:55:44] OpenPer1 Failed!
+[2019-08-22 13:55:44] TempCalOff1 Failed!
+[2019-08-22 13:55:44] AlarmTempMax2 Failed!
+[2019-08-22 13:55:44] AlarmTempMin2 Failed!
+[2019-08-22 13:55:44] SetTempMax2 Failed!
+[2019-08-22 13:55:44] SetTempMin2 Failed!
+[2019-08-22 13:55:44] TotalTime2 Failed!
+[2019-08-22 13:55:44] OpenPer2 Failed!
+[2019-08-22 13:55:44] TempCalOff2 Failed!
+[2019-08-22 13:55:44] [0;32mI (258) [mdf-mesh, 696]: start mdf_mesh_init[0m
+[2019-08-22 13:55:44] I (266) wifi: wifi driver task: 3ffc2048, prio:23, stack:3584, core=0
+[2019-08-22 13:55:44] [0;32mI (270) system_api: Base MAC address is not set, read default base MAC address from BLK0 of EFUSE[0m
+[2019-08-22 13:55:44] [0;32mI (279) system_api: Base MAC address is not set, read default base MAC address from BLK0 of EFUSE[0m
+[2019-08-22 13:55:44] I (295) wifi: wifi firmware version: 0c3a77a
+[2019-08-22 13:55:44] I (296) wifi: config NVS flash: enabled
+[2019-08-22 13:55:44] I (296) wifi: config nano formating: disabled
+[2019-08-22 13:55:44] I (300) wifi: Init dynamic tx buffer num: 32
+[2019-08-22 13:55:44] I (304) wifi: Init data frame dynamic rx buffer num: 32
+[2019-08-22 13:55:44] I (309) wifi: Init management frame dynamic rx buffer num: 32
+[2019-08-22 13:55:44] I (314) wifi: Init management short buffer num: 32
+[2019-08-22 13:55:44] I (319) wifi: Init static rx buffer size: 1600
+[2019-08-22 13:55:44] I (323) wifi: Init static rx buffer num: 10
+[2019-08-22 13:55:44] I (327) wifi: Init dynamic rx buffer num: 32
+[2019-08-22 13:55:44] I (332) wifi: Set ps type: 0
+[2019-08-22 13:55:44] 
+[2019-08-22 13:55:44] 
+[2019-08-22 13:55:44] Brownout detector was triggered
+[2019-08-22 13:55:44] 
+[2019-08-22 13:55:44] [0;32mI (11) boot: ESP-IDF v3.2.2-42-g4a9f33944-dirty 2nd stage bootloader[0m
+[2019-08-22 13:55:44] [0;32mI (11) boot: compile time 13:53:43[0m
+[2019-08-22 13:55:44] [0;32mI (12) boot: Enabling RNG early entropy source...[0m
+[2019-08-22 13:55:44] [0;32mI (17) boot: SPI Speed      : 40MHz[0m
+[2019-08-22 13:55:44] [0;32mI (21) boot: SPI Mode       : DIO[0m
+[2019-08-22 13:55:44] [0;32mI (25) boot: SPI Flash Size : 4MB[0m
+[2019-08-22 13:55:44] [0;32mI (29) boot: Partition Table:[0m
+[2019-08-22 13:55:44] [0;32mI (32) boot: ## Label            Usage          Type ST Offset   Length[0m
+[2019-08-22 13:55:44] [0;32mI (40) boot:  0 nvs              WiFi data        01 02 00009000 00004000[0m
+[2019-08-22 13:55:44] [0;32mI (47) boot:  1 otadata          OTA data         01 00 0000d000 00002000[0m
+[2019-08-22 13:55:44] [0;32mI (55) boot:  2 phy_init         RF data          01 01 0000f000 00001000[0m
+[2019-08-22 13:55:44] [0;32mI (62) boot:  3 ota_0            OTA app          00 10 00010000 001e0000[0m
+[2019-08-22 13:55:44] [0;32mI (70) boot:  4 ota_1            OTA app          00 11 001f0000 001e0000[0m
+[2019-08-22 13:55:44] [0;32mI (77) boot:  5 coredump         Unknown data     01 03 003d0000 00010000[0m
+[2019-08-22 13:55:44] [0;32mI (84) boot:  6 reserved         Unknown data     01 fe 003e0000 00020000[0m
+[2019-08-22 13:55:44] [0;32mI (92) boot: End of partition table[0m
+[2019-08-22 13:55:44] [0;32mI (96) boot: No factory image, trying OTA 0[0m
+[2019-08-22 13:55:44] [0;32mI (101) esp_image: segment 0: paddr=0x00010020 vaddr=0x3f400020 size=0x266b4 (157364) map[0m
+[2019-08-22 13:55:45] [0;32mI (165) esp_image: segment 1: paddr=0x000366dc vaddr=0x3ffb0000 size=0x02d50 ( 11600) load[0m
+[2019-08-22 13:55:45] [0;32mI (170) esp_image: segment 2: paddr=0x00039434 vaddr=0x40080000 size=0x00400 (  1024) load[0m
+[2019-08-22 13:55:45] [0;32mI (172) esp_image: segment 3: paddr=0x0003983c vaddr=0x40080400 size=0x067d4 ( 26580) load[0m
+[2019-08-22 13:55:45] [0;32mI (192) esp_image: segment 4: paddr=0x00040018 vaddr=0x400d0018 size=0xa7258 (684632) map[0m
+[2019-08-22 13:55:45] [0;32mI (432) esp_image: segment 5: paddr=0x000e7278 vaddr=0x40086bd4 size=0x09dac ( 40364) load[0m
+[2019-08-22 13:55:45] [0;32mI (459) boot: Loaded app from partition at offset 0x10000[0m
+[2019-08-22 13:55:45] [0;32mI (459) boot: Disabling RNG early entropy source...[0m
+[2019-08-22 13:55:45] [0;32mI (459) cpu_start: Pro cpu up.[0m
+[2019-08-22 13:55:45] [0;32mI (463) cpu_start: Single core mode[0m
+[2019-08-22 13:55:45] [0;32mI (467) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[2019-08-22 13:55:45] [0;32mI (474) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[2019-08-22 13:55:45] [0;32mI (480) heap_init: At 3FFB9C90 len 00026370 (152 KiB): DRAM[0m
+[2019-08-22 13:55:45] [0;32mI (487) heap_init: At 3FFE0440 len 0001FBC0 (126 KiB): D/IRAM[0m
+[2019-08-22 13:55:45] [0;32mI (493) heap_init: At 40078000 len 00008000 (32 KiB): IRAM[0m
+[2019-08-22 13:55:45] [0;32mI (499) heap_init: At 40090980 len 0000F680 (61 KiB): IRAM[0m
+[2019-08-22 13:55:45] [0;32mI (505) cpu_start: Pro cpu start user code[0m
+[2019-08-22 13:55:45] D (187) [mupgrade_check, 142]: Add an identifier to the firmware: ** MUPGRADE_FIRMWARE_FLAG **[0m
+[2019-08-22 13:55:45] [0;33mW (197) [mupgrade_check, 96]: restart reason: 12, count: 8[0m
+[2019-08-22 13:55:45] [0;32mI (199) cpu_start: Starting scheduler on PRO CPU.[0m
+[2019-08-22 13:55:45] 
+[2019-08-22 13:55:45] Opening Non-Volatile moter1 && moter2 (NVS) handle...
+[2019-08-22 13:55:45] AlarmTempMax1 Failed!
+[2019-08-22 13:55:45] AlarmTempMin1 Failed!
+[2019-08-22 13:55:45] SetTempMax1 Failed!
+[2019-08-22 13:55:45] SetTempMin1 Failed!
+[2019-08-22 13:55:45] TotalTime1 Failed!
+[2019-08-22 13:55:45] OpenPer1 Failed!
+[2019-08-22 13:55:45] TempCalOff1 Failed!
+[2019-08-22 13:55:45] AlarmTempMax2 Failed!
+[2019-08-22 13:55:45] AlarmTempMin2 Failed!
+[2019-08-22 13:55:45] SetTempMax2 Failed!
+[2019-08-22 13:55:45] SetTempMin2 Failed!
+[2019-08-22 13:55:45] TotalTime2 Failed!
+[2019-08-22 13:55:45] OpenPer2 Failed!
+[2019-08-22 13:55:45] TempCalOff2 Failed!
+[2019-08-22 13:55:45] [0;32mI (260) [mdf-mesh, 696]: start mdf_mesh_init[0m
+[2019-08-22 13:55:45] I (268) wifi: wifi driver task: 3ffc20cc, prio:23, stack:3584, core=0
+[2019-08-22 13:55:45] [0;32mI (271) system_api: Base MAC address is not set, read default base MAC address from BLK0 of EFUSE[0m
+[2019-08-22 13:55:45] [0;32mI (281) system_api: Base MAC address is not set, read default base MAC address from BLK0 of EFUSE[0m
+[2019-08-22 13:55:45] I (297) wifi: wifi firmware version: 0c3a77a
+[2019-08-22 13:55:45] I (297) wifi: config NVS flash: enabled
+[2019-08-22 13:55:45] I (298) wifi: config nano formating: disabled
+[2019-08-22 13:55:45] I (302) wifi: Init dynamic tx buffer num: 32
+[2019-08-22 13:55:45] I (306) wifi: Init data frame dynamic rx buffer num: 32
+[2019-08-22 13:55:45] I (311) wifi: Init management frame dynamic rx buffer num: 
+[2019-08-22 13:55:45] Brownout detector was triggered
+[2019-08-22 13:55:45] 
+[2019-08-22 13:55:45] [0;32mI (11) boot: ESP-IDF v3.2.2-42-g4a9f33944-dirty 2nd stage bootloader[0m
+[2019-08-22 13:55:45] [0;32mI (11) boot: compile time 13:53:43[0m
+[2019-08-22 13:55:45] [0;32mI (12) boot: Enabling RNG early entropy source...[0m
+[2019-08-22 13:55:45] [0;32mI (17) boot: SPI Speed      : 40MHz[0m
+[2019-08-22 13:55:45] [0;32mI (21) boot: SPI Mode       : DIO[0m
+[2019-08-22 13:55:45] [0;32mI (25) boot: SPI Flash Size : 4MB[0m
+[2019-08-22 13:55:45] [0;32mI (29) boot: Partition Table:[0m
+[2019-08-22 13:55:45] [0;32mI (32) boot: ## Label            Usage          Type ST Offset   Length[0m
+[2019-08-22 13:55:45] [0;32mI (40) boot:  0 nvs              WiFi data        01 02 00009000 00004000[0m
+[2019-08-22 13:55:45] [0;32mI (47) boot:  1 otadata          OTA data         01 00 0000d000 00002000[0m
+[2019-08-22 13:55:45] [0;32mI (55) boot:  2 phy_init         RF data          01 01 0000f000 00001000[0m
+[2019-08-22 13:55:45] [0;32mI (62) boot:  3 ota_0            OTA app          00 10 00010000 001e0000[0m
+[2019-08-22 13:55:45] [0;32mI (70) boot:  4 ota_1            OTA app          00 11 001f0000 001e0000[0m
+[2019-08-22 13:55:45] [0;32mI (77) boot:  5 coredump         Unknown data     01 03 003d0000 00010000[0m
+[2019-08-22 13:55:45] [0;32mI (84) boot:  6 reserved         Unknown data     01 fe 003e0000 00020000[0m
+[2019-08-22 13:55:45] [0;32mI (92) boot: End of partition table[0m
+[2019-08-22 13:55:45] [0;32mI (96) boot: No factory image, trying OTA 0[0m
+[2019-08-22 13:55:45] [0;32mI (101) esp_image: segment 0: paddr=0x00010020 vaddr=0x3f400020 size=0x266b4 (157364) map[0m
+[2019-08-22 13:55:45] [0;32mI (165) esp_image: segment 1: paddr=0x000366dc vaddr=0x3ffb0000 size=0x02d50 ( 11600) load[0m
+[2019-08-22 13:55:45] [0;32mI (170) esp_image: segment 2: paddr=0x00039434 vaddr=0x40080000 size=0x00400 (  1024) load[0m
+[2019-08-22 13:55:45] [0;32mI (172) esp_image: segment 3: paddr=0x0003983c vaddr=0x40080400 size=0x067d4 ( 26580) load[0m
+[2019-08-22 13:55:45] [0;32mI (192) esp_image: segment 4: paddr=0x00040018 vaddr=0x400d0018 size=0xa7258 (684632) map[0m
+[2019-08-22 13:55:45] [0;32mI (432) esp_image: segment 5: paddr=0x000e7278 vaddr=0x40086bd4 size=0x09dac ( 40364) load[0m
+[2019-08-22 13:55:45] [0;32mI (459) boot: Loaded app from partition at offset 0x10000[0m
+[2019-08-22 13:55:45] [0;32mI (459) boot: Disabling RNG early entropy source...[0m
+[2019-08-22 13:55:45] [0;32mI (459) cpu_start: Pro cpu up.[0m
+[2019-08-22 13:55:45] [0;32mI (463) cpu_start: Single core mode[0m
+[2019-08-22 13:55:46] [0;32mI (467) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[2019-08-22 13:55:46] [0;32mI (474) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[2019-08-22 13:55:46] [0;32mI (480) heap_init: At 3FFB9C90 len 00026370 (152 KiB): DRAM[0m
+[2019-08-22 13:55:46] [0;32mI (486) heap_init: At 3FFE0440 len 0001FBC0 (126 KiB): D/IRAM[0m
+[2019-08-22 13:55:46] [0;32mI (493) heap_init: At 40078000 len 00008000 (32 KiB): IRAM[0m
+[2019-08-22 13:55:46] [0;32mI (499) heap_init: At 40090980 len 0000F680 (61 KiB): IRAM[0m
+[2019-08-22 13:55:46] [0;32mI (505) cpu_start: Pro cpu start user code[0m
+[2019-08-22 13:55:46] D (187) [mupgrade_check, 142]: Add an identifier to the firmware: ** MUPGRADE_FIRMWARE_FLAG **[0m
+[2019-08-22 13:55:46] [0;33mW (197) [mupgrade_check, 96]: restart reason: 12, count: 9[0m
+[2019-08-22 13:55:46] [0;32mI (199) cpu_start: Starting scheduler on PRO CPU.[0m
+[2019-08-22 13:55:46] 
+[2019-08-22 13:55:46] Opening Non-Volatile moter1 && moter2 (NVS) handle...
+[2019-08-22 13:55:46] AlarmTempMax1 Failed!
+[2019-08-22 13:55:46] AlarmTempMin1 Failed!
+[2019-08-22 13:55:46] SetTempMax1 Failed!
+[2019-08-22 13:55:46] SetTempMin1 Failed!
+[2019-08-22 13:55:46] TotalTime1 Failed!
+[2019-08-22 13:55:46] OpenPer1 Failed!
+[2019-08-22 13:55:46] TempCalOff1 Failed!
+[2019-08-22 13:55:46] AlarmTempMax2 Failed!
+[2019-08-22 13:55:46] AlarmTempMin2 Failed!
+[2019-08-22 13:55:46] SetTempMax2 Failed!
+[2019-08-22 13:55:46] SetTempMin2 Failed!
+[2019-08-22 13:55:46] TotalTime2 Failed!
+[2019-08-22 13:55:46] OpenPer2 Failed!
+[2019-08-22 13:55:46] TempCalOff2 Failed!
+[2019-08-22 13:55:46] [0;32mI (260) [mdf-mesh, 696]: start mdf_mesh_init[0m
+[2019-08-22 13:55:46] I (268) wifi: wifi driver task: 3ffc20cc, prio:23, stack:3584, core=0
+[2019-08-22 13:55:46] [0;32mI (271) system_api: Base MAC address is not set, read default base MAC address from BLK0 of EFUSE[0m
+[2019-08-22 13:55:46] [0;32mI (280) system_api: Base MAC address is not set, 
+[2019-08-22 13:55:46] Brownout detector was triggered
+[2019-08-22 13:55:46] 
+[2019-08-22 13:55:46] [0;32mI (11) boot: ESP-IDF v3.2.2-42-g4a9f33944-dirty 2nd stage bootloader[0m
+[2019-08-22 13:55:46] [0;32mI (11) boot: compile time 13:53:43[0m
+[2019-08-22 13:55:46] [0;32mI (12) boot: Enabling RNG early entropy source...[0m
+[2019-08-22 13:55:46] [0;32mI (17) boot: SPI Speed      : 40MHz[0m
+[2019-08-22 13:55:46] [0;32mI (21) boot: SPI Mode       : DIO[0m
+[2019-08-22 13:55:46] [0;32mI (25) boot: SPI Flash Size : 4MB[0m
+[2019-08-22 13:55:46] [0;32mI (29) boot: Partition Table:[0m
+[2019-08-22 13:55:46] [0;32mI (32) boot: ## Label            Usage          Type ST Offset   Length[0m
+[2019-08-22 13:55:46] [0;32mI (40) boot:  0 nvs              WiFi data        01 02 00009000 00004000[0m
+[2019-08-22 13:55:46] [0;32mI (47) boot:  1 otadata          OTA data         01 00 0000d000 00002000[0m
+[2019-08-22 13:55:46] [0;32mI (55) boot:  2 phy_init         RF data          01 01 0000f000 00001000[0m
+[2019-08-22 13:55:46] [0;32mI (62) boot:  3 ota_0            OTA app          00 10 00010000 001e0000[0m
+[2019-08-22 13:55:46] [0;32mI (70) boot:  4 ota_1            OTA app          00 11 001f0000 001e0000[0m
+[2019-08-22 13:55:46] [0;32mI (77) boot:  5 coredump         Unknown data     01 03 003d0000 00010000[0m
+[2019-08-22 13:55:46] [0;32mI (84) boot:  6 reserved         Unknown data     01 fe 003e0000 00020000[0m
+[2019-08-22 13:55:46] [0;32mI (92) boot: End of partition table[0m
+[2019-08-22 13:55:46] [0;32mI (96) boot: No factory image, trying OTA 0[0m
+[2019-08-22 13:55:46] [0;32mI (101) esp_image: segment 0: paddr=0x00010020 vaddr=0x3f400020 size=0x266b4 (157364) map[0m
+[2019-08-22 13:55:46] [0;32mI (165) esp_image: segment 1: paddr=0x000366dc vaddr=0x3ffb0000 size=0x02d50 ( 11600) load[0m
+[2019-08-22 13:55:46] [0;32mI (170) esp_image: segment 2: paddr=0x00039434 vaddr=0x40080000 size=0x00400 (  1024) load[0m
+[2019-08-22 13:55:46] [0;32mI (172) esp_image: segment 3: paddr=0x0003983c vaddr=0x40080400 size=0x067d4 ( 26580) load[0m
+[2019-08-22 13:55:46] [0;32mI (192) esp_image: segment 4: paddr=0x00040018 vaddr=0x400d0018 size=0xa7258 (684632) map[0m
+[2019-08-22 13:55:46] [0;32mI (432) esp_image: segment 5: paddr=0x000e7278 vaddr=0x40086bd4 size=0x09dac ( 40364) load[0m
+[2019-08-22 13:55:46] [0;32mI (459) boot: Loaded app from partition at offset 0x10000[0m
+[2019-08-22 13:55:46] [0;32mI (459) boot: Disabling RNG early entropy source...[0m
+[2019-08-22 13:55:46] [0;32mI (459) cpu_start: Pro cpu up.[0m
+[2019-08-22 13:55:46] [0;32mI (463) cpu_start: Single core mode[0m
+[2019-08-22 13:55:46] [0;32mI (467) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[2019-08-22 13:55:46] [0;32mI (474) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[2019-08-22 13:55:46] [0;32mI (480) heap_init: At 3FFB9C90 len 00026370 (152 KiB): DRAM[0m
+[2019-08-22 13:55:46] [0;32mI (487) heap_init: At 3FFE0440 len 0001FBC0 (126 KiB): D/IRAM[0m
+[2019-08-22 13:55:46] [0;32mI (493) heap_init: At 40078000 len 00008000 (32 KiB): IRAM[0m
+[2019-08-22 13:55:46] [0;32mI (499) heap_init: At 40090980 len 0000F680 (61 KiB): IRAM[0m
+[2019-08-22 13:55:46] [0;32mI (505) cpu_start: Pro cpu start user code[0m
+[2019-08-22 13:55:46] D (187) [mupgrade_check, 142]: Add an identifier to the firmware: ** MUPGRADE_FIRMWARE_FLAG **[0m
+[2019-08-22 13:55:46] [0;33mW (197) [mupgrade_check, 96]: restart reason: 12, count: 10[0m
+[2019-08-22 13:55:46] [0;33mW (774) [mupgrade_check, 233]: <MDF_ERR_MUPGRADE_FIRMWARE_INVALID> The firmware is not generated by this project[0m
+[2019-08-22 13:55:47] [0;33mW (774) [mupgrade_check, 56]: <MDF_ERR_MUPGRADE_FIRMWARE_INVALID> mupgrade_firmware_check failed![0m
+[2019-08-22 13:55:47] [0;33mW (784) [mupgrade_check, 151]: <MDF_ERR_MUPGRADE_FIRMWARE_INVALID> esp_ota_set_boot_partition failed![0m
+[2019-08-22 13:55:47] [0;32mI (794) cpu_start: Starting scheduler on PRO CPU.[0m
+[2019-08-22 13:55:47] 
+[2019-08-22 13:55:47] Opening Non-Volatile moter1 && moter2 (NVS) handle...
+[2019-08-22 13:55:47] AlarmTempMax1 Failed!
+[2019-08-22 13:55:47] AlarmTempMin1 Failed!
+[2019-08-22 13:55:47] SetTempMax1 Failed!
+[2019-08-22 13:55:47] SetTempMin1 Failed!
+[2019-08-22 13:55:47] TotalTime1 Failed!
+[2019-08-22 13:55:47] OpenPer1 Failed!
+[2019-08-22 13:55:47] TempCalOff1 Failed!
+[2019-08-22 13:55:47] AlarmTempMax2 Failed!
+[2019-08-22 13:55:47] AlarmTempMin2 Failed!
+[2019-08-22 13:55:47] SetTempMax2 Failed!
+[2019-08-22 13:55:47] SetTempMin2 Failed!
+[2019-08-22 13:55:47] TotalTime2 Failed!
+[2019-08-22 13:55:47] OpenPer2 Failed!
+[2019-08-22 13:55:47] TempCalOff2 Failed!
+[2019-08-22 13:55:47] [0;32mI (859) [mdf-mesh, 696]: start mdf_mesh_init[0m
+[2019-08-22 13:55:47] I (867) wifi: wifi driver task: 3ffc2ad8, prio:23, stack:3584, core=0
+[2019-08-22 13:55:47] [0;32mI (870) system_api: Base MAC address is not set, read default base MAC address from BLK0 of EFUSE[0m
+[2019-08-22 13:55:47] [0;32mI (880) system_api: Base MAC address is not set, read default base MAC address from BLK0 of EFUSE[0m
+[2019-08-22 13:55:47] I (896) wifi: wifi firmware version: 0c3a77a
+[2019-08-22 13:55:47] I (896) wifi: config NVS flash: enabled
+[2019-08-22 13:55:47] I (897) wifi: config nano formating: disabled
+[2019-08-22 13:55:47] I (901) wifi: Init dynamic tx buffer num: 32
+[2019-08-22 13:55:47] I (905) wifi: Init data frame dynamic rx buffer num: 32
+[2019-08-22 13:55:47] I (910) wifi: Init management frame dynamic rx buffer num: 32
+[2019-08-22 13:55:47] I (915) wifi: Init management short buffer num: 32
+[2019-08-22 13:55:47] I (920) wifi: Init static rx buffer size: 1600
+[2019-08-22 13:55:47] I (924) wifi: Init static rx buffer num: 10
+[2019-08-22 13:55:47] I (928) wifi: Init dynamic rx buffer num: 32
+[2019-08-22 13:55:47] I (932) wifi: Set ps type: 0
+[2019-08-22 13:55:47] 
+[2019-08-22 13:55:47] 
+[2019-08-22 13:55:47] Brownout detector was triggered
+[2019-08-22 13:55:47] 
+[2019-08-22 13:55:47] [0;32mI (11) boot: ESP-IDF v3.2.2-42-g4a9f33944-dirty 2nd stage bootloader[0m
+[2019-08-22 13:55:47] [0;32mI (11) boot: compile time 13:53:43[0m
+[2019-08-22 13:55:47] [0;32mI (12) boot: Enabling RNG early entropy source...[0m
+[2019-08-22 13:55:47] [0;32mI (17) boot: SPI Speed      : 40MHz[0m
+[2019-08-22 13:55:47] [0;32mI (21) boot: SPI Mode       : DIO[0m
+[2019-08-22 13:55:47] [0;32mI (25) boot: SPI Flash Size : 4MB[0m
+[2019-08-22 13:55:47] [0;32mI (29) boot: Partition Table:[0m
+[2019-08-22 13:55:47] [0;32mI (32) boot: ## Label            Usage          Type ST Offset   Length[0m
+[2019-08-22 13:55:47] [0;32mI (40) boot:  0 nvs              WiFi data        01 02 00009000 00004000[0m
+[2019-08-22 13:55:47] [0;32mI (47) boot:  1 otadata          OTA data         01 00 0000d000 00002000[0m
+[2019-08-22 13:55:47] [0;32mI (55) boot:  2 phy_init         RF data          01 01 0000f000 00001000[0m
+[2019-08-22 13:55:47] [0;32mI (62) boot:  3 ota_0            OTA app          00 10 00010000 001e0000[0m
+[2019-08-22 13:55:47] [0;32mI (70) boot:  4 ota_1            OTA app          00 11 001f0000 001e0000[0m
+[2019-08-22 13:55:47] [0;32mI (77) boot:  5 coredump         Unknown data     01 03 003d0000 00010000[0m
+[2019-08-22 13:55:47] [0;32mI (84) boot:  6 reserved         Unknown data     01 fe 003e0000 00020000[0m
+[2019-08-22 13:55:47] [0;32mI (92) boot: Å             

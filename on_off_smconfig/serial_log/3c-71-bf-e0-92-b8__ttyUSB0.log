@@ -1,0 +1,136 @@
+e bootloaderûets Jun  8 2016 00:22:57
+[2019-08-22 15:44:07] 
+[2019-08-22 15:44:07] rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[2019-08-22 15:44:07] configsip: 0, SPIWP:0xee
+[2019-08-22 15:44:07] clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+[2019-08-22 15:44:07] mode:DIO, clock div:2
+[2019-08-22 15:44:07] load:0x3fff0018,len:4
+[2019-08-22 15:44:07] load:0x3fff001c,len:6192
+[2019-08-22 15:44:07] ho 0 tail 12 room 4
+[2019-08-22 15:44:07] load:0x40078000,len:10272
+[2019-08-22 15:44:07] load:0x40080400,len:6608
+[2019-08-22 15:44:07] entry 0x40080764
+[2019-08-22 15:44:07] [0;32mI (30) boot: ESP-IDF v3.2.2-42-g4a9f33944-dirty 2nd stage bootloader[0m
+[2019-08-22 15:44:07] [0;32mI (30) boot: compile time 14:30:17[0m
+[2019-08-22 15:44:07] [0;32mI (30) boot: Enabling RNG early entropy source...[0m
+[2019-08-22 15:44:07] [0;32mI (36) boot: SPI Speed      : 40MHz[0m
+[2019-08-22 15:44:07] [0;32mI (40) boot: SPI Mode       : DIO[0m
+[2019-08-22 15:44:07] [0;32mI (44) boot: SPI Flash Size : 4MB[0m
+[2019-08-22 15:44:07] [0;32mI (48) boot: Partition Table:[0m
+[2019-08-22 15:44:07] [0;32mI (52) boot: ## Label            Usage          Type ST Offset   Length[0m
+[2019-08-22 15:44:07] [0;32mI (59) boot:  0 nvs              WiFi data        01 02 00009000 00004000[0m
+[2019-08-22 15:44:07] [0;32mI (67) boot:  1 otadata          OTA data         01 00 0000d000 00002000[0m
+[2019-08-22 15:44:07] [0;32mI (74) boot:  2 phy_init         RF data          01 01 0000f000 00001000[0m
+[2019-08-22 15:44:07] [0;32mI (82) boot:  3 ota_0            OTA app          00 10 00010000 001e0000[0m
+[2019-08-22 15:44:07] [0;32mI (89) boot:  4 ota_1            OTA app          00 11 001f0000 001e0000[0m
+[2019-08-22 15:44:07] [0;32mI (97) boot:  5 coredump         Unknown data     01 03 003d0000 00010000[0m
+[2019-08-22 15:44:07] [0;32mI (104) boot:  6 reserved         Unknown data     01 fe 003e0000 00020000[0m
+[2019-08-22 15:44:07] [0;32mI (112) boot: End of partition table[0m
+[2019-08-22 15:44:07] [0;32mI (116) boot: No factory image, trying OTA 0[0m
+[2019-08-22 15:44:07] [0;32mI (121) esp_image: segment 0: paddr=0x00010020 vaddr=0x3f400020 size=0x2c2f0 (180976) map[0m
+[2019-08-22 15:44:07] [0;32mI (193) esp_image: segment 1: paddr=0x0003c318 vaddr=0x3ffb0000 size=0x02ccc ( 11468) load[0m
+[2019-08-22 15:44:07] [0;32mI (198) esp_image: segment 2: paddr=0x0003efec vaddr=0x40080000 size=0x00400 (  1024) load[0m
+[2019-08-22 15:44:07] [0;32mI (200) esp_image: segment 3: paddr=0x0003f3f4 vaddr=0x40080400 size=0x00c1c (  3100) load[0m
+[2019-08-22 15:44:07] [0;32mI (210) esp_image: segment 4: paddr=0x00040018 vaddr=0x400d0018 size=0xca474 (828532) map[0m
+[2019-08-22 15:44:07] [0;32mI (508) esp_image: segment 5: paddr=0x0010a494 vaddr=0x4008101c size=0x0eda0 ( 60832) load[0m
+[2019-08-22 15:44:08] [0;32mI (543) boot: Loaded app from partition at offset 0x10000[0m
+[2019-08-22 15:44:08] [0;32mI (543) boot: Disabling RNG early entropy source...[0m
+[2019-08-22 15:44:08] [0;32mI (543) cpu_start: Pro cpu up.[0m
+[2019-08-22 15:44:08] [0;32mI (547) cpu_start: Single core mode[0m
+[2019-08-22 15:44:08] [0;32mI (551) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[2019-08-22 15:44:08] [0;32mI (558) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[2019-08-22 15:44:08] [0;32mI (564) heap_init: At 3FFBA028 len 00025FD8 (151 KiB): DRAM[0m
+[2019-08-22 15:44:08] [0;32mI (571) heap_init: At 3FFE0440 len 0001FBC0 (126 KiB): D/IRAM[0m
+[2019-08-22 15:44:08] [0;32mI (577) heap_init: At 40078000 len 00008000 (32 KiB): IRAM[0m
+[2019-08-22 15:44:08] [0;32mI (583) heap_init: At 4008FDBC len 00010244 (64 KiB): IRAM[0m
+[2019-08-22 15:44:08] [0;32mI (589) cpu_start: Pro cpu start user code[0m
+[2019-08-22 15:44:08] D (271) [mupgrade_check, 142]: Add an identifier to the firmware: ** MUPGRADE_FIRMWARE_FLAG **[0m
+[2019-08-22 15:44:08] [0;32mI (282) cpu_start: Starting scheduler on PRO CPU.[0m
+[2019-08-22 15:44:08] [0;32mI (283) SmartConfig: START GET WIFI INFO...[0m
+[2019-08-22 15:44:08] [0;32mI (283) SmartConfig: TRY LOAD WIFI INFO[0m
+[2019-08-22 15:44:08] [0;32mI (286) SmartConfig: WIFI SSID PASSWD LOAD ERR[0m
+[2019-08-22 15:44:08] [0;32mI (291) SmartConfig: START initialise_wifi...[0m
+[2019-08-22 15:44:08] I (300) wifi: wifi driver task: 3ffc1070, prio:23, stack:3584, core=0
+[2019-08-22 15:44:08] [0;32mI (303) system_api: Base MAC address is not set, read default base MAC address from BLK0 of EFUSE[0m
+[2019-08-22 15:44:08] [0;32mI (312) system_api: Base MAC address is not set, read default base MAC address from BLK0 of EFUSE[0m
+[2019-08-22 15:44:08] I (333) wifi: wifi firmware version: 0c3a77a
+[2019-08-22 15:44:08] I (333) wifi: config NVS flash: enabled
+[2019-08-22 15:44:08] I (333) wifi: config nano formating: disabled
+[2019-08-22 15:44:08] I (334) wifi: Init dynamic tx buffer num: 32
+[2019-08-22 15:44:08] I (337) wifi: Init data frame dynamic rx buffer num: 32
+[2019-08-22 15:44:08] I (342) wifi: Init management frame dynamic rx buffer num: 32
+[2019-08-22 15:44:08] I (348) wifi: Init management short buffer num: 32
+[2019-08-22 15:44:08] I (353) wifi: Init static rx buffer size: 1600
+[2019-08-22 15:44:08] I (357) wifi: Init static rx buffer num: 10
+[2019-08-22 15:44:08] I (360) wifi: Init dynamic rx buffer num: 32
+[2019-08-22 15:44:08] [0;33mW (366) phy_init: failed to load RF calibration data (0x1102), falling back to full calibration[0m
+[2019-08-22 15:44:08] [0;32mI (596) phy: phy_version: 4008, 544f89f, Jan 24 2019, 14:54:06, 0, 2[0m
+[2019-08-22 15:44:08] I (603) wifi: mode : sta (3c:71:bf:e0:92:b8)
+[2019-08-22 15:44:08] [0;32mI (605) SmartConfig_Event: SYSTEM_EVENT_STA_START[0m
+[2019-08-22 15:44:08] [0;32mI (606) gpio: GPIO[4]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[2019-08-22 15:44:08] [0;32mI (612) gpio: GPIO[13]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[2019-08-22 15:44:08] [0;32mI (622) gpio: GPIO[21]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[2019-08-22 15:44:08] [0;32mI (631) gpio: GPIO[22]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[2019-08-22 15:44:08] [0;32mI (640) gpio: GPIO[23]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[2019-08-22 15:44:08] [0;32mI (650) gpio: GPIO[17]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[2019-08-22 15:44:08] I (656) smartconfig: SC version: V2.8.0
+[2019-08-22 15:44:08] [0;32mI (664) gpio: GPIO[5]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[2019-08-22 15:44:08] [0;32mI (672) gpio: GPIO[18]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[2019-08-22 15:44:08] [0;32mI (681) gpio: GPIO[19]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[2019-08-22 15:44:08] [0;32mI (690) gpio: GPIO[33]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:3 [0m
+[2019-08-22 15:44:08] [0;32mI (700) gpio: GPIO[25]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:3 [0m
+[2019-08-22 15:44:08] [0;32mI (709) gpio: GPIO[26]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:3 [0m
+[2019-08-22 15:44:08] [0;32mI (718) gpio: GPIO[32]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:3 [0m
+[2019-08-22 15:44:08] [0;32mI (3728) [get_started, 32]: heap free: 225508[0m
+[2019-08-22 15:44:11] I (4769) wifi: ic_enable_sniffer
+[2019-08-22 15:44:12] [0;32mI (4770) SmartConfig: SC_STATUS_FINDING_CHANNEL[0m
+[2019-08-22 15:44:12] [0;32mI (6728) [get_started, 32]: heap free: 225520[0m
+[2019-08-22 15:44:14] [0;32mI (9728) [get_started, 32]: heap free: 225520[0m
+[2019-08-22 15:44:17] [0;32mI (12728) [get_started, 32]: heap free: 225520[0m
+[2019-08-22 15:44:20] [0;32mI (15728) [get_started, 32]: heap free: 225520[0m
+[2019-08-22 15:44:23] I (16294) smartconfig: TYPE: ESPTOUCH
+[2019-08-22 15:44:24] I (16294) smartconfig: T|PHONE MAC:e0:dc:ff:df:03:71
+[2019-08-22 15:44:24] I (16294) smartconfig: T|AP MAC:78:44:fd:a3:ed:75
+[2019-08-22 15:44:24] [0;32mI (16295) SmartConfig: SC_STATUS_GETTING_SSID_PSWD[0m
+[2019-08-22 15:44:24] [0;32mI (18728) [get_started, 32]: heap free: 225060[0m
+[2019-08-22 15:44:26] I (21669) smartconfig: T|pswd: srv20170928
+[2019-08-22 15:44:29] I (21669) smartconfig: T|ssid: SIRUIA_2.4G
+[2019-08-22 15:44:29] I (21669) smartconfig: T|bssid: 78:44:fd:a3:ed:75
+[2019-08-22 15:44:29] I (21670) wifi: ic_disable_sniffer
+[2019-08-22 15:44:29] [0;32mI (21673) SmartConfig: SC_STATUS_LINK[0m
+[2019-08-22 15:44:29] [0;32mI (21677) SmartConfig: SSID:SIRUIA_2.4G[0m
+[2019-08-22 15:44:29] [0;32mI (21682) SmartConfig: PASSWORD:srv20170928[0m
+[2019-08-22 15:44:29] [0;32mI (21728) [get_started, 32]: heap free: 223216[0m
+[2019-08-22 15:44:29] I (23025) wifi: n:11 2, o:1 0, ap:255 255, sta:11 2, prof:1
+[2019-08-22 15:44:31] I (24016) wifi: state: init -> auth (b0)
+[2019-08-22 15:44:32] I (24022) wifi: state: auth -> assoc (0)
+[2019-08-22 15:44:32] I (24031) wifi: state: assoc -> run (10)
+[2019-08-22 15:44:32] I (24197) wifi: connected with SIRUIA_2.4G, channel 11, 40D
+[2019-08-22 15:44:32] I (24200) wifi: pm start, type: 1
+[2019-08-22 15:44:32] 
+[2019-08-22 15:44:32] [0;32mI (24728) [get_started, 32]: heap free: 222460[0m
+[2019-08-22 15:44:32] [0;32mI (24914) event: sta ip: 192.168.1.111, mask: 255.255.255.0, gw: 192.168.1.1[0m
+[2019-08-22 15:44:32] [0;32mI (24915) SmartConfig_Event: SYSTEM_EVENT_STA_GOT_IP[0m
+[2019-08-22 15:44:32] [0;32mI (24917) SmartConfig: WiFi Connected to ap[0m
+[2019-08-22 15:44:32] [0;32mI (27728) [get_started, 32]: heap free: 221972[0m
+[2019-08-22 15:44:35] [0;32mI (27993) SmartConfig: SC_STATUS_LINK_OVER[0m
+[2019-08-22 15:44:36] [0;32mI (27993) SmartConfig: Phone ip: 192.168.1.121
+[2019-08-22 15:44:36] [0m
+[2019-08-22 15:44:36] [0;32mI (27993) SmartConfig: smartconfig over[0m
+[2019-08-22 15:44:36] WIFI SSID PASSWD SAVE OK
+[2019-08-22 15:44:36] [0;32mI (30728) [get_started, 32]: heap free: 227364[0m
+[2019-08-22 15:44:38] [0;32mI (33728) [get_started, 32]: heap free: 231940[0m
+[2019-08-22 15:44:41] [0;32mI (36728) [get_started, 32]: heap free: 231940[0m
+[2019-08-22 15:44:44] [0;32mI (39728) [get_started, 32]: heap free: 231940[0m
+[2019-08-22 15:44:47] [0;32mI (42728) [get_started, 32]: heap free: 231940[0m
+[2019-08-22 15:44:50] [0;32mI (45728) [get_started, 32]: heap free: 231940[0m
+[2019-08-22 15:44:53] [0;32mI (48728) [get_started, 32]: heap free: 231940[0m
+[2019-08-22 15:44:56] [0;32mI (51728) [get_started, 32]: heap free: 231940[0m
+[2019-08-22 15:44:59] [0;32mI (54728) [get_started, 32]: heap free: 231940[0m
+[2019-08-22 15:45:02] [0;32mI (57728) [get_started, 32]: heap free: 231940[0m
+[2019-08-22 15:45:05] [0;32mI (60728) [get_started, 32]: heap free: 231940[0m
+[2019-08-22 15:45:08] [0;32mI (63728) [get_started, 32]: heap free: 231940[0m
+[2019-08-22 15:45:11] [0;32mI (66728) [get_started, 32]: heap free: 231940[0m
+[2019-08-22 15:45:14] [0;32mI (69728) [get_started, 32]: heap free: 231940[0m
+[2019-08-22 15:45:17] [0;32mI (72728) [get_started, 32]: heap free: 231940[0m
+[2019-08-22 15:45:20] 
