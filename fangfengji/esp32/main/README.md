@@ -1,0 +1,19 @@
+# 目录结构
+- check.c Air202串口数据校验与编码/解码，
+- CMakeLists.txt 
+- component.mk
+- get_started.c app_main()函数所在文件
+- include .h文件所在目录
+- kalman_math.c 卡尔曼滤波
+- Kconfig.projbuild menuconfig菜单配置
+- key.c 按键检测
+- led.c 按键/json信息处理
+- mdf-mesh.c mesh组网通信与ota升级
+- moter.c 放风机设备控制
+- moter_nvs.c nvs存储器　保存/加载信息
+- mupgrade_ota.c ota升级，
+- README.md
+- screen_info.c 屏幕控制
+- temp_info.c ntc温度
+- temp_table.c
+

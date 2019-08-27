@@ -34,9 +34,9 @@
 #define KEY4_GPIO 35  /* key引脚号 */
 #define RISINGEDGE 0  /*上升沿*/
 #define FALLINGEDGE 1 /*下降沿*/
-#define KEY1_GPIO_EDGE FALLINGEDGE /*按键4按下触发电平方式　下降沿*/
-#define KEY2_GPIO_EDGE FALLINGEDGE /*按键4按下触发电平方式　下降沿*/
-#define KEY3_GPIO_EDGE FALLINGEDGE /*按键4按下触发电平方式　下降沿*/
+#define KEY1_GPIO_EDGE FALLINGEDGE /*按键1按下触发电平方式　下降沿*/
+#define KEY2_GPIO_EDGE FALLINGEDGE /*按键2按下触发电平方式　下降沿*/
+#define KEY3_GPIO_EDGE FALLINGEDGE /*按键3按下触发电平方式　下降沿*/
 #define KEY4_GPIO_EDGE FALLINGEDGE /*按键4按下触发电平方式　下降沿*/
 #define KEY_MAX   4  /* 按键个数 */
 #define clickTime 150   /* 按键多击间隔 ms */
