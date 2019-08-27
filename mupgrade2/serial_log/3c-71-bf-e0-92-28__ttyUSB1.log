@@ -1,0 +1,1626 @@
+30) boot: Enabli�ets Jun  8 2016 00:22:57
+[2019-08-27 10:53:51] 
+[2019-08-27 10:53:51] rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[2019-08-27 10:53:51] configsip: 0, SPIWP:0xee
+[2019-08-27 10:53:51] clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+[2019-08-27 10:53:51] mode:DIO, clock div:2
+[2019-08-27 10:53:51] load:0x3fff0018,len:4
+[2019-08-27 10:53:51] load:0x3fff001c,len:6192
+[2019-08-27 10:53:51] ho 0 tail 12 room 4
+[2019-08-27 10:53:51] load:0x40078000,len:10272
+[2019-08-27 10:53:51] load:0x40080400,len:6608
+[2019-08-27 10:53:51] entry 0x40080764
+[2019-08-27 10:53:51] [0;32mI (30) boot: ESP-IDF v3.2.2-42-g4a9f33944-dirty 2nd stage bootloader[0m
+[2019-08-27 10:53:51] [0;32mI (30) boot: compile time 17:46:57[0m
+[2019-08-27 10:53:51] [0;32mI (30) boot: Enabling RNG early entropy source...[0m
+[2019-08-27 10:53:51] [0;32mI (37) boot: SPI Speed      : 40MHz[0m
+[2019-08-27 10:53:51] [0;32mI (41) boot: SPI Mode       : DIO[0m
+[2019-08-27 10:53:51] [0;32mI (45) boot: SPI Flash Size : 4MB[0m
+[2019-08-27 10:53:51] [0;32mI (49) boot: Partition Table:[0m
+[2019-08-27 10:53:51] [0;32mI (52) boot: ## Label            Usage          Type ST Offset   Length[0m
+[2019-08-27 10:53:51] [0;32mI (60) boot:  0 nvs              WiFi data        01 02 00009000 00004000[0m
+[2019-08-27 10:53:51] [0;32mI (67) boot:  1 otadata          OTA data         01 00 0000d000 00002000[0m
+[2019-08-27 10:53:51] [0;32mI (75) boot:  2 phy_init         RF data          01 01 0000f000 00001000[0m
+[2019-08-27 10:53:51] [0;32mI (82) boot:  3 ota_0            OTA app          00 10 00010000 001e0000[0m
+[2019-08-27 10:53:51] [0;32mI (89) boot:  4 ota_1            OTA app          00 11 001f0000 001e0000[0m
+[2019-08-27 10:53:51] [0;32mI (97) boot:  5 coredump         Unknown data     01 03 003d0000 00010000[0m
+[2019-08-27 10:53:51] [0;32mI (104) boot:  6 reserved         Unknown data     01 fe 003e0000 00020000[0m
+[2019-08-27 10:53:51] [0;32mI (112) boot: End of partition table[0m
+[2019-08-27 10:53:51] [0;32mI (116) boot: No factory image, trying OTA 0[0m
+[2019-08-27 10:53:51] [0;32mI (121) esp_image: segment 0: paddr=0x00010020 vaddr=0x3f400020 size=0x29964 (170340) map[0m
+[2019-08-27 10:53:51] [0;32mI (190) esp_image: segment 1: paddr=0x0003998c vaddr=0x3ffb0000 size=0x02bf8 ( 11256) load[0m
+[2019-08-27 10:53:51] [0;32mI (195) esp_image: segment 2: paddr=0x0003c58c vaddr=0x40080000 size=0x00400 (  1024) load[0m
+[2019-08-27 10:53:51] [0;32mI (197) esp_image: segment 3: paddr=0x0003c994 vaddr=0x40080400 size=0x0367c ( 13948) load[0m
+[2019-08-27 10:53:51] [0;32mI (211) esp_image: segment 4: paddr=0x00040018 vaddr=0x400d0018 size=0xc0390 (787344) map[0m
+[2019-08-27 10:53:51] [0;32mI (490) esp_image: segment 5: paddr=0x001003b0 vaddr=0x40083a7c size=0x0ce6c ( 52844) load[0m
+[2019-08-27 10:53:51] [0;32mI (522) boot: Loaded app from partition at offset 0x10000[0m
+[2019-08-27 10:53:51] [0;32mI (522) boot: Disabling RNG early entropy source...[0m
+[2019-08-27 10:53:51] [0;32mI (523) cpu_start: Pro cpu up.[0m
+[2019-08-27 10:53:51] [0;32mI (526) cpu_start: Single core mode[0m
+[2019-08-27 10:53:51] [0;32mI (531) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[2019-08-27 10:53:51] [0;32mI (538) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[2019-08-27 10:53:51] [0;32mI (544) heap_init: At 3FFB9C08 len 000263F8 (152 KiB): DRAM[0m
+[2019-08-27 10:53:51] [0;32mI (550) heap_init: At 3FFE0440 len 0001FBC0 (126 KiB): D/IRAM[0m
+[2019-08-27 10:53:51] [0;32mI (556) heap_init: At 40078000 len 00008000 (32 KiB): IRAM[0m
+[2019-08-27 10:53:51] [0;32mI (562) heap_init: At 400908E8 len 0000F718 (61 KiB): IRAM[0m
+[2019-08-27 10:53:51] [0;32mI (569) cpu_start: Pro cpu start user code[0m
+[2019-08-27 10:53:51] D (251) [mupgrade_check, 142]: Add an identifier to the firmware: ** MUPGRADE_FIRMWARE_FLAG **[0m
+[2019-08-27 10:53:51] [0;32mI (261) cpu_start: Starting scheduler on PRO CPU.[0m
+[2019-08-27 10:53:51] [0;32mI (264) [mupgrade_example, 385]: Starting OTA example ...[0m
+[2019-08-27 10:53:51] I (268) wifi: wifi driver task: 3ffc648c, prio:23, stack:3584, core=0
+[2019-08-27 10:53:51] [0;32mI (269) system_api: Base MAC address is not set, read default base MAC address from BLK0 of EFUSE[0m
+[2019-08-27 10:53:52] [0;32mI (279) system_api: Base MAC address is not set, read default base MAC address from BLK0 of EFUSE[0m
+[2019-08-27 10:53:52] I (300) wifi: wifi firmware version: 0c3a77a
+[2019-08-27 10:53:52] I (300) wifi: config NVS flash: enabled
+[2019-08-27 10:53:52] I (300) wifi: config nano formating: disabled
+[2019-08-27 10:53:52] I (302) wifi: Init dynamic tx buffer num: 32
+[2019-08-27 10:53:52] I (306) wifi: Init data frame dynamic rx buffer num: 32
+[2019-08-27 10:53:52] I (311) wifi: Init management frame dynamic rx buffer num: 32
+[2019-08-27 10:53:52] I (316) wifi: Init management short buffer num: 32
+[2019-08-27 10:53:52] I (321) wifi: Init static rx buffer size: 1600
+[2019-08-27 10:53:52] I (325) wifi: Init static rx buffer num: 10
+[2019-08-27 10:53:52] I (329) wifi: Init dynamic rx buffer num: 32
+[2019-08-27 10:53:52] I (334) wifi: Set ps type: 0
+[2019-08-27 10:53:52] 
+[2019-08-27 10:53:52] [0;33mW (336) phy_init: failed to load RF calibration data (0x1102), falling back to full calibration[0m
+[2019-08-27 10:53:52] [0;32mI (505) phy: phy_version: 4008, 544f89f, Jan 24 2019, 14:54:06, 0, 2[0m
+[2019-08-27 10:53:52] I (512) wifi: mode : sta (3c:71:bf:e0:92:28)
+[2019-08-27 10:53:52] [0;32mI (514) [mwifi, 177]: esp-mdf version: v1.0-beta1-dirty[0m
+[2019-08-27 10:53:52] W (514) wifi: [beacon]interval:100ms
+[2019-08-27 10:53:52] I (516) wifi: mode : sta (3c:71:bf:e0:92:28) + softAP (3c:71:bf:e0:92:29)
+[2019-08-27 10:53:52] I (524) wifi: Total power save buffer number: 16
+[2019-08-27 10:53:52] I (527) wifi: Init max length of beacon: 752/752
+[2019-08-27 10:53:52] I (532) wifi: Init max length of beacon: 752/752
+[2019-08-27 10:53:52] I (539) mesh: <nvs>read layer:0, err:0x1102
+[2019-08-27 10:53:52] I (540) mesh: <nvs>read assoc:0, err:0x1102
+[2019-08-27 10:53:52] W (545) wifi: [beacon]interval:100ms
+[2019-08-27 10:53:52] I (552) wifi: Total power save buffer number: 16
+[2019-08-27 10:53:52] I (1556) wifi: Set ps type: 0
+[2019-08-27 10:53:53] 
+[2019-08-27 10:53:53] I (1562) wifi: mode : sta (3c:71:bf:e0:92:28)
+[2019-08-27 10:53:53] I (1565) mesh: <MESH_NWK_LOOK_FOR_NETWORK>need_scan:0x3, need_scan_router:0x0, look_for_nwk_count:1
+[2019-08-27 10:53:53] [0;32mI (1566) [mwifi, 113]: MESH is started[0m
+[2019-08-27 10:53:53] I (5476) mesh: [S13]Mr.Hu, e0:dc:ff:64:03:71, channel:11, rssi:-40
+[2019-08-27 10:53:57] I (5476) mesh: find router:[ssid_len:5]Mr.Hu, rssi:-40, e0:dc:ff:64:03:71(encrypted), new channel:11, old channel:0
+[2019-08-27 10:53:57] I (5481) mesh: [FIND][ch:0]AP:20, otherID:0, MAP:0, idle:0, candidate:0, root:0[e0:dc:ff:64:03:71]router found
+[2019-08-27 10:53:57] I (5491) mesh: [FIND:1]find a network, channel:11, cfg<channel:0, router:Mr.Hu, 00:00:00:00:00:00>
+[2019-08-27 10:53:57] 
+[2019-08-27 10:53:57] I (5501) wifi: mode : sta (3c:71:bf:e0:92:28) + softAP (3c:71:bf:e0:92:29)
+[2019-08-27 10:53:57] W (5508) wifi: <MESH AP>adjust channel:1, secondary channel offset:1(40U)
+[2019-08-27 10:53:57] I (5513) wifi: Total power save buffer number: 16
+[2019-08-27 10:53:57] W (5524) wifi: <MESH AP>adjust channel:11, secondary channel offset:2(40D)
+[2019-08-27 10:53:57] I (5525) wifi: Total power save buffer number: 16
+[2019-08-27 10:53:57] I (5833) mesh: [SCAN][ch:11]AP:5, other(ID:0, RD:0), MAP:0, idle:0, candidate:1, root:0, topMAP:0[c:0,i:0][e0:dc:ff:64:03:71]router found<>
+[2019-08-27 10:53:57] I (5838) mesh: 1212[SCAN]init rc[3c:71:bf:e0:92:29,-39], mine:0, voter:0
+[2019-08-27 10:53:57] I (5843) mesh: 1250, vote myself, router rssi:-39 > voted rc_rssi:-120
+[2019-08-27 10:53:57] I (5849) mesh: [SCAN:1/10]rc[128][3c:71:bf:e0:92:29,-39], self[3c:71:bf:e0:92:28,-39,reason:0,votes:1,idle][mine:1,voter:1(1.00)percent:0.90][128,1,3c:71:bf:e0:92:29]
+[2019-08-27 10:53:57] 
+[2019-08-27 10:53:57] I (6166) mesh: [SCAN][ch:11]AP:3, other(ID:0, RD:0), MAP:0, idle:0, candidate:1, root:0, topMAP:0[c:0,i:1][e0:dc:ff:64:03:71]router found<>
+[2019-08-27 10:53:57] I (6169) mesh: 1212[SCAN]init rc[3c:71:bf:e0:92:29,-39], mine:0, voter:0
+[2019-08-27 10:53:57] I (6175) mesh: [SCAN:2/10]rc[128][3c:71:bf:e0:92:29,-39], self[3c:71:bf:e0:92:28,-39,reason:0,votes:1,idle][mine:1,voter:1(1.00)percent:0.90][128,1,3c:71:bf:e0:92:29]
+[2019-08-27 10:53:57] 
+[2019-08-27 10:53:57] I (6491) mesh: [SCAN][ch:11]AP:2, other(ID:0, RD:0), MAP:0, idle:0, candidate:1, root:0, topMAP:0[c:0,i:1][e0:dc:ff:64:03:71]router found<>
+[2019-08-27 10:53:58] I (6494) mesh: 1212[SCAN]init rc[3c:71:bf:e0:92:29,-40], mine:0, voter:0
+[2019-08-27 10:53:58] I (6500) mesh: [SCAN:3/10]rc[128][3c:71:bf:e0:92:29,-39], self[3c:71:bf:e0:92:28,-40,reason:0,votes:1,idle][mine:1,voter:1(1.00)percent:0.90][128,1,3c:71:bf:e0:92:29]
+[2019-08-27 10:53:58] 
+[2019-08-27 10:53:58] I (6817) mesh: [SCAN][ch:11]AP:2, other(ID:0, RD:0), MAP:0, idle:0, candidate:1, root:0, topMAP:0[c:0,i:1][e0:dc:ff:64:03:71]router found<>
+[2019-08-27 10:53:58] I (6819) mesh: 1212[SCAN]init rc[3c:71:bf:e0:92:29,-38], mine:0, voter:0
+[2019-08-27 10:53:58] I (6825) mesh: [SCAN:4/10]rc[128][3c:71:bf:e0:92:29,-39], self[3c:71:bf:e0:92:28,-38,reason:0,votes:1,idle][mine:1,voter:1(1.00)percent:0.90][128,1,3c:71:bf:e0:92:29]
+[2019-08-27 10:53:58] 
+[2019-08-27 10:53:58] I (7142) mesh: [SCAN][ch:11]AP:2, other(ID:0, RD:0), MAP:0, idle:0, candidate:1, root:0, topMAP:0[c:0,i:1][e0:dc:ff:64:03:71]router found<>
+[2019-08-27 10:53:58] I (7144) mesh: 1212[SCAN]init rc[3c:71:bf:e0:92:29,-38], mine:0, voter:0
+[2019-08-27 10:53:58] I (7150) mesh: [SCAN:5/10]rc[128][3c:71:bf:e0:92:29,-39], self[3c:71:bf:e0:92:28,-38,reason:0,votes:1,idle][mine:1,voter:1(1.00)percent:0.90][128,1,3c:71:bf:e0:92:29]
+[2019-08-27 10:53:58] 
+[2019-08-27 10:53:58] I (7467) mesh: [SCAN][ch:11]AP:4, other(ID:0, RD:0), MAP:0, idle:0, candidate:1, root:0, topMAP:0[c:0,i:1][e0:dc:ff:64:03:71]router found<>
+[2019-08-27 10:53:59] I (7469) mesh: 1212[SCAN]init rc[3c:71:bf:e0:92:29,-38], mine:0, voter:0
+[2019-08-27 10:53:59] I (7477) mesh: [SCAN:6/10]rc[128][3c:71:bf:e0:92:29,-39], self[3c:71:bf:e0:92:28,-38,reason:0,votes:1,idle][mine:1,voter:1(1.00)percent:0.90][128,1,3c:71:bf:e0:92:29]
+[2019-08-27 10:53:59] 
+[2019-08-27 10:53:59] I (7792) mesh: [SCAN][ch:11]AP:3, other(ID:0, RD:0), MAP:0, idle:0, candidate:1, root:0, topMAP:0[c:0,i:1][e0:dc:ff:64:03:71]router found<>
+[2019-08-27 10:53:59] I (7794) mesh: 1212[SCAN]init rc[3c:71:bf:e0:92:29,-39], mine:0, voter:0
+[2019-08-27 10:53:59] I (7801) mesh: [SCAN:7/10]rc[128][3c:71:bf:e0:92:29,-39], self[3c:71:bf:e0:92:28,-39,reason:0,votes:1,idle][mine:1,voter:1(1.00)percent:0.90][128,1,3c:71:bf:e0:92:29]
+[2019-08-27 10:53:59] 
+[2019-08-27 10:53:59] I (8117) mesh: [SCAN][ch:11]AP:4, other(ID:0, RD:0), MAP:0, idle:0, candidate:1, root:0, topMAP:0[c:0,i:1][e0:dc:ff:64:03:71]router found<>
+[2019-08-27 10:53:59] I (8119) mesh: 1212[SCAN]init rc[3c:71:bf:e0:92:29,-39], mine:0, voter:0
+[2019-08-27 10:53:59] I (8126) mesh: [SCAN:8/10]rc[128][3c:71:bf:e0:92:29,-39], self[3c:71:bf:e0:92:28,-39,reason:0,votes:1,idle][mine:1,voter:1(1.00)percent:0.90][128,1,3c:71:bf:e0:92:29]
+[2019-08-27 10:53:59] 
+[2019-08-27 10:53:59] I (8442) mesh: [SCAN][ch:11]AP:4, other(ID:0, RD:0), MAP:0, idle:0, candidate:1, root:0, topMAP:0[c:0,i:1][e0:dc:ff:64:03:71]router found<>
+[2019-08-27 10:54:00] I (8445) mesh: 1212[SCAN]init rc[3c:71:bf:e0:92:29,-40], mine:0, voter:0
+[2019-08-27 10:54:00] I (8451) mesh: [SCAN:9/10]rc[128][3c:71:bf:e0:92:29,-39], self[3c:71:bf:e0:92:28,-40,reason:0,votes:1,idle][mine:1,voter:1(1.00)percent:0.90][128,1,3c:71:bf:e0:92:29]
+[2019-08-27 10:54:00] 
+[2019-08-27 10:54:00] I (8768) mesh: [SCAN][ch:11]AP:2, other(ID:0, RD:0), MAP:0, idle:0, candidate:1, root:0, topMAP:0[c:0,i:1][e0:dc:ff:64:03:71]router found<>
+[2019-08-27 10:54:00] I (8770) mesh: 1212[SCAN]init rc[3c:71:bf:e0:92:29,-40], mine:0, voter:0
+[2019-08-27 10:54:00] I (8776) mesh: [SCAN:10/13+x+]rc[128][3c:71:bf:e0:92:29,-39], self[3c:71:bf:e0:92:28,-40,reason:0,votes:1,idle][mine:1,voter:1(1.00)percent:0.90][128,1,3c:71:bf:e0:92:29]
+[2019-08-27 10:54:00] 
+[2019-08-27 10:54:00] I (9093) mesh: [SCAN][ch:11]AP:2, other(ID:0, RD:0), MAP:0, idle:0, candidate:1, root:0, topMAP:0[c:0,i:1][e0:dc:ff:64:03:71]router found<>
+[2019-08-27 10:54:00] I (9095) mesh: 1212[SCAN]init rc[3c:71:bf:e0:92:29,-40], mine:0, voter:0
+[2019-08-27 10:54:00] I (9102) mesh: [SCAN:11/13+x+]rc[128][3c:71:bf:e0:92:29,-39], self[3c:71:bf:e0:92:28,-40,reason:0,votes:1,idle][mine:1,voter:1(1.00)percent:0.90][128,1,3c:71:bf:e0:92:29]
+[2019-08-27 10:54:00] 
+[2019-08-27 10:54:00] I (9419) mesh: [SCAN][ch:11]AP:2, other(ID:0, RD:0), MAP:0, idle:0, candidate:1, root:0, topMAP:0[c:0,i:1][e0:dc:ff:64:03:71]router found<>
+[2019-08-27 10:54:01] I (9423) mesh: 1212[SCAN]init rc[3c:71:bf:e0:92:29,-39], mine:0, voter:0
+[2019-08-27 10:54:01] I (9428) mesh: [SCAN:12/13+x+]rc[128][3c:71:bf:e0:92:29,-39], self[3c:71:bf:e0:92:28,-39,reason:0,votes:1,idle][mine:1,voter:1(1.00)percent:0.90][128,1,3c:71:bf:e0:92:29]
+[2019-08-27 10:54:01] 
+[2019-08-27 10:54:01] I (9745) mesh: [SCAN][ch:11]AP:2, other(ID:0, RD:0), MAP:0, idle:0, candidate:1, root:0, topMAP:0[c:0,i:1][e0:dc:ff:64:03:71]router found<>
+[2019-08-27 10:54:01] I (9747) mesh: 1212[SCAN]init rc[3c:71:bf:e0:92:29,-39], mine:0, voter:0
+[2019-08-27 10:54:01] I (9753) mesh: [SCAN:13/13+x+]rc[128][3c:71:bf:e0:92:29,-39], self[3c:71:bf:e0:92:28,-39,reason:0,votes:1,idle][mine:1,voter:1(1.00)percent:0.90][128,1,3c:71:bf:e0:92:29]
+[2019-08-27 10:54:01] 
+[2019-08-27 10:54:01] W (9768) wifi: [beacon]interval:100ms
+[2019-08-27 10:54:01] I (9772) mesh: [DONE]connect to router:Mr.Hu, channel:11, rssi:-39, e0:dc:ff:64:03:71[layer:0, assoc:0], my_vote_num:1/voter_num:1, rc[3c:71:bf:e0:92:29/-39/1]
+[2019-08-27 10:54:01] I (9915) wifi: n:11 2, o:11 2, ap:11 2, sta:11 0, prof:11
+[2019-08-27 10:54:01] I (10905) wifi: state: init -> auth (b0)
+[2019-08-27 10:54:02] I (10968) wifi: state: auth -> assoc (0)
+[2019-08-27 10:54:02] I (10987) wifi: state: assoc -> run (10)
+[2019-08-27 10:54:02] I (11026) wpa: <EAPOL>state:6
+[2019-08-27 10:54:02] I (11027) wpa: <EAPOL>receiving the 1/4 EAPOL-Key, state:6
+[2019-08-27 10:54:02] I (11096) wpa: <EAPOL>state:7
+[2019-08-27 10:54:02] I (11096) wpa: <EAPOL>receiving the 3/4 EAPOL-Key, state:7
+[2019-08-27 10:54:02] I (11096) wifi: connected with Mr.Hu, channel 11, HT20
+[2019-08-27 10:54:02] I (11100) wifi: pm start, type: 0
+[2019-08-27 10:54:02] 
+[2019-08-27 10:54:02] I (11104) mesh: [scan]new scanning time:600ms
+[2019-08-27 10:54:02] W (11105) wifi: [beacon]new interval:300ms
+[2019-08-27 10:54:02] I (11111) mesh: <nvs>write layer:1
+[2019-08-27 10:54:02] [0;32mI (11112) [mwifi, 80]: Parent is connected[0m
+[2019-08-27 10:54:02] [0;32mI (11117) [mupgrade_example, 307]: MDF_EVENT_PARENT_CONNECTED[0m
+[2019-08-27 10:54:02] [0;32mI (11119) [mwifi, 149]: State represents: 0[0m
+[2019-08-27 10:54:02] [0;32mI (11128) [mupgrade_example, 94]: Root read task is running[0m
+[2019-08-27 10:54:02] [0;32mI (11129) [mupgrade_example, 129]: Node read task is running[0m
+[2019-08-27 10:54:02] [0;32mI (11867) event: sta ip: 192.168.43.197, mask: 255.255.255.0, gw: 192.168.43.1[0m
+[2019-08-27 10:54:03] [0;32mI (11867) [mupgrade_example, 319]: MDF_EVENT_MWIFI_ROOT_GOT_IP[0m
+[2019-08-27 10:54:03] [0;32mI (21872) [mupgrade_example, 199]: Open HTTP connection: http://101.132.42.189:8070/hello-world.bin[0m
+[2019-08-27 10:54:13] [0;32mI (22241) [mupgrade_root, 58]: Running partition, label: ota_0, type: 0x0, subtype: 0x10, address: 0x10000[0m
+[2019-08-27 10:54:13] [0;32mI (22241) [mupgrade_root, 60]: Update partition, label: ota_1, type: 0x0, subtype: 0x11, address: 0x1f0000[0m
+[2019-08-27 10:54:13] [0;32mI (24613) [mupgrade_example, 240]: e906 0e40[0m
+[2019-08-27 10:54:16] D (24617) [mupgrade_root, 103]: Firmware download size: 1456, progress rate: 0%[0m
+[2019-08-27 10:54:16] [0;32mI (24620) [mupgrade_example, 240]: 2003 0e40[0m
+[2019-08-27 10:54:16] D (24623) [mupgrade_root, 103]: Firmware download size: 2912, progress rate: 0%[0m
+[2019-08-27 10:54:16] [0;32mI (24630) [mupgrade_example, 240]: 9761 0b0b[0m
+[2019-08-27 10:54:16] D (24636) [mupgrade_root, 103]: Firmware download size: 4368, progress rate: 0%[0m
+[2019-08-27 10:54:16] [0;32mI (24715) [mupgrade_example, 240]: 080b 0000[0m
+[2019-08-27 10:54:16] D (24720) [mupgrade_root, 103]: Firmware download size: 5824, progress rate: 0%[0m
+[2019-08-27 10:54:16] [0;32mI (24724) [mupgrade_example, 240]: 7374 5253[0m
+[2019-08-27 10:54:16] D (24727) [mupgrade_root, 103]: Firmware download size: 7280, progress rate: 0%[0m
+[2019-08-27 10:54:16] [0;32mI (24746) [mupgrade_example, 240]: 494f 5843[0m
+[2019-08-27 10:54:16] D (24751) [mupgrade_root, 103]: Firmware download size: 8736, progress rate: 0%[0m
+[2019-08-27 10:54:16] [0;32mI (24842) [mupgrade_example, 240]: 4545 0000[0m
+[2019-08-27 10:54:16] D (24865) [mupgrade_root, 103]: Firmware download size: 10192, progress rate: 1%[0m
+[2019-08-27 10:54:16] [0;32mI (24868) [mupgrade_example, 240]: 241c 2573[0m
+[2019-08-27 10:54:16] D (24988) [mupgrade_root, 103]: Firmware download size: 11648, progress rate: 1%[0m
+[2019-08-27 10:54:16] [0;32mI (24992) [mupgrade_example, 240]: 3a20 6573[0m
+[2019-08-27 10:54:16] D (25121) [mupgrade_root, 103]: Firmware download size: 13104, progress rate: 1%[0m
+[2019-08-27 10:54:16] [0;32mI (25125) [mupgrade_example, 240]: 206e 7565[0m
+[2019-08-27 10:54:16] D (25244) [mupgrade_root, 103]: Firmware download size: 14560, progress rate: 1%[0m
+[2019-08-27 10:54:16] [0;32mI (25248) [mupgrade_example, 240]: 7565 5f64[0m
+[2019-08-27 10:54:16] D (25367) [mupgrade_root, 103]: Firmware download size: 16016, progress rate: 1%[0m
+[2019-08-27 10:54:17] [0;32mI (25371) [mupgrade_example, 240]: 6972 3a20[0m
+[2019-08-27 10:54:17] D (25500) [mupgrade_root, 103]: Firmware download size: 17472, progress rate: 1%[0m
+[2019-08-27 10:54:17] [0;32mI (25506) [mupgrade_example, 240]: e8ae 6532[0m
+[2019-08-27 10:54:17] D (25623) [mupgrade_root, 103]: Firmware download size: 18928, progress rate: 2%[0m
+[2019-08-27 10:54:17] [0;32mI (25627) [mupgrade_example, 240]: 5f61 3a20[0m
+[2019-08-27 10:54:17] D (25746) [mupgrade_root, 103]: Firmware download size: 20384, progress rate: 2%[0m
+[2019-08-27 10:54:17] [0;32mI (25750) [mupgrade_example, 240]: 6a73 901b[0m
+[2019-08-27 10:54:17] D (25879) [mupgrade_root, 103]: Firmware download size: 21840, progress rate: 2%[0m
+[2019-08-27 10:54:17] [0;32mI (25883) [mupgrade_example, 240]: 5b30 5b25[0m
+[2019-08-27 10:54:17] D (26002) [mupgrade_root, 103]: Firmware download size: 23296, progress rate: 2%[0m
+[2019-08-27 10:54:17] [0;32mI (26006) [mupgrade_example, 240]: 732c 3a25[0m
+[2019-08-27 10:54:17] D (26125) [mupgrade_root, 103]: Firmware download size: 24752, progress rate: 2%[0m
+[2019-08-27 10:54:17] [0;32mI (26129) [mupgrade_example, 240]: 3032 2025[0m
+[2019-08-27 10:54:17] D (26258) [mupgrade_root, 103]: Firmware download size: 26208, progress rate: 2%[0m
+[2019-08-27 10:54:17] [0;32mI (26262) [mupgrade_example, 240]: 645d 206b[0m
+[2019-08-27 10:54:17] D (26381) [mupgrade_root, 103]: Firmware download size: 27664, progress rate: 3%[0m
+[2019-08-27 10:54:18] [0;32mI (26386) [mupgrade_example, 240]: 616c 4544[0m
+[2019-08-27 10:54:18] D (26504) [mupgrade_root, 103]: Firmware download size: 29120, progress rate: 3%[0m
+[2019-08-27 10:54:18] [0;32mI (26508) [mupgrade_example, 240]: 315f a843[0m
+[2019-08-27 10:54:18] D (26638) [mupgrade_root, 103]: Firmware download size: 30576, progress rate: 3%[0m
+[2019-08-27 10:54:18] [0;32mI (26642) [mupgrade_example, 240]: 0000 0000[0m
+[2019-08-27 10:54:18] D (26760) [mupgrade_root, 103]: Firmware download size: 32032, progress rate: 3%[0m
+[2019-08-27 10:54:18] [0;32mI (26764) [mupgrade_example, 240]: 5465 6320[0m
+[2019-08-27 10:54:18] D (26883) [mupgrade_root, 103]: Firmware download size: 33488, progress rate: 3%[0m
+[2019-08-27 10:54:18] [0;32mI (26886) [mupgrade_example, 240]: 6368 465f[0m
+[2019-08-27 10:54:18] D (27016) [mupgrade_root, 103]: Firmware download size: 34944, progress rate: 3%[0m
+[2019-08-27 10:54:18] [0;32mI (27020) [mupgrade_example, 240]: 4552 5b25[0m
+[2019-08-27 10:54:18] D (27139) [mupgrade_root, 103]: Firmware download size: 36400, progress rate: 3%[0m
+[2019-08-27 10:54:18] [0;32mI (27143) [mupgrade_example, 240]: 732c 5b25[0m
+[2019-08-27 10:54:18] D (27261) [mupgrade_root, 103]: Firmware download size: 37856, progress rate: 4%[0m
+[2019-08-27 10:54:18] [0;32mI (27265) [mupgrade_example, 240]: 732c 5f45[0m
+[2019-08-27 10:54:18] D (27398) [mupgrade_root, 103]: Firmware download size: 39312, progress rate: 4%[0m
+[2019-08-27 10:54:19] [0;32mI (27403) [mupgrade_example, 240]: 4d50 5b25[0m
+[2019-08-27 10:54:19] D (27518) [mupgrade_root, 103]: Firmware download size: 40768, progress rate: 4%[0m
+[2019-08-27 10:54:19] [0;32mI (27522) [mupgrade_example, 240]: 732c 6669[0m
+[2019-08-27 10:54:19] D (27641) [mupgrade_root, 103]: Firmware download size: 42224, progress rate: 4%[0m
+[2019-08-27 10:54:19] [0;32mI (27644) [mupgrade_example, 240]: 5f67 7373[0m
+[2019-08-27 10:54:19] D (27774) [mupgrade_root, 103]: Firmware download size: 43680, progress rate: 4%[0m
+[2019-08-27 10:54:19] [0;32mI (27778) [mupgrade_example, 240]: 6976 7065[0m
+[2019-08-27 10:54:19] D (27897) [mupgrade_root, 103]: Firmware download size: 45136, progress rate: 4%[0m
+[2019-08-27 10:54:19] [0;32mI (27901) [mupgrade_example, 240]: 7263 733e[0m
+[2019-08-27 10:54:19] D (28020) [mupgrade_root, 103]: Firmware download size: 46592, progress rate: 5%[0m
+[2019-08-27 10:54:19] [0;32mI (28024) [mupgrade_example, 240]: 2043 2025[0m
+[2019-08-27 10:54:19] D (28155) [mupgrade_root, 103]: Firmware download size: 48048, progress rate: 5%[0m
+[2019-08-27 10:54:19] [0;32mI (28163) [mupgrade_example, 240]: 645d 656d[0m
+[2019-08-27 10:54:19] D (28276) [mupgrade_root, 103]: Firmware download size: 49504, progress rate: 5%[0m
+[2019-08-27 10:54:19] [0;32mI (28280) [mupgrade_example, 240]: 0054 203d[0m
+[2019-08-27 10:54:19] D (28399) [mupgrade_root, 103]: Firmware download size: 50960, progress rate: 5%[0m
+[2019-08-27 10:54:20] [0;32mI (28403) [mupgrade_example, 240]: 3d20 4e47[0m
+[2019-08-27 10:54:20] D (28532) [mupgrade_root, 103]: Firmware download size: 52416, progress rate: 5%[0m
+[2019-08-27 10:54:20] [0;32mI (28536) [mupgrade_example, 240]: 0000 6f20[0m
+[2019-08-27 10:54:20] D (28655) [mupgrade_root, 103]: Firmware download size: 53872, progress rate: 5%[0m
+[2019-08-27 10:54:20] [0;32mI (28659) [mupgrade_example, 240]: 616c 4436[0m
+[2019-08-27 10:54:20] D (28777) [mupgrade_root, 103]: Firmware download size: 55328, progress rate: 6%[0m
+[2019-08-27 10:54:20] [0;32mI (28782) [mupgrade_example, 240]: 4452 743d[0m
+[2019-08-27 10:54:20] D (28912) [mupgrade_root, 103]: Firmware download size: 56784, progress rate: 6%[0m
+[2019-08-27 10:54:20] [0;32mI (28916) [mupgrade_example, 240]: 2564 4c41[0m
+[2019-08-27 10:54:20] D (29036) [mupgrade_root, 103]: Firmware download size: 58240, progress rate: 6%[0m
+[2019-08-27 10:54:20] [0;32mI (29042) [mupgrade_example, 240]: 5348 421b[0m
+[2019-08-27 10:54:20] D (29156) [mupgrade_root, 103]: Firmware download size: 59696, progress rate: 6%[0m
+[2019-08-27 10:54:20] [0;32mI (29161) [mupgrade_example, 240]: 5b30 7820[0m
+[2019-08-27 10:54:20] D (29290) [mupgrade_root, 103]: Firmware download size: 61152, progress rate: 6%[0m
+[2019-08-27 10:54:21] [0;32mI (29294) [mupgrade_example, 240]: 7661 6c6c[0m
+[2019-08-27 10:54:21] D (29412) [mupgrade_root, 103]: Firmware download size: 62608, progress rate: 6%[0m
+[2019-08-27 10:54:21] [0;32mI (29417) [mupgrade_example, 240]: 6564 2069[0m
+[2019-08-27 10:54:21] D (29535) [mupgrade_root, 103]: Firmware download size: 64064, progress rate: 6%[0m
+[2019-08-27 10:54:21] [0;32mI (29539) [mupgrade_example, 240]: 6e76 6c69[0m
+[2019-08-27 10:54:21] D (29669) [mupgrade_root, 103]: Firmware download size: 65520, progress rate: 7%[0m
+[2019-08-27 10:54:21] [0;32mI (29673) [mupgrade_example, 240]: 6272 705f[0m
+[2019-08-27 10:54:21] D (29792) [mupgrade_root, 103]: Firmware download size: 66976, progress rate: 7%[0m
+[2019-08-27 10:54:21] [0;32mI (29798) [mupgrade_example, 240]: 7469 0000[0m
+[2019-08-27 10:54:21] D (29925) [mupgrade_root, 103]: Firmware download size: 68432, progress rate: 7%[0m
+[2019-08-27 10:54:21] [0;32mI (29929) [mupgrade_example, 240]: 1b5b 2025[0m
+[2019-08-27 10:54:21] D (30048) [mupgrade_root, 103]: Firmware download size: 69888, progress rate: 7%[0m
+[2019-08-27 10:54:21] [0;32mI (30052) [mupgrade_example, 240]: 733a 2069[0m
+[2019-08-27 10:54:21] D (30171) [mupgrade_root, 103]: Firmware download size: 71344, progress rate: 7%[0m
+[2019-08-27 10:54:21] [0;32mI (30175) [mupgrade_example, 240]: 7320 3220[0m
+[2019-08-27 10:54:21] D (30304) [mupgrade_root, 103]: Firmware download size: 72800, progress rate: 7%[0m
+[2019-08-27 10:54:22] [0;32mI (30311) [mupgrade_example, 240]: 656e 7273[0m
+[2019-08-27 10:54:22] D (30427) [mupgrade_root, 103]: Firmware download size: 74256, progress rate: 8%[0m
+[2019-08-27 10:54:22] [0;32mI (30431) [mupgrade_example, 240]: 696f 6965[0m
+[2019-08-27 10:54:22] D (30552) [mupgrade_root, 103]: Firmware download size: 75712, progress rate: 8%[0m
+[2019-08-27 10:54:22] [0;32mI (30556) [mupgrade_example, 240]: 5f63 7962[0m
+[2019-08-27 10:54:22] D (30683) [mupgrade_root, 103]: Firmware download size: 77168, progress rate: 8%[0m
+[2019-08-27 10:54:22] [0;32mI (30687) [mupgrade_example, 240]: 7700 616c[0m
+[2019-08-27 10:54:22] D (30806) [mupgrade_root, 103]: Firmware download size: 78624, progress rate: 8%[0m
+[2019-08-27 10:54:22] [0;32mI (30810) [mupgrade_example, 240]: 6964 0000[0m
+[2019-08-27 10:54:22] D (30928) [mupgrade_root, 103]: Firmware download size: 80080, progress rate: 8%[0m
+[2019-08-27 10:54:22] [0;32mI (30933) [mupgrade_example, 240]: 4920 5f74[0m
+[2019-08-27 10:54:22] D (31062) [mupgrade_root, 103]: Firmware download size: 81536, progress rate: 8%[0m
+[2019-08-27 10:54:22] [0;32mI (31066) [mupgrade_example, 240]: 696d 2025[0m
+[2019-08-27 10:54:22] D (31185) [mupgrade_root, 103]: Firmware download size: 82992, progress rate: 9%[0m
+[2019-08-27 10:54:22] [0;32mI (31190) [mupgrade_example, 240]: 733a 7374[0m
+[2019-08-27 10:54:22] D (31308) [mupgrade_root, 103]: Firmware download size: 84448, progress rate: 9%[0m
+[2019-08-27 10:54:23] [0;32mI (31313) [mupgrade_example, 240]: 6163 0100[0m
+[2019-08-27 10:54:23] D (31441) [mupgrade_root, 103]: Firmware download size: 85904, progress rate: 9%[0m
+[2019-08-27 10:54:23] [0;32mI (31446) [mupgrade_example, 240]: ff02 0000[0m
+[2019-08-27 10:54:23] D (31563) [mupgrade_root, 103]: Firmware download size: 87360, progress rate: 9%[0m
+[2019-08-27 10:54:23] [0;32mI (31568) [mupgrade_example, 240]: 7265 6365[0m
+[2019-08-27 10:54:23] D (31686) [mupgrade_root, 103]: Firmware download size: 88816, progress rate: 9%[0m
+[2019-08-27 10:54:23] [0;32mI (31691) [mupgrade_example, 240]: 7373 2564[0m
+[2019-08-27 10:54:23] D (31820) [mupgrade_root, 103]: Firmware download size: 90272, progress rate: 9%[0m
+[2019-08-27 10:54:23] [0;32mI (31824) [mupgrade_example, 240]: 2c20 616c[0m
+[2019-08-27 10:54:23] D (31943) [mupgrade_root, 103]: Firmware download size: 91728, progress rate: 9%[0m
+[2019-08-27 10:54:23] [0;32mI (31948) [mupgrade_example, 240]: 6964 2c20[0m
+[2019-08-27 10:54:23] D (32065) [mupgrade_root, 103]: Firmware download size: 93184, progress rate: 10%[0m
+[2019-08-27 10:54:23] [0;32mI (32070) [mupgrade_example, 240]: 6c65 735b[0m
+[2019-08-27 10:54:23] D (32199) [mupgrade_root, 103]: Firmware download size: 94640, progress rate: 10%[0m
+[2019-08-27 10:54:23] [0;32mI (32205) [mupgrade_example, 240]: 5441 574b[0m
+[2019-08-27 10:54:23] D (32322) [mupgrade_root, 103]: Firmware download size: 96096, progress rate: 10%[0m
+[2019-08-27 10:54:24] [0;32mI (32326) [mupgrade_example, 240]: 5f50 3032[0m
+[2019-08-27 10:54:24] D (32444) [mupgrade_root, 103]: Firmware download size: 97552, progress rate: 10%[0m
+[2019-08-27 10:54:24] [0;32mI (32448) [mupgrade_example, 240]: 783a 3278[0m
+[2019-08-27 10:54:24] D (32578) [mupgrade_root, 103]: Firmware download size: 99008, progress rate: 10%[0m
+[2019-08-27 10:54:24] [0;32mI (32582) [mupgrade_example, 240]: 3a25 6b6f[0m
+[2019-08-27 10:54:24] D (32700) [mupgrade_root, 103]: Firmware download size: 100464, progress rate: 10%[0m
+[2019-08-27 10:54:24] [0;32mI (32705) [mupgrade_example, 240]: 6666 2070[0m
+[2019-08-27 10:54:24] D (32823) [mupgrade_root, 103]: Firmware download size: 101920, progress rate: 11%[0m
+[2019-08-27 10:54:24] [0;32mI (32829) [mupgrade_example, 240]: 726f 2564[0m
+[2019-08-27 10:54:24] D (32957) [mupgrade_root, 103]: Firmware download size: 103376, progress rate: 11%[0m
+[2019-08-27 10:54:24] [0;32mI (32960) [mupgrade_example, 240]: 0a00 2025[0m
+[2019-08-27 10:54:24] D (33080) [mupgrade_root, 103]: Firmware download size: 104832, progress rate: 11%[0m
+[2019-08-27 10:54:24] [0;32mI (33084) [mupgrade_example, 240]: 733a 656e[0m
+[2019-08-27 10:54:24] D (33202) [mupgrade_root, 103]: Firmware download size: 106288, progress rate: 11%[0m
+[2019-08-27 10:54:24] [0;32mI (33208) [mupgrade_example, 240]: 743a 1340[0m
+[2019-08-27 10:54:24] D (33336) [mupgrade_root, 103]: Firmware download size: 107744, progress rate: 11%[0m
+[2019-08-27 10:54:25] [0;32mI (33340) [mupgrade_example, 240]: 82fd 205b[0m
+[2019-08-27 10:54:25] D (33458) [mupgrade_root, 103]: Firmware download size: 109200, progress rate: 11%[0m
+[2019-08-27 10:54:25] [0;32mI (33463) [mupgrade_example, 240]: 2564 2530[0m
+[2019-08-27 10:54:25] D (33582) [mupgrade_root, 103]: Firmware download size: 110656, progress rate: 12%[0m
+[2019-08-27 10:54:25] [0;32mI (33588) [mupgrade_example, 240]: 3278 6574[0m
+[2019-08-27 10:54:25] D (33715) [mupgrade_root, 103]: Firmware download size: 112112, progress rate: 12%[0m
+[2019-08-27 10:54:25] [0;32mI (33719) [mupgrade_example, 240]: 5f70 765f[0m
+[2019-08-27 10:54:25] D (33840) [mupgrade_root, 103]: Firmware download size: 113568, progress rate: 12%[0m
+[2019-08-27 10:54:25] [0;32mI (33845) [mupgrade_example, 240]: 6368 3a25[0m
+[2019-08-27 10:54:25] D (33960) [mupgrade_root, 103]: Firmware download size: 115024, progress rate: 12%[0m
+[2019-08-27 10:54:25] [0;32mI (33964) [mupgrade_example, 240]: 3032 626c[0m
+[2019-08-27 10:54:25] D (34094) [mupgrade_root, 103]: Firmware download size: 116480, progress rate: 12%[0m
+[2019-08-27 10:54:25] [0;32mI (34101) [mupgrade_example, 240]: 6f63 2530[0m
+[2019-08-27 10:54:25] D (34217) [mupgrade_root, 103]: Firmware download size: 117936, progress rate: 12%[0m
+[2019-08-27 10:54:25] [0;32mI (34221) [mupgrade_example, 240]: 3278 2074[0m
+[2019-08-27 10:54:25] D (34339) [mupgrade_root, 103]: Firmware download size: 119392, progress rate: 12%[0m
+[2019-08-27 10:54:26] [0;32mI (34343) [mupgrade_example, 240]: 6f20 7368[0m
+[2019-08-27 10:54:26] D (34474) [mupgrade_root, 103]: Firmware download size: 120848, progress rate: 13%[0m
+[2019-08-27 10:54:26] [0;32mI (34478) [mupgrade_example, 240]: 2074 4f53[0m
+[2019-08-27 10:54:26] D (34595) [mupgrade_root, 103]: Firmware download size: 122304, progress rate: 13%[0m
+[2019-08-27 10:54:26] [0;32mI (34599) [mupgrade_example, 240]: 545f 4655[0m
+[2019-08-27 10:54:26] D (34720) [mupgrade_root, 103]: Firmware download size: 123760, progress rate: 13%[0m
+[2019-08-27 10:54:26] [0;32mI (34725) [mupgrade_example, 240]: 4c4c 4f4f[0m
+[2019-08-27 10:54:26] D (34851) [mupgrade_root, 103]: Firmware download size: 125216, progress rate: 13%[0m
+[2019-08-27 10:54:26] [0;32mI (34856) [mupgrade_example, 240]: 545f 1540[0m
+[2019-08-27 10:54:26] D (34974) [mupgrade_root, 103]: Firmware download size: 126672, progress rate: 13%[0m
+[2019-08-27 10:54:26] [0;32mI (34980) [mupgrade_example, 240]: 440f 0000[0m
+[2019-08-27 10:54:26] D (35097) [mupgrade_root, 103]: Firmware download size: 128128, progress rate: 13%[0m
+[2019-08-27 10:54:26] [0;32mI (35102) [mupgrade_example, 240]: 5f09 0000[0m
+[2019-08-27 10:54:26] D (35231) [mupgrade_root, 103]: Firmware download size: 129584, progress rate: 14%[0m
+[2019-08-27 10:54:26] [0;32mI (35236) [mupgrade_example, 240]: 2531 0000[0m
+[2019-08-27 10:54:26] D (35354) [mupgrade_root, 103]: Firmware download size: 131040, progress rate: 14%[0m
+[2019-08-27 10:54:27] [0;32mI (35358) [mupgrade_example, 240]: bcfe 7320[0m
+[2019-08-27 10:54:27] D (35480) [mupgrade_root, 103]: Firmware download size: 132496, progress rate: 14%[0m
+[2019-08-27 10:54:27] [0;32mI (35485) [mupgrade_example, 240]: 6c65 6f70[0m
+[2019-08-27 10:54:27] D (35609) [mupgrade_root, 103]: Firmware download size: 133952, progress rate: 14%[0m
+[2019-08-27 10:54:27] [0;32mI (35614) [mupgrade_example, 240]: 795f 6c65[0m
+[2019-08-27 10:54:27] D (35732) [mupgrade_root, 103]: Firmware download size: 135408, progress rate: 14%[0m
+[2019-08-27 10:54:27] [0;32mI (35739) [mupgrade_example, 240]: 6e00 6966[0m
+[2019-08-27 10:54:27] D (35855) [mupgrade_root, 103]: Firmware download size: 136864, progress rate: 14%[0m
+[2019-08-27 10:54:27] [0;32mI (35860) [mupgrade_example, 240]: 2021 213d[0m
+[2019-08-27 10:54:27] D (35988) [mupgrade_root, 103]: Firmware download size: 138320, progress rate: 15%[0m
+[2019-08-27 10:54:27] [0;32mI (35994) [mupgrade_example, 240]: 204e 7470[0m
+[2019-08-27 10:54:27] D (36111) [mupgrade_root, 103]: Firmware download size: 139776, progress rate: 15%[0m
+[2019-08-27 10:54:27] [0;32mI (36116) [mupgrade_example, 240]: 7574 7020[0m
+[2019-08-27 10:54:27] D (36234) [mupgrade_root, 103]: Firmware download size: 141232, progress rate: 15%[0m
+[2019-08-27 10:54:27] [0;32mI (36238) [mupgrade_example, 240]: 7072 6573[0m
+[2019-08-27 10:54:27] D (36367) [mupgrade_root, 103]: Firmware download size: 142688, progress rate: 15%[0m
+[2019-08-27 10:54:28] [0;32mI (36372) [mupgrade_example, 240]: 702f 6e76[0m
+[2019-08-27 10:54:28] D (36490) [mupgrade_root, 103]: Firmware download size: 144144, progress rate: 15%[0m
+[2019-08-27 10:54:28] [0;32mI (36494) [mupgrade_example, 240]: 616c 6e6e[0m
+[2019-08-27 10:54:28] D (36613) [mupgrade_root, 103]: Firmware download size: 145600, progress rate: 15%[0m
+[2019-08-27 10:54:28] [0;32mI (36617) [mupgrade_example, 240]: 2d3e 2564[0m
+[2019-08-27 10:54:28] D (36746) [mupgrade_root, 103]: Firmware download size: 147056, progress rate: 15%[0m
+[2019-08-27 10:54:28] [0;32mI (36750) [mupgrade_example, 240]: 2920 0d0d[0m
+[2019-08-27 10:54:28] D (36873) [mupgrade_root, 103]: Firmware download size: 148512, progress rate: 16%[0m
+[2019-08-27 10:54:28] [0;32mI (36880) [mupgrade_example, 240]: 0d0d 0b01[0m
+[2019-08-27 10:54:28] D (36992) [mupgrade_root, 103]: Firmware download size: 149968, progress rate: 16%[0m
+[2019-08-27 10:54:28] [0;32mI (36997) [mupgrade_example, 240]: 0c01 0100[0m
+[2019-08-27 10:54:28] D (37125) [mupgrade_root, 103]: Firmware download size: 151424, progress rate: 16%[0m
+[2019-08-27 10:54:28] [0;32mI (37130) [mupgrade_example, 240]: 0080 f43f[0m
+[2019-08-27 10:54:28] D (37248) [mupgrade_root, 103]: Firmware download size: 152880, progress rate: 16%[0m
+[2019-08-27 10:54:28] [0;32mI (37253) [mupgrade_example, 240]: 6490 c591[0m
+[2019-08-27 10:54:28] D (37383) [mupgrade_root, 103]: Firmware download size: 154336, progress rate: 16%[0m
+[2019-08-27 10:54:29] [0;32mI (37387) [mupgrade_example, 240]: 5030 0c00[0m
+[2019-08-27 10:54:29] D (37504) [mupgrade_root, 103]: Firmware download size: 155792, progress rate: 16%[0m
+[2019-08-27 10:54:29] [0;32mI (37509) [mupgrade_example, 240]: 007f 0000[0m
+[2019-08-27 10:54:29] D (37627) [mupgrade_root, 103]: Firmware download size: 157248, progress rate: 17%[0m
+[2019-08-27 10:54:29] [0;32mI (37632) [mupgrade_example, 240]: 0000 0000[0m
+[2019-08-27 10:54:29] D (37761) [mupgrade_root, 103]: Firmware download size: 158704, progress rate: 17%[0m
+[2019-08-27 10:54:29] [0;32mI (37765) [mupgrade_example, 240]: 0000 930d[0m
+[2019-08-27 10:54:29] D (37883) [mupgrade_root, 103]: Firmware download size: 160160, progress rate: 17%[0m
+[2019-08-27 10:54:29] [0;32mI (37890) [mupgrade_example, 240]: 4018 0000[0m
+[2019-08-27 10:54:29] D (38006) [mupgrade_root, 103]: Firmware download size: 161616, progress rate: 17%[0m
+[2019-08-27 10:54:29] [0;32mI (38011) [mupgrade_example, 240]: 0000 ffff[0m
+[2019-08-27 10:54:29] D (38139) [mupgrade_root, 103]: Firmware download size: 163072, progress rate: 17%[0m
+[2019-08-27 10:54:29] [0;32mI (38143) [mupgrade_example, 240]: ffff 0000[0m
+[2019-08-27 10:54:29] D (38265) [mupgrade_root, 103]: Firmware download size: 164528, progress rate: 17%[0m
+[2019-08-27 10:54:29] [0;32mI (38269) [mupgrade_example, 240]: 0000 0000[0m
+[2019-08-27 10:54:29] D (38385) [mupgrade_root, 103]: Firmware download size: 165984, progress rate: 18%[0m
+[2019-08-27 10:54:30] [0;32mI (38391) [mupgrade_example, 240]: 436f 3d25[0m
+[2019-08-27 10:54:30] D (38519) [mupgrade_root, 103]: Firmware download size: 167440, progress rate: 18%[0m
+[2019-08-27 10:54:30] [0;32mI (38523) [mupgrade_example, 240]: 642c 7320[0m
+[2019-08-27 10:54:30] D (38641) [mupgrade_root, 103]: Firmware download size: 168896, progress rate: 18%[0m
+[2019-08-27 10:54:30] [0;32mI (38646) [mupgrade_example, 240]: 2570 403f[0m
+[2019-08-27 10:54:30] D (38764) [mupgrade_root, 103]: Firmware download size: 170352, progress rate: 18%[0m
+[2019-08-27 10:54:30] [0;32mI (38770) [mupgrade_example, 240]: 0016 0000[0m
+[2019-08-27 10:54:30] D (38897) [mupgrade_root, 103]: Firmware download size: 171808, progress rate: 18%[0m
+[2019-08-27 10:54:30] [0;32mI (38902) [mupgrade_example, 240]: 60f7 0c3a[0m
+[2019-08-27 10:54:30] D (39022) [mupgrade_root, 103]: Firmware download size: 173264, progress rate: 18%[0m
+[2019-08-27 10:54:30] [0;32mI (39026) [mupgrade_example, 240]: a572 0030[0m
+[2019-08-27 10:54:30] D (39143) [mupgrade_root, 103]: Firmware download size: 174720, progress rate: 18%[0m
+[2019-08-27 10:54:30] [0;32mI (39147) [mupgrade_example, 240]: eb03 22a0[0m
+[2019-08-27 10:54:30] D (39277) [mupgrade_root, 103]: Firmware download size: 176176, progress rate: 19%[0m
+[2019-08-27 10:54:31] [0;32mI (39282) [mupgrade_example, 240]: 3802 4529[0m
+[2019-08-27 10:54:31] D (39399) [mupgrade_root, 103]: Firmware download size: 177632, progress rate: 19%[0m
+[2019-08-27 10:54:31] [0;32mI (39404) [mupgrade_example, 240]: 0768 2d0a[0m
+[2019-08-27 10:54:31] D (39522) [mupgrade_root, 103]: Firmware download size: 179088, progress rate: 19%[0m
+[2019-08-27 10:54:31] [0;32mI (39528) [mupgrade_example, 240]: 8cca 1df0[0m
+[2019-08-27 10:54:31] D (39656) [mupgrade_root, 103]: Firmware download size: 180544, progress rate: 19%[0m
+[2019-08-27 10:54:31] [0;32mI (39661) [mupgrade_example, 240]: 2d0a 550c[0m
+[2019-08-27 10:54:31] D (39778) [mupgrade_root, 103]: Firmware download size: 182000, progress rate: 19%[0m
+[2019-08-27 10:54:31] [0;32mI (39783) [mupgrade_example, 240]: 180c b50c[0m
+[2019-08-27 10:54:31] D (39901) [mupgrade_root, 103]: Firmware download size: 183456, progress rate: 19%[0m
+[2019-08-27 10:54:31] [0;32mI (39906) [mupgrade_example, 240]: 021d 5003[0m
+[2019-08-27 10:54:31] D (40034) [mupgrade_root, 103]: Firmware download size: 184912, progress rate: 20%[0m
+[2019-08-27 10:54:31] [0;32mI (40040) [mupgrade_example, 240]: 2d0a 0360[0m
+[2019-08-27 10:54:31] D (40160) [mupgrade_root, 103]: Firmware download size: 186368, progress rate: 20%[0m
+[2019-08-27 10:54:31] [0;32mI (40164) [mupgrade_example, 240]: a01b 0300[0m
+[2019-08-27 10:54:31] D (40280) [mupgrade_root, 103]: Firmware download size: 187824, progress rate: 20%[0m
+[2019-08-27 10:54:32] [0;32mI (40284) [mupgrade_example, 240]: 3661 21f1[0m
+[2019-08-27 10:54:32] D (40414) [mupgrade_root, 103]: Firmware download size: 189280, progress rate: 20%[0m
+[2019-08-27 10:54:32] [0;32mI (40418) [mupgrade_example, 240]: ffc0 02c6[0m
+[2019-08-27 10:54:32] D (40536) [mupgrade_root, 103]: Firmware download size: 190736, progress rate: 20%[0m
+[2019-08-27 10:54:32] [0;32mI (40541) [mupgrade_example, 240]: 2c00 9196[0m
+[2019-08-27 10:54:32] D (40659) [mupgrade_root, 103]: Firmware download size: 192192, progress rate: 20%[0m
+[2019-08-27 10:54:32] [0;32mI (40664) [mupgrade_example, 240]: ffa9 ea81[0m
+[2019-08-27 10:54:32] D (40792) [mupgrade_root, 103]: Firmware download size: 193648, progress rate: 21%[0m
+[2019-08-27 10:54:32] [0;32mI (40797) [mupgrade_example, 240]: 63e9 c250[0m
+[2019-08-27 10:54:32] D (40915) [mupgrade_root, 103]: Firmware download size: 195104, progress rate: 21%[0m
+[2019-08-27 10:54:32] [0;32mI (40923) [mupgrade_example, 240]: 53c0 20a2[0m
+[2019-08-27 10:54:32] D (41038) [mupgrade_root, 103]: Firmware download size: 196560, progress rate: 21%[0m
+[2019-08-27 10:54:32] [0;32mI (41043) [mupgrade_example, 240]: 220e 403f[0m
+[2019-08-27 10:54:32] D (41172) [mupgrade_root, 103]: Firmware download size: 198016, progress rate: 21%[0m
+[2019-08-27 10:54:32] [0;32mI (41177) [mupgrade_example, 240]: 704b 403f[0m
+[2019-08-27 10:54:32] D (41294) [mupgrade_root, 103]: Firmware download size: 199472, progress rate: 21%[0m
+[2019-08-27 10:54:33] [0;32mI (41298) [mupgrade_example, 240]: 8073 403f[0m
+[2019-08-27 10:54:33] D (41417) [mupgrade_root, 103]: Firmware download size: 200928, progress rate: 21%[0m
+[2019-08-27 10:54:33] [0;32mI (41421) [mupgrade_example, 240]: 80b0 403f[0m
+[2019-08-27 10:54:33] D (41550) [mupgrade_root, 103]: Firmware download size: 202384, progress rate: 21%[0m
+[2019-08-27 10:54:33] [0;32mI (41556) [mupgrade_example, 240]: c0cf ff80[0m
+[2019-08-27 10:54:33] D (41673) [mupgrade_root, 103]: Firmware download size: 203840, progress rate: 22%[0m
+[2019-08-27 10:54:33] [0;32mI (41680) [mupgrade_example, 240]: 10f0 7cf8[0m
+[2019-08-27 10:54:33] D (41798) [mupgrade_root, 103]: Firmware download size: 205296, progress rate: 22%[0m
+[2019-08-27 10:54:33] [0;32mI (41802) [mupgrade_example, 240]: 9098 88a0[0m
+[2019-08-27 10:54:33] D (41930) [mupgrade_root, 103]: Firmware download size: 206752, progress rate: 22%[0m
+[2019-08-27 10:54:33] [0;32mI (41934) [mupgrade_example, 240]: 2908 a039[0m
+[2019-08-27 10:54:33] D (42052) [mupgrade_root, 103]: Firmware download size: 208208, progress rate: 22%[0m
+[2019-08-27 10:54:33] [0;32mI (42056) [mupgrade_example, 240]: a57b 7cc8[0m
+[2019-08-27 10:54:33] D (42175) [mupgrade_root, 103]: Firmware download size: 209664, progress rate: 22%[0m
+[2019-08-27 10:54:33] [0;32mI (42180) [mupgrade_example, 240]: 8792 4388[0m
+[2019-08-27 10:54:33] D (42308) [mupgrade_root, 103]: Firmware download size: 211120, progress rate: 22%[0m
+[2019-08-27 10:54:34] [0;32mI (42317) [mupgrade_example, 240]: 675a 6586[0m
+[2019-08-27 10:54:34] D (42433) [mupgrade_root, 103]: Firmware download size: 212576, progress rate: 23%[0m
+[2019-08-27 10:54:34] [0;32mI (42438) [mupgrade_example, 240]: ae0c ae4d[0m
+[2019-08-27 10:54:34] D (42557) [mupgrade_root, 103]: Firmware download size: 214032, progress rate: 23%[0m
+[2019-08-27 10:54:34] [0;32mI (42561) [mupgrade_example, 240]: 0aad e5ad[0m
+[2019-08-27 10:54:34] D (42687) [mupgrade_root, 103]: Firmware download size: 215488, progress rate: 23%[0m
+[2019-08-27 10:54:34] [0;32mI (42691) [mupgrade_example, 240]: 4d0a 7ced[0m
+[2019-08-27 10:54:34] D (42810) [mupgrade_root, 103]: Firmware download size: 216944, progress rate: 23%[0m
+[2019-08-27 10:54:34] [0;32mI (42815) [mupgrade_example, 240]: 2500 0800[0m
+[2019-08-27 10:54:34] D (42933) [mupgrade_root, 103]: Firmware download size: 218400, progress rate: 23%[0m
+[2019-08-27 10:54:34] [0;32mI (42937) [mupgrade_example, 240]: aaa2 e3ea[0m
+[2019-08-27 10:54:34] D (43067) [mupgrade_root, 103]: Firmware download size: 219856, progress rate: 23%[0m
+[2019-08-27 10:54:34] [0;32mI (43074) [mupgrade_example, 240]: 20dd 32c4[0m
+[2019-08-27 10:54:34] D (43191) [mupgrade_root, 103]: Firmware download size: 221312, progress rate: 24%[0m
+[2019-08-27 10:54:34] [0;32mI (43197) [mupgrade_example, 240]: 50c2 09ac[0m
+[2019-08-27 10:54:34] D (43314) [mupgrade_root, 103]: Firmware download size: 222768, progress rate: 24%[0m
+[2019-08-27 10:54:35] [0;32mI (43321) [mupgrade_example, 240]: 06a7 0aad[0m
+[2019-08-27 10:54:35] D (43445) [mupgrade_root, 103]: Firmware download size: 224224, progress rate: 24%[0m
+[2019-08-27 10:54:35] [0;32mI (43449) [mupgrade_example, 240]: 0265 ef02[0m
+[2019-08-27 10:54:35] D (43569) [mupgrade_root, 103]: Firmware download size: 225680, progress rate: 24%[0m
+[2019-08-27 10:54:35] [0;32mI (43573) [mupgrade_example, 240]: 31ac d0cd[0m
+[2019-08-27 10:54:35] D (43691) [mupgrade_root, 103]: Firmware download size: 227136, progress rate: 24%[0m
+[2019-08-27 10:54:35] [0;32mI (43696) [mupgrade_example, 240]: 20d0 000c[0m
+[2019-08-27 10:54:35] D (43825) [mupgrade_root, 103]: Firmware download size: 228592, progress rate: 24%[0m
+[2019-08-27 10:54:35] [0;32mI (43832) [mupgrade_example, 240]: 1a81 1e0c[0m
+[2019-08-27 10:54:35] D (43947) [mupgrade_root, 103]: Firmware download size: 230048, progress rate: 24%[0m
+[2019-08-27 10:54:35] [0;32mI (43956) [mupgrade_example, 240]: 0c0c e00c[0m
+[2019-08-27 10:54:35] D (44072) [mupgrade_root, 103]: Firmware download size: 231504, progress rate: 25%[0m
+[2019-08-27 10:54:35] [0;32mI (44076) [mupgrade_example, 240]: 2a25 06c1[0m
+[2019-08-27 10:54:35] D (44203) [mupgrade_root, 103]: Firmware download size: 232960, progress rate: 25%[0m
+[2019-08-27 10:54:35] [0;32mI (44208) [mupgrade_example, 240]: 9bdf f3ff[0m
+[2019-08-27 10:54:35] D (44326) [mupgrade_root, 103]: Firmware download size: 234416, progress rate: 25%[0m
+[2019-08-27 10:54:36] [0;32mI (44331) [mupgrade_example, 240]: 2d0a 8801[0m
+[2019-08-27 10:54:36] D (44449) [mupgrade_root, 103]: Firmware download size: 235872, progress rate: 25%[0m
+[2019-08-27 10:54:36] [0;32mI (44453) [mupgrade_example, 240]: 9088 0030[0m
+[2019-08-27 10:54:36] D (44582) [mupgrade_root, 103]: Firmware download size: 237328, progress rate: 25%[0m
+[2019-08-27 10:54:36] [0;32mI (44586) [mupgrade_example, 240]: a0f4 0c4a[0m
+[2019-08-27 10:54:36] D (44705) [mupgrade_root, 103]: Firmware download size: 238784, progress rate: 25%[0m
+[2019-08-27 10:54:36] [0;32mI (44713) [mupgrade_example, 240]: 2520 a5ad[0m
+[2019-08-27 10:54:36] D (44838) [mupgrade_root, 103]: Firmware download size: 240240, progress rate: 26%[0m
+[2019-08-27 10:54:36] [0;32mI (44843) [mupgrade_example, 240]: 18a1 3280[0m
+[2019-08-27 10:54:36] D (44961) [mupgrade_root, 103]: Firmware download size: 241696, progress rate: 26%[0m
+[2019-08-27 10:54:36] [0;32mI (44966) [mupgrade_example, 240]: 4411 3223[0m
+[2019-08-27 10:54:36] D (45084) [mupgrade_root, 103]: Firmware download size: 243152, progress rate: 26%[0m
+[2019-08-27 10:54:36] [0;32mI (45088) [mupgrade_example, 240]: 00ec 0ac1[0m
+[2019-08-27 10:54:36] D (45217) [mupgrade_root, 103]: Firmware download size: 244608, progress rate: 26%[0m
+[2019-08-27 10:54:36] [0;32mI (45223) [mupgrade_example, 240]: d3d4 6ea6[0m
+[2019-08-27 10:54:36] D (45340) [mupgrade_root, 103]: Firmware download size: 246064, progress rate: 26%[0m
+[2019-08-27 10:54:37] [0;32mI (45345) [mupgrade_example, 240]: b158 3241[0m
+[2019-08-27 10:54:37] D (45465) [mupgrade_root, 103]: Firmware download size: 247520, progress rate: 26%[0m
+[2019-08-27 10:54:37] [0;32mI (45471) [mupgrade_example, 240]: 2e32 1059[0m
+[2019-08-27 10:54:37] D (45599) [mupgrade_root, 103]: Firmware download size: 248976, progress rate: 27%[0m
+[2019-08-27 10:54:37] [0;32mI (45603) [mupgrade_example, 240]: b152 20a2[0m
+[2019-08-27 10:54:37] D (45720) [mupgrade_root, 103]: Firmware download size: 250432, progress rate: 27%[0m
+[2019-08-27 10:54:37] [0;32mI (45726) [mupgrade_example, 240]: 2065 1402[0m
+[2019-08-27 10:54:37] D (45842) [mupgrade_root, 103]: Firmware download size: 251888, progress rate: 27%[0m
+[2019-08-27 10:54:37] [0;32mI (45846) [mupgrade_example, 240]: 2502 d332[0m
+[2019-08-27 10:54:37] D (45978) [mupgrade_root, 103]: Firmware download size: 253344, progress rate: 27%[0m
+[2019-08-27 10:54:37] [0;32mI (45982) [mupgrade_example, 240]: 4135 37a4[0m
+[2019-08-27 10:54:37] D (46098) [mupgrade_root, 103]: Firmware download size: 254800, progress rate: 27%[0m
+[2019-08-27 10:54:37] [0;32mI (46103) [mupgrade_example, 240]: 2190 211a[0m
+[2019-08-27 10:54:37] D (46222) [mupgrade_root, 103]: Firmware download size: 256256, progress rate: 27%[0m
+[2019-08-27 10:54:37] [0;32mI (46227) [mupgrade_example, 240]: 6911 05ad[0m
+[2019-08-27 10:54:37] D (46354) [mupgrade_root, 103]: Firmware download size: 257712, progress rate: 27%[0m
+[2019-08-27 10:54:38] [0;32mI (46358) [mupgrade_example, 240]: 0281 2270[0m
+[2019-08-27 10:54:38] D (46477) [mupgrade_root, 103]: Firmware download size: 259168, progress rate: 28%[0m
+[2019-08-27 10:54:38] [0;32mI (46483) [mupgrade_example, 240]: 79c0 f021[0m
+[2019-08-27 10:54:38] D (46602) [mupgrade_root, 103]: Firmware download size: 260624, progress rate: 28%[0m
+[2019-08-27 10:54:38] [0;32mI (46606) [mupgrade_example, 240]: 62c6 9f86[0m
+[2019-08-27 10:54:38] D (46733) [mupgrade_root, 103]: Firmware download size: 262080, progress rate: 28%[0m
+[2019-08-27 10:54:38] [0;32mI (46737) [mupgrade_example, 240]: 0800 3222[0m
+[2019-08-27 10:54:38] D (46857) [mupgrade_root, 103]: Firmware download size: 263536, progress rate: 28%[0m
+[2019-08-27 10:54:38] [0;32mI (46861) [mupgrade_example, 240]: 1986 2261[0m
+[2019-08-27 10:54:38] D (46980) [mupgrade_root, 103]: Firmware download size: 264992, progress rate: 28%[0m
+[2019-08-27 10:54:38] [0;32mI (46985) [mupgrade_example, 240]: 9532 2197[0m
+[2019-08-27 10:54:38] D (47114) [mupgrade_root, 103]: Firmware download size: 266448, progress rate: 28%[0m
+[2019-08-27 10:54:38] [0;32mI (47118) [mupgrade_example, 240]: bc14 701c[0m
+[2019-08-27 10:54:38] D (47237) [mupgrade_root, 103]: Firmware download size: 267904, progress rate: 29%[0m
+[2019-08-27 10:54:38] [0;32mI (47242) [mupgrade_example, 240]: f267 0c62[0m
+[2019-08-27 10:54:38] D (47358) [mupgrade_root, 103]: Firmware download size: 269360, progress rate: 29%[0m
+[2019-08-27 10:54:39] [0;32mI (47364) [mupgrade_example, 240]: c110 e008[0m
+[2019-08-27 10:54:39] D (47491) [mupgrade_root, 103]: Firmware download size: 270816, progress rate: 29%[0m
+[2019-08-27 10:54:39] [0;32mI (47495) [mupgrade_example, 240]: 0092 2195[0m
+[2019-08-27 10:54:39] D (47615) [mupgrade_root, 103]: Firmware download size: 272272, progress rate: 29%[0m
+[2019-08-27 10:54:39] [0;32mI (47621) [mupgrade_example, 240]: a614 aab2[0m
+[2019-08-27 10:54:39] D (47737) [mupgrade_root, 103]: Firmware download size: 273728, progress rate: 29%[0m
+[2019-08-27 10:54:39] [0;32mI (47741) [mupgrade_example, 240]: 21ab 8924[0m
+[2019-08-27 10:54:39] D (47870) [mupgrade_root, 103]: Firmware download size: 275184, progress rate: 29%[0m
+[2019-08-27 10:54:39] [0;32mI (47876) [mupgrade_example, 240]: a804 8261[0m
+[2019-08-27 10:54:39] D (47993) [mupgrade_root, 103]: Firmware download size: 276640, progress rate: 30%[0m
+[2019-08-27 10:54:39] [0;32mI (47999) [mupgrade_example, 240]: 990b 4060[0m
+[2019-08-27 10:54:39] D (48116) [mupgrade_root, 103]: Firmware download size: 278096, progress rate: 30%[0m
+[2019-08-27 10:54:39] [0;32mI (48121) [mupgrade_example, 240]: 82c1 4b83[0m
+[2019-08-27 10:54:39] D (48249) [mupgrade_root, 103]: Firmware download size: 279552, progress rate: 30%[0m
+[2019-08-27 10:54:39] [0;32mI (48254) [mupgrade_example, 240]: 8262 1287[0m
+[2019-08-27 10:54:39] D (48372) [mupgrade_root, 103]: Firmware download size: 281008, progress rate: 30%[0m
+[2019-08-27 10:54:40] [0;32mI (48376) [mupgrade_example, 240]: 2605 1022[0m
+[2019-08-27 10:54:40] D (48496) [mupgrade_root, 103]: Firmware download size: 282464, progress rate: 30%[0m
+[2019-08-27 10:54:40] [0;32mI (48500) [mupgrade_example, 240]: db02 b221[0m
+[2019-08-27 10:54:40] D (48628) [mupgrade_root, 103]: Firmware download size: 283920, progress rate: 30%[0m
+[2019-08-27 10:54:40] [0;32mI (48633) [mupgrade_example, 240]: 98a2 0246[0m
+[2019-08-27 10:54:40] D (48751) [mupgrade_root, 103]: Firmware download size: 285376, progress rate: 30%[0m
+[2019-08-27 10:54:40] [0;32mI (48755) [mupgrade_example, 240]: 2eff 4c03[0m
+[2019-08-27 10:54:40] D (48875) [mupgrade_root, 103]: Firmware download size: 286832, progress rate: 31%[0m
+[2019-08-27 10:54:40] [0;32mI (48879) [mupgrade_example, 240]: 6221 2a25[0m
+[2019-08-27 10:54:40] D (49008) [mupgrade_root, 103]: Firmware download size: 288288, progress rate: 31%[0m
+[2019-08-27 10:54:40] [0;32mI (49012) [mupgrade_example, 240]: 22c2 9261[0m
+[2019-08-27 10:54:40] D (49131) [mupgrade_root, 103]: Firmware download size: 289744, progress rate: 31%[0m
+[2019-08-27 10:54:40] [0;32mI (49135) [mupgrade_example, 240]: ad86 9000[0m
+[2019-08-27 10:54:40] D (49255) [mupgrade_root, 103]: Firmware download size: 291200, progress rate: 31%[0m
+[2019-08-27 10:54:40] [0;32mI (49259) [mupgrade_example, 240]: 8221 9722[0m
+[2019-08-27 10:54:40] D (49386) [mupgrade_root, 103]: Firmware download size: 292656, progress rate: 31%[0m
+[2019-08-27 10:54:41] [0;32mI (49391) [mupgrade_example, 240]: d302 0200[0m
+[2019-08-27 10:54:41] D (49510) [mupgrade_root, 103]: Firmware download size: 294112, progress rate: 31%[0m
+[2019-08-27 10:54:41] [0;32mI (49516) [mupgrade_example, 240]: 3724 618f[0m
+[2019-08-27 10:54:41] D (49632) [mupgrade_root, 103]: Firmware download size: 295568, progress rate: 32%[0m
+[2019-08-27 10:54:41] [0;32mI (49637) [mupgrade_example, 240]: 4221 3150[0m
+[2019-08-27 10:54:41] D (49767) [mupgrade_root, 103]: Firmware download size: 297024, progress rate: 32%[0m
+[2019-08-27 10:54:41] [0;32mI (49772) [mupgrade_example, 240]: 66c0 7800[0m
+[2019-08-27 10:54:41] D (49888) [mupgrade_root, 103]: Firmware download size: 298480, progress rate: 32%[0m
+[2019-08-27 10:54:41] [0;32mI (49892) [mupgrade_example, 240]: ad02 1842[0m
+[2019-08-27 10:54:41] D (50011) [mupgrade_root, 103]: Firmware download size: 299936, progress rate: 32%[0m
+[2019-08-27 10:54:41] [0;32mI (50015) [mupgrade_example, 240]: 6119 a871[0m
+[2019-08-27 10:54:41] D (50144) [mupgrade_root, 103]: Firmware download size: 301392, progress rate: 32%[0m
+[2019-08-27 10:54:41] [0;32mI (50151) [mupgrade_example, 240]: bd03 01f0[0m
+[2019-08-27 10:54:41] D (50267) [mupgrade_root, 103]: Firmware download size: 302848, progress rate: 32%[0m
+[2019-08-27 10:54:41] [0;32mI (50272) [mupgrade_example, 240]: 2282 0559[0m
+[2019-08-27 10:54:41] D (50392) [mupgrade_root, 103]: Firmware download size: 304304, progress rate: 33%[0m
+[2019-08-27 10:54:42] [0;32mI (50396) [mupgrade_example, 240]: 11ad 32a1[0m
+[2019-08-27 10:54:42] D (50523) [mupgrade_root, 103]: Firmware download size: 305760, progress rate: 33%[0m
+[2019-08-27 10:54:42] [0;32mI (50529) [mupgrade_example, 240]: 901a 96a2[0m
+[2019-08-27 10:54:42] D (50647) [mupgrade_root, 103]: Firmware download size: 307216, progress rate: 33%[0m
+[2019-08-27 10:54:42] [0;32mI (50652) [mupgrade_example, 240]: c110 2802[0m
+[2019-08-27 10:54:42] D (50769) [mupgrade_root, 103]: Firmware download size: 308672, progress rate: 33%[0m
+[2019-08-27 10:54:42] [0;32mI (50773) [mupgrade_example, 240]: 9044 4a4b[0m
+[2019-08-27 10:54:42] D (50902) [mupgrade_root, 103]: Firmware download size: 310128, progress rate: 33%[0m
+[2019-08-27 10:54:42] [0;32mI (50906) [mupgrade_example, 240]: d2a2 c68b[0m
+[2019-08-27 10:54:42] D (51025) [mupgrade_root, 103]: Firmware download size: 311584, progress rate: 33%[0m
+[2019-08-27 10:54:42] [0;32mI (51031) [mupgrade_example, 240]: 0092 b2c1[0m
+[2019-08-27 10:54:42] D (51148) [mupgrade_root, 103]: Firmware download size: 313040, progress rate: 33%[0m
+[2019-08-27 10:54:42] [0;32mI (51154) [mupgrade_example, 240]: 10aa c020[0m
+[2019-08-27 10:54:42] D (51281) [mupgrade_root, 103]: Firmware download size: 314496, progress rate: 34%[0m
+[2019-08-27 10:54:43] [0;32mI (51287) [mupgrade_example, 240]: 0028 7a0c[0m
+[2019-08-27 10:54:43] D (51406) [mupgrade_root, 103]: Firmware download size: 315952, progress rate: 34%[0m
+[2019-08-27 10:54:43] [0;32mI (51410) [mupgrade_example, 240]: 0dcd 4701[0m
+[2019-08-27 10:54:43] D (51527) [mupgrade_root, 103]: Firmware download size: 317408, progress rate: 34%[0m
+[2019-08-27 10:54:43] [0;32mI (51531) [mupgrade_example, 240]: 568a 0a1d[0m
+[2019-08-27 10:54:43] D (51660) [mupgrade_root, 103]: Firmware download size: 318864, progress rate: 34%[0m
+[2019-08-27 10:54:43] [0;32mI (51665) [mupgrade_example, 240]: f00c 1df0[0m
+[2019-08-27 10:54:43] D (51783) [mupgrade_root, 103]: Firmware download size: 320320, progress rate: 34%[0m
+[2019-08-27 10:54:43] [0;32mI (51787) [mupgrade_example, 240]: 00f2 1032[0m
+[2019-08-27 10:54:43] D (51906) [mupgrade_root, 103]: Firmware download size: 321776, progress rate: 34%[0m
+[2019-08-27 10:54:43] [0;32mI (51912) [mupgrade_example, 240]: 2110 f000[0m
+[2019-08-27 10:54:43] D (52039) [mupgrade_root, 103]: Firmware download size: 323232, progress rate: 35%[0m
+[2019-08-27 10:54:43] [0;32mI (52044) [mupgrade_example, 240]: 2891 000b[0m
+[2019-08-27 10:54:43] D (52162) [mupgrade_root, 103]: Firmware download size: 324688, progress rate: 35%[0m
+[2019-08-27 10:54:43] [0;32mI (52166) [mupgrade_example, 240]: 881b 06b2[0m
+[2019-08-27 10:54:43] D (52295) [mupgrade_root, 103]: Firmware download size: 326144, progress rate: 35%[0m
+[2019-08-27 10:54:44] [0;32mI (52300) [mupgrade_example, 240]: c138 85cd[0m
+[2019-08-27 10:54:44] D (52418) [mupgrade_root, 103]: Firmware download size: 327600, progress rate: 35%[0m
+[2019-08-27 10:54:44] [0;32mI (52423) [mupgrade_example, 240]: 0a0c 4093[0m
+[2019-08-27 10:54:44] D (52541) [mupgrade_root, 103]: Firmware download size: 329056, progress rate: 35%[0m
+[2019-08-27 10:54:44] [0;32mI (52546) [mupgrade_example, 240]: 8097 b968[0m
+[2019-08-27 10:54:44] D (52675) [mupgrade_root, 103]: Firmware download size: 330512, progress rate: 35%[0m
+[2019-08-27 10:54:44] [0;32mI (52679) [mupgrade_example, 240]: b978 908a[0m
+[2019-08-27 10:54:44] D (52797) [mupgrade_root, 103]: Firmware download size: 331968, progress rate: 36%[0m
+[2019-08-27 10:54:44] [0;32mI (52802) [mupgrade_example, 240]: 93b7 0000[0m
+[2019-08-27 10:54:44] D (52920) [mupgrade_root, 103]: Firmware download size: 333424, progress rate: 36%[0m
+[2019-08-27 10:54:44] [0;32mI (52928) [mupgrade_example, 240]: 3641 c611[0m
+[2019-08-27 10:54:44] D (53053) [mupgrade_root, 103]: Firmware download size: 334880, progress rate: 36%[0m
+[2019-08-27 10:54:44] [0;32mI (53058) [mupgrade_example, 240]: 00b1 56f9[0m
+[2019-08-27 10:54:44] D (53176) [mupgrade_root, 103]: Firmware download size: 336336, progress rate: 36%[0m
+[2019-08-27 10:54:44] [0;32mI (53181) [mupgrade_example, 240]: 0b47 0997[0m
+[2019-08-27 10:54:44] D (53300) [mupgrade_root, 103]: Firmware download size: 337792, progress rate: 36%[0m
+[2019-08-27 10:54:45] [0;32mI (53304) [mupgrade_example, 240]: 38d5 98d1[0m
+[2019-08-27 10:54:45] D (53432) [mupgrade_root, 103]: Firmware download size: 339248, progress rate: 36%[0m
+[2019-08-27 10:54:45] [0;32mI (53436) [mupgrade_example, 240]: b629 a000[0m
+[2019-08-27 10:54:45] D (53556) [mupgrade_root, 103]: Firmware download size: 340704, progress rate: 36%[0m
+[2019-08-27 10:54:45] [0;32mI (53561) [mupgrade_example, 240]: b2a0 ed0b[0m
+[2019-08-27 10:54:45] D (53679) [mupgrade_root, 103]: Firmware download size: 342160, progress rate: 37%[0m
+[2019-08-27 10:54:45] [0;32mI (53683) [mupgrade_example, 240]: dd0a 888e[0m
+[2019-08-27 10:54:45] D (53811) [mupgrade_root, 103]: Firmware download size: 343616, progress rate: 37%[0m
+[2019-08-27 10:54:45] [0;32mI (53815) [mupgrade_example, 240]: 0c02 3910[0m
+[2019-08-27 10:54:45] D (53934) [mupgrade_root, 103]: Firmware download size: 345072, progress rate: 37%[0m
+[2019-08-27 10:54:45] [0;32mI (53938) [mupgrade_example, 240]: 8033 6613[0m
+[2019-08-27 10:54:45] D (54057) [mupgrade_root, 103]: Firmware download size: 346528, progress rate: 37%[0m
+[2019-08-27 10:54:45] [0;32mI (54063) [mupgrade_example, 240]: 02a5 0673[0m
+[2019-08-27 10:54:45] D (54192) [mupgrade_root, 103]: Firmware download size: 347984, progress rate: 37%[0m
+[2019-08-27 10:54:45] [0;32mI (54196) [mupgrade_example, 240]: 4042 0ac1[0m
+[2019-08-27 10:54:45] D (54316) [mupgrade_root, 103]: Firmware download size: 349440, progress rate: 37%[0m
+[2019-08-27 10:54:46] [0;32mI (54321) [mupgrade_example, 240]: 9771 7021[0m
+[2019-08-27 10:54:46] D (54436) [mupgrade_root, 103]: Firmware download size: 350896, progress rate: 38%[0m
+[2019-08-27 10:54:46] [0;32mI (54441) [mupgrade_example, 240]: 3170 1df0[0m
+[2019-08-27 10:54:46] D (54569) [mupgrade_root, 103]: Firmware download size: 352352, progress rate: 38%[0m
+[2019-08-27 10:54:46] [0;32mI (54574) [mupgrade_example, 240]: 310a 0c02[0m
+[2019-08-27 10:54:46] D (54692) [mupgrade_root, 103]: Firmware download size: 353808, progress rate: 38%[0m
+[2019-08-27 10:54:46] [0;32mI (54697) [mupgrade_example, 240]: 1df0 5e6c[0m
+[2019-08-27 10:54:46] D (54815) [mupgrade_root, 103]: Firmware download size: 355264, progress rate: 38%[0m
+[2019-08-27 10:54:46] [0;32mI (54819) [mupgrade_example, 240]: 4042 4110[0m
+[2019-08-27 10:54:46] D (54948) [mupgrade_root, 103]: Firmware download size: 356720, progress rate: 38%[0m
+[2019-08-27 10:54:46] [0;32mI (54953) [mupgrade_example, 240]: 6bad 0000[0m
+[2019-08-27 10:54:46] D (55071) [mupgrade_root, 103]: Firmware download size: 358176, progress rate: 38%[0m
+[2019-08-27 10:54:46] [0;32mI (55075) [mupgrade_example, 240]: 3641 02ad[0m
+[2019-08-27 10:54:46] D (55196) [mupgrade_root, 103]: Firmware download size: 359632, progress rate: 39%[0m
+[2019-08-27 10:54:46] [0;32mI (55201) [mupgrade_example, 240]: 0465 0ef0[0m
+[2019-08-27 10:54:46] D (55327) [mupgrade_root, 103]: Firmware download size: 361088, progress rate: 39%[0m
+[2019-08-27 10:54:47] [0;32mI (55332) [mupgrade_example, 240]: d014 040c[0m
+[2019-08-27 10:54:47] D (55450) [mupgrade_root, 103]: Firmware download size: 362544, progress rate: 39%[0m
+[2019-08-27 10:54:47] [0;32mI (55454) [mupgrade_example, 240]: 0386 8264[0m
+[2019-08-27 10:54:47] D (55573) [mupgrade_root, 103]: Firmware download size: 364000, progress rate: 39%[0m
+[2019-08-27 10:54:47] [0;32mI (55577) [mupgrade_example, 240]: 8911 0b33[0m
+[2019-08-27 10:54:47] D (55706) [mupgrade_root, 103]: Firmware download size: 365456, progress rate: 39%[0m
+[2019-08-27 10:54:47] [0;32mI (55711) [mupgrade_example, 240]: 0c12 0025[0m
+[2019-08-27 10:54:47] D (55830) [mupgrade_root, 103]: Firmware download size: 366912, progress rate: 39%[0m
+[2019-08-27 10:54:47] [0;32mI (55835) [mupgrade_example, 240]: 93ff 2250[0m
+[2019-08-27 10:54:47] D (55953) [mupgrade_root, 103]: Firmware download size: 368368, progress rate: 39%[0m
+[2019-08-27 10:54:47] [0;32mI (55957) [mupgrade_example, 240]: e002 e004[0m
+[2019-08-27 10:54:47] D (56085) [mupgrade_root, 103]: Firmware download size: 369824, progress rate: 40%[0m
+[2019-08-27 10:54:47] [0;32mI (56089) [mupgrade_example, 240]: 001d 5d02[0m
+[2019-08-27 10:54:47] D (56208) [mupgrade_root, 103]: Firmware download size: 371280, progress rate: 40%[0m
+[2019-08-27 10:54:47] [0;32mI (56212) [mupgrade_example, 240]: 4040 0c1a[0m
+[2019-08-27 10:54:47] D (56331) [mupgrade_root, 103]: Firmware download size: 372736, progress rate: 40%[0m
+[2019-08-27 10:54:48] [0;32mI (56335) [mupgrade_example, 240]: b13f 31ef[0m
+[2019-08-27 10:54:48] D (56464) [mupgrade_root, 103]: Firmware download size: 374192, progress rate: 40%[0m
+[2019-08-27 10:54:48] [0;32mI (56468) [mupgrade_example, 240]: fff1 f000[0m
+[2019-08-27 10:54:48] D (56587) [mupgrade_root, 103]: Firmware download size: 375648, progress rate: 40%[0m
+[2019-08-27 10:54:48] [0;32mI (56591) [mupgrade_example, 240]: 0c0a 3df0[0m
+[2019-08-27 10:54:48] D (56713) [mupgrade_root, 103]: Firmware download size: 377104, progress rate: 40%[0m
+[2019-08-27 10:54:48] [0;32mI (56717) [mupgrade_example, 240]: 3df0 62fe[0m
+[2019-08-27 10:54:48] D (56843) [mupgrade_root, 103]: Firmware download size: 378560, progress rate: 41%[0m
+[2019-08-27 10:54:48] [0;32mI (56847) [mupgrade_example, 240]: a883 2967[0m
+[2019-08-27 10:54:48] D (56966) [mupgrade_root, 103]: Firmware download size: 380016, progress rate: 41%[0m
+[2019-08-27 10:54:48] [0;32mI (56970) [mupgrade_example, 240]: 1b22 3df0[0m
+[2019-08-27 10:54:48] D (57089) [mupgrade_root, 103]: Firmware download size: 381472, progress rate: 41%[0m
+[2019-08-27 10:54:48] [0;32mI (57093) [mupgrade_example, 240]: 3df0 8208[0m
+[2019-08-27 10:54:48] D (57222) [mupgrade_root, 103]: Firmware download size: 382928, progress rate: 41%[0m
+[2019-08-27 10:54:48] [0;32mI (57227) [mupgrade_example, 240]: 0380 413f[0m
+[2019-08-27 10:54:48] D (57345) [mupgrade_root, 103]: Firmware download size: 384384, progress rate: 41%[0m
+[2019-08-27 10:54:49] [0;32mI (57351) [mupgrade_example, 240]: 5417 0c1a[0m
+[2019-08-27 10:54:49] D (57468) [mupgrade_root, 103]: Firmware download size: 385840, progress rate: 41%[0m
+[2019-08-27 10:54:49] [0;32mI (57475) [mupgrade_example, 240]: b149 2846[0m
+[2019-08-27 10:54:49] D (57601) [mupgrade_root, 103]: Firmware download size: 387296, progress rate: 42%[0m
+[2019-08-27 10:54:49] [0;32mI (57605) [mupgrade_example, 240]: 1500 f000[0m
+[2019-08-27 10:54:49] D (57724) [mupgrade_root, 103]: Firmware download size: 388752, progress rate: 42%[0m
+[2019-08-27 10:54:49] [0;32mI (57728) [mupgrade_example, 240]: 8709 a52d[0m
+[2019-08-27 10:54:49] D (57847) [mupgrade_root, 103]: Firmware download size: 390208, progress rate: 42%[0m
+[2019-08-27 10:54:49] [0;32mI (57852) [mupgrade_example, 240]: 140c 1a45[0m
+[2019-08-27 10:54:49] D (57980) [mupgrade_root, 103]: Firmware download size: 391664, progress rate: 42%[0m
+[2019-08-27 10:54:49] [0;32mI (57984) [mupgrade_example, 240]: 303e 4822[0m
+[2019-08-27 10:54:49] D (58103) [mupgrade_root, 103]: Firmware download size: 393120, progress rate: 42%[0m
+[2019-08-27 10:54:49] [0;32mI (58107) [mupgrade_example, 240]: a618 ffff[0m
+[2019-08-27 10:54:49] D (58226) [mupgrade_root, 103]: Firmware download size: 394576, progress rate: 42%[0m
+[2019-08-27 10:54:49] [0;32mI (58230) [mupgrade_example, 240]: 0000 aa10[0m
+[2019-08-27 10:54:49] D (58362) [mupgrade_root, 103]: Firmware download size: 396032, progress rate: 42%[0m
+[2019-08-27 10:54:50] [0;32mI (58367) [mupgrade_example, 240]: 9080 3035[0m
+[2019-08-27 10:54:50] D (58482) [mupgrade_root, 103]: Firmware download size: 397488, progress rate: 43%[0m
+[2019-08-27 10:54:50] [0;32mI (58486) [mupgrade_example, 240]: 7339 8206[0m
+[2019-08-27 10:54:50] D (58605) [mupgrade_root, 103]: Firmware download size: 398944, progress rate: 43%[0m
+[2019-08-27 10:54:50] [0;32mI (58610) [mupgrade_example, 240]: 01c6 ee01[0m
+[2019-08-27 10:54:50] D (58738) [mupgrade_root, 103]: Firmware download size: 400400, progress rate: 43%[0m
+[2019-08-27 10:54:50] [0;32mI (58744) [mupgrade_example, 240]: 202e 2016[0m
+[2019-08-27 10:54:50] D (58861) [mupgrade_root, 103]: Firmware download size: 401856, progress rate: 43%[0m
+[2019-08-27 10:54:50] [0;32mI (58865) [mupgrade_example, 240]: 7302 6206[0m
+[2019-08-27 10:54:50] D (58984) [mupgrade_root, 103]: Firmware download size: 403312, progress rate: 43%[0m
+[2019-08-27 10:54:50] [0;32mI (58994) [mupgrade_example, 240]: 2d00 f50c[0m
+[2019-08-27 10:54:50] D (59117) [mupgrade_root, 103]: Firmware download size: 404768, progress rate: 43%[0m
+[2019-08-27 10:54:50] [0;32mI (59121) [mupgrade_example, 240]: 160c 3222[0m
+[2019-08-27 10:54:50] D (59240) [mupgrade_root, 103]: Firmware download size: 406224, progress rate: 44%[0m
+[2019-08-27 10:54:50] [0;32mI (59244) [mupgrade_example, 240]: 479c 8074[0m
+[2019-08-27 10:54:50] D (59363) [mupgrade_root, 103]: Firmware download size: 407680, progress rate: 44%[0m
+[2019-08-27 10:54:51] [0;32mI (59367) [mupgrade_example, 240]: a223 b842[0m
+[2019-08-27 10:54:51] D (59496) [mupgrade_root, 103]: Firmware download size: 409136, progress rate: 44%[0m
+[2019-08-27 10:54:51] [0;32mI (59502) [mupgrade_example, 240]: fc0b 50bb[0m
+[2019-08-27 10:54:51] D (59619) [mupgrade_root, 103]: Firmware download size: 410592, progress rate: 44%[0m
+[2019-08-27 10:54:51] [0;32mI (59623) [mupgrade_example, 240]: a0c2 0288[0m
+[2019-08-27 10:54:51] D (59752) [mupgrade_root, 103]: Firmware download size: 412048, progress rate: 44%[0m
+[2019-08-27 10:54:51] [0;32mI (59756) [mupgrade_example, 240]: 08ac 0a00[0m
+[2019-08-27 10:54:51] D (59875) [mupgrade_root, 103]: Firmware download size: 413504, progress rate: 44%[0m
+[2019-08-27 10:54:51] [0;32mI (59879) [mupgrade_example, 240]: dd0a ff00[0m
+[2019-08-27 10:54:51] D (59998) [mupgrade_root, 103]: Firmware download size: 414960, progress rate: 45%[0m
+[2019-08-27 10:54:51] [0;32mI (60003) [mupgrade_example, 240]: 0c14 0000[0m
+[2019-08-27 10:54:51] D (60131) [mupgrade_root, 103]: Firmware download size: 416416, progress rate: 45%[0m
+[2019-08-27 10:54:51] [0;32mI (60135) [mupgrade_example, 240]: c222 00a5[0m
+[2019-08-27 10:54:51] D (60254) [mupgrade_root, 103]: Firmware download size: 417872, progress rate: 45%[0m
+[2019-08-27 10:54:51] [0;32mI (60259) [mupgrade_example, 240]: a56f 220a[0m
+[2019-08-27 10:54:51] D (60377) [mupgrade_root, 103]: Firmware download size: 419328, progress rate: 45%[0m
+[2019-08-27 10:54:52] [0;32mI (60381) [mupgrade_example, 240]: 0c3a a102[0m
+[2019-08-27 10:54:52] D (60510) [mupgrade_root, 103]: Firmware download size: 420784, progress rate: 45%[0m
+[2019-08-27 10:54:52] [0;32mI (60514) [mupgrade_example, 240]: 3803 0c2b[0m
+[2019-08-27 10:54:52] D (60633) [mupgrade_root, 103]: Firmware download size: 422240, progress rate: 45%[0m
+[2019-08-27 10:54:52] [0;32mI (60637) [mupgrade_example, 240]: 0c0a 36ff[0m
+[2019-08-27 10:54:52] D (60758) [mupgrade_root, 103]: Firmware download size: 423696, progress rate: 45%[0m
+[2019-08-27 10:54:52] [0;32mI (60762) [mupgrade_example, 240]: ed0a 8072[0m
+[2019-08-27 10:54:52] D (60889) [mupgrade_root, 103]: Firmware download size: 425152, progress rate: 46%[0m
+[2019-08-27 10:54:52] [0;32mI (60893) [mupgrade_example, 240]: 0320 0000[0m
+[2019-08-27 10:54:52] D (61012) [mupgrade_root, 103]: Firmware download size: 426608, progress rate: 46%[0m
+[2019-08-27 10:54:52] [0;32mI (61017) [mupgrade_example, 240]: 0000 1bbd[0m
+[2019-08-27 10:54:52] D (61135) [mupgrade_root, 103]: Firmware download size: 428064, progress rate: 46%[0m
+[2019-08-27 10:54:52] [0;32mI (61142) [mupgrade_example, 240]: d1ba 00c0[0m
+[2019-08-27 10:54:52] D (61270) [mupgrade_root, 103]: Firmware download size: 429520, progress rate: 46%[0m
+[2019-08-27 10:54:52] [0;32mI (61274) [mupgrade_example, 240]: 2000 5314[0m
+[2019-08-27 10:54:52] D (61392) [mupgrade_root, 103]: Firmware download size: 430976, progress rate: 46%[0m
+[2019-08-27 10:54:53] [0;32mI (61400) [mupgrade_example, 240]: c21b c1b7[0m
+[2019-08-27 10:54:53] D (61514) [mupgrade_root, 103]: Firmware download size: 432432, progress rate: 46%[0m
+[2019-08-27 10:54:53] [0;32mI (61519) [mupgrade_example, 240]: ffe0 6197[0m
+[2019-08-27 10:54:53] D (61647) [mupgrade_root, 103]: Firmware download size: 433888, progress rate: 47%[0m
+[2019-08-27 10:54:53] [0;32mI (61652) [mupgrade_example, 240]: 3a07 0482[0m
+[2019-08-27 10:54:53] D (61770) [mupgrade_root, 103]: Firmware download size: 435344, progress rate: 47%[0m
+[2019-08-27 10:54:53] [0;32mI (61774) [mupgrade_example, 240]: 4705 b1b9[0m
+[2019-08-27 10:54:53] D (61893) [mupgrade_root, 103]: Firmware download size: 436800, progress rate: 47%[0m
+[2019-08-27 10:54:53] [0;32mI (61897) [mupgrade_example, 240]: 2223 3df0[0m
+[2019-08-27 10:54:53] D (62026) [mupgrade_root, 103]: Firmware download size: 438256, progress rate: 47%[0m
+[2019-08-27 10:54:53] [0;32mI (62031) [mupgrade_example, 240]: 3df0 0300[0m
+[2019-08-27 10:54:53] D (62149) [mupgrade_root, 103]: Firmware download size: 439712, progress rate: 47%[0m
+[2019-08-27 10:54:53] [0;32mI (62160) [mupgrade_example, 240]: 0000 c548[0m
+[2019-08-27 10:54:53] D (62272) [mupgrade_root, 103]: Firmware download size: 441168, progress rate: 47%[0m
+[2019-08-27 10:54:53] [0;32mI (62276) [mupgrade_example, 240]: 2265 46dd[0m
+[2019-08-27 10:54:53] D (62405) [mupgrade_root, 103]: Firmware download size: 442624, progress rate: 48%[0m
+[2019-08-27 10:54:54] [0;32mI (62409) [mupgrade_example, 240]: 04cd ed3d[0m
+[2019-08-27 10:54:54] D (62528) [mupgrade_root, 103]: Firmware download size: 444080, progress rate: 48%[0m
+[2019-08-27 10:54:54] [0;32mI (62533) [mupgrade_example, 240]: f03d c020[0m
+[2019-08-27 10:54:54] D (62651) [mupgrade_root, 103]: Firmware download size: 445536, progress rate: 48%[0m
+[2019-08-27 10:54:54] [0;32mI (62655) [mupgrade_example, 240]: 003d 2804[0m
+[2019-08-27 10:54:54] D (62784) [mupgrade_root, 103]: Firmware download size: 446992, progress rate: 48%[0m
+[2019-08-27 10:54:54] [0;32mI (62788) [mupgrade_example, 240]: 1ceb 0c2b[0m
+[2019-08-27 10:54:54] D (62907) [mupgrade_root, 103]: Firmware download size: 448448, progress rate: 48%[0m
+[2019-08-27 10:54:54] [0;32mI (62912) [mupgrade_example, 240]: bba2 1131[0m
+[2019-08-27 10:54:54] D (63032) [mupgrade_root, 103]: Firmware download size: 449904, progress rate: 48%[0m
+[2019-08-27 10:54:54] [0;32mI (63038) [mupgrade_example, 240]: e5ac 0081[0m
+[2019-08-27 10:54:54] D (63163) [mupgrade_root, 103]: Firmware download size: 451360, progress rate: 48%[0m
+[2019-08-27 10:54:54] [0;32mI (63167) [mupgrade_example, 240]: c7c9 8070[0m
+[2019-08-27 10:54:54] D (63286) [mupgrade_root, 103]: Firmware download size: 452816, progress rate: 49%[0m
+[2019-08-27 10:54:55] [0;32mI (63293) [mupgrade_example, 240]: ab93 4841[0m
+[2019-08-27 10:54:55] D (63409) [mupgrade_root, 103]: Firmware download size: 454272, progress rate: 49%[0m
+[2019-08-27 10:54:55] [0;32mI (63413) [mupgrade_example, 240]: 40a4 0000[0m
+[2019-08-27 10:54:55] D (63543) [mupgrade_root, 103]: Firmware download size: 455728, progress rate: 49%[0m
+[2019-08-27 10:54:55] [0;32mI (63549) [mupgrade_example, 240]: 9221 b816[0m
+[2019-08-27 10:54:55] D (63665) [mupgrade_root, 103]: Firmware download size: 457184, progress rate: 49%[0m
+[2019-08-27 10:54:55] [0;32mI (63672) [mupgrade_example, 240]: 9406 0222[0m
+[2019-08-27 10:54:55] D (63789) [mupgrade_root, 103]: Firmware download size: 458640, progress rate: 49%[0m
+[2019-08-27 10:54:55] [0;32mI (63799) [mupgrade_example, 240]: 2228 ffbd[0m
+[2019-08-27 10:54:55] D (63921) [mupgrade_root, 103]: Firmware download size: 460096, progress rate: 49%[0m
+[2019-08-27 10:54:55] [0;32mI (63926) [mupgrade_example, 240]: 03a8 43eb[0m
+[2019-08-27 10:54:55] D (64044) [mupgrade_root, 103]: Firmware download size: 461552, progress rate: 50%[0m
+[2019-08-27 10:54:55] [0;32mI (64048) [mupgrade_example, 240]: c020 0000[0m
+[2019-08-27 10:54:55] D (64168) [mupgrade_root, 103]: Firmware download size: 463008, progress rate: 50%[0m
+[2019-08-27 10:54:55] [0;32mI (64172) [mupgrade_example, 240]: 3641 1b6b[0m
+[2019-08-27 10:54:55] D (64300) [mupgrade_root, 103]: Firmware download size: 464464, progress rate: 50%[0m
+[2019-08-27 10:54:56] [0;32mI (64307) [mupgrade_example, 240]: 1b33 08c2[0m
+[2019-08-27 10:54:56] D (64423) [mupgrade_root, 103]: Firmware download size: 465920, progress rate: 50%[0m
+[2019-08-27 10:54:56] [0;32mI (64427) [mupgrade_example, 240]: 0604 2318[0m
+[2019-08-27 10:54:56] D (64546) [mupgrade_root, 103]: Firmware download size: 467376, progress rate: 50%[0m
+[2019-08-27 10:54:56] [0;32mI (64552) [mupgrade_example, 240]: 2035 091d[0m
+[2019-08-27 10:54:56] D (64679) [mupgrade_root, 103]: Firmware download size: 468832, progress rate: 50%[0m
+[2019-08-27 10:54:56] [0;32mI (64683) [mupgrade_example, 240]: f02d 4ee7[0m
+[2019-08-27 10:54:56] D (64802) [mupgrade_root, 103]: Firmware download size: 470288, progress rate: 51%[0m
+[2019-08-27 10:54:56] [0;32mI (64806) [mupgrade_example, 240]: 20b2 0132[0m
+[2019-08-27 10:54:56] D (64926) [mupgrade_root, 103]: Firmware download size: 471744, progress rate: 51%[0m
+[2019-08-27 10:54:56] [0;32mI (64930) [mupgrade_example, 240]: d202 0080[0m
+[2019-08-27 10:54:56] D (65058) [mupgrade_root, 103]: Firmware download size: 473200, progress rate: 51%[0m
+[2019-08-27 10:54:56] [0;32mI (65062) [mupgrade_example, 240]: 8220 9428[0m
+[2019-08-27 10:54:56] D (65181) [mupgrade_root, 103]: Firmware download size: 474656, progress rate: 51%[0m
+[2019-08-27 10:54:56] [0;32mI (65186) [mupgrade_example, 240]: 029c 59ff[0m
+[2019-08-27 10:54:56] D (65304) [mupgrade_root, 103]: Firmware download size: 476112, progress rate: 51%[0m
+[2019-08-27 10:54:57] [0;32mI (65308) [mupgrade_example, 240]: 3823 1df0[0m
+[2019-08-27 10:54:57] D (65442) [mupgrade_root, 103]: Firmware download size: 477568, progress rate: 51%[0m
+[2019-08-27 10:54:57] [0;32mI (65446) [mupgrade_example, 240]: 4451 3074[0m
+[2019-08-27 10:54:57] D (65560) [mupgrade_root, 103]: Firmware download size: 479024, progress rate: 51%[0m
+[2019-08-27 10:54:57] [0;32mI (65564) [mupgrade_example, 240]: 37ba 3f04[0m
+[2019-08-27 10:54:57] D (65683) [mupgrade_root, 103]: Firmware download size: 480480, progress rate: 52%[0m
+[2019-08-27 10:54:57] [0;32mI (65687) [mupgrade_example, 240]: e80d 4262[0m
+[2019-08-27 10:54:57] D (65816) [mupgrade_root, 103]: Firmware download size: 481936, progress rate: 52%[0m
+[2019-08-27 10:54:57] [0;32mI (65820) [mupgrade_example, 240]: 8065 56f3[0m
+[2019-08-27 10:54:57] D (65939) [mupgrade_root, 103]: Firmware download size: 483392, progress rate: 52%[0m
+[2019-08-27 10:54:57] [0;32mI (65946) [mupgrade_example, 240]: 0142 0838[0m
+[2019-08-27 10:54:57] D (66062) [mupgrade_root, 103]: Firmware download size: 484848, progress rate: 52%[0m
+[2019-08-27 10:54:57] [0;32mI (66066) [mupgrade_example, 240]: 1638 a0b2[0m
+[2019-08-27 10:54:57] D (66195) [mupgrade_root, 103]: Firmware download size: 486304, progress rate: 52%[0m
+[2019-08-27 10:54:57] [0;32mI (66204) [mupgrade_example, 240]: a402 8199[0m
+[2019-08-27 10:54:57] D (66318) [mupgrade_root, 103]: Firmware download size: 487760, progress rate: 52%[0m
+[2019-08-27 10:54:58] [0;32mI (66322) [mupgrade_example, 240]: 93e0 ff1d[0m
+[2019-08-27 10:54:58] D (66441) [mupgrade_root, 103]: Firmware download size: 489216, progress rate: 53%[0m
+[2019-08-27 10:54:58] [0;32mI (66445) [mupgrade_example, 240]: f082 2222[0m
+[2019-08-27 10:54:58] D (66574) [mupgrade_root, 103]: Firmware download size: 490672, progress rate: 53%[0m
+[2019-08-27 10:54:58] [0;32mI (66578) [mupgrade_example, 240]: 34e0 00cc[0m
+[2019-08-27 10:54:58] D (66697) [mupgrade_root, 103]: Firmware download size: 492128, progress rate: 53%[0m
+[2019-08-27 10:54:58] [0;32mI (66701) [mupgrade_example, 240]: aa50 0c1a[0m
+[2019-08-27 10:54:58] D (66820) [mupgrade_root, 103]: Firmware download size: 493584, progress rate: 53%[0m
+[2019-08-27 10:54:58] [0;32mI (66825) [mupgrade_example, 240]: b1ee c020[0m
+[2019-08-27 10:54:58] D (66953) [mupgrade_root, 103]: Firmware download size: 495040, progress rate: 53%[0m
+[2019-08-27 10:54:58] [0;32mI (66957) [mupgrade_example, 240]: 0028 80b5[0m
+[2019-08-27 10:54:58] D (67078) [mupgrade_root, 103]: Firmware download size: 496496, progress rate: 53%[0m
+[2019-08-27 10:54:58] [0;32mI (67082) [mupgrade_example, 240]: 8a83 f000[0m
+[2019-08-27 10:54:58] D (67209) [mupgrade_root, 103]: Firmware download size: 497952, progress rate: 54%[0m
+[2019-08-27 10:54:58] [0;32mI (67213) [mupgrade_example, 240]: 3842 0492[0m
+[2019-08-27 10:54:58] D (67332) [mupgrade_root, 103]: Firmware download size: 499408, progress rate: 54%[0m
+[2019-08-27 10:54:59] [0;32mI (67338) [mupgrade_example, 240]: 2911 e552[0m
+[2019-08-27 10:54:59] D (67455) [mupgrade_root, 103]: Firmware download size: 500864, progress rate: 54%[0m
+[2019-08-27 10:54:59] [0;32mI (67459) [mupgrade_example, 240]: c620 80aa[0m
+[2019-08-27 10:54:59] D (67592) [mupgrade_root, 103]: Firmware download size: 502320, progress rate: 54%[0m
+[2019-08-27 10:54:59] [0;32mI (67599) [mupgrade_example, 240]: 90a0 ffe0[0m
+[2019-08-27 10:54:59] D (67711) [mupgrade_root, 103]: Firmware download size: 503776, progress rate: 54%[0m
+[2019-08-27 10:54:59] [0;32mI (67715) [mupgrade_example, 240]: 0400 621a[0m
+[2019-08-27 10:54:59] D (67834) [mupgrade_root, 103]: Firmware download size: 505232, progress rate: 54%[0m
+[2019-08-27 10:54:59] [0;32mI (67838) [mupgrade_example, 240]: 3df0 6218[0m
+[2019-08-27 10:54:59] D (67967) [mupgrade_root, 103]: Firmware download size: 506688, progress rate: 54%[0m
+[2019-08-27 10:54:59] [0;32mI (67971) [mupgrade_example, 240]: 8262 ad03[0m
+[2019-08-27 10:54:59] D (68090) [mupgrade_root, 103]: Firmware download size: 508144, progress rate: 55%[0m
+[2019-08-27 10:54:59] [0;32mI (68097) [mupgrade_example, 240]: 2807 3642[0m
+[2019-08-27 10:54:59] D (68213) [mupgrade_root, 103]: Firmware download size: 509600, progress rate: 55%[0m
+[2019-08-27 10:54:59] [0;32mI (68217) [mupgrade_example, 240]: 0200 aa11[0m
+[2019-08-27 10:54:59] D (68346) [mupgrade_root, 103]: Firmware download size: 511056, progress rate: 55%[0m
+[2019-08-27 10:55:00] [0;32mI (68353) [mupgrade_example, 240]: a0a0 c020[0m
+[2019-08-27 10:55:00] D (68469) [mupgrade_root, 103]: Firmware download size: 512512, progress rate: 55%[0m
+[2019-08-27 10:55:00] [0;32mI (68476) [mupgrade_example, 240]: 0049 3820[0m
+[2019-08-27 10:55:00] D (68593) [mupgrade_root, 103]: Firmware download size: 513968, progress rate: 55%[0m
+[2019-08-27 10:55:00] [0;32mI (68597) [mupgrade_example, 240]: c020 6224[0m
+[2019-08-27 10:55:00] D (68725) [mupgrade_root, 103]: Firmware download size: 515424, progress rate: 55%[0m
+[2019-08-27 10:55:00] [0;32mI (68729) [mupgrade_example, 240]: 00a1 ec2a[0m
+[2019-08-27 10:55:00] D (68848) [mupgrade_root, 103]: Firmware download size: 516880, progress rate: 56%[0m
+[2019-08-27 10:55:00] [0;32mI (68852) [mupgrade_example, 240]: ad02 318d[0m
+[2019-08-27 10:55:00] D (68971) [mupgrade_root, 103]: Firmware download size: 518336, progress rate: 56%[0m
+[2019-08-27 10:55:00] [0;32mI (68977) [mupgrade_example, 240]: fc39 d338[0m
+[2019-08-27 10:55:00] D (69104) [mupgrade_root, 103]: Firmware download size: 519792, progress rate: 56%[0m
+[2019-08-27 10:55:00] [0;32mI (69108) [mupgrade_example, 240]: 0387 2222[0m
+[2019-08-27 10:55:00] D (69230) [mupgrade_root, 103]: Firmware download size: 521248, progress rate: 56%[0m
+[2019-08-27 10:55:00] [0;32mI (69234) [mupgrade_example, 240]: 44e0 0300[0m
+[2019-08-27 10:55:00] D (69350) [mupgrade_root, 103]: Firmware download size: 522704, progress rate: 56%[0m
+[2019-08-27 10:55:01] [0;32mI (69354) [mupgrade_example, 240]: 1df0 0452[0m
+[2019-08-27 10:55:01] D (69483) [mupgrade_root, 103]: Firmware download size: 524160, progress rate: 56%[0m
+[2019-08-27 10:55:01] [0;32mI (69488) [mupgrade_example, 240]: 2531 6068[0m
+[2019-08-27 10:55:01] D (69606) [mupgrade_root, 103]: Firmware download size: 525616, progress rate: 57%[0m
+[2019-08-27 10:55:01] [0;32mI (69610) [mupgrade_example, 240]: 2056 56e6[0m
+[2019-08-27 10:55:01] D (69729) [mupgrade_root, 103]: Firmware download size: 527072, progress rate: 57%[0m
+[2019-08-27 10:55:01] [0;32mI (69735) [mupgrade_example, 240]: 570c d880[0m
+[2019-08-27 10:55:01] D (69862) [mupgrade_root, 103]: Firmware download size: 528528, progress rate: 57%[0m
+[2019-08-27 10:55:01] [0;32mI (69868) [mupgrade_example, 240]: 8a10 8205[0m
+[2019-08-27 10:55:01] D (69985) [mupgrade_root, 103]: Firmware download size: 529984, progress rate: 57%[0m
+[2019-08-27 10:55:01] [0;32mI (69992) [mupgrade_example, 240]: 0106 3502[0m
+[2019-08-27 10:55:01] D (70108) [mupgrade_root, 103]: Firmware download size: 531440, progress rate: 57%[0m
+[2019-08-27 10:55:01] [0;32mI (70112) [mupgrade_example, 240]: 0600 8c8c[0m
+[2019-08-27 10:55:01] D (70241) [mupgrade_root, 103]: Firmware download size: 532896, progress rate: 57%[0m
+[2019-08-27 10:55:01] [0;32mI (70248) [mupgrade_example, 240]: 1c0d 7ce7[0m
+[2019-08-27 10:55:01] D (70365) [mupgrade_root, 103]: Firmware download size: 534352, progress rate: 57%[0m
+[2019-08-27 10:55:02] [0;32mI (70368) [mupgrade_example, 240]: 6069 5222[0m
+[2019-08-27 10:55:02] D (70487) [mupgrade_root, 103]: Firmware download size: 535808, progress rate: 58%[0m
+[2019-08-27 10:55:02] [0;32mI (70491) [mupgrade_example, 240]: 5489 a629[0m
+[2019-08-27 10:55:02] D (70620) [mupgrade_root, 103]: Firmware download size: 537264, progress rate: 58%[0m
+[2019-08-27 10:55:02] [0;32mI (70624) [mupgrade_example, 240]: 760c 8901[0m
+[2019-08-27 10:55:02] D (70743) [mupgrade_root, 103]: Firmware download size: 538720, progress rate: 58%[0m
+[2019-08-27 10:55:02] [0;32mI (70748) [mupgrade_example, 240]: e0e0 0ac2[0m
+[2019-08-27 10:55:02] D (70867) [mupgrade_root, 103]: Firmware download size: 540176, progress rate: 58%[0m
+[2019-08-27 10:55:02] [0;32mI (70871) [mupgrade_example, 240]: 1a2a 0200[0m
+[2019-08-27 10:55:02] D (70999) [mupgrade_root, 103]: Firmware download size: 541632, progress rate: 58%[0m
+[2019-08-27 10:55:02] [0;32mI (71003) [mupgrade_example, 240]: 1df0 f1ff[0m
+[2019-08-27 10:55:02] D (71122) [mupgrade_root, 103]: Firmware download size: 543088, progress rate: 58%[0m
+[2019-08-27 10:55:02] [0;32mI (71128) [mupgrade_example, 240]: 6204 006b[0m
+[2019-08-27 10:55:02] D (71245) [mupgrade_root, 103]: Firmware download size: 544544, progress rate: 59%[0m
+[2019-08-27 10:55:02] [0;32mI (71249) [mupgrade_example, 240]: a160 c152[0m
+[2019-08-27 10:55:02] D (71378) [mupgrade_root, 103]: Firmware download size: 546000, progress rate: 59%[0m
+[2019-08-27 10:55:03] [0;32mI (71382) [mupgrade_example, 240]: 4911 8202[0m
+[2019-08-27 10:55:03] D (71501) [mupgrade_root, 103]: Firmware download size: 547456, progress rate: 59%[0m
+[2019-08-27 10:55:03] [0;32mI (71505) [mupgrade_example, 240]: 6d00 c6ff[0m
+[2019-08-27 10:55:03] D (71624) [mupgrade_root, 103]: Firmware download size: 548912, progress rate: 59%[0m
+[2019-08-27 10:55:03] [0;32mI (71630) [mupgrade_example, 240]: a2ae 7460[0m
+[2019-08-27 10:55:03] D (71757) [mupgrade_root, 103]: Firmware download size: 550368, progress rate: 59%[0m
+[2019-08-27 10:55:03] [0;32mI (71761) [mupgrade_example, 240]: 6074 99c1[0m
+[2019-08-27 10:55:03] D (71880) [mupgrade_root, 103]: Firmware download size: 551824, progress rate: 59%[0m
+[2019-08-27 10:55:03] [0;32mI (71887) [mupgrade_example, 240]: 3df0 09a0[0m
+[2019-08-27 10:55:03] D (72003) [mupgrade_root, 103]: Firmware download size: 553280, progress rate: 60%[0m
+[2019-08-27 10:55:03] [0;32mI (72007) [mupgrade_example, 240]: 0900 7497[0m
+[2019-08-27 10:55:03] D (72136) [mupgrade_root, 103]: Firmware download size: 554736, progress rate: 60%[0m
+[2019-08-27 10:55:03] [0;32mI (72141) [mupgrade_example, 240]: aa05 20cd[0m
+[2019-08-27 10:55:03] D (72259) [mupgrade_root, 103]: Firmware download size: 556192, progress rate: 60%[0m
+[2019-08-27 10:55:03] [0;32mI (72263) [mupgrade_example, 240]: 04e2 6189[0m
+[2019-08-27 10:55:03] D (72382) [mupgrade_root, 103]: Firmware download size: 557648, progress rate: 60%[0m
+[2019-08-27 10:55:04] [0;32mI (72386) [mupgrade_example, 240]: f046 3df0[0m
+[2019-08-27 10:55:04] D (72515) [mupgrade_root, 103]: Firmware download size: 559104, progress rate: 60%[0m
+[2019-08-27 10:55:04] [0;32mI (72521) [mupgrade_example, 240]: c020 3310[0m
+[2019-08-27 10:55:04] D (72638) [mupgrade_root, 103]: Firmware download size: 560560, progress rate: 60%[0m
+[2019-08-27 10:55:04] [0;32mI (72643) [mupgrade_example, 240]: 8033 0099[0m
+[2019-08-27 10:55:04] D (72761) [mupgrade_root, 103]: Firmware download size: 562016, progress rate: 60%[0m
+[2019-08-27 10:55:04] [0;32mI (72766) [mupgrade_example, 240]: 0825 a100[0m
+[2019-08-27 10:55:04] D (72894) [mupgrade_root, 103]: Firmware download size: 563472, progress rate: 61%[0m
+[2019-08-27 10:55:04] [0;32mI (72898) [mupgrade_example, 240]: 0c2b f038[0m
+[2019-08-27 10:55:04] D (73017) [mupgrade_root, 103]: Firmware download size: 564928, progress rate: 61%[0m
+[2019-08-27 10:55:04] [0;32mI (73021) [mupgrade_example, 240]: 0652 b2a0[0m
+[2019-08-27 10:55:04] D (73140) [mupgrade_root, 103]: Firmware download size: 566384, progress rate: 61%[0m
+[2019-08-27 10:55:04] [0;32mI (73145) [mupgrade_example, 240]: 80a2 e5ef[0m
+[2019-08-27 10:55:04] D (73277) [mupgrade_root, 103]: Firmware download size: 567840, progress rate: 61%[0m
+[2019-08-27 10:55:05] [0;32mI (73280) [mupgrade_example, 240]: ff26 0000[0m
+[2019-08-27 10:55:05] D (73398) [mupgrade_root, 103]: Firmware download size: 569296, progress rate: 61%[0m
+[2019-08-27 10:55:05] [0;32mI (73401) [mupgrade_example, 240]: 320d b19d[0m
+[2019-08-27 10:55:05] D (73519) [mupgrade_root, 103]: Firmware download size: 570752, progress rate: 61%[0m
+[2019-08-27 10:55:05] [0;32mI (73523) [mupgrade_example, 240]: ff32 202a[0m
+[2019-08-27 10:55:05] D (73652) [mupgrade_root, 103]: Firmware download size: 572208, progress rate: 62%[0m
+[2019-08-27 10:55:05] [0;32mI (73656) [mupgrade_example, 240]: 2022 ffa0[0m
+[2019-08-27 10:55:05] D (73775) [mupgrade_root, 103]: Firmware download size: 573664, progress rate: 62%[0m
+[2019-08-27 10:55:05] [0;32mI (73779) [mupgrade_example, 240]: ab10 3202[0m
+[2019-08-27 10:55:05] D (73898) [mupgrade_root, 103]: Firmware download size: 575120, progress rate: 62%[0m
+[2019-08-27 10:55:05] [0;32mI (73902) [mupgrade_example, 240]: 0c21 2af9[0m
+[2019-08-27 10:55:05] D (74032) [mupgrade_root, 103]: Firmware download size: 576576, progress rate: 62%[0m
+[2019-08-27 10:55:05] [0;32mI (74041) [mupgrade_example, 240]: 3901 0bc1[0m
+[2019-08-27 10:55:05] D (74154) [mupgrade_root, 103]: Firmware download size: 578032, progress rate: 62%[0m
+[2019-08-27 10:55:05] [0;32mI (74158) [mupgrade_example, 240]: 44fe f151[0m
+[2019-08-27 10:55:05] D (74277) [mupgrade_root, 103]: Firmware download size: 579488, progress rate: 62%[0m
+[2019-08-27 10:55:06] [0;32mI (74281) [mupgrade_example, 240]: f6c1 0c3a[0m
+[2019-08-27 10:55:06] D (74410) [mupgrade_root, 103]: Firmware download size: 580944, progress rate: 63%[0m
+[2019-08-27 10:55:06] [0;32mI (74414) [mupgrade_example, 240]: b1e2 0800[0m
+[2019-08-27 10:55:06] D (74533) [mupgrade_root, 103]: Firmware download size: 582400, progress rate: 63%[0m
+[2019-08-27 10:55:06] [0;32mI (74537) [mupgrade_example, 240]: 82c1 c1c6[0m
+[2019-08-27 10:55:06] D (74666) [mupgrade_root, 103]: Firmware download size: 583856, progress rate: 63%[0m
+[2019-08-27 10:55:06] [0;32mI (74674) [mupgrade_example, 240]: ff39 1dcb[0m
+[2019-08-27 10:55:06] D (74791) [mupgrade_root, 103]: Firmware download size: 585312, progress rate: 63%[0m
+[2019-08-27 10:55:06] [0;32mI (74795) [mupgrade_example, 240]: 81d0 413f[0m
+[2019-08-27 10:55:06] D (74912) [mupgrade_root, 103]: Firmware download size: 586768, progress rate: 63%[0m
+[2019-08-27 10:55:06] [0;32mI (74916) [mupgrade_example, 240]: 24e4 ffed[0m
+[2019-08-27 10:55:06] D (75045) [mupgrade_root, 103]: Firmware download size: 588224, progress rate: 63%[0m
+[2019-08-27 10:55:06] [0;32mI (75049) [mupgrade_example, 240]: 0bf2 03fd[0m
+[2019-08-27 10:55:06] D (75169) [mupgrade_root, 103]: Firmware download size: 589680, progress rate: 63%[0m
+[2019-08-27 10:55:06] [0;32mI (75173) [mupgrade_example, 240]: 0a72 ed0b[0m
+[2019-08-27 10:55:06] D (75292) [mupgrade_root, 103]: Firmware download size: 591136, progress rate: 64%[0m
+[2019-08-27 10:55:07] [0;32mI (75296) [mupgrade_example, 240]: 5941 0c21[0m
+[2019-08-27 10:55:07] D (75424) [mupgrade_root, 103]: Firmware download size: 592592, progress rate: 64%[0m
+[2019-08-27 10:55:07] [0;32mI (75431) [mupgrade_example, 240]: 7fe9 813d[0m
+[2019-08-27 10:55:07] D (75547) [mupgrade_root, 103]: Firmware download size: 594048, progress rate: 64%[0m
+[2019-08-27 10:55:07] [0;32mI (75551) [mupgrade_example, 240]: f03d 1dff[0m
+[2019-08-27 10:55:07] D (75670) [mupgrade_root, 103]: Firmware download size: 595504, progress rate: 64%[0m
+[2019-08-27 10:55:07] [0;32mI (75674) [mupgrade_example, 240]: 4606 3224[0m
+[2019-08-27 10:55:07] D (75803) [mupgrade_root, 103]: Firmware download size: 596960, progress rate: 64%[0m
+[2019-08-27 10:55:07] [0;32mI (75809) [mupgrade_example, 240]: 0016 0200[0m
+[2019-08-27 10:55:07] D (75926) [mupgrade_root, 103]: Firmware download size: 598416, progress rate: 64%[0m
+[2019-08-27 10:55:07] [0;32mI (75931) [mupgrade_example, 240]: 00b1 8209[0m
+[2019-08-27 10:55:07] D (76049) [mupgrade_root, 103]: Firmware download size: 599872, progress rate: 65%[0m
+[2019-08-27 10:55:07] [0;32mI (76053) [mupgrade_example, 240]: 0e82 9261[0m
+[2019-08-27 10:55:07] D (76182) [mupgrade_root, 103]: Firmware download size: 601328, progress rate: 65%[0m
+[2019-08-27 10:55:07] [0;32mI (76188) [mupgrade_example, 240]: 22e0 0c22[0m
+[2019-08-27 10:55:07] D (76305) [mupgrade_root, 103]: Firmware download size: 602784, progress rate: 65%[0m
+[2019-08-27 10:55:08] [0;32mI (76309) [mupgrade_example, 240]: 020c f983[0m
+[2019-08-27 10:55:08] D (76428) [mupgrade_root, 103]: Firmware download size: 604240, progress rate: 65%[0m
+[2019-08-27 10:55:08] [0;32mI (76433) [mupgrade_example, 240]: c1a9 00a1[0m
+[2019-08-27 10:55:08] D (76561) [mupgrade_root, 103]: Firmware download size: 605696, progress rate: 65%[0m
+[2019-08-27 10:55:08] [0;32mI (76565) [mupgrade_example, 240]: f8ff 0082[0m
+[2019-08-27 10:55:08] D (76684) [mupgrade_root, 103]: Firmware download size: 607152, progress rate: 65%[0m
+[2019-08-27 10:55:08] [0;32mI (76688) [mupgrade_example, 240]: 2115 8261[0m
+[2019-08-27 10:55:08] D (76808) [mupgrade_root, 103]: Firmware download size: 608608, progress rate: 66%[0m
+[2019-08-27 10:55:08] [0;32mI (76811) [mupgrade_example, 240]: 0272 1b22[0m
+[2019-08-27 10:55:08] D (76940) [mupgrade_root, 103]: Firmware download size: 610064, progress rate: 66%[0m
+[2019-08-27 10:55:08] [0;32mI (76946) [mupgrade_example, 240]: 7b55 eefa[0m
+[2019-08-27 10:55:08] D (77063) [mupgrade_root, 103]: Firmware download size: 611520, progress rate: 66%[0m
+[2019-08-27 10:55:08] [0;32mI (77067) [mupgrade_example, 240]: c1e4 c62a[0m
+[2019-08-27 10:55:08] D (77186) [mupgrade_root, 103]: Firmware download size: 612976, progress rate: 66%[0m
+[2019-08-27 10:55:08] [0;32mI (77193) [mupgrade_example, 240]: 0041 2020[0m
+[2019-08-27 10:55:08] D (77319) [mupgrade_root, 103]: Firmware download size: 614432, progress rate: 66%[0m
+[2019-08-27 10:55:09] [0;32mI (77323) [mupgrade_example, 240]: a220 212b[0m
+[2019-08-27 10:55:09] D (77442) [mupgrade_root, 103]: Firmware download size: 615888, progress rate: 66%[0m
+[2019-08-27 10:55:09] [0;32mI (77446) [mupgrade_example, 240]: a618 3ee0[0m
+[2019-08-27 10:55:09] D (77565) [mupgrade_root, 103]: Firmware download size: 617344, progress rate: 66%[0m
+[2019-08-27 10:55:09] [0;32mI (77570) [mupgrade_example, 240]: 0800 0800[0m
+[2019-08-27 10:55:09] D (77698) [mupgrade_root, 103]: Firmware download size: 618800, progress rate: 67%[0m
+[2019-08-27 10:55:09] [0;32mI (77702) [mupgrade_example, 240]: ccda 9ee8[0m
+[2019-08-27 10:55:09] D (77823) [mupgrade_root, 103]: Firmware download size: 620256, progress rate: 67%[0m
+[2019-08-27 10:55:09] [0;32mI (77827) [mupgrade_example, 240]: 3803 3df0[0m
+[2019-08-27 10:55:09] D (77944) [mupgrade_root, 103]: Firmware download size: 621712, progress rate: 67%[0m
+[2019-08-27 10:55:09] [0;32mI (77948) [mupgrade_example, 240]: 3df0 c633[0m
+[2019-08-27 10:55:09] D (78077) [mupgrade_root, 103]: Firmware download size: 623168, progress rate: 67%[0m
+[2019-08-27 10:55:09] [0;32mI (78081) [mupgrade_example, 240]: 0041 19bd[0m
+[2019-08-27 10:55:09] D (78200) [mupgrade_root, 103]: Firmware download size: 624624, progress rate: 67%[0m
+[2019-08-27 10:55:09] [0;32mI (78203) [mupgrade_example, 240]: 053d 0900[0m
+[2019-08-27 10:55:09] D (78323) [mupgrade_root, 103]: Firmware download size: 626080, progress rate: 67%[0m
+[2019-08-27 10:55:10] [0;32mI (78327) [mupgrade_example, 240]: 9228 4204[0m
+[2019-08-27 10:55:10] D (78456) [mupgrade_root, 103]: Firmware download size: 627536, progress rate: 68%[0m
+[2019-08-27 10:55:10] [0;32mI (78460) [mupgrade_example, 240]: 0cb6 6827[0m
+[2019-08-27 10:55:10] D (78579) [mupgrade_root, 103]: Firmware download size: 628992, progress rate: 68%[0m
+[2019-08-27 10:55:10] [0;32mI (78583) [mupgrade_example, 240]: 6981 0246[0m
+[2019-08-27 10:55:10] D (78702) [mupgrade_root, 103]: Firmware download size: 630448, progress rate: 68%[0m
+[2019-08-27 10:55:10] [0;32mI (78707) [mupgrade_example, 240]: 2d00 0900[0m
+[2019-08-27 10:55:10] D (78835) [mupgrade_root, 103]: Firmware download size: 631904, progress rate: 68%[0m
+[2019-08-27 10:55:10] [0;32mI (78839) [mupgrade_example, 240]: 0b99 ad03[0m
+[2019-08-27 10:55:10] D (78959) [mupgrade_root, 103]: Firmware download size: 633360, progress rate: 68%[0m
+[2019-08-27 10:55:10] [0;32mI (78963) [mupgrade_example, 240]: 0c13 413f[0m
+[2019-08-27 10:55:10] D (79081) [mupgrade_root, 103]: Firmware download size: 634816, progress rate: 68%[0m
+[2019-08-27 10:55:10] [0;32mI (79086) [mupgrade_example, 240]: 3661 a016[0m
+[2019-08-27 10:55:10] D (79215) [mupgrade_root, 103]: Firmware download size: 636272, progress rate: 69%[0m
+[2019-08-27 10:55:10] [0;32mI (79219) [mupgrade_example, 240]: 3792 e429[0m
+[2019-08-27 10:55:10] D (79337) [mupgrade_root, 103]: Firmware download size: 637728, progress rate: 69%[0m
+[2019-08-27 10:55:11] [0;32mI (79340) [mupgrade_example, 240]: 033d 0c21[0m
+[2019-08-27 10:55:11] D (79461) [mupgrade_root, 103]: Firmware download size: 639184, progress rate: 69%[0m
+[2019-08-27 10:55:11] [0;32mI (79465) [mupgrade_example, 240]: 00bc 8204[0m
+[2019-08-27 10:55:11] D (79593) [mupgrade_root, 103]: Firmware download size: 640640, progress rate: 69%[0m
+[2019-08-27 10:55:11] [0;32mI (79601) [mupgrade_example, 240]: 2500 83ff[0m
+[2019-08-27 10:55:11] D (79716) [mupgrade_root, 103]: Firmware download size: 642096, progress rate: 69%[0m
+[2019-08-27 10:55:11] [0;32mI (79720) [mupgrade_example, 240]: 3941 99d1[0m
+[2019-08-27 10:55:11] D (79839) [mupgrade_root, 103]: Firmware download size: 643552, progress rate: 69%[0m
+[2019-08-27 10:55:11] [0;32mI (79843) [mupgrade_example, 240]: 3df0 2110[0m
+[2019-08-27 10:55:11] D (79974) [mupgrade_root, 103]: Firmware download size: 645008, progress rate: 69%[0m
+[2019-08-27 10:55:11] [0;32mI (79978) [mupgrade_example, 240]: 0689 dd0a[0m
+[2019-08-27 10:55:11] D (80095) [mupgrade_root, 103]: Firmware download size: 646464, progress rate: 70%[0m
+[2019-08-27 10:55:11] [0;32mI (80099) [mupgrade_example, 240]: 0c3a 20d2[0m
+[2019-08-27 10:55:11] D (80218) [mupgrade_root, 103]: Firmware download size: 647920, progress rate: 70%[0m
+[2019-08-27 10:55:11] [0;32mI (80222) [mupgrade_example, 240]: 20b1 1346[0m
+[2019-08-27 10:55:11] D (80351) [mupgrade_root, 103]: Firmware download size: 649376, progress rate: 70%[0m
+[2019-08-27 10:55:12] [0;32mI (80355) [mupgrade_example, 240]: 4507 cc12[0m
+[2019-08-27 10:55:12] D (80474) [mupgrade_root, 103]: Firmware download size: 650832, progress rate: 70%[0m
+[2019-08-27 10:55:12] [0;32mI (80478) [mupgrade_example, 240]: 06d9 3961[0m
+[2019-08-27 10:55:12] D (80600) [mupgrade_root, 103]: Firmware download size: 652288, progress rate: 70%[0m
+[2019-08-27 10:55:12] [0;32mI (80604) [mupgrade_example, 240]: 8911 11c0[0m
+[2019-08-27 10:55:12] D (80730) [mupgrade_root, 103]: Firmware download size: 653744, progress rate: 70%[0m
+[2019-08-27 10:55:12] [0;32mI (80734) [mupgrade_example, 240]: 2000 01f8[0m
+[2019-08-27 10:55:12] D (80853) [mupgrade_root, 103]: Firmware download size: 655200, progress rate: 71%[0m
+[2019-08-27 10:55:12] [0;32mI (80857) [mupgrade_example, 240]: 8201 b2a0[0m
+[2019-08-27 10:55:12] D (80976) [mupgrade_root, 103]: Firmware download size: 656656, progress rate: 71%[0m
+[2019-08-27 10:55:12] [0;32mI (80980) [mupgrade_example, 240]: b03c 71f2[0m
+[2019-08-27 10:55:12] D (81109) [mupgrade_root, 103]: Firmware download size: 658112, progress rate: 71%[0m
+[2019-08-27 10:55:12] [0;32mI (81113) [mupgrade_example, 240]: ff32 815e[0m
+[2019-08-27 10:55:12] D (81236) [mupgrade_root, 103]: Firmware download size: 659568, progress rate: 71%[0m
+[2019-08-27 10:55:12] [0;32mI (81240) [mupgrade_example, 240]: f1e0 0032[0m
+[2019-08-27 10:55:12] D (81355) [mupgrade_root, 103]: Firmware download size: 661024, progress rate: 71%[0m
+[2019-08-27 10:55:13] [0;32mI (81359) [mupgrade_example, 240]: 0400 0c6c[0m
+[2019-08-27 10:55:13] D (81488) [mupgrade_root, 103]: Firmware download size: 662480, progress rate: 71%[0m
+[2019-08-27 10:55:13] [0;32mI (81491) [mupgrade_example, 240]: bd01 2104[0m
+[2019-08-27 10:55:13] D (81612) [mupgrade_root, 103]: Firmware download size: 663936, progress rate: 72%[0m
+[2019-08-27 10:55:13] [0;32mI (81616) [mupgrade_example, 240]: 2716 1df0[0m
+[2019-08-27 10:55:13] D (81733) [mupgrade_root, 103]: Firmware download size: 665392, progress rate: 72%[0m
+[2019-08-27 10:55:13] [0;32mI (81738) [mupgrade_example, 240]: 518a 0300[0m
+[2019-08-27 10:55:13] D (81867) [mupgrade_root, 103]: Firmware download size: 666848, progress rate: 72%[0m
+[2019-08-27 10:55:13] [0;32mI (81872) [mupgrade_example, 240]: 1df0 1623[0m
+[2019-08-27 10:55:13] D (81990) [mupgrade_root, 103]: Firmware download size: 668304, progress rate: 72%[0m
+[2019-08-27 10:55:13] [0;32mI (81994) [mupgrade_example, 240]: fb60 2247[0m
+[2019-08-27 10:55:13] D (82125) [mupgrade_root, 103]: Firmware download size: 669760, progress rate: 72%[0m
+[2019-08-27 10:55:13] [0;32mI (82129) [mupgrade_example, 240]: 1603 e008[0m
+[2019-08-27 10:55:13] D (82246) [mupgrade_root, 103]: Firmware download size: 671216, progress rate: 72%[0m
+[2019-08-27 10:55:13] [0;32mI (82251) [mupgrade_example, 240]: 0037 c6fe[0m
+[2019-08-27 10:55:13] D (82369) [mupgrade_root, 103]: Firmware download size: 672672, progress rate: 72%[0m
+[2019-08-27 10:55:14] [0;32mI (82373) [mupgrade_example, 240]: 4024 18e2[0m
+[2019-08-27 10:55:14] D (82502) [mupgrade_root, 103]: Firmware download size: 674128, progress rate: 73%[0m
+[2019-08-27 10:55:14] [0;32mI (82506) [mupgrade_example, 240]: 6119 a226[0m
+[2019-08-27 10:55:14] D (82625) [mupgrade_root, 103]: Firmware download size: 675584, progress rate: 73%[0m
+[2019-08-27 10:55:14] [0;32mI (82630) [mupgrade_example, 240]: 377c a228[0m
+[2019-08-27 10:55:14] D (82748) [mupgrade_root, 103]: Firmware download size: 677040, progress rate: 73%[0m
+[2019-08-27 10:55:14] [0;32mI (82752) [mupgrade_example, 240]: 37e0 3700[0m
+[2019-08-27 10:55:14] D (82881) [mupgrade_root, 103]: Firmware download size: 678496, progress rate: 73%[0m
+[2019-08-27 10:55:14] [0;32mI (82884) [mupgrade_example, 240]: 8221 0031[0m
+[2019-08-27 10:55:14] D (83005) [mupgrade_root, 103]: Firmware download size: 679952, progress rate: 73%[0m
+[2019-08-27 10:55:14] [0;32mI (83009) [mupgrade_example, 240]: 69ea f03d[0m
+[2019-08-27 10:55:14] D (83127) [mupgrade_root, 103]: Firmware download size: 681408, progress rate: 73%[0m
+[2019-08-27 10:55:14] [0;32mI (83131) [mupgrade_example, 240]: f03d 1440[0m
+[2019-08-27 10:55:14] D (83260) [mupgrade_root, 103]: Firmware download size: 682864, progress rate: 74%[0m
+[2019-08-27 10:55:14] [0;32mI (83264) [mupgrade_example, 240]: 3426 3df0[0m
+[2019-08-27 10:55:14] D (83383) [mupgrade_root, 103]: Firmware download size: 684320, progress rate: 74%[0m
+[2019-08-27 10:55:15] [0;32mI (83388) [mupgrade_example, 240]: 3df0 51a2[0m
+[2019-08-27 10:55:15] D (83506) [mupgrade_root, 103]: Firmware download size: 685776, progress rate: 74%[0m
+[2019-08-27 10:55:15] [0;32mI (83512) [mupgrade_example, 240]: a832 5211[0m
+[2019-08-27 10:55:15] D (83642) [mupgrade_root, 103]: Firmware download size: 687232, progress rate: 74%[0m
+[2019-08-27 10:55:15] [0;32mI (83646) [mupgrade_example, 240]: 6ab3 4801[0m
+[2019-08-27 10:55:15] D (83763) [mupgrade_root, 103]: Firmware download size: 688688, progress rate: 74%[0m
+[2019-08-27 10:55:15] [0;32mI (83771) [mupgrade_example, 240]: 5248 70f9[0m
+[2019-08-27 10:55:15] D (83885) [mupgrade_root, 103]: Firmware download size: 690144, progress rate: 74%[0m
+[2019-08-27 10:55:15] [0;32mI (83889) [mupgrade_example, 240]: c14b f03d[0m
+[2019-08-27 10:55:15] D (84019) [mupgrade_root, 103]: Firmware download size: 691600, progress rate: 75%[0m
+[2019-08-27 10:55:15] [0;32mI (84023) [mupgrade_example, 240]: f03d 4028[0m
+[2019-08-27 10:55:15] D (84141) [mupgrade_root, 103]: Firmware download size: 693056, progress rate: 75%[0m
+[2019-08-27 10:55:15] [0;32mI (84144) [mupgrade_example, 240]: 2082 4042[0m
+[2019-08-27 10:55:15] D (84264) [mupgrade_root, 103]: Firmware download size: 694512, progress rate: 75%[0m
+[2019-08-27 10:55:15] [0;32mI (84268) [mupgrade_example, 240]: b0c2 1683[0m
+[2019-08-27 10:55:15] D (84397) [mupgrade_root, 103]: Firmware download size: 695968, progress rate: 75%[0m
+[2019-08-27 10:55:16] [0;32mI (84402) [mupgrade_example, 240]: 1742 0000[0m
+[2019-08-27 10:55:16] D (84520) [mupgrade_root, 103]: Firmware download size: 697424, progress rate: 75%[0m
+[2019-08-27 10:55:16] [0;32mI (84524) [mupgrade_example, 240]: 4893 9212[0m
+[2019-08-27 10:55:16] D (84643) [mupgrade_root, 103]: Firmware download size: 698880, progress rate: 75%[0m
+[2019-08-27 10:55:16] [0;32mI (84647) [mupgrade_example, 240]: 0a32 82a0[0m
+[2019-08-27 10:55:16] D (84776) [mupgrade_root, 103]: Firmware download size: 700336, progress rate: 75%[0m
+[2019-08-27 10:55:16] [0;32mI (84780) [mupgrade_example, 240]: 0050 02c6[0m
+[2019-08-27 10:55:16] D (84899) [mupgrade_root, 103]: Firmware download size: 701792, progress rate: 76%[0m
+[2019-08-27 10:55:16] [0;32mI (84903) [mupgrade_example, 240]: 4804 29c1[0m
+[2019-08-27 10:55:16] D (85023) [mupgrade_root, 103]: Firmware download size: 703248, progress rate: 76%[0m
+[2019-08-27 10:55:16] [0;32mI (85027) [mupgrade_example, 240]: 89b1 8221[0m
+[2019-08-27 10:55:16] D (85155) [mupgrade_root, 103]: Firmware download size: 704704, progress rate: 76%[0m
+[2019-08-27 10:55:16] [0;32mI (85159) [mupgrade_example, 240]: 1b58 3df0[0m
+[2019-08-27 10:55:16] D (85278) [mupgrade_root, 103]: Firmware download size: 706160, progress rate: 76%[0m
+[2019-08-27 10:55:17] [0;32mI (85282) [mupgrade_example, 240]: 3df0 8601[0m
+[2019-08-27 10:55:17] D (85402) [mupgrade_root, 103]: Firmware download size: 707616, progress rate: 76%[0m
+[2019-08-27 10:55:17] [0;32mI (85409) [mupgrade_example, 240]: 166b 0000[0m
+[2019-08-27 10:55:17] D (85534) [mupgrade_root, 103]: Firmware download size: 709072, progress rate: 76%[0m
+[2019-08-27 10:55:17] [0;32mI (85538) [mupgrade_example, 240]: 3221 2911[0m
+[2019-08-27 10:55:17] D (85657) [mupgrade_root, 103]: Firmware download size: 710528, progress rate: 77%[0m
+[2019-08-27 10:55:17] [0;32mI (85661) [mupgrade_example, 240]: 3df0 05d2[0m
+[2019-08-27 10:55:17] D (85779) [mupgrade_root, 103]: Firmware download size: 711984, progress rate: 77%[0m
+[2019-08-27 10:55:17] [0;32mI (85784) [mupgrade_example, 240]: 611b 0ca4[0m
+[2019-08-27 10:55:17] D (85915) [mupgrade_root, 103]: Firmware download size: 713440, progress rate: 77%[0m
+[2019-08-27 10:55:17] [0;32mI (85921) [mupgrade_example, 240]: 7cfc 39f8[0m
+[2019-08-27 10:55:17] D (86036) [mupgrade_root, 103]: Firmware download size: 714896, progress rate: 77%[0m
+[2019-08-27 10:55:17] [0;32mI (86043) [mupgrade_example, 240]: 8025 0049[0m
+[2019-08-27 10:55:17] D (86159) [mupgrade_root, 103]: Firmware download size: 716352, progress rate: 77%[0m
+[2019-08-27 10:55:17] [0;32mI (86162) [mupgrade_example, 240]: 9156 6110[0m
+[2019-08-27 10:55:17] D (86292) [mupgrade_root, 103]: Firmware download size: 717808, progress rate: 77%[0m
+[2019-08-27 10:55:18] [0;32mI (86295) [mupgrade_example, 240]: e002 0200[0m
+[2019-08-27 10:55:18] D (86415) [mupgrade_root, 103]: Firmware download size: 719264, progress rate: 78%[0m
+[2019-08-27 10:55:18] [0;32mI (86419) [mupgrade_example, 240]: 061f ffb1[0m
+[2019-08-27 10:55:18] D (86538) [mupgrade_root, 103]: Firmware download size: 720720, progress rate: 78%[0m
+[2019-08-27 10:55:18] [0;32mI (86543) [mupgrade_example, 240]: bcff b114[0m
+[2019-08-27 10:55:18] D (86671) [mupgrade_root, 103]: Firmware download size: 722176, progress rate: 78%[0m
+[2019-08-27 10:55:18] [0;32mI (86675) [mupgrade_example, 240]: 74a8 0400[0m
+[2019-08-27 10:55:18] D (86794) [mupgrade_root, 103]: Firmware download size: 723632, progress rate: 78%[0m
+[2019-08-27 10:55:18] [0;32mI (86798) [mupgrade_example, 240]: 1df0 f000[0m
+[2019-08-27 10:55:18] D (86919) [mupgrade_root, 103]: Firmware download size: 725088, progress rate: 78%[0m
+[2019-08-27 10:55:18] [0;32mI (86923) [mupgrade_example, 240]: d8ee 3df0[0m
+[2019-08-27 10:55:18] D (87050) [mupgrade_root, 103]: Firmware download size: 726544, progress rate: 78%[0m
+[2019-08-27 10:55:18] [0;32mI (87054) [mupgrade_example, 240]: 3df0 1540[0m
+[2019-08-27 10:55:18] D (87173) [mupgrade_root, 103]: Firmware download size: 728000, progress rate: 78%[0m
+[2019-08-27 10:55:18] [0;32mI (87177) [mupgrade_example, 240]: 3641 2316[0m
+[2019-08-27 10:55:18] D (87296) [mupgrade_root, 103]: Firmware download size: 729456, progress rate: 79%[0m
+[2019-08-27 10:55:19] [0;32mI (87301) [mupgrade_example, 240]: 2265 fb3f[0m
+[2019-08-27 10:55:19] D (87430) [mupgrade_root, 103]: Firmware download size: 730912, progress rate: 79%[0m
+[2019-08-27 10:55:19] [0;32mI (87436) [mupgrade_example, 240]: 1027 423f[0m
+[2019-08-27 10:55:19] D (87554) [mupgrade_root, 103]: Firmware download size: 732368, progress rate: 79%[0m
+[2019-08-27 10:55:19] [0;32mI (87560) [mupgrade_example, 240]: a43b 2034[0m
+[2019-08-27 10:55:19] D (87674) [mupgrade_root, 103]: Firmware download size: 733824, progress rate: 79%[0m
+[2019-08-27 10:55:19] [0;32mI (87679) [mupgrade_example, 240]: 2020 000c[0m
+[2019-08-27 10:55:19] D (87809) [mupgrade_root, 103]: Firmware download size: 735280, progress rate: 79%[0m
+[2019-08-27 10:55:19] [0;32mI (87813) [mupgrade_example, 240]: 2a86 0000[0m
+[2019-08-27 10:55:19] D (87930) [mupgrade_root, 103]: Firmware download size: 736736, progress rate: 79%[0m
+[2019-08-27 10:55:19] [0;32mI (87935) [mupgrade_example, 240]: 8112 16a8[0m
+[2019-08-27 10:55:19] D (88053) [mupgrade_root, 103]: Firmware download size: 738192, progress rate: 80%[0m
+[2019-08-27 10:55:19] [0;32mI (88058) [mupgrade_example, 240]: 00bd b805[0m
+[2019-08-27 10:55:19] D (88187) [mupgrade_root, 103]: Firmware download size: 739648, progress rate: 80%[0m
+[2019-08-27 10:55:19] [0;32mI (88191) [mupgrade_example, 240]: 20a2 e021[0m
+[2019-08-27 10:55:19] D (88312) [mupgrade_root, 103]: Firmware download size: 741104, progress rate: 80%[0m
+[2019-08-27 10:55:20] [0;32mI (88316) [mupgrade_example, 240]: a802 f3a2[0m
+[2019-08-27 10:55:20] D (88433) [mupgrade_root, 103]: Firmware download size: 742560, progress rate: 80%[0m
+[2019-08-27 10:55:20] [0;32mI (88438) [mupgrade_example, 240]: 2200 56e8[0m
+[2019-08-27 10:55:20] D (88566) [mupgrade_root, 103]: Firmware download size: 744016, progress rate: 80%[0m
+[2019-08-27 10:55:20] [0;32mI (88570) [mupgrade_example, 240]: 1e20 0c4a[0m
+[2019-08-27 10:55:20] D (88688) [mupgrade_root, 103]: Firmware download size: 745472, progress rate: 80%[0m
+[2019-08-27 10:55:20] [0;32mI (88692) [mupgrade_example, 240]: 1011 02d1[0m
+[2019-08-27 10:55:20] D (88811) [mupgrade_root, 103]: Firmware download size: 746928, progress rate: 81%[0m
+[2019-08-27 10:55:20] [0;32mI (88816) [mupgrade_example, 240]: b4ef 10a1[0m
+[2019-08-27 10:55:20] D (88945) [mupgrade_root, 103]: Firmware download size: 748384, progress rate: 81%[0m
+[2019-08-27 10:55:20] [0;32mI (88950) [mupgrade_example, 240]: 20a5 1069[0m
+[2019-08-27 10:55:20] D (89067) [mupgrade_root, 103]: Firmware download size: 749840, progress rate: 81%[0m
+[2019-08-27 10:55:20] [0;32mI (89072) [mupgrade_example, 240]: 1a32 81ca[0m
+[2019-08-27 10:55:20] D (89192) [mupgrade_root, 103]: Firmware download size: 751296, progress rate: 81%[0m
+[2019-08-27 10:55:20] [0;32mI (89196) [mupgrade_example, 240]: 97e0 2330[0m
+[2019-08-27 10:55:20] D (89324) [mupgrade_root, 103]: Firmware download size: 752752, progress rate: 81%[0m
+[2019-08-27 10:55:21] [0;32mI (89328) [mupgrade_example, 240]: 83a0 8cb3[0m
+[2019-08-27 10:55:21] D (89447) [mupgrade_root, 103]: Firmware download size: 754208, progress rate: 81%[0m
+[2019-08-27 10:55:21] [0;32mI (89451) [mupgrade_example, 240]: 4831 6908[0m
+[2019-08-27 10:55:21] D (89580) [mupgrade_root, 103]: Firmware download size: 755664, progress rate: 81%[0m
+[2019-08-27 10:55:21] [0;32mI (89584) [mupgrade_example, 240]: b18c a0f4[0m
+[2019-08-27 10:55:21] D (89703) [mupgrade_root, 103]: Firmware download size: 757120, progress rate: 82%[0m
+[2019-08-27 10:55:21] [0;32mI (89709) [mupgrade_example, 240]: 6510 0000[0m
+[2019-08-27 10:55:21] D (89825) [mupgrade_root, 103]: Firmware download size: 758576, progress rate: 82%[0m
+[2019-08-27 10:55:21] [0;32mI (89832) [mupgrade_example, 240]: 000c 221c[0m
+[2019-08-27 10:55:21] D (89959) [mupgrade_root, 103]: Firmware download size: 760032, progress rate: 82%[0m
+[2019-08-27 10:55:21] [0;32mI (89963) [mupgrade_example, 240]: 7044 7446[0m
+[2019-08-27 10:55:21] D (90082) [mupgrade_root, 103]: Firmware download size: 761488, progress rate: 82%[0m
+[2019-08-27 10:55:21] [0;32mI (90086) [mupgrade_example, 240]: 0800 e5a8[0m
+[2019-08-27 10:55:21] D (90205) [mupgrade_root, 103]: Firmware download size: 762944, progress rate: 82%[0m
+[2019-08-27 10:55:21] [0;32mI (90209) [mupgrade_example, 240]: ff0c 0a48[0m
+[2019-08-27 10:55:21] D (90338) [mupgrade_root, 103]: Firmware download size: 764400, progress rate: 82%[0m
+[2019-08-27 10:55:22] [0;32mI (90342) [mupgrade_example, 240]: 6132 f9dd[0m
+[2019-08-27 10:55:22] D (90461) [mupgrade_root, 103]: Firmware download size: 765856, progress rate: 83%[0m
+[2019-08-27 10:55:22] [0;32mI (90464) [mupgrade_example, 240]: b2a2 3000[0m
+[2019-08-27 10:55:22] D (90583) [mupgrade_root, 103]: Firmware download size: 767312, progress rate: 83%[0m
+[2019-08-27 10:55:22] [0;32mI (90587) [mupgrade_example, 240]: bd08 1446[0m
+[2019-08-27 10:55:22] D (90717) [mupgrade_root, 103]: Firmware download size: 768768, progress rate: 83%[0m
+[2019-08-27 10:55:22] [0;32mI (90721) [mupgrade_example, 240]: 0c00 5074[0m
+[2019-08-27 10:55:22] D (90840) [mupgrade_root, 103]: Firmware download size: 770224, progress rate: 83%[0m
+[2019-08-27 10:55:22] [0;32mI (90844) [mupgrade_example, 240]: 42c9 a0fa[0m
+[2019-08-27 10:55:22] D (90963) [mupgrade_root, 103]: Firmware download size: 771680, progress rate: 83%[0m
+[2019-08-27 10:55:22] [0;32mI (90967) [mupgrade_example, 240]: c608 1290[0m
+[2019-08-27 10:55:22] D (91096) [mupgrade_root, 103]: Firmware download size: 773136, progress rate: 83%[0m
+[2019-08-27 10:55:22] [0;32mI (91100) [mupgrade_example, 240]: 9890 8811[0m
+[2019-08-27 10:55:22] D (91219) [mupgrade_root, 103]: Firmware download size: 774592, progress rate: 84%[0m
+[2019-08-27 10:55:22] [0;32mI (91223) [mupgrade_example, 240]: b098 0700[0m
+[2019-08-27 10:55:22] D (91342) [mupgrade_root, 103]: Firmware download size: 776048, progress rate: 84%[0m
+[2019-08-27 10:55:23] [0;32mI (91346) [mupgrade_example, 240]: 4207 50bb[0m
+[2019-08-27 10:55:23] D (91475) [mupgrade_root, 103]: Firmware download size: 777504, progress rate: 84%[0m
+[2019-08-27 10:55:23] [0;32mI (91479) [mupgrade_example, 240]: 2081 7552[0m
+[2019-08-27 10:55:23] D (91601) [mupgrade_root, 103]: Firmware download size: 778960, progress rate: 84%[0m
+[2019-08-27 10:55:23] [0;32mI (91607) [mupgrade_example, 240]: 460f 000c[0m
+[2019-08-27 10:55:23] D (91720) [mupgrade_root, 103]: Firmware download size: 780416, progress rate: 84%[0m
+[2019-08-27 10:55:23] [0;32mI (91724) [mupgrade_example, 240]: 0806 fd1d[0m
+[2019-08-27 10:55:23] D (91854) [mupgrade_root, 103]: Firmware download size: 781872, progress rate: 84%[0m
+[2019-08-27 10:55:23] [0;32mI (91861) [mupgrade_example, 240]: f000 514c[0m
+[2019-08-27 10:55:23] D (91976) [mupgrade_root, 103]: Firmware download size: 783328, progress rate: 84%[0m
+[2019-08-27 10:55:23] [0;32mI (91981) [mupgrade_example, 240]: cd2a 0b71[0m
+[2019-08-27 10:55:23] D (92099) [mupgrade_root, 103]: Firmware download size: 784784, progress rate: 85%[0m
+[2019-08-27 10:55:23] [0;32mI (92103) [mupgrade_example, 240]: 14cb 8099[0m
+[2019-08-27 10:55:23] D (92233) [mupgrade_root, 103]: Firmware download size: 786240, progress rate: 85%[0m
+[2019-08-27 10:55:23] [0;32mI (92237) [mupgrade_example, 240]: 0170 4548[0m
+[2019-08-27 10:55:23] D (92358) [mupgrade_root, 103]: Firmware download size: 787696, progress rate: 85%[0m
+[2019-08-27 10:55:24] [0;32mI (92364) [mupgrade_example, 240]: 9452 82c8[0m
+[2019-08-27 10:55:24] D (92478) [mupgrade_root, 103]: Firmware download size: 789152, progress rate: 85%[0m
+[2019-08-27 10:55:24] [0;32mI (92483) [mupgrade_example, 240]: 10a1 a084[0m
+[2019-08-27 10:55:24] D (92612) [mupgrade_root, 103]: Firmware download size: 790608, progress rate: 85%[0m
+[2019-08-27 10:55:24] [0;32mI (92616) [mupgrade_example, 240]: bd04 0281[0m
+[2019-08-27 10:55:24] D (92734) [mupgrade_root, 103]: Firmware download size: 792064, progress rate: 85%[0m
+[2019-08-27 10:55:24] [0;32mI (92739) [mupgrade_example, 240]: dfc4 00a8[0m
+[2019-08-27 10:55:24] D (92857) [mupgrade_root, 103]: Firmware download size: 793520, progress rate: 86%[0m
+[2019-08-27 10:55:24] [0;32mI (92861) [mupgrade_example, 240]: 05a0 0f80[0m
+[2019-08-27 10:55:24] D (92992) [mupgrade_root, 103]: Firmware download size: 794976, progress rate: 86%[0m
+[2019-08-27 10:55:24] [0;32mI (92996) [mupgrade_example, 240]: 6611 c0b2[0m
+[2019-08-27 10:55:24] D (93113) [mupgrade_root, 103]: Firmware download size: 796432, progress rate: 86%[0m
+[2019-08-27 10:55:24] [0;32mI (93119) [mupgrade_example, 240]: 1404 6a35[0m
+[2019-08-27 10:55:24] D (93237) [mupgrade_root, 103]: Firmware download size: 797888, progress rate: 86%[0m
+[2019-08-27 10:55:24] [0;32mI (93241) [mupgrade_example, 240]: 3804 0865[0m
+[2019-08-27 10:55:24] D (93369) [mupgrade_root, 103]: Firmware download size: 799344, progress rate: 86%[0m
+[2019-08-27 10:55:25] [0;32mI (93374) [mupgrade_example, 240]: 19f2 c00c[0m
+[2019-08-27 10:55:25] D (93492) [mupgrade_root, 103]: Firmware download size: 800800, progress rate: 86%[0m
+[2019-08-27 10:55:25] [0;32mI (93496) [mupgrade_example, 240]: 040c 20a8[0m
+[2019-08-27 10:55:25] D (93615) [mupgrade_root, 103]: Firmware download size: 802256, progress rate: 87%[0m
+[2019-08-27 10:55:25] [0;32mI (93619) [mupgrade_example, 240]: 8330 1df0[0m
+[2019-08-27 10:55:25] D (93749) [mupgrade_root, 103]: Firmware download size: 803712, progress rate: 87%[0m
+[2019-08-27 10:55:25] [0;32mI (93755) [mupgrade_example, 240]: 0c02 2232[0m
+[2019-08-27 10:55:25] D (93871) [mupgrade_root, 103]: Firmware download size: 805168, progress rate: 87%[0m
+[2019-08-27 10:55:25] [0;32mI (93875) [mupgrade_example, 240]: 0230 17b7[0m
+[2019-08-27 10:55:25] D (93996) [mupgrade_root, 103]: Firmware download size: 806624, progress rate: 87%[0m
+[2019-08-27 10:55:25] [0;32mI (94002) [mupgrade_example, 240]: b118 3420[0m
+[2019-08-27 10:55:25] D (94127) [mupgrade_root, 103]: Firmware download size: 808080, progress rate: 87%[0m
+[2019-08-27 10:55:25] [0;32mI (94132) [mupgrade_example, 240]: 3242 09a2[0m
+[2019-08-27 10:55:25] D (94250) [mupgrade_root, 103]: Firmware download size: 809536, progress rate: 87%[0m
+[2019-08-27 10:55:25] [0;32mI (94255) [mupgrade_example, 240]: 2113 6883[0m
+[2019-08-27 10:55:25] D (94373) [mupgrade_root, 103]: Firmware download size: 810992, progress rate: 87%[0m
+[2019-08-27 10:55:26] [0;32mI (94378) [mupgrade_example, 240]: 9221 0000[0m
+[2019-08-27 10:55:26] D (94507) [mupgrade_root, 103]: Firmware download size: 812448, progress rate: 88%[0m
+[2019-08-27 10:55:26] [0;32mI (94517) [mupgrade_example, 240]: b2a0 9222[0m
+[2019-08-27 10:55:26] D (94629) [mupgrade_root, 103]: Firmware download size: 813904, progress rate: 88%[0m
+[2019-08-27 10:55:26] [0;32mI (94634) [mupgrade_example, 240]: 0082 20b1[0m
+[2019-08-27 10:55:26] D (94752) [mupgrade_root, 103]: Firmware download size: 815360, progress rate: 88%[0m
+[2019-08-27 10:55:26] [0;32mI (94756) [mupgrade_example, 240]: dfae 14b2[0m
+[2019-08-27 10:55:26] D (94886) [mupgrade_root, 103]: Firmware download size: 816816, progress rate: 88%[0m
+[2019-08-27 10:55:26] [0;32mI (94890) [mupgrade_example, 240]: a000 e59e[0m
+[2019-08-27 10:55:26] D (95008) [mupgrade_root, 103]: Firmware download size: 818272, progress rate: 88%[0m
+[2019-08-27 10:55:26] [0;32mI (95013) [mupgrade_example, 240]: f990 8084[0m
+[2019-08-27 10:55:26] D (95131) [mupgrade_root, 103]: Firmware download size: 819728, progress rate: 88%[0m
+[2019-08-27 10:55:26] [0;32mI (95135) [mupgrade_example, 240]: 1080 81c0[0m
+[2019-08-27 10:55:26] D (95264) [mupgrade_root, 103]: Firmware download size: 821184, progress rate: 89%[0m
+[2019-08-27 10:55:26] [0;32mI (95270) [mupgrade_example, 240]: cd30 0000[0m
+[2019-08-27 10:55:26] D (95387) [mupgrade_root, 103]: Firmware download size: 822640, progress rate: 89%[0m
+[2019-08-27 10:55:27] [0;32mI (95392) [mupgrade_example, 240]: bd02 2212[0m
+[2019-08-27 10:55:27] D (95512) [mupgrade_root, 103]: Firmware download size: 824096, progress rate: 89%[0m
+[2019-08-27 10:55:27] [0;32mI (95516) [mupgrade_example, 240]: 8088 d101[0m
+[2019-08-27 10:55:27] D (95645) [mupgrade_root, 103]: Firmware download size: 825552, progress rate: 89%[0m
+[2019-08-27 10:55:27] [0;32mI (95650) [mupgrade_example, 240]: 3a9e 4222[0m
+[2019-08-27 10:55:27] D (95767) [mupgrade_root, 103]: Firmware download size: 827008, progress rate: 89%[0m
+[2019-08-27 10:55:27] [0;32mI (95771) [mupgrade_example, 240]: 11f6 34f0[0m
+[2019-08-27 10:55:27] D (95889) [mupgrade_root, 103]: Firmware download size: 828464, progress rate: 89%[0m
+[2019-08-27 10:55:27] [0;32mI (95893) [mupgrade_example, 240]: b634 20a0[0m
+[2019-08-27 10:55:27] D (96022) [mupgrade_root, 103]: Firmware download size: 829920, progress rate: 90%[0m
+[2019-08-27 10:55:27] [0;32mI (96026) [mupgrade_example, 240]: f5c1 020c[0m
+[2019-08-27 10:55:27] D (96145) [mupgrade_root, 103]: Firmware download size: 831376, progress rate: 90%[0m
+[2019-08-27 10:55:27] [0;32mI (96150) [mupgrade_example, 240]: 1786 c221[0m
+[2019-08-27 10:55:27] D (96269) [mupgrade_root, 103]: Firmware download size: 832832, progress rate: 90%[0m
+[2019-08-27 10:55:27] [0;32mI (96273) [mupgrade_example, 240]: 2400 52c5[0m
+[2019-08-27 10:55:27] D (96401) [mupgrade_root, 103]: Firmware download size: 834288, progress rate: 90%[0m
+[2019-08-27 10:55:28] [0;32mI (96405) [mupgrade_example, 240]: 10a2 306a[0m
+[2019-08-27 10:55:28] D (96525) [mupgrade_root, 103]: Firmware download size: 835744, progress rate: 90%[0m
+[2019-08-27 10:55:28] [0;32mI (96531) [mupgrade_example, 240]: 6458 0c50[0m
+[2019-08-27 10:55:28] D (96650) [mupgrade_root, 103]: Firmware download size: 837200, progress rate: 90%[0m
+[2019-08-27 10:55:28] [0;32mI (96654) [mupgrade_example, 240]: a520 9427[0m
+[2019-08-27 10:55:28] D (96780) [mupgrade_root, 103]: Firmware download size: 838656, progress rate: 90%[0m
+[2019-08-27 10:55:28] [0;32mI (96786) [mupgrade_example, 240]: a43a 8129[0m
+[2019-08-27 10:55:28] D (96903) [mupgrade_root, 103]: Firmware download size: 840112, progress rate: 91%[0m
+[2019-08-27 10:55:28] [0;32mI (96908) [mupgrade_example, 240]: 94e0 f261[0m
+[2019-08-27 10:55:28] D (97037) [mupgrade_root, 103]: Firmware download size: 841568, progress rate: 91%[0m
+[2019-08-27 10:55:28] [0;32mI (97041) [mupgrade_example, 240]: c2a2 8602[0m
+[2019-08-27 10:55:28] D (97159) [mupgrade_root, 103]: Firmware download size: 843024, progress rate: 91%[0m
+[2019-08-27 10:55:28] [0;32mI (97164) [mupgrade_example, 240]: 0027 0000[0m
+[2019-08-27 10:55:28] D (97283) [mupgrade_root, 103]: Firmware download size: 844480, progress rate: 91%[0m
+[2019-08-27 10:55:29] [0;32mI (97287) [mupgrade_example, 240]: 2221 caa2[0m
+[2019-08-27 10:55:29] D (97415) [mupgrade_root, 103]: Firmware download size: 845936, progress rate: 91%[0m
+[2019-08-27 10:55:29] [0;32mI (97420) [mupgrade_example, 240]: 0a00 2d08[0m
+[2019-08-27 10:55:29] D (97539) [mupgrade_root, 103]: Firmware download size: 847392, progress rate: 91%[0m
+[2019-08-27 10:55:29] [0;32mI (97542) [mupgrade_example, 240]: 1df0 01d8[0m
+[2019-08-27 10:55:29] D (97662) [mupgrade_root, 103]: Firmware download size: 848848, progress rate: 92%[0m
+[2019-08-27 10:55:29] [0;32mI (97666) [mupgrade_example, 240]: 41e8 c8b8[0m
+[2019-08-27 10:55:29] D (97794) [mupgrade_root, 103]: Firmware download size: 850304, progress rate: 92%[0m
+[2019-08-27 10:55:29] [0;32mI (97799) [mupgrade_example, 240]: 06cd fca8[0m
+[2019-08-27 10:55:29] D (97917) [mupgrade_root, 103]: Firmware download size: 851760, progress rate: 92%[0m
+[2019-08-27 10:55:29] [0;32mI (97922) [mupgrade_example, 240]: 0290 cc4a[0m
+[2019-08-27 10:55:29] D (98041) [mupgrade_root, 103]: Firmware download size: 853216, progress rate: 92%[0m
+[2019-08-27 10:55:29] [0;32mI (98045) [mupgrade_example, 240]: a257 2604[0m
+[2019-08-27 10:55:29] D (98173) [mupgrade_root, 103]: Firmware download size: 854672, progress rate: 92%[0m
+[2019-08-27 10:55:29] [0;32mI (98178) [mupgrade_example, 240]: 2c44 8180[0m
+[2019-08-27 10:55:29] D (98296) [mupgrade_root, 103]: Firmware download size: 856128, progress rate: 92%[0m
+[2019-08-27 10:55:30] [0;32mI (98300) [mupgrade_example, 240]: 7430 b5ba[0m
+[2019-08-27 10:55:30] D (98419) [mupgrade_root, 103]: Firmware download size: 857584, progress rate: 93%[0m
+[2019-08-27 10:55:30] [0;32mI (98423) [mupgrade_example, 240]: aab1 1080[0m
+[2019-08-27 10:55:30] D (98553) [mupgrade_root, 103]: Firmware download size: 859040, progress rate: 93%[0m
+[2019-08-27 10:55:30] [0;32mI (98559) [mupgrade_example, 240]: 9901 f804[0m
+[2019-08-27 10:55:30] D (98675) [mupgrade_root, 103]: Firmware download size: 860496, progress rate: 93%[0m
+[2019-08-27 10:55:30] [0;32mI (98679) [mupgrade_example, 240]: a040 3aaa[0m
+[2019-08-27 10:55:30] D (98798) [mupgrade_root, 103]: Firmware download size: 861952, progress rate: 93%[0m
+[2019-08-27 10:55:30] [0;32mI (98802) [mupgrade_example, 240]: 2aaa 611d[0m
+[2019-08-27 10:55:30] D (98931) [mupgrade_root, 103]: Firmware download size: 863408, progress rate: 93%[0m
+[2019-08-27 10:55:30] [0;32mI (98936) [mupgrade_example, 240]: bacc 3221[0m
+[2019-08-27 10:55:30] D (99054) [mupgrade_root, 103]: Firmware download size: 864864, progress rate: 93%[0m
+[2019-08-27 10:55:30] [0;32mI (99058) [mupgrade_example, 240]: 20f0 6402[0m
+[2019-08-27 10:55:30] D (99177) [mupgrade_root, 103]: Firmware download size: 866320, progress rate: 93%[0m
+[2019-08-27 10:55:30] [0;32mI (99182) [mupgrade_example, 240]: 063b ad05[0m
+[2019-08-27 10:55:30] D (99312) [mupgrade_root, 103]: Firmware download size: 867776, progress rate: 94%[0m
+[2019-08-27 10:55:31] [0;32mI (99316) [mupgrade_example, 240]: 810a 7a1b[0m
+[2019-08-27 10:55:31] D (99433) [mupgrade_root, 103]: Firmware download size: 869232, progress rate: 94%[0m
+[2019-08-27 10:55:31] [0;32mI (99439) [mupgrade_example, 240]: 268a a2ca[0m
+[2019-08-27 10:55:31] D (99556) [mupgrade_root, 103]: Firmware download size: 870688, progress rate: 94%[0m
+[2019-08-27 10:55:31] [0;32mI (99560) [mupgrade_example, 240]: f0a0 6813[0m
+[2019-08-27 10:55:31] D (99689) [mupgrade_root, 103]: Firmware download size: 872144, progress rate: 94%[0m
+[2019-08-27 10:55:31] [0;32mI (99695) [mupgrade_example, 240]: 3941 0c4e[0m
+[2019-08-27 10:55:31] D (99812) [mupgrade_root, 103]: Firmware download size: 873600, progress rate: 94%[0m
+[2019-08-27 10:55:31] [0;32mI (99817) [mupgrade_example, 240]: e921 b16c[0m
+[2019-08-27 10:55:31] D (99936) [mupgrade_root, 103]: Firmware download size: 875056, progress rate: 94%[0m
+[2019-08-27 10:55:31] [0;32mI (99942) [mupgrade_example, 240]: ff0c 0588[0m
+[2019-08-27 10:55:31] D (100068) [mupgrade_root, 103]: Firmware download size: 876512, progress rate: 95%[0m
+[2019-08-27 10:55:31] [0;32mI (100073) [mupgrade_example, 240]: 68c8 1600[0m
+[2019-08-27 10:55:31] D (100191) [mupgrade_root, 103]: Firmware download size: 877968, progress rate: 95%[0m
+[2019-08-27 10:55:31] [0;32mI (100196) [mupgrade_example, 240]: 82c3 4820[0m
+[2019-08-27 10:55:31] D (100315) [mupgrade_root, 103]: Firmware download size: 879424, progress rate: 95%[0m
+[2019-08-27 10:55:32] [0;32mI (100319) [mupgrade_example, 240]: 8203 92b8[0m
+[2019-08-27 10:55:32] D (100448) [mupgrade_root, 103]: Firmware download size: 880880, progress rate: 95%[0m
+[2019-08-27 10:55:32] [0;32mI (100452) [mupgrade_example, 240]: 34a8 9a9a[0m
+[2019-08-27 10:55:32] D (100570) [mupgrade_root, 103]: Firmware download size: 882336, progress rate: 95%[0m
+[2019-08-27 10:55:32] [0;32mI (100575) [mupgrade_example, 240]: 9912 2065[0m
+[2019-08-27 10:55:32] D (100693) [mupgrade_root, 103]: Firmware download size: 883792, progress rate: 95%[0m
+[2019-08-27 10:55:32] [0;32mI (100697) [mupgrade_example, 240]: a700 31b6[0m
+[2019-08-27 10:55:32] D (100826) [mupgrade_root, 103]: Firmware download size: 885248, progress rate: 96%[0m
+[2019-08-27 10:55:32] [0;32mI (100830) [mupgrade_example, 240]: e3c0 8178[0m
+[2019-08-27 10:55:32] D (100951) [mupgrade_root, 103]: Firmware download size: 886704, progress rate: 96%[0m
+[2019-08-27 10:55:32] [0;32mI (100955) [mupgrade_example, 240]: e180 2222[0m
+[2019-08-27 10:55:32] D (101075) [mupgrade_root, 103]: Firmware download size: 888160, progress rate: 96%[0m
+[2019-08-27 10:55:32] [0;32mI (101083) [mupgrade_example, 240]: 0328 dea0[0m
+[2019-08-27 10:55:32] D (101205) [mupgrade_root, 103]: Firmware download size: 889616, progress rate: 96%[0m
+[2019-08-27 10:55:32] [0;32mI (101209) [mupgrade_example, 240]: 88a0 2188[0m
+[2019-08-27 10:55:32] D (101328) [mupgrade_root, 103]: Firmware download size: 891072, progress rate: 96%[0m
+[2019-08-27 10:55:33] [0;32mI (101334) [mupgrade_example, 240]: 528c 5802[0m
+[2019-08-27 10:55:33] D (101451) [mupgrade_root, 103]: Firmware download size: 892528, progress rate: 96%[0m
+[2019-08-27 10:55:33] [0;32mI (101455) [mupgrade_example, 240]: 3035 a18c[0m
+[2019-08-27 10:55:33] D (101584) [mupgrade_root, 103]: Firmware download size: 893984, progress rate: 96%[0m
+[2019-08-27 10:55:33] [0;32mI (101592) [mupgrade_example, 240]: db81 a0f0[0m
+[2019-08-27 10:55:33] D (101707) [mupgrade_root, 103]: Firmware download size: 895440, progress rate: 97%[0m
+[2019-08-27 10:55:33] [0;32mI (101714) [mupgrade_example, 240]: a311 a1ea[0m
+[2019-08-27 10:55:33] D (101832) [mupgrade_root, 103]: Firmware download size: 896896, progress rate: 97%[0m
+[2019-08-27 10:55:33] [0;32mI (101835) [mupgrade_example, 240]: d8e5 d7bd[0m
+[2019-08-27 10:55:33] D (101963) [mupgrade_root, 103]: Firmware download size: 898352, progress rate: 97%[0m
+[2019-08-27 10:55:33] [0;32mI (101967) [mupgrade_example, 240]: 0aa1 5644[0m
+[2019-08-27 10:55:33] D (102087) [mupgrade_root, 103]: Firmware download size: 899808, progress rate: 97%[0m
+[2019-08-27 10:55:33] [0;32mI (102094) [mupgrade_example, 240]: 7926 03c2[0m
+[2019-08-27 10:55:33] D (102209) [mupgrade_root, 103]: Firmware download size: 901264, progress rate: 97%[0m
+[2019-08-27 10:55:33] [0;32mI (102213) [mupgrade_example, 240]: 611d 741d[0m
+[2019-08-27 10:55:33] D (102342) [mupgrade_root, 103]: Firmware download size: 902720, progress rate: 97%[0m
+[2019-08-27 10:55:34] [0;32mI (102347) [mupgrade_example, 240]: f000 f03d[0m
+[2019-08-27 10:55:34] D (102466) [mupgrade_root, 103]: Firmware download size: 904176, progress rate: 98%[0m
+[2019-08-27 10:55:34] [0;32mI (102472) [mupgrade_example, 240]: f03d c020[0m
+[2019-08-27 10:55:34] D (102588) [mupgrade_root, 103]: Firmware download size: 905632, progress rate: 98%[0m
+[2019-08-27 10:55:34] [0;32mI (102592) [mupgrade_example, 240]: 0028 3df0[0m
+[2019-08-27 10:55:34] D (102721) [mupgrade_root, 103]: Firmware download size: 907088, progress rate: 98%[0m
+[2019-08-27 10:55:34] [0;32mI (102726) [mupgrade_example, 240]: 3df0 2a93[0m
+[2019-08-27 10:55:34] D (102844) [mupgrade_root, 103]: Firmware download size: 908544, progress rate: 98%[0m
+[2019-08-27 10:55:34] [0;32mI (102848) [mupgrade_example, 240]: 2099 0800[0m
+[2019-08-27 10:55:34] D (102967) [mupgrade_root, 103]: Firmware download size: 910000, progress rate: 98%[0m
+[2019-08-27 10:55:34] [0;32mI (102971) [mupgrade_example, 240]: 0620 c046[0m
+[2019-08-27 10:55:34] D (103100) [mupgrade_root, 103]: Firmware download size: 911456, progress rate: 98%[0m
+[2019-08-27 10:55:34] [0;32mI (103104) [mupgrade_example, 240]: 1900 0000[0m
+[2019-08-27 10:55:34] D (103225) [mupgrade_root, 103]: Firmware download size: 912912, progress rate: 99%[0m
+[2019-08-27 10:55:34] [0;32mI (103232) [mupgrade_example, 240]: a2a0 2000[0m
+[2019-08-27 10:55:34] D (103346) [mupgrade_root, 103]: Firmware download size: 914368, progress rate: 99%[0m
+[2019-08-27 10:55:35] [0;32mI (103351) [mupgrade_example, 240]: a809 0000[0m
+[2019-08-27 10:55:35] D (103480) [mupgrade_root, 103]: Firmware download size: 915824, progress rate: 99%[0m
+[2019-08-27 10:55:35] [0;32mI (103485) [mupgrade_example, 240]: 0051 0000[0m
+[2019-08-27 10:55:35] D (103603) [mupgrade_root, 103]: Firmware download size: 917280, progress rate: 99%[0m
+[2019-08-27 10:55:35] [0;32mI (103608) [mupgrade_example, 240]: 3641 8712[0m
+[2019-08-27 10:55:35] D (103725) [mupgrade_root, 103]: Firmware download size: 918736, progress rate: 99%[0m
+[2019-08-27 10:55:35] [0;32mI (103729) [mupgrade_example, 240]: 2365 0c02[0m
+[2019-08-27 10:55:35] D (103858) [mupgrade_root, 103]: Firmware download size: 920192, progress rate: 99%[0m
+[2019-08-27 10:55:35] [0;32mI (103863) [mupgrade_example, 240]: 1df0 8820[0m
+[2019-08-27 10:55:35] D (103981) [mupgrade_root, 103]: Firmware download size: 921648, progress rate: 99%[0m
+[2019-08-27 10:55:35] [0;32mI (103983) [mupgrade_example, 240]: c020 7b29[0m
+[2019-08-27 10:55:35] D (104102) [mupgrade_root, 103]: Firmware download size: 921872, progress rate: 100%[0m
+[2019-08-27 10:55:35] [0;32mI (104103) esp_image: segment 0: paddr=0x001f0020 vaddr=0x3f400020 size=0x267b0 (157616) map[0m
+[2019-08-27 10:55:35] [0;32mI (104238) esp_image: segment 1: paddr=0x002167d8 vaddr=0x3ffb0000 size=0x02d50 ( 11600) [0m
+[2019-08-27 10:55:35] [0;32mI (104252) esp_image: segment 2: paddr=0x00219530 vaddr=0x40080000 size=0x00400 (  1024) [0m
+[2019-08-27 10:55:35] [0;32mI (104255) esp_image: segment 3: paddr=0x00219938 vaddr=0x40080400 size=0x066d8 ( 26328) [0m
+[2019-08-27 10:55:35] [0;32mI (104280) esp_image: segment 4: paddr=0x00220018 vaddr=0x400d0018 size=0xa721c (684572) map[0m
+[2019-08-27 10:55:36] [0;32mI (104841) esp_image: segment 5: paddr=0x002c723c vaddr=0x40086ad8 size=0x09ea8 ( 40616) [0m
+[2019-08-27 10:55:36] [0;32mI (104878) [mupgrade_example, 258]: The service download firmware is complete, Spend time: 83s[0m
+[2019-08-27 10:55:36] [0;32mI (104878) [mupgrade_example, 265]: 4. The firmware will be sent to each node.[0m
+[2019-08-27 10:55:36] D (104885) [mupgrade_root, 396]: packet_num: 901, total_size: 921872[0m
+[2019-08-27 10:55:36] [0;32mI (104891) [mupgrade_root, 403]: brief Request all devices upgrade status.[0m
+[2019-08-27 10:55:36] [0;32mI (107899) [mupgrade_example, 138]: This mesh package contains upgrade data. node[0m
+[2019-08-27 10:55:39] [0;32mI (107900) esp_image: segment 0: paddr=0x001f0020 vaddr=0x3f400020 size=0x267b0 (157616) map[0m
+[2019-08-27 10:55:39] [0;32mI (108038) esp_image: segment 1: paddr=0x002167d8 vaddr=0x3ffb0000 size=0x02d50 ( 11600) [0m
+[2019-08-27 10:55:39] [0;32mI (108050) esp_image: segment 2: paddr=0x00219530 vaddr=0x40080000 size=0x00400 (  1024) [0m
+[2019-08-27 10:55:39] [0;32mI (108052) esp_image: segment 3: paddr=0x00219938 vaddr=0x40080400 size=0x066d8 ( 26328) [0m
+[2019-08-27 10:55:39] [0;32mI (108077) esp_image: segment 4: paddr=0x00220018 vaddr=0x400d0018 size=0xa721c (684572) map[0m
+[2019-08-27 10:55:39] [0;32mI (108640) esp_image: segment 5: paddr=0x002c723c vaddr=0x40086ad8 size=0x09ea8 ( 40616) [0m
+[2019-08-27 10:55:40] [0;32mI (108714) [mupgrade_example, 329]: MDF_EVENT_MUPGRADE_STARTED, name: hello-world, size: 921872[0m
+[2019-08-27 10:55:40] [0;32mI (108715) [mupgrade_node, 76]: MESH_ROOT update finish[0m
+[2019-08-27 10:55:40] [0;32mI (108719) [mupgrade_example, 334]: Upgrade progress: 100%[0m
+[2019-08-27 10:55:40] D (108725) [mupgrade_node, 135]: Response mupgrade status, written_size: 921872, response_size: 45[0m
+[2019-08-27 10:55:40] [0;32mI (108736) [mupgrade_example, 103]: This mesh package contains upgrade data. root[0m
+[2019-08-27 10:55:40] D (108742) [mupgrade_root, 153]: addr: 3c:71:bf:e0:92:28, size: 45[0m
+[2019-08-27 10:55:40] [0;32mI (108749) [mupgrade_root, 154]: xQueueSend.....................................[0m
+[2019-08-27 10:55:40] D (108757) [mupgrade_root, 251]: xQueueReceive success[0m
+[2019-08-27 10:55:40] D (108762) [mupgrade_root, 264]: Response, src_addr: 3c:71:bf:e0:92:28, request_num: 1, total_size: 921872, written_size: 921872, error_code: MDF_OK[0m
+[2019-08-27 10:55:40] [0;32mI (108775) [mupgrade_root, 267]: Remove the device that upgrade status has been received[0m
+[2019-08-27 10:55:40] [0;32mI (108784) [mupgrade_example, 275]: Firmware is sent to the device to complete, Spend time: 3s[0m
+[2019-08-27 10:55:40] [0;32mI (108793) [mupgrade_example, 276]: Devices upgrade completed, successed_num: 1, unfinished_num: 0[0m
+[2019-08-27 10:55:40] [0;32mI (108803) [mupgrade_example, 281]: 5. the root notifies nodes to restart[0m
+[2019-08-27 10:55:40] [0;32mI (108814) [mupgrade_example, 143]: Receive [ROOT] addr: 3c:71:bf:e0:92:28, size: 7, data: restart[0m
+[2019-08-27 10:55:40] [0;32mI (108820) [mupgrade_example, 149]: Restart the version of the switching device[0m
+[2019-08-27 10:55:40] [0;33mW (108828) [mupgrade_example, 150]: The device will restart after 3 seconds[0m
+[2019-08-27 10:55:40] I (111836) wifi: state: run -> init (0)
+[2019-08-27 10:55:43] I (111837) wifi: pm stop, total sleep time: 0 us / 100736285 us
+[2019-08-27 10:55:43] 
+[2019-08-27 10:55:43] I (111837) wifi: n:11 0, o:11 2, ap:11 2, sta:11 0, prof:11
+[2019-08-27 10:55:43] [0;31mE (111843) event: system_event_sta_disconnected_handle_default 243 esp_wifi_internal_reg_rxcb ret=0x3014[0m
+[2019-08-27 10:55:43] [0;31mE (111850) event: system_event_ap_stop_handle_default 172 esp_wifi_internal_reg_rxcb ret=0x3014[0m
+[2019-08-27 10:55:43] [0;32mI (111860) [mwifi, 99]: Parent is disconnected, reason: 8[0m
+[2019-08-27 10:55:43] I (111866) mesh: [wifi]disconnected reason:8(assoc leave), continuous:0/max:12, root, vote(,stopped)<><>
+[2019-08-27 10:55:43] E (111875) wifi: esp_wifi_disconnect 1142 wifi not start
+[2019-08-27 10:55:43] E (111880) wifi: esp_wifi_vnd_mesh_get 2222 wifi not start
+[2019-08-27 10:55:43] E (111885) wifi: esp_wifi_scan_stop 1282 wifi not start
+[2019-08-27 10:55:43] E (111890) wifi: esp_wifi_connect 1134 wifi not start
+[2019-08-27 10:55:43] E (111895) wifi: esp_wifi_vnd_mesh_set 2209 wifi not start
+[2019-08-27 10:55:43] I (111900) wifi: flush txq
+[2019-08-27 10:55:43] I (111902) wifi: stop sw txq
+[2019-08-27 10:55:43] I (111907) wifi: lmac stop hw txq
+[2019-08-27 10:55:43] ets Jun  8 2016 00:22:57
+[2019-08-27 10:55:43] 
+[2019-08-27 10:55:43] rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[2019-08-27 10:55:43] configsip: 0, SPIWP:0xee
+[2019-08-27 10:55:43] clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+[2019-08-27 10:55:43] mode:DIO, clock div:2
+[2019-08-27 10:55:43] load:0x3fff0018,len:4
+[2019-08-27 10:55:43] load:0x3fff001c,len:6192
+[2019-08-27 10:55:43] ho 0 tail 12 room 4
+[2019-08-27 10:55:43] load:0x40078000,len:10272
+[2019-08-27 10:55:43] load:0x40080400,len:6608
+[2019-08-27 10:55:43] entry 0x40080764
+[2019-08-27 10:55:43] [0;32mI (31) boot: ESP-IDF v3.2.2-42-g4a9f33944-dirty 2nd stage bootloader[0m
+[2019-08-27 10:55:43] [0;32mI (31) boot: compile time 17:46:57[0m
+[2019-08-27 10:55:43] [0;32mI (31) boot: Enabling RNG early entropy source...[0m
+[2019-08-27 10:55:43] [0;32mI (37) boot: SPI Speed      : 40MHz[0m
+[2019-08-27 10:55:43] [0;32mI (41) boot: SPI Mode       : DIO[0m
+[2019-08-27 10:55:43] [0;32mI (45) boot: SPI Flash Size : 4MB[0m
+[2019-08-27 10:55:43] [0;32mI (49) boot: Partition Table:[0m
+[2019-08-27 10:55:43] [0;32mI (53) boot: ## Label            Usage          Type ST Offset   Length[0m
+[2019-08-27 10:55:43] [0;32mI (60) boot:  0 nvs              WiFi data        01 02 00009000 00004000[0m
+[2019-08-27 10:55:43] [0;32mI (68) boot:  1 otadata          OTA data         01 00 0000d000 00002000[0m
+[2019-08-27 10:55:43] [0;32mI (75) boot:  2 phy_init         RF data          01 01 0000f000 00001000[0m
+[2019-08-27 10:55:43] [0;32mI (83) boot:  3 ota_0            OTA app          00 10 00010000 001e0000[0m
+[2019-08-27 10:55:43] [0;32mI (90) boot:  4 ota_1            OTA app          00 11 001f0000 001e0000[0m
+[2019-08-27 10:55:43] [0;32mI (98) boot:  5 coredump         Unknown data     01 03 003d0000 00010000[0m
+[2019-08-27 10:55:43] [0;32mI (105) boot:  6 reserved         Unknown data     01 fe 003e0000 00020000[0m
+[2019-08-27 10:55:43] [0;32mI (113) boot: End of partition table[0m
+[2019-08-27 10:55:43] [0;32mI (117) esp_image: segment 0: paddr=0x001f0020 vaddr=0x3f400020 size=0x267b0 (157616) map[0m
+[2019-08-27 10:55:43] [0;32mI (181) esp_image: segment 1: paddr=0x002167d8 vaddr=0x3ffb0000 size=0x02d50 ( 11600) load[0m
+[2019-08-27 10:55:43] [0;32mI (186) esp_image: segment 2: paddr=0x00219530 vaddr=0x40080000 size=0x00400 (  1024) load[0m
+[2019-08-27 10:55:43] [0;32mI (188) esp_image: segment 3: paddr=0x00219938 vaddr=0x40080400 size=0x066d8 ( 26328) load[0m
+[2019-08-27 10:55:43] [0;32mI (208) esp_image: segment 4: paddr=0x00220018 vaddr=0x400d0018 size=0xa721c (684572) map[0m
+[2019-08-27 10:55:43] [0;32mI (448) esp_image: segment 5: paddr=0x002c723c vaddr=0x40086ad8 size=0x09ea8 ( 40616) load[0m
+[2019-08-27 10:55:44] [0;32mI (475) boot: Loaded app from partition at offset 0x1f0000[0m
+[2019-08-27 10:55:44] [0;32mI (475) boot: Disabling RNG early entropy source...[0m
+[2019-08-27 10:55:44] [0;32mI (475) cpu_start: Pro cpu up.[0m
+[2019-08-27 10:55:44] [0;32mI (479) cpu_start: Single core mode[0m
+[2019-08-27 10:55:44] [0;32mI (483) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[2019-08-27 10:55:44] [0;32mI (490) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[2019-08-27 10:55:44] [0;32mI (496) heap_init: At 3FFB9C98 len 00026368 (152 KiB): DRAM[0m
+[2019-08-27 10:55:44] [0;32mI (503) heap_init: At 3FFE0440 len 0001FBC0 (126 KiB): D/IRAM[0m
+[2019-08-27 10:55:44] [0;32mI (509) heap_init: At 40078000 len 00008000 (32 KiB): IRAM[0m
+[2019-08-27 10:55:44] [0;32mI (515) heap_init: At 40090980 len 0000F680 (61 KiB): IRAM[0m
+[2019-08-27 10:55:44] [0;32mI (521) cpu_start: Pro cpu start user code[0m
+[2019-08-27 10:55:44] D (203) [mupgrade_check, 142]: Add an identifier to the firmware: ** MUPGRADE_FIRMWARE_FLAG **[0m
+[2019-08-27 10:55:44] D (212) [mdf_info_store, 153]: <ESP_ERR_NVS_NOT_FOUND> Get value for given key, key: mupgrade_count[0m
+[2019-08-27 10:55:44] [0;33mW (213) [mupgrade_check, 96]: restart reason: 12, count: 1[0m
+[2019-08-27 10:55:44] [0;32mI (221) cpu_start: Starting scheduler on PRO CPU.[0m
+[2019-08-27 10:55:44] 
+[2019-08-27 10:55:44] Opening Non-Volatile moter1 && moter2 (NVS) handle...
+[2019-08-27 10:55:44] AlarmTempMax1 Failed!
+[2019-08-27 10:55:44] AlarmTempMin1 Failed!
+[2019-08-27 10:55:44] SetTempMax1 Failed!
+[2019-08-27 10:55:44] SetTempMin1 Failed!
+[2019-08-27 10:55:44] TotalTime1 Failed!
+[2019-08-27 10:55:44] OpenPer1 Failed!
+[2019-08-27 10:55:44] TempCalOff1 Failed!
+[2019-08-27 10:55:44] AlarmTempMax2 Failed!
+[2019-08-27 10:55:44] AlarmTempMin2 Failed!
+[2019-08-27 10:55:44] SetTempMax2 Failed!
+[2019-08-27 10:55:44] SetTempMin2 Failed!
+[2019-08-27 10:55:44] TotalTime2 Failed!
+[2019-08-27 10:55:44] OpenPer2 Failed!
+[2019-08-27 10:55:44] TempCalOff2 Failed!
+[2019-08-27 10:55:44] [0;32mI (285) [mdf-mesh, 545]: start mdf_mesh_init[0m
+[2019-08-27 10:55:44] I (293) wifi: wifi driver task: 3ffc20b0, prio:23, stack:3584, core=0
+[2019-08-27 10:55:44] [0;32mI (296) system_api: Base MAC address is not set, read default base MAC address from BLK0 of EFUSE[0m
+[2019-08-27 10:55:44] [0;32mI (306) system_api: Base MAC address is not set, read default base MAC address from BLK0 of EFUSE[0m
+[2019-08-27 10:55:44] I (322) wifi: wifi firmware version: 0c3a77a
+[2019-08-27 10:55:44] I (322) wifi: config NVS flash: enabled
+[2019-08-27 10:55:44] I (323) wifi: config nano formating: disabled
+[2019-08-27 10:55:44] I (327) wifi: Init dynamic tx buffer num: 32
+[2019-08-27 10:55:44] I (331) wifi: Init data frame dynamic rx buffer num: 32
+[2019-08-27 10:55:44] I (336) wifi: Init management frame dynamic rx buffer num: 32
+[2019-08-27 10:55:44] I (341) wifi: Init management short buffer num: 32
+[2019-08-27 10:55:44] I (346) wifi: Init static rx buffer size: 1600
+[2019-08-27 10:55:44] I (350) wifi: Init static rx buffer num: 10
+[2019-08-27 10:55:44] I (354) wifi: Init dynamic rx buffer num: 32
+[2019-08-27 10:55:44] I (359) wifi: Set ps type: 0
+[2019-08-27 10:55:44] 
+[2019-08-27 10:55:44] [0;32mI (421) phy: phy_version: 4008, 544f89f, Jan 24 2019, 14:54:06, 0, 0[0m
+[2019-08-27 10:55:44] I (422) wifi: mode : sta (3c:71:bf:e0:92:28)
+[2019-08-27 10:55:44] [0;32mI (424) [mwifi, 177]: esp-mdf version: 5aa32d3-dirty[0m
+[2019-08-27 10:55:44] W (427) wifi: [beacon]new interval:100ms
+[2019-08-27 10:55:44] I (431) wifi: mode : sta (3c:71:bf:e0:92:28) + softAP (3c:71:bf:e0:92:29)
+[2019-08-27 10:55:44] I (438) wifi: Total power save buffer number: 16
+[2019-08-27 10:55:44] I (441) wifi: Init max length of beacon: 752/752
+[2019-08-27 10:55:44] I (446) wifi: Init max length of beacon: 752/752
+[2019-08-27 10:55:44] I (454) mesh: <nvs>read layer:1
+[2019-08-27 10:55:44] I (454) mesh: <nvs>read assoc:0, err:0x1102
+[2019-08-27 10:55:44] [0;32mI (457) [mdf-mesh, 41]: get_dev_num[0m
+[2019-08-27 10:55:44] [0;31mE (460) [mdf-mesh, 49]: 该设备MAC地址不在dest_addr中[0m
+[2019-08-27 10:55:44] [0;32mI (467) [mdf-mesh, 567]: NODE device:4[0m
+[2019-08-27 10:55:44] W (472) wifi: [beacon]interval:100ms
+[2019-08-27 10:55:44] I (475) mesh: [CONFIG]invalid router settings, ssid_len:0, ssid:, bssid:00:00:00:00:00:00
+[2019-08-27 10:55:44] I (488) wifi: Total power save buffer number: 16
+[2019-08-27 10:55:44] I (1489) wifi: Set ps type: 0
+[2019-08-27 10:55:45] 
+[2019-08-27 10:55:45] [0;32mI (1495) [mwifi, 113]: MESH is started[0m
+[2019-08-27 10:55:45] [0;32mI (1496) [mdf-mesh, 500]: event_loop_cb, event: 0[0m
+[2019-08-27 10:55:45] [0;32mI (1496) [mdf-mesh, 504]: MESH is started[0m
+[2019-08-27 10:55:45] [0;32mI (1499) [mdf-mesh, 591]: MESH_NODE[0m
+[2019-08-27 10:55:45] [0;32mI (1503) [mdf-mesh, 256]: Note read task is running[0m
+[2019-08-27 10:55:45] [0;32mI (1509) gpio: GPIO[25]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[2019-08-27 10:55:45] [0;32mI (1518) gpio: GPIO[26]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[2019-08-27 10:55:45] [0;32mI (1527) gpio: GPIO[27]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[2019-08-27 10:55:45] [0;32mI (1537) gpio: GPIO[17]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[2019-08-27 10:55:45] [0;32mI (1546) gpio: GPIO[5]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[2019-08-27 10:55:45] [0;32mI (1555) gpio: GPIO[18]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[2019-08-27 10:55:45] [0;32mI (1565) gpio: GPIO[19]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[2019-08-27 10:55:45] eFuse Two Point: NOT supported
+[2019-08-27 10:55:45] eFuse Vref: Supported
+[2019-08-27 10:55:45] Characterized using eFuse Vref
+[2019-08-27 10:55:45] [0;32mI (1581) [temp_info, 59]: temp task is start[0m
+[2019-08-27 10:55:45] [0;32mI (1586) [temp_info, 132]: register temp info[4],TempCalOff:0[0m
+[2019-08-27 10:55:45] [0;32mI (1593) [temp_info, 132]: register temp info[5],TempCalOff:0[0m
+[2019-08-27 10:55:45] [0;32mI (1600) gpio: GPIO[36]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:3 [0m
+[2019-08-27 10:55:45] [0;32mI (1609) gpio: GPIO[39]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:3 [0m
+[2019-08-27 10:55:45] [0;32mI (1619) gpio: GPIO[34]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:3 [0m
+[2019-08-27 10:55:45] [0;32mI (1627) gpio: GPIO[35]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:3 [0m
+[2019-08-27 10:55:45] [0;32mI (1638) uart: queue free spaces: 10[0m
+[2019-08-27 10:55:45] I (1796) mesh: [SCAN][ch:12]AP:1, other(ID:0, RD:0), MAP:0, idle:0, candidate:0, root:0, topMAP:0[c:1,i:1][00:00:00:00:00:00][FIXED-ROOT]<>
+[2019-08-27 10:55:45] I (1798) mesh: [FAIL][1]root:0, fail:1, normal:0
+[2019-08-27 10:55:45] 
+[2019-08-27 10:55:45] I (2104) mesh: [SCAN][ch:12]AP:1, other(ID:0, RD:0), MAP:0, idle:0, candidate:0, root:0, topMAP:0[c:0,i:1][00:00:00:00:00:00][FIXED-ROOT]<>
+[2019-08-27 10:55:46] I (2106) mesh: [FAIL][2]root:0, fail:2, normal:0
+[2019-08-27 10:55:46] 
+[2019-08-27 10:55:46] I (2412) mesh: [SCAN][ch:12]AP:1, other(ID:0, RD:0), MAP:1, idle:1, candidate:0, root:0, topMAP:0[c:0,i:1][00:00:00:00:00:00][FIXED-ROOT]<>
+[2019-08-27 10:55:46] I (2415) mesh: [FAIL][3]root:0, fail:3, normal:0
+[2019-08-27 10:55:46] 
+[2019-08-27 10:55:46] I (2721) mesh: [SCAN][ch:12]AP:1, other(ID:0, RD:0), MAP:1, idle:1, candidate:0, root:0, topMAP:0[c:0,i:1][00:00:00:00:00:00][FIXED-ROOT]<>
+[2019-08-27 10:55:46] I (2723) mesh: [FAIL][4]root:0, fail:4, normal:0
+[2019-08-27 10:55:46] 
+[2019-08-27 10:55:46] I (3030) mesh: [SCAN][ch:12]AP:1, other(ID:0, RD:0), MAP:1, idle:1, candidate:0, root:0, topMAP:0[c:0,i:1][00:00:00:00:00:00][FIXED-ROOT]<>
+[2019-08-27 10:55:46] I (3032) mesh: [FAIL][5]root:0, fail:5, normal:0
+[2019-08-27 10:55:46] 
+[2019-08-27 10:55:46] 

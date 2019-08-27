@@ -1,0 +1,118 @@
+ boot: ESP-Iüets Jun  8 2016 00:22:57
+[2019-08-27 10:41:58] 
+[2019-08-27 10:41:58] rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[2019-08-27 10:41:58] configsip: 0, SPIWP:0xee
+[2019-08-27 10:41:58] clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+[2019-08-27 10:41:58] mode:DIO, clock div:2
+[2019-08-27 10:41:58] load:0x3fff0018,len:4
+[2019-08-27 10:41:58] load:0x3fff001c,len:6192
+[2019-08-27 10:41:58] ho 0 tail 12 room 4
+[2019-08-27 10:41:58] load:0x40078000,len:10272
+[2019-08-27 10:41:58] load:0x40080400,len:6608
+[2019-08-27 10:41:58] entry 0x40080764
+[2019-08-27 10:41:58] [0;32mI (30) boot: ESP-IDF v3.2.2-42-g4a9f33944-dirty 2nd stage bootloader[0m
+[2019-08-27 10:41:58] [0;32mI (30) boot: compile time 10:41:23[0m
+[2019-08-27 10:41:58] [0;32mI (30) boot: Enabling RNG early entropy source...[0m
+[2019-08-27 10:41:58] [0;32mI (37) boot: SPI Speed      : 40MHz[0m
+[2019-08-27 10:41:58] [0;32mI (41) boot: SPI Mode       : DIO[0m
+[2019-08-27 10:41:58] [0;32mI (45) boot: SPI Flash Size : 4MB[0m
+[2019-08-27 10:41:58] [0;32mI (49) boot: Partition Table:[0m
+[2019-08-27 10:41:58] [0;32mI (52) boot: ## Label            Usage          Type ST Offset   Length[0m
+[2019-08-27 10:41:58] [0;32mI (60) boot:  0 nvs              WiFi data        01 02 00009000 00004000[0m
+[2019-08-27 10:41:58] [0;32mI (67) boot:  1 otadata          OTA data         01 00 0000d000 00002000[0m
+[2019-08-27 10:41:58] [0;32mI (75) boot:  2 phy_init         RF data          01 01 0000f000 00001000[0m
+[2019-08-27 10:41:58] [0;32mI (82) boot:  3 ota_0            OTA app          00 10 00010000 001e0000[0m
+[2019-08-27 10:41:58] [0;32mI (89) boot:  4 ota_1            OTA app          00 11 001f0000 001e0000[0m
+[2019-08-27 10:41:58] [0;32mI (97) boot:  5 coredump         Unknown data     01 03 003d0000 00010000[0m
+[2019-08-27 10:41:58] [0;32mI (104) boot:  6 reserved         Unknown data     01 fe 003e0000 00020000[0m
+[2019-08-27 10:41:58] [0;32mI (112) boot: End of partition table[0m
+[2019-08-27 10:41:58] [0;32mI (116) boot: No factory image, trying OTA 0[0m
+[2019-08-27 10:41:58] [0;32mI (121) esp_image: segment 0: paddr=0x00010020 vaddr=0x3f400020 size=0x22b08 (142088) map[0m
+[2019-08-27 10:41:58] [0;32mI (180) esp_image: segment 1: paddr=0x00032b30 vaddr=0x3ffb0000 size=0x02b9c ( 11164) load[0m
+[2019-08-27 10:41:58] [0;32mI (185) esp_image: segment 2: paddr=0x000356d4 vaddr=0x40080000 size=0x00400 (  1024) load[0m
+[2019-08-27 10:41:58] [0;32mI (187) esp_image: segment 3: paddr=0x00035adc vaddr=0x40080400 size=0x0a534 ( 42292) load[0m
+[2019-08-27 10:41:58] [0;32mI (213) esp_image: segment 4: paddr=0x00040018 vaddr=0x400d0018 size=0x99eac (630444) map[0m
+[2019-08-27 10:41:58] [0;32mI (434) esp_image: segment 5: paddr=0x000d9ecc vaddr=0x4008a934 size=0x05f6c ( 24428) load[0m
+[2019-08-27 10:41:59] [0;32mI (454) boot: Loaded app from partition at offset 0x10000[0m
+[2019-08-27 10:41:59] [0;32mI (454) boot: Disabling RNG early entropy source...[0m
+[2019-08-27 10:41:59] [0;32mI (455) cpu_start: Pro cpu up.[0m
+[2019-08-27 10:41:59] [0;32mI (459) cpu_start: Single core mode[0m
+[2019-08-27 10:41:59] [0;32mI (463) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[2019-08-27 10:41:59] [0;32mI (470) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[2019-08-27 10:41:59] [0;32mI (476) heap_init: At 3FFB9968 len 00026698 (153 KiB): DRAM[0m
+[2019-08-27 10:41:59] [0;32mI (482) heap_init: At 3FFE0440 len 0001FBC0 (126 KiB): D/IRAM[0m
+[2019-08-27 10:41:59] [0;32mI (489) heap_init: At 40078000 len 00008000 (32 KiB): IRAM[0m
+[2019-08-27 10:41:59] [0;32mI (495) heap_init: At 400908A0 len 0000F760 (61 KiB): IRAM[0m
+[2019-08-27 10:41:59] [0;32mI (501) cpu_start: Pro cpu start user code[0m
+[2019-08-27 10:41:59] D (183) [mupgrade_check, 142]: Add an identifier to the firmware: ** MUPGRADE_FIRMWARE_FLAG **[0m
+[2019-08-27 10:41:59] [0;32mI (194) cpu_start: Starting scheduler on PRO CPU.[0m
+[2019-08-27 10:41:59] [0;32mI (195) [mupgrade_example, 396]: Starting OTA example ...[0m
+[2019-08-27 10:41:59] I (199) wifi: wifi driver task: 3ffc1c0c, prio:23, stack:3584, core=0
+[2019-08-27 10:41:59] [0;32mI (201) system_api: Base MAC address is not set, read default base MAC address from BLK0 of EFUSE[0m
+[2019-08-27 10:41:59] [0;32mI (211) system_api: Base MAC address is not set, read default base MAC address from BLK0 of EFUSE[0m
+[2019-08-27 10:41:59] I (231) wifi: wifi firmware version: 0c3a77a
+[2019-08-27 10:41:59] I (232) wifi: config NVS flash: enabled
+[2019-08-27 10:41:59] I (232) wifi: config nano formating: disabled
+[2019-08-27 10:41:59] I (234) wifi: Init dynamic tx buffer num: 32
+[2019-08-27 10:41:59] I (238) wifi: Init data frame dynamic rx buffer num: 32
+[2019-08-27 10:41:59] I (243) wifi: Init management frame dynamic rx buffer num: 32
+[2019-08-27 10:41:59] I (249) wifi: Init management short buffer num: 32
+[2019-08-27 10:41:59] I (253) wifi: Init static rx buffer size: 1600
+[2019-08-27 10:41:59] I (257) wifi: Init static rx buffer num: 10
+[2019-08-27 10:41:59] I (261) wifi: Init dynamic rx buffer num: 32
+[2019-08-27 10:41:59] I (266) wifi: Set ps type: 0
+[2019-08-27 10:41:59] 
+[2019-08-27 10:41:59] [0;33mW (268) phy_init: failed to load RF calibration data (0x1102), falling back to full calibration[0m
+[2019-08-27 10:41:59] [0;32mI (438) phy: phy_version: 4008, 544f89f, Jan 24 2019, 14:54:06, 0, 2[0m
+[2019-08-27 10:41:59] I (445) wifi: mode : sta (3c:71:bf:e0:92:28)
+[2019-08-27 10:41:59] [0;32mI (447) [mwifi, 177]: esp-mdf version: v1.0-beta1-dirty[0m
+[2019-08-27 10:41:59] W (447) wifi: [beacon]interval:100ms
+[2019-08-27 10:41:59] I (449) wifi: mode : sta (3c:71:bf:e0:92:28) + softAP (3c:71:bf:e0:92:29)
+[2019-08-27 10:41:59] I (457) wifi: Total power save buffer number: 16
+[2019-08-27 10:41:59] I (460) wifi: Init max length of beacon: 752/752
+[2019-08-27 10:41:59] I (465) wifi: Init max length of beacon: 752/752
+[2019-08-27 10:41:59] I (472) mesh: <nvs>read layer:0, err:0x1102
+[2019-08-27 10:41:59] I (472) mesh: <nvs>read assoc:0, err:0x1102
+[2019-08-27 10:41:59] W (477) wifi: [beacon]interval:100ms
+[2019-08-27 10:41:59] I (480) mesh: [CONFIG]invalid router settings, ssid_len:0, ssid:, bssid:00:00:00:00:00:00
+[2019-08-27 10:41:59] I (493) wifi: Total power save buffer number: 16
+[2019-08-27 10:41:59] I (1493) wifi: Set ps type: 0
+[2019-08-27 10:42:00] 
+[2019-08-27 10:42:00] [0;32mI (1498) [mwifi, 113]: MESH is started[0m
+[2019-08-27 10:42:00] [0;32mI (1499) [mupgrade_example, 97]: Uart handle task is running[0m
+[2019-08-27 10:42:00] I (1799) mesh: [SCAN][ch:13]AP:5, other(ID:0, RD:0), MAP:1, idle:0, candidate:1, root:1, topMAP:0[c:0,i:0][00:00:00:00:00:00][FIXED-ROOT]<>
+[2019-08-27 10:42:00] I (1802) mesh: 6563[selection]try rssi_threshold:-78, backoff times:0, max:5<-78,-82,-85>
+[2019-08-27 10:42:00] I (1810) mesh: [DONE]connect to parent:ESPM_E092B8, channel:13, rssi:-16, 3c:71:bf:e0:92:b9[layer:1, assoc:0], my_vote_num:0/voter_num:0, rc[00:00:00:00:00:00/-120/0]
+[2019-08-27 10:42:00] I (3334) wifi: n:13 2, o:13 0, ap:13 2, sta:13 2, prof:13
+[2019-08-27 10:42:02] I (3335) wifi: state: init -> auth (b0)
+[2019-08-27 10:42:02] I (3348) wifi: state: auth -> assoc (0)
+[2019-08-27 10:42:02] I (3359) wifi: state: assoc -> run (10)
+[2019-08-27 10:42:02] I (3360) wifi: connected with ESPM_E092B8, channel 13, 40D
+[2019-08-27 10:42:02] I (3363) wifi: pm start, type: 0
+[2019-08-27 10:42:02] 
+[2019-08-27 10:42:02] I (3368) mesh: [scan]new scanning time:600ms
+[2019-08-27 10:42:02] W (3368) wifi: [beacon]new interval:300ms
+[2019-08-27 10:42:02] I (3369) mesh: 1891<arm>parent monitor, my layer:2(cap:16)(node), interval:4507ms, retries:1<normal connected>
+[2019-08-27 10:42:02] [0;32mI (3378) [mwifi, 80]: Parent is connected[0m
+[2019-08-27 10:42:02] [0;32mI (3383) [mupgrade_example, 310]: MDF_EVENT_PARENT_CONNECTED[0m
+[2019-08-27 10:42:02] [0;32mI (3384) [mwifi, 149]: State represents: 0[0m
+[2019-08-27 10:42:02] [0;32mI (3396) [mupgrade_example, 170]: Node read task is running[0m
+[2019-08-27 10:42:02] I (7997) mesh: 4433<active>parent layer:1(node), channel:13, rssi:-11, assoc:0(cnx rssi threshold:-120)my_assoc:0
+[2019-08-27 10:42:07] I (9501) mesh: 5177<scan>parent layer:1, rssi:-12, assoc:1(cnx rssi threshold:-120)
+[2019-08-27 10:42:08] I (9502) mesh: [SCAN][ch:13]AP:1, other(ID:0, RD:0), MAP:1, idle:0, candidate:1, root:1, topMAP:0[c:2,i:2][00:00:00:00:00:00][FIXED-ROOT]<weak>
+[2019-08-27 10:42:08] I (9511) mesh: 6563[weak]try rssi_threshold:-120, backoff times:0, max:5<-78,-82,-85>
+[2019-08-27 10:42:08] I (9518) mesh: 616[monitor]no change, parent:3c:71:bf:e0:92:b9, rssi:-12
+[2019-08-27 10:42:08] I (9524) mesh: 1891<arm>parent monitor, my layer:2(cap:16)(node), interval:12056ms, retries:2<>
+[2019-08-27 10:42:08] I (21880) mesh: 4433<active>parent layer:1(node), channel:13, rssi:-11, assoc:1(cnx rssi threshold:-120)my_assoc:0
+[2019-08-27 10:42:20] I (23383) mesh: 5177<scan>parent layer:1, rssi:-14, assoc:1(cnx rssi threshold:-120)
+[2019-08-27 10:42:22] I (23384) mesh: [SCAN][ch:13]AP:1, other(ID:0, RD:0), MAP:1, idle:0, candidate:1, root:1, topMAP:0[c:0,i:2][00:00:00:00:00:00][FIXED-ROOT]<weak>
+[2019-08-27 10:42:22] I (23393) mesh: 6563[weak]try rssi_threshold:-120, backoff times:0, max:5<-78,-82,-85>
+[2019-08-27 10:42:22] I (23400) mesh: 616[monitor]no change, parent:3c:71:bf:e0:92:b9, rssi:-14
+[2019-08-27 10:42:22] I (23407) mesh: 1891<arm>parent monitor, my layer:2(cap:16)(node), interval:10773ms, retries:3<>
+[2019-08-27 10:42:22] I (34447) mesh: 4433<active>parent layer:1(node), channel:13, rssi:-11, assoc:1(cnx rssi threshold:-120)my_assoc:0
+[2019-08-27 10:42:33] I (35952) mesh: 5177<scan>parent layer:1, rssi:-14, assoc:1(cnx rssi threshold:-120)
+[2019-08-27 10:42:35] I (35952) mesh: [SCAN][ch:13]AP:1, other(ID:0, RD:0), MAP:1, idle:0, candidate:1, root:1, topMAP:0[c:2,i:2][00:00:00:00:00:00][FIXED-ROOT]<weak>
+[2019-08-27 10:42:35] I (35961) mesh: 6563[weak]try rssi_threshold:-120, backoff times:0, max:5<-78,-82,-85>
+[2019-08-27 10:42:35] I (35969) mesh: 616[monitor]no change, parent:3c:71:bf:e0:92:b9, rssi:-14
+[2019-08-27 10:42:35] I (35976) mesh: 1891<arm>parent monitor, my layer:2(cap:16)(node), interval:294449ms, retries:3<>
+[2019-08-27 10:42:35] 

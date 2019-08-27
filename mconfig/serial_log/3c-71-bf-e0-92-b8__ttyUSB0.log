@@ -1,0 +1,206 @@
+.2.2-42-g4a9f3óets Jun  8 2016 00:22:57
+[2019-08-23 12:23:19] 
+[2019-08-23 12:23:19] rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[2019-08-23 12:23:19] configsip: 0, SPIWP:0xee
+[2019-08-23 12:23:19] clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+[2019-08-23 12:23:19] mode:DIO, clock div:2
+[2019-08-23 12:23:19] load:0x3fff0018,len:4
+[2019-08-23 12:23:19] load:0x3fff001c,len:6192
+[2019-08-23 12:23:19] ho 0 tail 12 room 4
+[2019-08-23 12:23:19] load:0x40078000,len:10272
+[2019-08-23 12:23:19] load:0x40080400,len:6608
+[2019-08-23 12:23:19] entry 0x40080764
+[2019-08-23 12:23:19] [0;32mI (30) boot: ESP-IDF v3.2.2-42-g4a9f33944-dirty 2nd stage bootloader[0m
+[2019-08-23 12:23:19] [0;32mI (30) boot: compile time 12:22:00[0m
+[2019-08-23 12:23:19] [0;32mI (30) boot: Enabling RNG early entropy source...[0m
+[2019-08-23 12:23:19] [0;32mI (36) boot: SPI Speed      : 40MHz[0m
+[2019-08-23 12:23:19] [0;32mI (40) boot: SPI Mode       : DIO[0m
+[2019-08-23 12:23:19] [0;32mI (44) boot: SPI Flash Size : 4MB[0m
+[2019-08-23 12:23:19] [0;32mI (49) boot: Partition Table:[0m
+[2019-08-23 12:23:19] [0;32mI (52) boot: ## Label            Usage          Type ST Offset   Length[0m
+[2019-08-23 12:23:19] [0;32mI (59) boot:  0 nvs              WiFi data        01 02 00009000 00004000[0m
+[2019-08-23 12:23:19] [0;32mI (67) boot:  1 otadata          OTA data         01 00 0000d000 00002000[0m
+[2019-08-23 12:23:19] [0;32mI (74) boot:  2 phy_init         RF data          01 01 0000f000 00001000[0m
+[2019-08-23 12:23:19] [0;32mI (82) boot:  3 ota_0            OTA app          00 10 00010000 001e0000[0m
+[2019-08-23 12:23:19] [0;32mI (89) boot:  4 ota_1            OTA app          00 11 001f0000 001e0000[0m
+[2019-08-23 12:23:19] [0;32mI (97) boot:  5 coredump         Unknown data     01 03 003d0000 00010000[0m
+[2019-08-23 12:23:19] [0;32mI (104) boot:  6 reserved         Unknown data     01 fe 003e0000 00020000[0m
+[2019-08-23 12:23:19] [0;32mI (112) boot: End of partition table[0m
+[2019-08-23 12:23:19] [0;32mI (116) boot: No factory image, trying OTA 0[0m
+[2019-08-23 12:23:19] [0;32mI (121) esp_image: segment 0: paddr=0x00010020 vaddr=0x3f400020 size=0x33e38 (212536) map[0m
+[2019-08-23 12:23:19] [0;32mI (204) esp_image: segment 1: paddr=0x00043e60 vaddr=0x3ffbdb60 size=0x030f8 ( 12536) load[0m
+[2019-08-23 12:23:19] [0;32mI (210) esp_image: segment 2: paddr=0x00046f60 vaddr=0x40080000 size=0x00400 (  1024) load[0m
+[2019-08-23 12:23:19] [0;32mI (212) esp_image: segment 3: paddr=0x00047368 vaddr=0x40080400 size=0x08ca8 ( 36008) load[0m
+[2019-08-23 12:23:19] [0;32mI (235) esp_image: segment 4: paddr=0x00050018 vaddr=0x400d0018 size=0xdbc98 (900248) map[0m
+[2019-08-23 12:23:19] [0;32mI (551) esp_image: segment 5: paddr=0x0012bcb8 vaddr=0x400890a8 size=0x0d238 ( 53816) load[0m
+[2019-08-23 12:23:20] [0;32mI (586) boot: Loaded app from partition at offset 0x10000[0m
+[2019-08-23 12:23:20] [0;32mI (586) boot: Disabling RNG early entropy source...[0m
+[2019-08-23 12:23:20] [0;32mI (587) cpu_start: Pro cpu up.[0m
+[2019-08-23 12:23:20] [0;32mI (590) cpu_start: Single core mode[0m
+[2019-08-23 12:23:20] [0;32mI (595) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[2019-08-23 12:23:20] [0;32mI (601) heap_init: At 3FFAFF10 len 000000F0 (0 KiB): DRAM[0m
+[2019-08-23 12:23:20] [0;32mI (607) heap_init: At 3FFB6388 len 00001C78 (7 KiB): DRAM[0m
+[2019-08-23 12:23:20] [0;32mI (614) heap_init: At 3FFB9A20 len 00004108 (16 KiB): DRAM[0m
+[2019-08-23 12:23:20] [0;32mI (620) heap_init: At 3FFBDB5C len 00000004 (0 KiB): DRAM[0m
+[2019-08-23 12:23:20] [0;32mI (626) heap_init: At 3FFC8D88 len 00017278 (92 KiB): DRAM[0m
+[2019-08-23 12:23:20] [0;32mI (632) heap_init: At 3FFE0440 len 0001FBC0 (126 KiB): D/IRAM[0m
+[2019-08-23 12:23:20] [0;32mI (638) heap_init: At 40078000 len 00008000 (32 KiB): IRAM[0m
+[2019-08-23 12:23:20] [0;32mI (645) heap_init: At 400962E0 len 00009D20 (39 KiB): IRAM[0m
+[2019-08-23 12:23:20] [0;32mI (651) cpu_start: Pro cpu start user code[0m
+[2019-08-23 12:23:20] [0;32mI (334) cpu_start: Starting scheduler on PRO CPU.[0m
+[2019-08-23 12:23:20] I (363) wifi: wifi driver task: 3ffcca88, prio:23, stack:3584, core=0
+[2019-08-23 12:23:20] [0;32mI (363) system_api: Base MAC address is not set, read default base MAC address from BLK0 of EFUSE[0m
+[2019-08-23 12:23:20] [0;32mI (368) system_api: Base MAC address is not set, read default base MAC address from BLK0 of EFUSE[0m
+[2019-08-23 12:23:20] I (388) wifi: wifi firmware version: 0c3a77a
+[2019-08-23 12:23:20] I (388) wifi: config NVS flash: enabled
+[2019-08-23 12:23:20] I (388) wifi: config nano formating: disabled
+[2019-08-23 12:23:20] I (389) wifi: Init dynamic tx buffer num: 32
+[2019-08-23 12:23:20] I (393) wifi: Init data frame dynamic rx buffer num: 32
+[2019-08-23 12:23:20] I (398) wifi: Init management frame dynamic rx buffer num: 32
+[2019-08-23 12:23:20] I (403) wifi: Init management short buffer num: 32
+[2019-08-23 12:23:20] I (408) wifi: Init static rx buffer size: 1600
+[2019-08-23 12:23:20] I (412) wifi: Init static rx buffer num: 10
+[2019-08-23 12:23:20] I (416) wifi: Init dynamic rx buffer num: 32
+[2019-08-23 12:23:20] I (421) wifi: Set ps type: 0
+[2019-08-23 12:23:20] 
+[2019-08-23 12:23:20] [0;33mW (423) phy_init: failed to load RF calibration data (0x1102), falling back to full calibration[0m
+[2019-08-23 12:23:20] [0;32mI (598) phy: phy_version: 4008, 544f89f, Jan 24 2019, 14:54:06, 0, 2[0m
+[2019-08-23 12:23:20] I (606) wifi: mode : sta (3c:71:bf:e0:92:b8)
+[2019-08-23 12:23:20] I (608) ESPNOW: espnow [version: 1.0] init
+[2019-08-23 12:23:20] [0;32mI (609) [mconfig_example, 104]: BLE name: HQF_MESH_92b8[0m
+[2019-08-23 12:23:20] [0;32mI (610) [mconfig_example, 59]: event_loop_cb, event: 8704[0m
+[2019-08-23 12:23:20] [0;32mI (1357) BTDM_INIT: BT controller compile version [5186949][0m
+[2019-08-23 12:23:21] [0;32mI (1358) system_api: Base MAC address is not set, read default base MAC address from BLK0 of EFUSE[0m
+[2019-08-23 12:23:21] [0;32mI (1767) [mconfig_blufi, 545]: BLUFI init finish, set ble advertising data[0m
+[2019-08-23 12:23:21] [0;32mI (1768) system_api: Base MAC address is not set, read default base MAC address from BLK0 of EFUSE[0m
+[2019-08-23 12:23:21] [0;32mI (1776) [mconfig_blufi, 874]: start ble advertising[0m
+[2019-08-23 12:23:21] [0;32mI (1782) [mconfig_example, 59]: event_loop_cb, event: 8449[0m
+[2019-08-23 12:23:21] [0;32mI (2677) [mconfig_chain, 357]: Generate RSA public and private keys[0m
+[2019-08-23 12:23:22] I (2678) wifi: ic_enable_sniffer
+[2019-08-23 12:23:22] D (50674) [mconfig_chain, 373]: rssi: -22, bssid: 3c:71:bf:e0:92:29[0m
+[2019-08-23 12:24:10] [0;32mI (50680) [mconfig_example, 59]: event_loop_cb, event: 4609[0m
+[2019-08-23 12:24:10] [0;32mI (50715) [mconfig_example, 59]: event_loop_cb, event: 4608[0m
+[2019-08-23 12:24:10] [0;32mI (50723) [mconfig_example, 59]: event_loop_cb, event: 4608[0m
+[2019-08-23 12:24:10] [0;32mI (50977) [mconfig_example, 59]: event_loop_cb, event: 8451[0m
+[2019-08-23 12:24:10] I (50978) wifi: ic_disable_sniffer
+[2019-08-23 12:24:10] D (50978) [mconfig_chain, 561]: mconfig_chain_slave_deinit[0m
+[2019-08-23 12:24:10] [0;32mI (50983) [mconfig_blufi, 550]: BLUFI deinit finish[0m
+[2019-08-23 12:24:10] [0;33mW (50988) BT_APPL: bta_dm_disable BTA_DISABLE_DELAY set to 200 ms[0m
+[2019-08-23 12:24:10] [0;32mI (51200) [mconfig_example, 59]: event_loop_cb, event: 8705[0m
+[2019-08-23 12:24:11] [0;32mI (51201) [mconfig_chain, 157]: Start send network configured[0m
+[2019-08-23 12:24:11] [0;32mI (51202) [mconfig_example, 59]: event_loop_cb, event: 8452[0m
+[2019-08-23 12:24:11] D (51208) [mconfig_chain, 163]: g_chain_master_duration_ticks: 60000[0m
+[2019-08-23 12:24:11] [0;32mI (51215) [mconfig_example, 180]: mconfig, ssid: SIRUIA_2.4G, password: srv20170928, mesh_id: 78:44:fd:a3:ed:75, custom: Z²
+[2019-08-23 12:24:11] [0m
+[2019-08-23 12:24:11] [0;32mI (51227) [mwifi, 177]: esp-mdf version: v1.0-beta1-dirty[0m
+[2019-08-23 12:24:11] W (51233) wifi: [beacon]interval:100ms
+[2019-08-23 12:24:11] I (51237) wifi: mode : sta (3c:71:bf:e0:92:b8) + softAP (3c:71:bf:e0:92:b9)
+[2019-08-23 12:24:11] I (51245) wifi: Total power save buffer number: 16
+[2019-08-23 12:24:11] I (51247) wifi: Init max length of beacon: 752/752
+[2019-08-23 12:24:11] I (51252) wifi: Init max length of beacon: 752/752
+[2019-08-23 12:24:11] I (51260) mesh: <nvs>read layer:0, err:0x1102
+[2019-08-23 12:24:11] I (51261) mesh: <nvs>read assoc:0, err:0x1102
+[2019-08-23 12:24:11] W (51266) wifi: [beacon]interval:100ms
+[2019-08-23 12:24:11] I (51274) wifi: Total power save buffer number: 16
+[2019-08-23 12:24:11] I (52277) wifi: Set ps type: 0
+[2019-08-23 12:24:12] 
+[2019-08-23 12:24:12] I (52282) wifi: mode : sta (3c:71:bf:e0:92:b8)
+[2019-08-23 12:24:12] I (52284) mesh: <MESH_NWK_LOOK_FOR_NETWORK>need_scan:0x1, need_scan_router:0x0, look_for_nwk_count:1
+[2019-08-23 12:24:12] [0;32mI (52285) [mwifi, 113]: MESH is started[0m
+[2019-08-23 12:24:12] [0;32mI (52289) [mconfig_example, 59]: event_loop_cb, event: 0[0m
+[2019-08-23 12:24:12] [0;32mI (52295) [mconfig_example, 63]: MDF_EVENT_MWIFI_STARTED[0m
+[2019-08-23 12:24:12] I (52587) mesh: [S1]SIRUIA_2.4G, 78:44:fd:a3:ed:75, channel:11, rssi:-61
+[2019-08-23 12:24:12] I (52588) mesh: find router:[ssid_len:11]SIRUIA_2.4G, rssi:-61, 78:44:fd:a3:ed:75(encrypted), new channel:11, old channel:0
+[2019-08-23 12:24:12] I (52594) mesh: [FIND][ch:11]AP:2, otherID:0, MAP:1, idle:1, candidate:0, root:0[78:44:fd:a3:ed:75]router found
+[2019-08-23 12:24:12] I (52603) mesh: [FIND:1]find a network, channel:11, cfg<channel:11, router:SIRUIA_2.4G, 78:44:fd:a3:ed:75>
+[2019-08-23 12:24:12] 
+[2019-08-23 12:24:12] [0;32mI (52613) [mconfig_example, 59]: event_loop_cb, event: 24[0m
+[2019-08-23 12:24:12] I (52614) wifi: mode : sta (3c:71:bf:e0:92:b8) + softAP (3c:71:bf:e0:92:b9)
+[2019-08-23 12:24:12] W (52627) wifi: <MESH AP>adjust channel:11, secondary channel offset:2(40D)
+[2019-08-23 12:24:12] I (52633) wifi: Total power save buffer number: 16
+[2019-08-23 12:24:12] I (52943) mesh: [SCAN][ch:11]AP:3, other(ID:0, RD:0), MAP:1, idle:1, candidate:1, root:0, topMAP:0[c:0,i:0][78:44:fd:a3:ed:75]router found<>
+[2019-08-23 12:24:12] I (52947) mesh: 6104[SCAN]init rc[ttl:127/votes:2][3c:71:bf:e0:92:29,-66]
+[2019-08-23 12:24:12] I (52951) mesh: 1250, vote myself, router rssi:-60 > voted rc_rssi:-66
+[2019-08-23 12:24:12] I (52958) mesh: [SCAN:1/10]rc[128][3c:71:bf:e0:92:b9,-60], self[3c:71:bf:e0:92:b8,-60,reason:0,votes:1,idle][mine:1,voter:2(0.50)percent:0.90][128,1,3c:71:bf:e0:92:b9]
+[2019-08-23 12:24:12] 
+[2019-08-23 12:24:12] I (53275) mesh: [SCAN][ch:11]AP:2, other(ID:0, RD:0), MAP:1, idle:1, candidate:1, root:0, topMAP:0[c:0,i:1][78:44:fd:a3:ed:75]router found<>
+[2019-08-23 12:24:13] I (53278) mesh: [SCAN:2/10]rc[128][3c:71:bf:e0:92:b9,-60], self[3c:71:bf:e0:92:b8,-60,reason:0,votes:1,idle][mine:1,voter:2(0.50)percent:0.90][128,1,3c:71:bf:e0:92:b9]
+[2019-08-23 12:24:13] 
+[2019-08-23 12:24:13] I (53594) mesh: [SCAN][ch:11]AP:2, other(ID:0, RD:0), MAP:1, idle:1, candidate:1, root:0, topMAP:0[c:0,i:1][78:44:fd:a3:ed:75]router found<>
+[2019-08-23 12:24:13] I (53597) mesh: [SCAN:3/10]rc[128][3c:71:bf:e0:92:b9,-60], self[3c:71:bf:e0:92:b8,-59,reason:0,votes:1,idle][mine:1,voter:2(0.50)percent:0.90][128,1,3c:71:bf:e0:92:b9]
+[2019-08-23 12:24:13] 
+[2019-08-23 12:24:13] I (53914) mesh: [SCAN][ch:11]AP:2, other(ID:0, RD:0), MAP:1, idle:1, candidate:1, root:0, topMAP:0[c:0,i:1][78:44:fd:a3:ed:75]router found<>
+[2019-08-23 12:24:13] I (53917) mesh: [SCAN:4/10]rc[128][3c:71:bf:e0:92:b9,-60], self[3c:71:bf:e0:92:b8,-60,reason:0,votes:2,idle][mine:2,voter:2(1.00)percent:0.90][128,2,3c:71:bf:e0:92:b9]
+[2019-08-23 12:24:13] 
+[2019-08-23 12:24:13] I (54233) mesh: [SCAN][ch:11]AP:3, other(ID:0, RD:0), MAP:1, idle:1, candidate:1, root:0, topMAP:0[c:0,i:1][78:44:fd:a3:ed:75]router found<>
+[2019-08-23 12:24:14] I (54236) mesh: [SCAN:5/10]rc[128][3c:71:bf:e0:92:b9,-60], self[3c:71:bf:e0:92:b8,-61,reason:0,votes:2,idle][mine:2,voter:2(1.00)percent:0.90][128,2,3c:71:bf:e0:92:b9]
+[2019-08-23 12:24:14] 
+[2019-08-23 12:24:14] I (54553) mesh: [SCAN][ch:11]AP:2, other(ID:0, RD:0), MAP:1, idle:1, candidate:1, root:0, topMAP:0[c:0,i:1][78:44:fd:a3:ed:75]router found<>
+[2019-08-23 12:24:14] I (54555) mesh: [SCAN:6/10]rc[128][3c:71:bf:e0:92:b9,-60], self[3c:71:bf:e0:92:b8,-59,reason:0,votes:2,idle][mine:2,voter:2(1.00)percent:0.90][128,2,3c:71:bf:e0:92:b9]
+[2019-08-23 12:24:14] 
+[2019-08-23 12:24:14] I (54872) mesh: [SCAN][ch:11]AP:4, other(ID:0, RD:0), MAP:1, idle:1, candidate:1, root:0, topMAP:0[c:0,i:1][78:44:fd:a3:ed:75]router found<>
+[2019-08-23 12:24:14] I (54875) mesh: [SCAN:7/10]rc[128][3c:71:bf:e0:92:b9,-60], self[3c:71:bf:e0:92:b8,-59,reason:0,votes:2,idle][mine:2,voter:2(1.00)percent:0.90][128,2,3c:71:bf:e0:92:b9]
+[2019-08-23 12:24:14] 
+[2019-08-23 12:24:14] I (55191) mesh: [SCAN][ch:11]AP:2, other(ID:0, RD:0), MAP:1, idle:1, candidate:1, root:0, topMAP:0[c:0,i:1][78:44:fd:a3:ed:75]router found<>
+[2019-08-23 12:24:15] I (55194) mesh: [SCAN:8/10]rc[128][3c:71:bf:e0:92:b9,-60], self[3c:71:bf:e0:92:b8,-60,reason:0,votes:2,idle][mine:2,voter:2(1.00)percent:0.90][128,2,3c:71:bf:e0:92:b9]
+[2019-08-23 12:24:15] 
+[2019-08-23 12:24:15] I (55510) mesh: [SCAN][ch:11]AP:2, other(ID:0, RD:0), MAP:1, idle:1, candidate:1, root:0, topMAP:0[c:0,i:1][78:44:fd:a3:ed:75]router found<>
+[2019-08-23 12:24:15] I (55513) mesh: [SCAN:9/10]rc[128][3c:71:bf:e0:92:b9,-60], self[3c:71:bf:e0:92:b8,-60,reason:0,votes:2,idle][mine:2,voter:2(1.00)percent:0.90][128,2,3c:71:bf:e0:92:b9]
+[2019-08-23 12:24:15] 
+[2019-08-23 12:24:15] I (55830) mesh: [SCAN][ch:11]AP:2, other(ID:0, RD:0), MAP:1, idle:1, candidate:1, root:0, topMAP:0[c:0,i:1][78:44:fd:a3:ed:75]router found<>
+[2019-08-23 12:24:15] I (55833) mesh: [SCAN:10/10]rc[128][3c:71:bf:e0:92:b9,-60], self[3c:71:bf:e0:92:b8,-60,reason:0,votes:2,idle][mine:2,voter:2(1.00)percent:0.90][128,2,3c:71:bf:e0:92:b9]
+[2019-08-23 12:24:15] 
+[2019-08-23 12:24:15] W (55847) wifi: [beacon]interval:100ms
+[2019-08-23 12:24:15] I (55851) mesh: [DONE]connect to router:SIRUIA_2.4G, channel:11, rssi:-60, 78:44:fd:a3:ed:75[layer:0, assoc:0], my_vote_num:2/voter_num:2, rc[3c:71:bf:e0:92:b9/-60/1]
+[2019-08-23 12:24:15] I (55994) wifi: n:11 2, o:11 2, ap:11 2, sta:11 2, prof:11
+[2019-08-23 12:24:15] I (56984) wifi: state: init -> auth (b0)
+[2019-08-23 12:24:16] I (56998) wifi: state: auth -> assoc (0)
+[2019-08-23 12:24:16] I (57010) wifi: state: assoc -> run (10)
+[2019-08-23 12:24:16] I (57055) wpa: <EAPOL>state:6
+[2019-08-23 12:24:17] I (57055) wpa: <EAPOL>receiving the 1/4 EAPOL-Key, state:6
+[2019-08-23 12:24:17] I (57079) wpa: <EAPOL>state:7
+[2019-08-23 12:24:17] I (57079) wpa: <EAPOL>receiving the 3/4 EAPOL-Key, state:7
+[2019-08-23 12:24:17] I (57080) wifi: connected with SIRUIA_2.4G, channel 11, 40D
+[2019-08-23 12:24:17] I (57084) wifi: pm start, type: 0
+[2019-08-23 12:24:17] 
+[2019-08-23 12:24:17] I (57088) mesh: [scan]new scanning time:600ms
+[2019-08-23 12:24:17] W (57088) wifi: [beacon]new interval:300ms
+[2019-08-23 12:24:17] I (57095) mesh: <nvs>write layer:1
+[2019-08-23 12:24:17] [0;32mI (57095) [mwifi, 80]: Parent is connected[0m
+[2019-08-23 12:24:17] [0;32mI (57100) [mconfig_example, 59]: event_loop_cb, event: 7[0m
+[2019-08-23 12:24:17] [0;32mI (57101) [mwifi, 149]: State represents: 0[0m
+[2019-08-23 12:24:17] [0;32mI (57109) [mconfig_example, 67]: MDF_EVENT_PARENT_CONNECTED[0m
+[2019-08-23 12:24:17] [0;32mI (57117) [mconfig_example, 59]: event_loop_cb, event: 11[0m
+[2019-08-23 12:24:17] [0;32mI (57123) [mconfig_example, 59]: event_loop_cb, event: 14[0m
+[2019-08-23 12:24:17] [0;32mI (58094) event: sta ip: 192.168.1.144, mask: 255.255.255.0, gw: 192.168.1.1[0m
+[2019-08-23 12:24:18] [0;32mI (58095) [mconfig_example, 59]: event_loop_cb, event: 17[0m
+[2019-08-23 12:24:18] I (59134) wifi: n:11 2, o:11 2, ap:11 2, sta:11 2, prof:11
+[2019-08-23 12:24:19] I (59135) wifi: station: 3c:71:bf:e0:92:28 join, AID=1, bgn, 40D
+[2019-08-23 12:24:19] [0;32mI (59137) [mwifi, 139]: Routing table is changed by adding newly joined children add_num: 1, total_num: 2[0m
+[2019-08-23 12:24:19] [0;32mI (59144) [mconfig_example, 59]: event_loop_cb, event: 5[0m
+[2019-08-23 12:24:19] I (59148) mesh: <nvs>write assoc:1
+[2019-08-23 12:24:19] [0;32mI (59151) [mconfig_example, 72]: total_num: 2[0m
+[2019-08-23 12:24:19] [0;32mI (59158) [mconfig_example, 59]: event_loop_cb, event: 3[0m
+[2019-08-23 12:24:19] [0;32mI (111237) [mconfig_chain, 281]: End send network configured[0m
+[2019-08-23 12:25:11] [0;32mI (111237) [mconfig_example, 59]: event_loop_cb, event: 8453[0m
+[2019-08-23 12:25:11] I (159145) mesh: [scan]new scanning time:1500ms
+[2019-08-23 12:25:59] W (159146) wifi: [beacon]new interval:1000ms
+[2019-08-23 12:25:59] I (169517) wifi: station: 3c:71:bf:e0:92:28 leave, AID = 1, bss_flags is 131171, bss:0x3ffba6ac
+[2019-08-23 12:26:09] I (169518) wifi: n:11 2, o:11 2, ap:11 2, sta:11 2, prof:11
+[2019-08-23 12:26:09] [0;32mI (169521) [mconfig_example, 59]: event_loop_cb, event: 4[0m
+[2019-08-23 12:26:09] [0;32mI (169522) [mwifi, 145]: Routing table is changed by removing leave children remove_num: 1, total_num: 1[0m
+[2019-08-23 12:26:09] [0;32mI (169536) [mconfig_example, 59]: event_loop_cb, event: 6[0m
+[2019-08-23 12:26:09] I (169540) mesh: <nvs>write assoc:0
+[2019-08-23 12:26:09] [0;32mI (169543) [mconfig_example, 72]: total_num: 1[0m
+[2019-08-23 12:26:09] I (169546) mesh: [scan]new scanning time:300ms
+[2019-08-23 12:26:09] W (169555) wifi: [beacon]new interval:100ms
+[2019-08-23 12:26:09] I (169559) wifi: n:11 2, o:11 2, ap:11 2, sta:11 2, prof:11
+[2019-08-23 12:26:09] I (169564) wifi: station: 3c:71:bf:e0:92:28 join, AID=1, bgn, 40D
+[2019-08-23 12:26:09] [0;32mI (169575) [mwifi, 139]: Routing table is changed by adding newly joined children add_num: 1, total_num: 2[0m
+[2019-08-23 12:26:09] [0;32mI (169580) [mconfig_example, 59]: event_loop_cb, event: 5[0m
+[2019-08-23 12:26:09] I (169584) mesh: <nvs>write assoc:1
+[2019-08-23 12:26:09] [0;32mI (169587) [mconfig_example, 72]: total_num: 2[0m
+[2019-08-23 12:26:09] [0;32mI (169595) [mconfig_example, 59]: event_loop_cb, event: 3[0m
+[2019-08-23 12:26:09] I (179575) mesh: [scan]new scanning time:600ms
+[2019-08-23 12:26:19] W (179575) wifi: [beacon]new interval:300ms
+[2019-08-23 12:26:19] 

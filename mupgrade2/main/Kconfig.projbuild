@@ -1,0 +1,60 @@
+menu "Example Configuration"
+
+config DEVICE_VERSION
+    string "Device version"
+    default "0.0.1"
+    help
+        Config device version
+
+config ROUTER_SSID
+    string "Router SSID"
+        default "ROUTER_SSID"
+        help
+            Router SSID.
+
+config ROUTER_PASSWORD
+    string "Router password"
+        default "ROUTER_PASSWORD"
+        help
+            Router password.
+
+config MESH_ID
+    string "Mesh ID"
+        default "123456"
+        help
+            Mesh network identification, Nodes with the same mesh ID can
+            communicate with each other.
+
+config FIRMWARE_UPGRADE_URL
+    string "Firmware upgrade url endpoint"
+    default "http://192.168.0.3:8070/hello-world.bin"
+    help
+        URL of server which hosts the firmware image.
+config UART_PORT_NUM
+    int "UART PORT NUM"
+    range 0 2
+    default 1
+    help
+        choose uart port num.
+
+config UART_BAUD_RATE
+    int "UART BAUD RATE"
+    range 0 921600
+    default 115200
+    help
+        choose uart baud rate.
+
+config UART_TX_IO
+    int "UART TX IO"
+    range 0 33
+    default 5
+    help
+        choose uart tx IO.
+
+config UART_RX_IO
+    int "UART RX IO"
+    range 0 33
+    default 4
+    help
+        choose uart rx IO.
+endmenu
