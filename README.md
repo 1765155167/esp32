@@ -11,9 +11,9 @@ myproject-esp32
 # 目录结构
 1. espnow
 2. fangfengji 方风机代码
-    1. [[ESP32程序]](./esp32)
-    2. [[Air202程序]](./luat_duplex7-29)
-    3. [[Stm32程序]](./Stm32)
+    - [[ESP32程序]](./fangfengji/esp32)
+    - [[Air202程序]](./fangfengji/luat_duplex7-29)
+    - [[Stm32程序]](./fangfengji/Stm32)
 3. gpio　
 4. http_request
 5. key
