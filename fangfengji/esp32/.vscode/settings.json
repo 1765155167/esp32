@@ -14,7 +14,10 @@
 		"screen_info.h": "c",
 		"string": "cpp",
 		"led.h": "c",
-		"freertos.h": "c"
+		"freertos.h": "c",
+		"serial.h": "c",
+		"mwifi.h": "c",
+		"temp_info.h": "c"
 	},
 	"C_Cpp.errorSquiggles": "Disabled"
 }

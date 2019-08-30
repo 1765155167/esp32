@@ -1,229 +1,503 @@
-ets Jun  8 2016 00:22:57
-[2019-08-16 16:21:42] 
-[2019-08-16 16:21:42] rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
-[2019-08-16 16:21:42] configsip: 0, SPIWP:0xee
-[2019-08-16 16:21:42] clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
-[2019-08-16 16:21:42] mode:DIO, clock div:2
-[2019-08-16 16:21:42] load:0x3fff0018,len:4
-[2019-08-16 16:21:42] load:0x3fff001c,len:6192
-[2019-08-16 16:21:42] ho 0 tail 12 room 4
-[2019-08-16 16:21:42] load:0x40078000,len:10272
-[2019-08-16 16:21:42] load:0x40080400,len:6608
-[2019-08-16 16:21:42] entry 0x40080764
-[2019-08-16 16:21:42] [0;32mI (30) boot: ESP-IDF v3.2.2-42-g4a9f33944-dirty 2nd stage bootloader[0m
-[2019-08-16 16:21:42] [0;32mI (30) boot: compile time 16:21:04[0m
-[2019-08-16 16:21:42] [0;32mI (30) boot: Enabling RNG early entropy source...[0m
-[2019-08-16 16:21:42] [0;32mI (36) boot: SPI Speed      : 40MHz[0m
-[2019-08-16 16:21:42] [0;32mI (40) boot: SPI Mode       : DIO[0m
-[2019-08-16 16:21:42] [0;32mI (44) boot: SPI Flash Size : 4MB[0m
-[2019-08-16 16:21:42] [0;32mI (48) boot: Partition Table:[0m
-[2019-08-16 16:21:42] [0;32mI (52) boot: ## Label            Usage          Type ST Offset   Length[0m
-[2019-08-16 16:21:42] [0;32mI (59) boot:  0 nvs              WiFi data        01 02 00009000 00004000[0m
-[2019-08-16 16:21:42] [0;32mI (67) boot:  1 otadata          OTA data         01 00 0000d000 00002000[0m
-[2019-08-16 16:21:42] [0;32mI (74) boot:  2 phy_init         RF data          01 01 0000f000 00001000[0m
-[2019-08-16 16:21:42] [0;32mI (82) boot:  3 ota_0            OTA app          00 10 00010000 001e0000[0m
-[2019-08-16 16:21:42] [0;32mI (89) boot:  4 ota_1            OTA app          00 11 001f0000 001e0000[0m
-[2019-08-16 16:21:42] [0;32mI (97) boot:  5 coredump         Unknown data     01 03 003d0000 00010000[0m
-[2019-08-16 16:21:42] [0;32mI (104) boot:  6 reserved         Unknown data     01 fe 003e0000 00020000[0m
-[2019-08-16 16:21:42] [0;32mI (112) boot: End of partition table[0m
-[2019-08-16 16:21:42] [0;32mI (116) boot: No factory image, trying OTA 0[0m
-[2019-08-16 16:21:42] [0;32mI (121) esp_image: segment 0: paddr=0x00010020 vaddr=0x3f400020 size=0x266a8 (157352) map[0m
-[2019-08-16 16:21:42] [0;32mI (185) esp_image: segment 1: paddr=0x000366d0 vaddr=0x3ffb0000 size=0x02d50 ( 11600) load[0m
-[2019-08-16 16:21:42] [0;32mI (190) esp_image: segment 2: paddr=0x00039428 vaddr=0x40080000 size=0x00400 (  1024) load[0m
-[2019-08-16 16:21:42] [0;32mI (192) esp_image: segment 3: paddr=0x00039830 vaddr=0x40080400 size=0x067e0 ( 26592) load[0m
-[2019-08-16 16:21:42] [0;32mI (212) esp_image: segment 4: paddr=0x00040018 vaddr=0x400d0018 size=0xa7118 (684312) map[0m
-[2019-08-16 16:21:42] [0;32mI (452) esp_image: segment 5: paddr=0x000e7138 vaddr=0x40086be0 size=0x09da0 ( 40352) load[0m
-[2019-08-16 16:21:43] [0;32mI (478) boot: Loaded app from partition at offset 0x10000[0m
-[2019-08-16 16:21:43] [0;32mI (479) boot: Disabling RNG early entropy source...[0m
-[2019-08-16 16:21:43] [0;32mI (479) cpu_start: Pro cpu up.[0m
-[2019-08-16 16:21:43] [0;32mI (483) cpu_start: Single core mode[0m
-[2019-08-16 16:21:43] [0;32mI (487) heap_init: Initializing. RAM available for dynamic allocation:[0m
-[2019-08-16 16:21:43] [0;32mI (494) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
-[2019-08-16 16:21:43] [0;32mI (500) heap_init: At 3FFB9C98 len 00026368 (152 KiB): DRAM[0m
-[2019-08-16 16:21:43] [0;32mI (506) heap_init: At 3FFE0440 len 0001FBC0 (126 KiB): D/IRAM[0m
-[2019-08-16 16:21:43] [0;32mI (513) heap_init: At 40078000 len 00008000 (32 KiB): IRAM[0m
-[2019-08-16 16:21:43] [0;32mI (519) heap_init: At 40090980 len 0000F680 (61 KiB): IRAM[0m
-[2019-08-16 16:21:43] [0;32mI (525) cpu_start: Pro cpu start user code[0m
-[2019-08-16 16:21:43] D (207) [mupgrade_check, 142]: Add an identifier to the firmware: ** MUPGRADE_FIRMWARE_FLAG **[0m
-[2019-08-16 16:21:43] [0;32mI (218) cpu_start: Starting scheduler on PRO CPU.[0m
-[2019-08-16 16:21:43] 
-[2019-08-16 16:21:43] Opening Non-Volatile moter1 && moter2 (NVS) handle...
-[2019-08-16 16:21:43] AlarmTempMax1 Failed!
-[2019-08-16 16:21:43] AlarmTempMin1 Failed!
-[2019-08-16 16:21:43] SetTempMax1 Failed!
-[2019-08-16 16:21:43] SetTempMin1 Failed!
-[2019-08-16 16:21:43] TotalTime1 Failed!
-[2019-08-16 16:21:43] OpenPer1 Failed!
-[2019-08-16 16:21:43] TempCalOff1 Failed!
-[2019-08-16 16:21:43] AlarmTempMax2 Failed!
-[2019-08-16 16:21:43] AlarmTempMin2 Failed!
-[2019-08-16 16:21:43] SetTempMax2 Failed!
-[2019-08-16 16:21:43] SetTempMin2 Failed!
-[2019-08-16 16:21:43] TotalTime2 Failed!
-[2019-08-16 16:21:43] OpenPer2 Failed!
-[2019-08-16 16:21:43] TempCalOff2 Failed!
-[2019-08-16 16:21:43] [0;32mI (267) [mdf-mesh, 543]: start mdf_mesh_init[0m
-[2019-08-16 16:21:43] I (276) wifi: wifi driver task: 3ffc1f48, prio:23, stack:3584, core=0
-[2019-08-16 16:21:43] [0;32mI (279) system_api: Base MAC address is not set, read default base MAC address from BLK0 of EFUSE[0m
-[2019-08-16 16:21:43] [0;32mI (288) system_api: Base MAC address is not set, read default base MAC address from BLK0 of EFUSE[0m
-[2019-08-16 16:21:43] I (308) wifi: wifi firmware version: 0c3a77a
-[2019-08-16 16:21:43] I (309) wifi: config NVS flash: enabled
-[2019-08-16 16:21:43] I (309) wifi: config nano formating: disabled
-[2019-08-16 16:21:43] I (310) wifi: Init dynamic tx buffer num: 32
-[2019-08-16 16:21:43] I (313) wifi: Init data frame dynamic rx buffer num: 32
-[2019-08-16 16:21:43] I (318) wifi: Init management frame dynamic rx buffer num: 32
-[2019-08-16 16:21:43] I (324) wifi: Init management short buffer num: 32
-[2019-08-16 16:21:43] I (328) wifi: Init static rx buffer size: 1600
-[2019-08-16 16:21:43] I (333) wifi: Init static rx buffer num: 10
-[2019-08-16 16:21:43] I (336) wifi: Init dynamic rx buffer num: 32
-[2019-08-16 16:21:43] I (341) wifi: Set ps type: 0
-[2019-08-16 16:21:43] 
-[2019-08-16 16:21:43] [0;33mW (344) phy_init: failed to load RF calibration data (0x1102), falling back to full calibration[0m
-[2019-08-16 16:21:43] [0;32mI (545) phy: phy_version: 4008, 544f89f, Jan 24 2019, 14:54:06, 0, 2[0m
-[2019-08-16 16:21:43] I (553) wifi: mode : sta (3c:71:bf:e0:92:b8)
-[2019-08-16 16:21:43] [0;32mI (555) [mwifi, 177]: esp-mdf version: 5aa32d3-dirty[0m
-[2019-08-16 16:21:43] W (555) wifi: [beacon]interval:100ms
-[2019-08-16 16:21:43] I (557) wifi: mode : sta (3c:71:bf:e0:92:b8) + softAP (3c:71:bf:e0:92:b9)
-[2019-08-16 16:21:43] I (564) wifi: Total power save buffer number: 16
-[2019-08-16 16:21:43] I (567) wifi: Init max length of beacon: 752/752
-[2019-08-16 16:21:43] I (572) wifi: Init max length of beacon: 752/752
-[2019-08-16 16:21:43] I (579) mesh: <nvs>read layer:0, err:0x1102
-[2019-08-16 16:21:43] I (580) mesh: <nvs>read assoc:0, err:0x1102
-[2019-08-16 16:21:43] [0;32mI (584) [mdf-mesh, 41]: get_dev_num[0m
-[2019-08-16 16:21:43] [0;32mI (588) [mdf-mesh, 565]: NODE device:3[0m
-[2019-08-16 16:21:43] W (593) wifi: [beacon]interval:100ms
-[2019-08-16 16:21:43] I (595) mesh: [CONFIG]invalid router settings, ssid_len:0, ssid:, bssid:00:00:00:00:00:00
-[2019-08-16 16:21:43] I (608) wifi: Total power save buffer number: 16
-[2019-08-16 16:21:43] I (1607) wifi: Set ps type: 0
-[2019-08-16 16:21:44] 
-[2019-08-16 16:21:44] [0;32mI (1612) [mwifi, 113]: MESH is started[0m
-[2019-08-16 16:21:44] [0;32mI (1613) [mdf-mesh, 498]: event_loop_cb, event: 0[0m
-[2019-08-16 16:21:44] [0;32mI (1613) [mdf-mesh, 502]: MESH is started[0m
-[2019-08-16 16:21:44] [0;32mI (1616) [mdf-mesh, 589]: MESH_NODE[0m
-[2019-08-16 16:21:44] [0;32mI (1620) [mdf-mesh, 254]: Note read task is running[0m
-[2019-08-16 16:21:44] [0;32mI (1626) gpio: GPIO[25]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
-[2019-08-16 16:21:44] [0;32mI (1637) gpio: GPIO[26]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
-[2019-08-16 16:21:44] [0;32mI (1645) gpio: GPIO[27]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
-[2019-08-16 16:21:44] [0;32mI (1654) gpio: GPIO[17]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
-[2019-08-16 16:21:44] [0;32mI (1663) gpio: GPIO[5]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
-[2019-08-16 16:21:44] [0;32mI (1673) gpio: GPIO[18]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
-[2019-08-16 16:21:44] [0;32mI (1682) gpio: GPIO[19]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
-[2019-08-16 16:21:44] eFuse Two Point: NOT supported
-[2019-08-16 16:21:44] eFuse Vref: Supported
-[2019-08-16 16:21:44] Characterized using eFuse Vref
-[2019-08-16 16:21:44] [0;32mI (1699) [temp_info, 73]: temp task is start[0m
-[2019-08-16 16:21:44] [0;32mI (1704) gpio: GPIO[36]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:3 [0m
-[2019-08-16 16:21:44] [0;32mI (1713) gpio: GPIO[39]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:3 [0m
-[2019-08-16 16:21:44] [0;32mI (1723) gpio: GPIO[34]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:3 [0m
-[2019-08-16 16:21:44] [0;32mI (1732) gpio: GPIO[35]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:3 [0m
-[2019-08-16 16:21:44] [0;32mI (1743) uart: queue free spaces: 10[0m
-[2019-08-16 16:21:44] Hello .................W (1913) wifi: scan number 0
-[2019-08-16 16:21:44] 
-[2019-08-16 16:21:44] I (1914) mesh: [SCAN][ch:12]AP:0, other(ID:0, RD:0), MAP:0, idle:0, candidate:0, root:0, topMAP:0[c:0,i:0][00:00:00:00:00:00][FIXED-ROOT]<>
-[2019-08-16 16:21:44] I (1920) mesh: [FAIL][1]root:0, fail:1, normal:0
-[2019-08-16 16:21:44] 
-[2019-08-16 16:21:44] W (2225) wifi: scan number 0
-[2019-08-16 16:21:45] 
-[2019-08-16 16:21:45] I (2226) mesh: [SCAN][ch:12]AP:0, other(ID:0, RD:0), MAP:0, idle:0, candidate:0, root:0, topMAP:0[c:0,i:0][00:00:00:00:00:00][FIXED-ROOT]<>
-[2019-08-16 16:21:45] I (2230) mesh: [FAIL][2]root:0, fail:2, normal:0
-[2019-08-16 16:21:45] 
-[2019-08-16 16:21:45] W (2536) wifi: scan number 0
-[2019-08-16 16:21:45] 
-[2019-08-16 16:21:45] I (2536) mesh: [SCAN][ch:12]AP:0, other(ID:0, RD:0), MAP:0, idle:0, candidate:0, root:0, topMAP:0[c:0,i:0][00:00:00:00:00:00][FIXED-ROOT]<>
-[2019-08-16 16:21:45] I (2540) mesh: [FAIL][3]root:0, fail:3, normal:0
-[2019-08-16 16:21:45] 
-[2019-08-16 16:21:45] W (2846) wifi: scan number 0
-[2019-08-16 16:21:45] 
-[2019-08-16 16:21:45] I (2847) mesh: [SCAN][ch:12]AP:0, other(ID:0, RD:0), MAP:0, idle:0, candidate:0, root:0, topMAP:0[c:0,i:0][00:00:00:00:00:00][FIXED-ROOT]<>
-[2019-08-16 16:21:45] I (2850) mesh: [FAIL][4]root:0, fail:4, normal:0
-[2019-08-16 16:21:45] 
-[2019-08-16 16:21:45] W (3156) wifi: scan number 0
-[2019-08-16 16:21:46] 
-[2019-08-16 16:21:46] I (3157) mesh: [SCAN][ch:12]AP:0, other(ID:0, RD:0), MAP:0, idle:0, candidate:0, root:0, topMAP:0[c:0,i:0][00:00:00:00:00:00][FIXED-ROOT]<>
-[2019-08-16 16:21:46] I (3161) mesh: [FAIL][5]root:0, fail:5, normal:0
-[2019-08-16 16:21:46] 
-[2019-08-16 16:21:46] W (3466) wifi: scan number 0
-[2019-08-16 16:21:46] 
-[2019-08-16 16:21:46] I (3467) mesh: [SCAN][ch:12]AP:0, other(ID:0, RD:0), MAP:0, idle:0, candidate:0, root:0, topMAP:0[c:0,i:0][00:00:00:00:00:00][FIXED-ROOT]<>
-[2019-08-16 16:21:46] I (3471) mesh: [FAIL][6]root:0, fail:6, normal:0
-[2019-08-16 16:21:46] 
-[2019-08-16 16:21:46] W (3777) wifi: scan number 0
-[2019-08-16 16:21:46] 
-[2019-08-16 16:21:46] I (3777) mesh: [SCAN][ch:12]AP:0, other(ID:0, RD:0), MAP:0, idle:0, candidate:0, root:0, topMAP:0[c:0,i:0][00:00:00:00:00:00][FIXED-ROOT]<>
-[2019-08-16 16:21:46] I (3781) mesh: [FAIL][7]root:0, fail:7, normal:0
-[2019-08-16 16:21:46] 
-[2019-08-16 16:21:46] W (4087) wifi: scan number 0
-[2019-08-16 16:21:47] 
-[2019-08-16 16:21:47] I (4087) mesh: [SCAN][ch:12]AP:0, other(ID:0, RD:0), MAP:0, idle:0, candidate:0, root:0, topMAP:0[c:0,i:0][00:00:00:00:00:00][FIXED-ROOT]<>
-[2019-08-16 16:21:47] I (4091) mesh: [FAIL][8]root:0, fail:8, normal:0
-[2019-08-16 16:21:47] 
-[2019-08-16 16:21:47] W (4397) wifi: scan number 0
-[2019-08-16 16:21:47] 
-[2019-08-16 16:21:47] I (4398) mesh: [SCAN][ch:12]AP:0, other(ID:0, RD:0), MAP:0, idle:0, candidate:0, root:0, topMAP:0[c:0,i:0][00:00:00:00:00:00][FIXED-ROOT]<>
-[2019-08-16 16:21:47] I (4402) mesh: [FAIL][9]root:0, fail:9, normal:0
-[2019-08-16 16:21:47] 
-[2019-08-16 16:21:47] W (4708) wifi: scan number 0
-[2019-08-16 16:21:47] 
-[2019-08-16 16:21:47] I (4708) mesh: [SCAN][ch:12]AP:0, other(ID:0, RD:0), MAP:0, idle:0, candidate:0, root:0, topMAP:0[c:0,i:0][00:00:00:00:00:00][FIXED-ROOT]<>
-[2019-08-16 16:21:47] I (4712) mesh: [FAIL][10]root:0, fail:10, normal:0
-[2019-08-16 16:21:47] 
-[2019-08-16 16:21:47] [0;32mI (4746) [get_started, 32]: heap free: 151080[0m
-[2019-08-16 16:21:47] W (5018) wifi: scan number 0
-[2019-08-16 16:21:47] 
-[2019-08-16 16:21:47] I (5019) mesh: [SCAN][ch:12]AP:0, other(ID:0, RD:0), MAP:0, idle:0, candidate:0, root:0, topMAP:0[c:0,i:0][00:00:00:00:00:00][FIXED-ROOT]<>
-[2019-08-16 16:21:47] I (5023) mesh: [FAIL][11]root:0, fail:11, normal:0
-[2019-08-16 16:21:47] 
-[2019-08-16 16:21:47] W (5329) wifi: scan number 0
-[2019-08-16 16:21:48] 
-[2019-08-16 16:21:48] I (5329) mesh: [SCAN][ch:12]AP:0, other(ID:0, RD:0), MAP:0, idle:0, candidate:0, root:0, topMAP:0[c:0,i:0][00:00:00:00:00:00][FIXED-ROOT]<>
-[2019-08-16 16:21:48] I (5333) mesh: [FAIL][12]root:0, fail:12, normal:0
-[2019-08-16 16:21:48] 
-[2019-08-16 16:21:48] W (5639) wifi: scan number 0
-[2019-08-16 16:21:48] 
-[2019-08-16 16:21:48] I (5640) mesh: [SCAN][ch:12]AP:0, other(ID:0, RD:0), MAP:0, idle:0, candidate:0, root:0, topMAP:0[c:0,i:0][00:00:00:00:00:00][FIXED-ROOT]<>
-[2019-08-16 16:21:48] I (5643) mesh: [FAIL][13]root:0, fail:13, normal:0
-[2019-08-16 16:21:48] 
-[2019-08-16 16:21:48] W (5949) wifi: scan number 0
-[2019-08-16 16:21:48] 
-[2019-08-16 16:21:48] I (5950) mesh: [SCAN][ch:12]AP:0, other(ID:0, RD:0), MAP:0, idle:0, candidate:0, root:0, topMAP:0[c:0,i:0][00:00:00:00:00:00][FIXED-ROOT]<>
-[2019-08-16 16:21:48] I (5954) mesh: [FAIL][14]root:0, fail:14, normal:0
-[2019-08-16 16:21:48] 
-[2019-08-16 16:21:48] W (6260) wifi: scan number 0
-[2019-08-16 16:21:49] 
-[2019-08-16 16:21:49] I (6260) mesh: [SCAN][ch:12]AP:0, other(ID:0, RD:0), MAP:0, idle:0, candidate:0, root:0, topMAP:0[c:0,i:0][00:00:00:00:00:00][FIXED-ROOT]<>
-[2019-08-16 16:21:49] I (6264) mesh: [FAIL][15]root:0, fail:15, normal:0
-[2019-08-16 16:21:49] 
-[2019-08-16 16:21:49] W (6570) wifi: scan number 0
-[2019-08-16 16:21:49] 
-[2019-08-16 16:21:49] I (6570) mesh: [SCAN][ch:12]AP:0, other(ID:0, RD:0), MAP:0, idle:0, candidate:0, root:0, topMAP:0[c:0,i:0][00:00:00:00:00:00][FIXED-ROOT]<>
-[2019-08-16 16:21:49] I (6574) mesh: [FAIL][16]root:0, fail:16, normal:0
-[2019-08-16 16:21:49] 
-[2019-08-16 16:21:49] [0;31mE (6704) [temp_table, 98]: convert2temp fail, return [25][0m
-[2019-08-16 16:21:49] [0;32mI (6704) [temp_table, 93]: n[47] kom[46.622696] temp[26.593624][0m
-[2019-08-16 16:21:49] *************temp_info**************
-[2019-08-16 16:21:49] kom[3.486754] offset[0.000000]
-[2019-08-16 16:21:49] [0;31mE (6712) [temp_table, 98]: convert2temp fail, return [25][0m
-[2019-08-16 16:21:49] temp[25.000000]
-[2019-08-16 16:21:49] -------------------------------------
-[2019-08-16 16:21:49] *************temp_info**************
-[2019-08-16 16:21:49] kom[46.622696] offset[0.000000]
-[2019-08-16 16:21:49] [0;32mI (6730) [temp_table, 93]: n[47] kom[46.622696] temp[26.593624][0m
-[2019-08-16 16:21:49] temp[26.593624]
-[2019-08-16 16:21:49] -------------------------------------
-[2019-08-16 16:21:49] W (6880) wifi: scan number 0
-[2019-08-16 16:21:49] 
-[2019-08-16 16:21:49] I (6881) mesh: [SCAN][ch:12]AP:0, other(ID:0, RD:0), MAP:0, idle:0, candidate:0, root:0, topMAP:0[c:0,i:0][00:00:00:00:00:00][FIXED-ROOT]<>
-[2019-08-16 16:21:49] I (6885) mesh: [FAIL][17]root:0, fail:17, normal:0
-[2019-08-16 16:21:49] 
-[2019-08-16 16:21:49] W (7191) wifi: scan number 0
-[2019-08-16 16:21:50] 
-[2019-08-16 16:21:50] I (7191) mesh: [SCAN][ch:12]AP:0, other(ID:0, RD:0), MAP:0, idle:0, candidate:0, root:0, topMAP:0[c:0,i:0][00:00:00:00:00:00][FIXED-ROOT]<>
-[2019-08-16 16:21:50] I (7195) mesh: [FAIL][18]root:0, fail:18, normal:0
-[2019-08-16 16:21:50] 
-[2019-08-16 16:21:50] W (7501) wifi: scan number 0
-[2019-08-16 16:21:50] 
-[2019-08-16 16:21:50] I (7501) mesh: [SCAN][ch:12]AP:0, other(ID:0, RD:0), MAP:0, idle:0, candidate:0, root:0, topMAP:0[c:0,i:0][00:00:00:00:00:00][FIXED-ROOT]<>
-[2019-08-16 16:21:50] I (7505) mesh: [FAIL][19]root:0, fail:19, normal:0
-[2019-08-16 16:21:50] 
-[2019-08-16 16:21:50] [0;32mI (7746) [get_started, 32]: heap free: 150912[0m
-[2019-08-16 16:21:50] 
+F v3.2.2-42-�ets Jun  8 2016 00:22:57
+[2019-08-30 10:44:30] 
+[2019-08-30 10:44:30] rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[2019-08-30 10:44:30] configsip: 0, SPIWP:0xee
+[2019-08-30 10:44:30] clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+[2019-08-30 10:44:30] mode:DIO, clock div:2
+[2019-08-30 10:44:30] load:0x3fff0018,len:4
+[2019-08-30 10:44:30] load:0x3fff001c,len:6192
+[2019-08-30 10:44:30] ho 0 tail 12 room 4
+[2019-08-30 10:44:30] load:0x40078000,len:10272
+[2019-08-30 10:44:30] load:0x40080400,len:6608
+[2019-08-30 10:44:30] entry 0x40080764
+[2019-08-30 10:44:30] [0;32mI (30) boot: ESP-IDF v3.2.2-42-g4a9f33944-dirty 2nd stage bootloader[0m
+[2019-08-30 10:44:30] [0;32mI (30) boot: compile time 10:07:00[0m
+[2019-08-30 10:44:30] [0;32mI (30) boot: Enabling RNG early entropy source...[0m
+[2019-08-30 10:44:30] [0;32mI (36) boot: SPI Speed      : 40MHz[0m
+[2019-08-30 10:44:30] [0;32mI (40) boot: SPI Mode       : DIO[0m
+[2019-08-30 10:44:30] [0;32mI (44) boot: SPI Flash Size : 4MB[0m
+[2019-08-30 10:44:30] [0;32mI (48) boot: Partition Table:[0m
+[2019-08-30 10:44:30] [0;32mI (52) boot: ## Label            Usage          Type ST Offset   Length[0m
+[2019-08-30 10:44:30] [0;32mI (59) boot:  0 nvs              WiFi data        01 02 00009000 00004000[0m
+[2019-08-30 10:44:30] [0;32mI (66) boot:  1 otadata          OTA data         01 00 0000d000 00002000[0m
+[2019-08-30 10:44:30] [0;32mI (74) boot:  2 phy_init         RF data          01 01 0000f000 00001000[0m
+[2019-08-30 10:44:30] [0;32mI (81) boot:  3 ota_0            OTA app          00 10 00010000 001e0000[0m
+[2019-08-30 10:44:30] [0;32mI (89) boot:  4 ota_1            OTA app          00 11 001f0000 001e0000[0m
+[2019-08-30 10:44:30] [0;32mI (96) boot:  5 coredump         Unknown data     01 03 003d0000 00010000[0m
+[2019-08-30 10:44:30] [0;32mI (104) boot:  6 reserved         Unknown data     01 fe 003e0000 00020000[0m
+[2019-08-30 10:44:30] [0;32mI (111) boot: End of partition table[0m
+[2019-08-30 10:44:30] [0;32mI (116) boot: No factory image, trying OTA 0[0m
+[2019-08-30 10:44:30] [0;32mI (121) esp_image: segment 0: paddr=0x00010020 vaddr=0x3f400020 size=0x26e40 (159296) map[0m
+[2019-08-30 10:44:30] [0;32mI (185) esp_image: segment 1: paddr=0x00036e68 vaddr=0x3ffb0000 size=0x02d4c ( 11596) load[0m
+[2019-08-30 10:44:31] [0;32mI (190) esp_image: segment 2: paddr=0x00039bbc vaddr=0x40080000 size=0x00400 (  1024) load[0m
+[2019-08-30 10:44:31] [0;32mI (193) esp_image: segment 3: paddr=0x00039fc4 vaddr=0x40080400 size=0x0604c ( 24652) load[0m
+[2019-08-30 10:44:31] [0;32mI (211) esp_image: segment 4: paddr=0x00040018 vaddr=0x400d0018 size=0xa7dac (687532) map[0m
+[2019-08-30 10:44:31] [0;32mI (452) esp_image: segment 5: paddr=0x000e7dcc vaddr=0x4008644c size=0x0a610 ( 42512) load[0m
+[2019-08-30 10:44:31] [0;32mI (480) boot: Loaded app from partition at offset 0x10000[0m
+[2019-08-30 10:44:31] [0;32mI (480) boot: Disabling RNG early entropy source...[0m
+[2019-08-30 10:44:31] [0;32mI (481) cpu_start: Pro cpu up.[0m
+[2019-08-30 10:44:31] [0;32mI (484) cpu_start: Single core mode[0m
+[2019-08-30 10:44:31] [0;32mI (489) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[2019-08-30 10:44:31] [0;32mI (496) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[2019-08-30 10:44:31] [0;32mI (502) heap_init: At 3FFB9C90 len 00026370 (152 KiB): DRAM[0m
+[2019-08-30 10:44:31] [0;32mI (508) heap_init: At 3FFE0440 len 0001FBC0 (126 KiB): D/IRAM[0m
+[2019-08-30 10:44:31] [0;32mI (514) heap_init: At 40078000 len 00008000 (32 KiB): IRAM[0m
+[2019-08-30 10:44:31] [0;32mI (521) heap_init: At 40090A5C len 0000F5A4 (61 KiB): IRAM[0m
+[2019-08-30 10:44:31] [0;32mI (527) cpu_start: Pro cpu start user code[0m
+[2019-08-30 10:44:31] [0;32mI (209) [mupgrade_check, 142]: Add an identifier to the firmware: ** MUPGRADE_FIRMWARE_FLAG **[0m
+[2019-08-30 10:44:31] [0;32mI (220) cpu_start: Starting scheduler on PRO CPU.[0m
+[2019-08-30 10:44:31] 
+[2019-08-30 10:44:31] Opening Non-Volatile moter1 && moter2 (NVS) handle...
+[2019-08-30 10:44:31] AlarmTempMax1 Failed!
+[2019-08-30 10:44:31] AlarmTempMin1 Failed!
+[2019-08-30 10:44:31] SetTempMax1 Failed!
+[2019-08-30 10:44:31] SetTempMin1 Failed!
+[2019-08-30 10:44:31] TotalTime1 Failed!
+[2019-08-30 10:44:31] OpenPer1 Failed!
+[2019-08-30 10:44:31] TempCalOff1 Failed!
+[2019-08-30 10:44:31] AlarmTempMax2 Failed!
+[2019-08-30 10:44:31] AlarmTempMin2 Failed!
+[2019-08-30 10:44:31] SetTempMax2 Failed!
+[2019-08-30 10:44:31] SetTempMin2 Failed!
+[2019-08-30 10:44:31] TotalTime2 Failed!
+[2019-08-30 10:44:31] OpenPer2 Failed!
+[2019-08-30 10:44:31] TempCalOff2 Failed!
+[2019-08-30 10:44:31] [0;32mI (271) gpio: GPIO[25]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 1| Intr:0 [0m
+[2019-08-30 10:44:31] [0;32mI (280) gpio: GPIO[26]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 1| Intr:0 [0m
+[2019-08-30 10:44:31] [0;32mI (290) gpio: GPIO[27]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 1| Intr:0 [0m
+[2019-08-30 10:44:31] [0;32mI (299) gpio: GPIO[17]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 1| Intr:0 [0m
+[2019-08-30 10:44:31] [0;32mI (308) gpio: GPIO[5]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 1| Intr:0 [0m
+[2019-08-30 10:44:31] [0;32mI (317) gpio: GPIO[18]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 1| Intr:0 [0m
+[2019-08-30 10:44:31] [0;32mI (327) gpio: GPIO[19]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 1| Intr:0 [0m
+[2019-08-30 10:44:31] eFuse Two Point: NOT supported
+[2019-08-30 10:44:31] eFuse Vref: Supported
+[2019-08-30 10:44:31] Characterized using eFuse Vref
+[2019-08-30 10:44:31] [0;32mI (343) [temp_info, 71]: temp task is start[0m
+[2019-08-30 10:44:31] [0;32mI (349) gpio: GPIO[36]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 1| Intr:3 [0m
+[2019-08-30 10:44:31] [0;32mI (358) gpio: GPIO[39]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 1| Intr:3 [0m
+[2019-08-30 10:44:31] [0;32mI (367) gpio: GPIO[34]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 1| Intr:3 [0m
+[2019-08-30 10:44:31] [0;32mI (376) gpio: GPIO[35]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 1| Intr:3 [0m
+[2019-08-30 10:44:31] [0;32mI (387) uart: queue free spaces: 10[0m
+[2019-08-30 10:44:31] [0;32mI (391) [mesh-serial, 88]: Uart handle task is running[0m
+[2019-08-30 10:44:31] [0;31mE (5349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-30 10:44:36] [0;31mE (5349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-30 10:44:36] *************temp_info**************
+[2019-08-30 10:44:36] kom[8.490616] offset[0.000000]
+[2019-08-30 10:44:36] [0;31mE (5356) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-30 10:44:36] temp[25.000000]
+[2019-08-30 10:44:36] -------------------------------------
+[2019-08-30 10:44:36] *************temp_info**************
+[2019-08-30 10:44:36] kom[3.344232] offset[0.000000]
+[2019-08-30 10:44:36] [0;31mE (5374) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-30 10:44:36] temp[25.000000]
+[2019-08-30 10:44:36] -------------------------------------
+[2019-08-30 10:44:36] [0;32mI (10157) [mesh-serial, 99]: recv_length = 8[0m
+[2019-08-30 10:44:41] [0;32mI (10157) [mesh-check, 36]: uart id:1,ack_typ:3,typ:1,len:3[0m
+[2019-08-30 10:44:41] [0;32mI (10157) [moter_nvs, 222]: Load MAC err.[0m
+[2019-08-30 10:44:41] [0;33mW (10161) [moter_nvs, 265]: MAC地址表格信息有误，请重新配置[0m
+[2019-08-30 10:44:41] [0;32mI (10169) [get_started, 33]: 请配置MAC地址表格
+[2019-08-30 10:44:41] :{ "ID": 1,"Cmd": "mac","Mac":"30:ae:a4:dd:b0:1c,3c:71:bf:e0:92:28,30:ae:a4:dd:b0:52"}[0m
+[2019-08-30 10:44:41] [0;32mI (10182) [mdf-mesh, 345]: start mdf_mesh_init[0m
+[2019-08-30 10:44:41] I (10191) wifi: wifi driver task: 3ffcc45c, prio:23, stack:3584, core=0
+[2019-08-30 10:44:41] [0;32mI (10194) system_api: Base MAC address is not set, read default base MAC address from BLK0 of EFUSE[0m
+[2019-08-30 10:44:41] [0;32mI (10203) system_api: Base MAC address is not set, read default base MAC address from BLK0 of EFUSE[0m
+[2019-08-30 10:44:41] I (10224) wifi: wifi firmware version: 0c3a77a
+[2019-08-30 10:44:41] I (10224) wifi: config NVS flash: enabled
+[2019-08-30 10:44:41] I (10224) wifi: config nano formating: disabled
+[2019-08-30 10:44:41] I (10226) wifi: Init dynamic tx buffer num: 32
+[2019-08-30 10:44:41] I (10230) wifi: Init data frame dynamic rx buffer num: 32
+[2019-08-30 10:44:41] I (10235) wifi: Init management frame dynamic rx buffer num: 32
+[2019-08-30 10:44:41] I (10240) wifi: Init management short buffer num: 32
+[2019-08-30 10:44:41] I (10245) wifi: Init static rx buffer size: 1600
+[2019-08-30 10:44:41] I (10249) wifi: Init static rx buffer num: 10
+[2019-08-30 10:44:41] I (10253) wifi: Init dynamic rx buffer num: 32
+[2019-08-30 10:44:41] I (10259) wifi: Set ps type: 0
+[2019-08-30 10:44:41] 
+[2019-08-30 10:44:41] [0;33mW (10261) phy_init: failed to load RF calibration data (0x1102), falling back to full calibration[0m
+[2019-08-30 10:44:41] [0;32mI (10433) phy: phy_version: 4008, 544f89f, Jan 24 2019, 14:54:06, 0, 2[0m
+[2019-08-30 10:44:41] I (10440) wifi: mode : sta (3c:71:bf:e0:92:b8)
+[2019-08-30 10:44:41] [0;32mI (10444) [mwifi, 177]: esp-mdf version: v1.0-beta1-dirty[0m
+[2019-08-30 10:44:41] W (10444) wifi: [beacon]interval:100ms
+[2019-08-30 10:44:41] [0;31mE (10445) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-30 10:44:41] I (10446) wifi: mode : sta (3c:71:bf:e0:92:b8) + softAP (3c:71:bf:e0:92:b9)
+[2019-08-30 10:44:41] I (10459) wifi: Total power save buffer number: 16
+[2019-08-30 10:44:41] I (10462) wifi: Init max length of beacon: 752/752
+[2019-08-30 10:44:41] I (10467) wifi: Init max length of beacon: 752/752
+[2019-08-30 10:44:41] [0;31mE (10474) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-30 10:44:41] I (10476) mesh: <nvs>read layer:0, err:0x1102
+[2019-08-30 10:44:41] *************temp_info**************
+[2019-08-30 10:44:41] I (10483) mesh: <nvs>read assoc:0, err:0x1102
+[2019-08-30 10:44:41] kom[8.472281] offset[0.000000]
+[2019-08-30 10:44:41] I (10492) mesh: [IO]disable self-organizing<reconnect>
+[2019-08-30 10:44:41] [0;31mE (10493) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-30 10:44:41] W (10500) wifi: [beacon]interval:100ms
+[2019-08-30 10:44:41] temp[25.000000]
+[2019-08-30 10:44:41] I (10507) mesh: [CONFIG]invalid router settings, ssid_len:0, ssid:, bssid:00:00:00:00:00:00
+[2019-08-30 10:44:41] -------------------------------------
+[2019-08-30 10:44:41] I (10522) wifi: Total power save buffer number: 16
+[2019-08-30 10:44:41] *************temp_info**************
+[2019-08-30 10:44:41] kom[3.161613] offset[0.000000]
+[2019-08-30 10:44:41] [0;31mE (10531) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-30 10:44:41] temp[25.000000]
+[2019-08-30 10:44:41] -------------------------------------
+[2019-08-30 10:44:41] I (11533) wifi: Set ps type: 0
+[2019-08-30 10:44:42] 
+[2019-08-30 10:44:42] I (11539) mesh: [MANUAL]designated as root and router is not set
+[2019-08-30 10:44:42] [0;32mI (11539) [mwifi, 74]: esp_mesh_event_cb event.id: 0[0m
+[2019-08-30 10:44:42] [0;32mI (11539) [mwifi, 113]: MESH is started[0m
+[2019-08-30 10:44:42] [0;32mI (11544) [mdf-mesh, 284]: event_loop_cb, event: 0[0m
+[2019-08-30 10:44:42] [0;32mI (11549) [mdf-mesh, 292]: MESH is started[0m
+[2019-08-30 10:44:42] [0;32mI (11554) [mdf-mesh, 372]: MESH_ROOT,layre:1[0m
+[2019-08-30 10:44:42] [0;32mI (11559) [mdf-mesh, 40]: Note read task is running[0m
+[2019-08-30 10:44:42] [0;32mI (11565) [mdf-mesh, 159]: Root read is running[0m
+[2019-08-30 10:44:42] [0;32mI (11570) [get_started, 39]: Hello 所有设备初始化已完成[0m
+[2019-08-30 10:44:42] [0;31mE (15349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-30 10:44:46] [0;31mE (15349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-30 10:44:46] *************temp_info**************
+[2019-08-30 10:44:46] kom[8.360878] offset[0.000000]
+[2019-08-30 10:44:46] [0;31mE (15357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-30 10:44:46] temp[25.000000]
+[2019-08-30 10:44:46] -------------------------------------
+[2019-08-30 10:44:46] *************temp_info**************
+[2019-08-30 10:44:46] kom[2.980983] offset[0.000000]
+[2019-08-30 10:44:46] [0;31mE (15374) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-30 10:44:46] temp[25.000000]
+[2019-08-30 10:44:46] -------------------------------------
+[2019-08-30 10:44:46] [0;31mE (20349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-30 10:44:51] [0;31mE (20349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-30 10:44:51] *************temp_info**************
+[2019-08-30 10:44:51] kom[8.136064] offset[0.000000]
+[2019-08-30 10:44:51] [0;31mE (20357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-30 10:44:51] [0;32mI (20363) [mesh-serial, 99]: recv_length = 8[0m
+[2019-08-30 10:44:51] [0;32mI (20368) [mesh-check, 36]: uart id:1,ack_typ:3,typ:1,len:3[0m
+[2019-08-30 10:44:51] temp[25.000000]
+[2019-08-30 10:44:51] -------------------------------------
+[2019-08-30 10:44:51] *************temp_info**************
+[2019-08-30 10:44:51] kom[2.765306] offset[0.000000]
+[2019-08-30 10:44:51] [0;31mE (20385) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-30 10:44:51] temp[25.000000]
+[2019-08-30 10:44:51] -------------------------------------
+[2019-08-30 10:44:51] [0;32mI (21570) [mdf-mesh, 234]: System information, channel: 12, layer: 1, self mac: 3c:71:bf:e0:92:b8, parent bssid: 00:00:00:00:00:00, parent rssi: -120, node num: 1, free heap: 125668[0m
+[2019-08-30 10:44:52] [0;32mI (21576) [mesh-led, 146]: start json press[0m
+[2019-08-30 10:44:52] [0;32mI (21582) [mesh-led, 215]: OTA升级[0m
+[2019-08-30 10:44:52] [0;32mI (21586) [mupgrade_ota, 134]: start mupgrade_ota[0m
+[2019-08-30 10:44:52] [0;32mI (21592) [mupgrade_ota, 11]: start 准备ota升级......[0m
+[2019-08-30 10:44:52] [0;32mI (21734) [mesh-serial, 99]: recv_length = 8[0m
+[2019-08-30 10:44:52] [0;32mI (21734) [mesh-check, 36]: uart id:1,ack_typ:3,typ:1,len:3[0m
+[2019-08-30 10:44:52] [0;32mI (21734) [mupgrade_ota, 20]: 接收到ACK[0m
+[2019-08-30 10:44:52] [0;32mI (21739) [mupgrade_ota, 161]: 创建OTA升级任务[0m
+[2019-08-30 10:44:52] [0;32mI (24744) [get_started, 45]: heap free: 121192[0m
+[2019-08-30 10:44:55] [0;31mE (25349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-30 10:44:56] [0;31mE (25349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-30 10:44:56] *************temp_info**************
+[2019-08-30 10:44:56] kom[7.927025] offset[0.000000]
+[2019-08-30 10:44:56] [0;31mE (25357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-30 10:44:56] temp[25.000000]
+[2019-08-30 10:44:56] -------------------------------------
+[2019-08-30 10:44:56] *************temp_info**************
+[2019-08-30 10:44:56] kom[2.587559] offset[0.000000]
+[2019-08-30 10:44:56] [0;31mE (25374) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-30 10:44:56] temp[25.000000]
+[2019-08-30 10:44:56] -------------------------------------
+[2019-08-30 10:44:56] [0;32mI (27744) [get_started, 45]: heap free: 121192[0m
+[2019-08-30 10:44:58] [0;31mE (30349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-30 10:45:01] [0;31mE (30349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-30 10:45:01] *************temp_info**************
+[2019-08-30 10:45:01] kom[7.721691] offset[0.000000]
+[2019-08-30 10:45:01] [0;31mE (30357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-30 10:45:01] temp[25.000000]
+[2019-08-30 10:45:01] -------------------------------------
+[2019-08-30 10:45:01] *************temp_info**************
+[2019-08-30 10:45:01] kom[2.452342] offset[0.000000]
+[2019-08-30 10:45:01] [0;31mE (30374) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-30 10:45:01] temp[25.000000]
+[2019-08-30 10:45:01] -------------------------------------
+[2019-08-30 10:45:01] [0;32mI (30576) [mesh-serial, 99]: recv_length = 8[0m
+[2019-08-30 10:45:01] [0;32mI (30576) [mesh-check, 36]: uart id:1,ack_typ:3,typ:1,len:3[0m
+[2019-08-30 10:45:01] [0;32mI (30744) [get_started, 45]: heap free: 121180[0m
+[2019-08-30 10:45:01] [0;32mI (31570) [mdf-mesh, 234]: System information, channel: 12, layer: 1, self mac: 3c:71:bf:e0:92:b8, parent bssid: 00:00:00:00:00:00, parent rssi: -120, node num: 1, free heap: 121192[0m
+[2019-08-30 10:45:02] [0;32mI (31744) [mupgrade_root, 58]: Running partition, label: ota_0, type: 0x0, subtype: 0x10, address: 0x10000[0m
+[2019-08-30 10:45:02] [0;32mI (31744) [mupgrade_root, 60]: Update partition, label: ota_1, type: 0x0, subtype: 0x11, address: 0x1f0000[0m
+[2019-08-30 10:45:02] [0;32mI (33894) [mupgrade_ota, 60]: 3. 从服务器读取固件并将其写入根节点的闪存[0m
+[2019-08-30 10:45:05] [0;32mI (33894) [get_started, 45]: heap free: 120972[0m
+[2019-08-30 10:45:05] [0;31mE (35349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-30 10:45:06] [0;31mE (35349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-30 10:45:06] *************temp_info**************
+[2019-08-30 10:45:06] kom[7.583022] offset[0.000000]
+[2019-08-30 10:45:06] [0;31mE (35357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-30 10:45:06] temp[25.000000]
+[2019-08-30 10:45:06] -------------------------------------
+[2019-08-30 10:45:06] *************temp_info**************
+[2019-08-30 10:45:06] kom[2.353534] offset[0.000000]
+[2019-08-30 10:45:06] [0;31mE (35374) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-30 10:45:06] temp[25.000000]
+[2019-08-30 10:45:06] -------------------------------------
+[2019-08-30 10:45:06] [0;32mI (36897) [get_started, 45]: heap free: 120972[0m
+[2019-08-30 10:45:08] [0;32mI (39897) [get_started, 45]: heap free: 120972[0m
+[2019-08-30 10:45:11] [0;31mE (40349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-30 10:45:11] [0;31mE (40349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-30 10:45:11] *************temp_info**************
+[2019-08-30 10:45:11] kom[7.470692] offset[0.000000]
+[2019-08-30 10:45:11] [0;31mE (40357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-30 10:45:11] temp[25.000000]
+[2019-08-30 10:45:11] -------------------------------------
+[2019-08-30 10:45:11] *************temp_info**************
+[2019-08-30 10:45:11] kom[2.282767] offset[0.000000]
+[2019-08-30 10:45:11] [0;31mE (40374) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-30 10:45:11] temp[25.000000]
+[2019-08-30 10:45:11] -------------------------------------
+[2019-08-30 10:45:11] [0;32mI (40788) [mesh-serial, 99]: recv_length = 8[0m
+[2019-08-30 10:45:11] [0;32mI (40788) [mesh-check, 36]: uart id:1,ack_typ:3,typ:1,len:3[0m
+[2019-08-30 10:45:11] [0;32mI (41570) [mdf-mesh, 234]: System information, channel: 12, layer: 1, self mac: 3c:71:bf:e0:92:b8, parent bssid: 00:00:00:00:00:00, parent rssi: -120, node num: 1, free heap: 120960[0m
+[2019-08-30 10:45:12] [0;32mI (42897) [get_started, 45]: heap free: 120960[0m
+[2019-08-30 10:45:14] [0;31mE (45349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-30 10:45:16] [0;31mE (45349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-30 10:45:16] *************temp_info**************
+[2019-08-30 10:45:16] kom[7.360705] offset[0.000000]
+[2019-08-30 10:45:16] [0;31mE (45357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-30 10:45:16] temp[25.000000]
+[2019-08-30 10:45:16] -------------------------------------
+[2019-08-30 10:45:16] *************temp_info**************
+[2019-08-30 10:45:16] kom[2.232585] offset[0.000000]
+[2019-08-30 10:45:16] [0;31mE (45374) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-30 10:45:16] temp[25.000000]
+[2019-08-30 10:45:16] -------------------------------------
+[2019-08-30 10:45:16] [0;32mI (45897) [get_started, 45]: heap free: 120960[0m
+[2019-08-30 10:45:17] [0;32mI (48421) [mesh-serial, 99]: recv_length = 1[0m
+[2019-08-30 10:45:19] [0;32mI (48421) [mesh-check, 36]: uart id:0,ack_typ:0,typ:0,len:0[0m
+[2019-08-30 10:45:19] [0;31mE (48421) [mesh-check, 43]: crc check failure crc:0,data_crc:135[0m
+[2019-08-30 10:45:19] [0;33mW (48428) [mesh-serial, 101]: uart recv data crc error!recv_length = -7[0m
+[2019-08-30 10:45:19] [0;32mI (48897) [get_started, 45]: heap free: 120960[0m
+[2019-08-30 10:45:20] [0;32mI (50349) [mesh-led, 292]: information_Upload:{"Devs":[{"Typ":"fan","ID": 1,"Cmd": "Info","Params": {"NTemp": 25,"OpenPer": 0,"ConSta": "manual","MoSta": "stop"}},{"Typ":"fan","ID": 2,"Cmd": "Info","Params": {"NTemp": 25,"OpenPer": 0,"ConSta": "manual","MoSta": "stop"}}]}[0m
+[2019-08-30 10:45:21] [0;32mI (50515) [mesh-serial, 99]: recv_length = 8[0m
+[2019-08-30 10:45:21] [0;32mI (50515) [mesh-check, 36]: uart id:1,ack_typ:3,typ:1,len:3[0m
+[2019-08-30 10:45:21] [0;32mI (50515) [mesh-led, 300]: 接收到ACK[0m
+[2019-08-30 10:45:21] [0;31mE (50520) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-30 10:45:21] [0;31mE (50526) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-30 10:45:21] *************temp_info**************
+[2019-08-30 10:45:21] kom[7.391336] offset[0.000000]
+[2019-08-30 10:45:21] [0;31mE (50538) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-30 10:45:21] temp[25.000000]
+[2019-08-30 10:45:21] -------------------------------------
+[2019-08-30 10:45:21] *************temp_info**************
+[2019-08-30 10:45:21] kom[2.191466] offset[0.000000]
+[2019-08-30 10:45:21] [0;31mE (50556) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-30 10:45:21] temp[25.000000]
+[2019-08-30 10:45:21] -------------------------------------
+[2019-08-30 10:45:21] [0;32mI (50994) [mesh-serial, 99]: recv_length = 8[0m
+[2019-08-30 10:45:22] [0;32mI (50994) [mesh-check, 36]: uart id:1,ack_typ:3,typ:1,len:3[0m
+[2019-08-30 10:45:22] [0;32mI (51570) [mdf-mesh, 234]: System information, channel: 12, layer: 1, self mac: 3c:71:bf:e0:92:b8, parent bssid: 00:00:00:00:00:00, parent rssi: -120, node num: 1, free heap: 120960[0m
+[2019-08-30 10:45:22] [0;32mI (51897) [get_started, 45]: heap free: 120960[0m
+[2019-08-30 10:45:23] [0;32mI (54897) [get_started, 45]: heap free: 120960[0m
+[2019-08-30 10:45:26] [0;31mE (55349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-30 10:45:26] [0;31mE (55349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-30 10:45:26] *************temp_info**************
+[2019-08-30 10:45:26] kom[7.505540] offset[0.000000]
+[2019-08-30 10:45:26] [0;31mE (55357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-30 10:45:26] temp[25.000000]
+[2019-08-30 10:45:26] -------------------------------------
+[2019-08-30 10:45:26] *************temp_info**************
+[2019-08-30 10:45:26] kom[2.172251] offset[0.000000]
+[2019-08-30 10:45:26] [0;31mE (55374) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-30 10:45:26] temp[25.000000]
+[2019-08-30 10:45:26] -------------------------------------
+[2019-08-30 10:45:26] [0;32mI (57897) [get_started, 45]: heap free: 120960[0m
+[2019-08-30 10:45:29] [0;31mE (60349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-30 10:45:31] [0;31mE (60349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-30 10:45:31] *************temp_info**************
+[2019-08-30 10:45:31] kom[7.565066] offset[0.000000]
+[2019-08-30 10:45:31] [0;31mE (60357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-30 10:45:31] temp[25.000000]
+[2019-08-30 10:45:31] -------------------------------------
+[2019-08-30 10:45:31] *************temp_info**************
+[2019-08-30 10:45:31] kom[2.154727] offset[0.000000]
+[2019-08-30 10:45:31] [0;31mE (60374) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-30 10:45:31] temp[25.000000]
+[2019-08-30 10:45:31] -------------------------------------
+[2019-08-30 10:45:31] [0;32mI (60897) [get_started, 45]: heap free: 120972[0m
+[2019-08-30 10:45:32] [0;32mI (61205) [mesh-serial, 99]: recv_length = 8[0m
+[2019-08-30 10:45:32] [0;32mI (61205) [mesh-check, 36]: uart id:1,ack_typ:3,typ:1,len:3[0m
+[2019-08-30 10:45:32] [0;32mI (61570) [mdf-mesh, 234]: System information, channel: 12, layer: 1, self mac: 3c:71:bf:e0:92:b8, parent bssid: 00:00:00:00:00:00, parent rssi: -120, node num: 1, free heap: 120960[0m
+[2019-08-30 10:45:32] [0;32mI (63897) [get_started, 45]: heap free: 120972[0m
+[2019-08-30 10:45:35] [0;31mE (65349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-30 10:45:36] [0;31mE (65349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-30 10:45:36] *************temp_info**************
+[2019-08-30 10:45:36] kom[7.490514] offset[0.000000]
+[2019-08-30 10:45:36] [0;31mE (65357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-30 10:45:36] temp[25.000000]
+[2019-08-30 10:45:36] -------------------------------------
+[2019-08-30 10:45:36] *************temp_info**************
+[2019-08-30 10:45:36] kom[2.142414] offset[0.000000]
+[2019-08-30 10:45:36] [0;31mE (65374) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-30 10:45:36] temp[25.000000]
+[2019-08-30 10:45:36] -------------------------------------
+[2019-08-30 10:45:36] [0;32mI (66897) [get_started, 45]: heap free: 120972[0m
+[2019-08-30 10:45:37] [0;32mI (69897) [get_started, 45]: heap free: 120960[0m
+[2019-08-30 10:45:40] [0;31mE (70349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-30 10:45:41] [0;31mE (70349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-30 10:45:41] *************temp_info**************
+[2019-08-30 10:45:41] kom[7.410687] offset[0.000000]
+[2019-08-30 10:45:41] [0;31mE (70357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-30 10:45:41] temp[25.000000]
+[2019-08-30 10:45:41] -------------------------------------
+[2019-08-30 10:45:41] *************temp_info**************
+[2019-08-30 10:45:41] kom[2.133765] offset[0.000000]
+[2019-08-30 10:45:41] [0;31mE (70374) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-30 10:45:41] temp[25.000000]
+[2019-08-30 10:45:41] -------------------------------------
+[2019-08-30 10:45:41] [0;32mI (71421) [mesh-serial, 99]: recv_length = 8[0m
+[2019-08-30 10:45:42] [0;32mI (71421) [mesh-check, 36]: uart id:1,ack_typ:3,typ:1,len:3[0m
+[2019-08-30 10:45:42] [0;32mI (71570) [mdf-mesh, 234]: System information, channel: 12, layer: 1, self mac: 3c:71:bf:e0:92:b8, parent bssid: 00:00:00:00:00:00, parent rssi: -120, node num: 1, free heap: 120960[0m
+[2019-08-30 10:45:42] [0;32mI (72897) [get_started, 45]: heap free: 120960[0m
+[2019-08-30 10:45:43] [0;32mI (74304) [mesh-serial, 99]: recv_length = 2[0m
+[2019-08-30 10:45:45] [0;32mI (74304) [mesh-check, 36]: uart id:0,ack_typ:0,typ:0,len:0[0m
+[2019-08-30 10:45:45] [0;31mE (74304) [mesh-check, 43]: crc check failure crc:0,data_crc:255[0m
+[2019-08-30 10:45:45] [0;33mW (74311) [mesh-serial, 101]: uart recv data crc error!recv_length = -6[0m
+[2019-08-30 10:45:45] [0;31mE (75349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-30 10:45:46] [0;31mE (75349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-30 10:45:46] *************temp_info**************
+[2019-08-30 10:45:46] kom[7.359433] offset[0.000000]
+[2019-08-30 10:45:46] [0;31mE (75357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-30 10:45:46] temp[25.000000]
+[2019-08-30 10:45:46] -------------------------------------
+[2019-08-30 10:45:46] *************temp_info**************
+[2019-08-30 10:45:46] kom[2.127691] offset[0.000000]
+[2019-08-30 10:45:46] [0;31mE (75374) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-30 10:45:46] temp[25.000000]
+[2019-08-30 10:45:46] -------------------------------------
+[2019-08-30 10:45:46] [0;32mI (75897) [get_started, 45]: heap free: 120960[0m
+[2019-08-30 10:45:46] [0;32mI (76543) [mesh-serial, 99]: recv_length = 2[0m
+[2019-08-30 10:45:47] [0;32mI (76543) [mesh-check, 36]: uart id:0,ack_typ:0,typ:0,len:0[0m
+[2019-08-30 10:45:47] [0;31mE (76543) [mesh-check, 43]: crc check failure crc:0,data_crc:255[0m
+[2019-08-30 10:45:47] [0;33mW (76550) [mesh-serial, 101]: uart recv data crc error!recv_length = -6[0m
+[2019-08-30 10:45:47] [0;32mI (78897) [get_started, 45]: heap free: 120960[0m
+[2019-08-30 10:45:49] [0;31mE (80349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-30 10:45:51] [0;31mE (80349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-30 10:45:51] *************temp_info**************
+[2019-08-30 10:45:51] kom[7.305171] offset[0.000000]
+[2019-08-30 10:45:51] [0;31mE (80357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-30 10:45:51] temp[25.000000]
+[2019-08-30 10:45:51] -------------------------------------
+[2019-08-30 10:45:51] *************temp_info**************
+[2019-08-30 10:45:51] kom[2.123424] offset[0.000000]
+[2019-08-30 10:45:51] [0;31mE (80374) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-30 10:45:51] temp[25.000000]
+[2019-08-30 10:45:51] -------------------------------------
+[2019-08-30 10:45:51] [0;32mI (81570) [mdf-mesh, 234]: System information, channel: 12, layer: 1, self mac: 3c:71:bf:e0:92:b8, parent bssid: 00:00:00:00:00:00, parent rssi: -120, node num: 1, free heap: 120960[0m
+[2019-08-30 10:45:52] [0;32mI (81630) [mesh-serial, 99]: recv_length = 8[0m
+[2019-08-30 10:45:52] [0;32mI (81630) [mesh-check, 36]: uart id:1,ack_typ:3,typ:1,len:3[0m
+[2019-08-30 10:45:52] [0;32mI (81897) [get_started, 45]: heap free: 120960[0m
+[2019-08-30 10:45:52] [0;32mI (84897) [get_started, 45]: heap free: 120960[0m
+[2019-08-30 10:45:55] [0;31mE (85349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-30 10:45:56] [0;31mE (85349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-30 10:45:56] *************temp_info**************
+[2019-08-30 10:45:56] kom[7.261968] offset[0.000000]
+[2019-08-30 10:45:56] [0;31mE (85357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-30 10:45:56] temp[25.000000]
+[2019-08-30 10:45:56] -------------------------------------
+[2019-08-30 10:45:56] *************temp_info**************
+[2019-08-30 10:45:56] kom[2.120428] offset[0.000000]
+[2019-08-30 10:45:56] [0;31mE (85374) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-30 10:45:56] temp[25.000000]
+[2019-08-30 10:45:56] -------------------------------------
+[2019-08-30 10:45:56] [0;32mI (87897) [get_started, 45]: heap free: 120972[0m
+[2019-08-30 10:45:58] [0;31mE (90349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-30 10:46:01] [0;31mE (90349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-30 10:46:01] *************temp_info**************
+[2019-08-30 10:46:01] kom[7.223524] offset[0.000000]
+[2019-08-30 10:46:01] [0;31mE (90357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-30 10:46:01] temp[25.000000]
+[2019-08-30 10:46:01] -------------------------------------
+[2019-08-30 10:46:01] *************temp_info**************
+[2019-08-30 10:46:01] kom[2.118325] offset[0.000000]
+[2019-08-30 10:46:01] [0;31mE (90374) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-30 10:46:01] temp[25.000000]
+[2019-08-30 10:46:01] -------------------------------------
+[2019-08-30 10:46:01] [0;32mI (90897) [get_started, 45]: heap free: 120972[0m
+[2019-08-30 10:46:01] [0;32mI (91570) [mdf-mesh, 234]: System information, channel: 12, layer: 1, self mac: 3c:71:bf:e0:92:b8, parent bssid: 00:00:00:00:00:00, parent rssi: -120, node num: 1, free heap: 120972[0m
+[2019-08-30 10:46:02] [0;32mI (91841) [mesh-serial, 99]: recv_length = 8[0m
+[2019-08-30 10:46:02] [0;32mI (91841) [mesh-check, 36]: uart id:1,ack_typ:3,typ:1,len:3[0m
+[2019-08-30 10:46:02] [0;32mI (93897) [get_started, 45]: heap free: 120960[0m
+[2019-08-30 10:46:04] [0;31mE (95349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-30 10:46:06] [0;31mE (95349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-30 10:46:06] *************temp_info**************
+[2019-08-30 10:46:06] kom[7.208562] offset[0.000000]
+[2019-08-30 10:46:06] [0;31mE (95357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-30 10:46:06] temp[25.000000]
+[2019-08-30 10:46:06] -------------------------------------
+[2019-08-30 10:46:06] *************temp_info**************
+[2019-08-30 10:46:06] kom[2.116847] offset[0.000000]
+[2019-08-30 10:46:06] [0;31mE (95374) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-30 10:46:06] temp[25.000000]
+[2019-08-30 10:46:06] -------------------------------------
+[2019-08-30 10:46:06] [0;32mI (96897) [get_started, 45]: heap free: 120960[0m
+[2019-08-30 10:46:07] [0;32mI (99897) [get_started, 45]: heap free: 120960[0m
+[2019-08-30 10:46:10] [0;32mI (100178) [mesh-serial, 99]: recv_length = 2[0m
+[2019-08-30 10:46:11] [0;32mI (100178) [mesh-check, 36]: uart id:0,ack_typ:0,typ:0,len:0[0m
+[2019-08-30 10:46:11] [0;31mE (100178) [mesh-check, 43]: crc check failure crc:0,data_crc:255[0m
+[2019-08-30 10:46:11] [0;33mW (100185) [mesh-serial, 101]: uart recv data crc error!recv_length = -6[0m
+[2019-08-30 10:46:11] [0;32mI (100349) [mesh-led, 292]: information_Upload:{"Devs":[{"Typ":"fan","ID": 1,"Cmd": "Info","Params": {"NTemp": 25,"OpenPer": 0,"ConSta": "manual","MoSta": "stop"}},{"Typ":"fan","ID": 2,"Cmd": "Info","Params": {"NTemp": 25,"OpenPer": 0,"ConSta": "manual","MoSta": "stop"}}]}[0m
+[2019-08-30 10:46:11] [0;32mI (100510) [mesh-serial, 99]: recv_length = 8[0m
+[2019-08-30 10:46:11] [0;32mI (100510) [mesh-check, 36]: uart id:1,ack_typ:3,typ:1,len:3[0m
+[2019-08-30 10:46:11] [0;32mI (100510) [mesh-led, 300]: 接收到ACK[0m
+[2019-08-30 10:46:11] [0;31mE (100515) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-30 10:46:11] [0;31mE (100521) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-30 10:46:11] *************temp_info**************
+[2019-08-30 10:46:11] kom[7.217877] offset[0.000000]
+[2019-08-30 10:46:11] [0;31mE (100534) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-30 10:46:11] temp[25.000000]
+[2019-08-30 10:46:11] -------------------------------------
+[2019-08-30 10:46:11] *************temp_info**************
+[2019-08-30 10:46:11] kom[2.115810] offset[0.000000]
+[2019-08-30 10:46:11] [0;31mE (100551) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-30 10:46:11] temp[25.000000]
+[2019-08-30 10:46:11] -------------------------------------
+[2019-08-30 10:46:11] [0;32mI (101570) [mdf-mesh, 234]: System information, channel: 12, layer: 1, self mac: 3c:71:bf:e0:92:b8, parent bssid: 00:00:00:00:00:00, parent rssi: -120, node num: 1, free heap: 120972[0m
+[2019-08-30 10:46:12] [0;32mI (102047) [mesh-serial, 99]: recv_length = 8[0m
+[2019-08-30 10:46:13] [0;32mI (102047) [mesh-check, 36]: uart id:1,ack_typ:3,typ:1,len:3[0m
+[2019-08-30 10:46:13] [0;32mI (102897) [get_started, 45]: heap free: 120960[0m
+[2019-08-30 10:46:13] [0;31mE (105349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-30 10:46:16] [0;31mE (105350) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-30 10:46:16] *************temp_info**************
+[2019-08-30 10:46:16] kom[7.241764] offset[0.000000]
+[2019-08-30 10:46:16] [0;31mE (105357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-30 10:46:16] temp[25.000000]
+[2019-08-30 10:46:16] -------------------------------------
+[2019-08-30 10:46:16] *************temp_info**************
+[2019-08-30 10:46:16] kom[2.115081] offset[0.000000]
+[2019-08-30 10:46:16] [0;31mE (105375) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-30 10:46:16] temp[25.000000]
+[2019-08-30 10:46:16] -------------------------------------
+[2019-08-30 10:46:16] [0;32mI (105897) [get_started, 45]: heap free: 120960[0m
+[2019-08-30 10:46:16] [0;32mI (108897) [get_started, 45]: heap free: 120960[0m
+[2019-08-30 10:46:19] [0;31mE (110349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-30 10:46:21] [0;31mE (110349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-30 10:46:21] *************temp_info**************
+[2019-08-30 10:46:21] kom[7.250393] offset[0.000000]
+[2019-08-30 10:46:21] [0;31mE (110357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-30 10:46:21] temp[25.000000]
+[2019-08-30 10:46:21] -------------------------------------
+[2019-08-30 10:46:21] *************temp_info**************
+[2019-08-30 10:46:21] kom[2.114569] offset[0.000000]
+[2019-08-30 10:46:21] [0;31mE (110374) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-30 10:46:21] temp[25.000000]
+[2019-08-30 10:46:21] -------------------------------------
+[2019-08-30 10:46:21] [0;32mI (111570) [mdf-mesh, 234]: System information, channel: 12, layer: 1, self mac: 3c:71:bf:e0:92:b8, parent bssid: 00:00:00:00:00:00, parent rssi: -120, node num: 1, free heap: 120972[0m
+[2019-08-30 10:46:22] [0;32mI (111897) [get_started, 45]: heap free: 120972[0m
+[2019-08-30 10:46:22] [0;32mI (112262) [mesh-serial, 99]: recv_length = 8[0m
+[2019-08-30 10:46:23] [0;32mI (112262) [mesh-check, 36]: uart id:1,ack_typ:3,typ:1,len:3[0m
+[2019-08-30 10:46:23] [0;32mI (114897) [get_started, 45]: heap free: 120972[0m
+[2019-08-30 10:46:25] [0;31mE (115349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-30 10:46:26] [0;31mE (115349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-30 10:46:26] *************temp_info**************
+[2019-08-30 10:46:26] kom[7.286999] offset[0.000000]
+[2019-08-30 10:46:26] [0;31mE (115357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-30 10:46:26] temp[25.000000]
+[2019-08-30 10:46:26] -------------------------------------
+[2019-08-30 10:46:26] *************temp_info**************
+[2019-08-30 10:46:26] kom[2.114210] offset[0.000000]
+[2019-08-30 10:46:26] [0;31mE (115374) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-30 10:46:26] temp[25.000000]
+[2019-08-30 10:46:26] -------------------------------------
+[2019-08-30 10:46:26] [0;32mI (117897) [get_started, 45]: heap free: 120972[0m
+[2019-08-30 10:46:28] 

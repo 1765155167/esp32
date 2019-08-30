@@ -32,5 +32,6 @@
 /*ntc　热敏电阻*/
 #define ADC_CH1 ADC1_CHANNEL_4 //温度测量通道1使用的adc/*!< ADC1 channel 4 is GPIO32 */
 #define ADC_CH2 ADC1_CHANNEL_5 //温度测量通道2使用的adc/*!< ADC1 channel 5 is GPIO33 */
-
+#define RNF2 47 //47KΩ ntc分压电阻阻值
+#define RNF1 47 //47KΩ
 #endif

@@ -13,6 +13,7 @@ typedef struct screen_info_t{
 }screen_info_t;
 
 mdf_err_t screen_init(void);
+void set_device_id(moter_stu *device,int id);
 void build_screen_info(moter_stu *device, moter_args *args,int id);
 int change_screen_info();
 void set_screen_info(int id);

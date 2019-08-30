@@ -1,10 +1,12 @@
 #include "moter_nvs.h"
 
+static char * TAG = "moter_nvs";
 extern moter_args moter_args1;/*参数信息*/
 extern moter_args moter_args2;/*参数信息*/
 extern moter_stu moter_flag1;/*实时信息*/
 extern moter_stu moter_flag2;/*实时信息*/
 extern int32_t TempCalOff[];/*温度校准偏移 真正偏移的10倍*/
+extern uint8_t dest_addr[3][MWIFI_ADDR_LEN];
 
 mdf_err_t nvs_init()
 {
@@ -201,4 +203,85 @@ mdf_err_t nvs_save_tempCal(uint8_t drive)
 	}
 	nvs_close(moter_handle);// Close
 	return MDF_OK;	
+}
+
+mdf_err_t nvs_load_mac()
+{
+	mdf_err_t err;
+	uint32_t addr[3][MWIFI_ADDR_LEN];
+	size_t length = MWIFI_PAYLOAD_LEN;
+	nvs_handle moter_handle;
+	char * out_value = MDF_MALLOC(MWIFI_PAYLOAD_LEN);
+	err = nvs_open("moter1", NVS_READWRITE, &moter_handle);
+	if (err != ESP_OK) {
+        printf("Error (%s) opening NVS handle!\n", esp_err_to_name(err));
+    } else {
+		// err = nvs_get_str(moter_handle, "mac table", &moter_args1.AlarmTempMax);
+		err = nvs_get_str(moter_handle, "mac table", out_value, &length);
+		if(err != MDF_OK) {
+			MDF_LOGI("Load MAC err.");
+		} else {
+			MDF_LOGI("mac:%s,size:%d",out_value,length);
+		}
+		
+		if (length == 54) {
+			sscanf(out_value,"%x:%x:%x:%x:%x:%x,%x:%x:%x:%x:%x:%x,%x:%x:%x:%x:%x:%x",
+					&addr[0][0],&addr[0][1],&addr[0][2],&addr[0][3],&addr[0][4],&addr[0][5],
+					&addr[1][0],&addr[1][1],&addr[1][2],&addr[1][3],&addr[1][4],&addr[1][5],
+					&addr[2][0],&addr[2][1],&addr[2][2],&addr[2][3],&addr[2][4],&addr[2][5]);
+			for (size_t i = 0; i < 3; i++) {
+				for (size_t j = 0; j < MWIFI_ADDR_LEN; j++) {
+					dest_addr[i][j] = addr[i][j];
+					printf("%02x:",dest_addr[i][j]);
+				}
+				printf("\n");	
+			}
+		} else if (length == 36) {
+			sscanf(out_value,"%x:%x:%x:%x:%x:%x,%x:%x:%x:%x:%x:%x",
+					&addr[0][0],&addr[0][1],&addr[0][2],&addr[0][3],&addr[0][4],&addr[0][5],
+					&addr[1][0],&addr[1][1],&addr[1][2],&addr[1][3],&addr[1][4],&addr[1][5]);
+			for (size_t i = 0; i < 2; i++)
+			{
+				for (size_t j = 0; j < MWIFI_ADDR_LEN; j++)
+				{
+					dest_addr[i][j] = addr[i][j];
+					printf("%02x:",dest_addr[i][j]);
+				}
+				printf("\n");	
+			}
+		} else if (length == 18) {
+			sscanf(out_value,"%x:%x:%x:%x:%x:%x",
+					&addr[0][0],&addr[0][1],&addr[0][2],&addr[0][3],&addr[0][4],&addr[0][5]);
+			for (size_t i = 0; i < 1; i++)
+			{
+				for (size_t j = 0; j < MWIFI_ADDR_LEN; j++)
+				{
+					dest_addr[i][j] = addr[i][j];
+					printf("%02x:",dest_addr[i][j]);
+				}
+				printf("\n");	
+			}
+		} else {
+			MDF_LOGW("MAC地址表格信息有误，请重新配置");
+		}
+	}
+	MDF_FREE(out_value);
+	return err;
+}
+
+mdf_err_t nvs_save_mac(char* value)
+{
+	mdf_err_t err;
+	nvs_handle moter_handle;
+
+	err = nvs_open("moter1", NVS_READWRITE, &moter_handle);
+	if (err != MDF_OK) {
+		printf("Error (%s) opening NVS handle!\n", esp_err_to_name(err));
+	} else {
+		err = nvs_set_str(moter_handle, "mac table", value);
+		err = nvs_commit(moter_handle);
+		printf((err != MDF_OK) ? "mac table Failed!\n" : "mac table Done\n"); 
+	}
+	nvs_close(moter_handle);// Close
+	return MDF_OK;
 }

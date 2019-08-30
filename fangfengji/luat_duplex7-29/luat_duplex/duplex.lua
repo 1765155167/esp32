@@ -128,13 +128,13 @@ function recv_handle(packet)
     local packet_id = string.byte(packet, 1)
     local ack_typ = string.byte(packet, 2)
     local typ = string.byte(packet, 3)
-    log.info("recv_handle", string.format( "id[%d] ack_typ[%d] typ[%d]", packet_id, ack_typ, typ))
+    -- log.info("recv_handle", string.format( "id[%d] ack_typ[%d] typ[%d]", packet_id, ack_typ, typ))
     if ack_typ == DUPLEX_NEED_ACK then
         send_ack(packet_id)
     end
 
     if ack_typ == DUPLEX_IS_ACK then
-        log.info("recv_handle", string.format( "recv ack[%d]", packet_id))
+        log.info("ack_handle", string.format( "recv ack[%d]", packet_id))
         --table.insert(str_ack_queue, packet_id)
         sys.publish("DUPLEX_STR_ACK")
         return
@@ -147,7 +147,7 @@ function recv_handle(packet)
 
     last_id = packet_id
     local data = string.sub(packet,  4, -1)
-    log.info("recv_handle", "recv: ", data)
+    -- log.info("recv_handle", "recv: ", data)
     recv_sort(data)
 end
 
@@ -161,24 +161,24 @@ function split_task()
             data_buf = data_buf..message
             while true do
                 local offset = string.find(data_buf, split_string, 1)
-                --log.info("split task, offset: ", offset) 
+                log.info("split task, offset: ", offset) 
                 if not offset then break end
                 local len_str = string.sub(data_buf, offset, offset + 2)
                 data_buf = string.sub(data_buf, offset + 2, -1)
                 if string.len(data_buf) < 2 then break end
 
                 local len = string.byte(data_buf, 1) *256 + string.byte(data_buf, 2)
-                --log.info("duplex len", len)
+                log.info("duplex len", len)
 
                 if string.len(data_buf) < len + 2 + 1 then break end
 
                 local pay_load = string.sub(data_buf, 3, 2 + len)
                 crc = string.byte(data_buf, 2 + len + 1)
 
-                --log.info("recv crc ", string.format( "%x",crc))
+                log.info("recv crc ", string.format( "%x",crc))
                 
                 crc_res = crc8.get(pay_load)
-                --log.info("duplex crc", string.format( "%x",crc_res))
+                log.info("duplex crc", string.format( "%x",crc_res))
                 if crc_res ~= crc then
                     data_buf = ""
                     break;
@@ -245,7 +245,7 @@ function sendstr(data, time_ms)
 
     local id = get_packet_id();
     
-    if time_ms == 0 then
+    if time_ms ~= 0 then
         write(id, DUPLEX_NEED_ACK, STR, data)
         res = sys.waitUntil("DUPLEX_STR_ACK", time_ms)
     else
@@ -266,11 +266,16 @@ function sendbin(data,time_ms)
         sys.wait(100)
     end
 
-    log.info("send bin", "len: ", string.len(data))
+    -- log.info("send bin", "len: ", string.len(data))
 
     local id = get_packet_id();
-    write(id, DUPLEX_NO_ACK, BIN, data)
-    res = true
+    if time_ms ~= 0 then
+        write(id, DUPLEX_NEED_ACK, BIN, data)
+        res = sys.waitUntil("DUPLEX_STR_ACK", time_ms)
+    else
+        write(id, DUPLEX_NO_ACK, BIN, data)
+        res = true
+    end
     send_lock = false
     return res
 end
@@ -285,10 +290,16 @@ function recv_task()
 end
 
 
+function send_task()
+    while true do
+        send_ack(1);
+        sys.wait(10 * 1000);
+    end
+end
 
 uart.on(UART_ID,"receive",read)
 uart.setup(UART_ID,115200,8,uart.PAR_NONE,uart.STOP_1)
 sys.taskInit(split_task)
 --sys.taskInit(write_task)
 --sys.taskInit(recv_task)
---sys.taskInit(send_task)
+sys.taskInit(send_task)

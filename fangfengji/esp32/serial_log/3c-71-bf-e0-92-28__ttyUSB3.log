@@ -1,0 +1,2135 @@
+32mI (30)�ets Jun  8 2016 00:22:57
+[2019-08-29 14:05:45] 
+[2019-08-29 14:05:45] rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+[2019-08-29 14:05:45] configsip: 0, SPIWP:0xee
+[2019-08-29 14:05:45] clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+[2019-08-29 14:05:45] mode:DIO, clock div:2
+[2019-08-29 14:05:45] load:0x3fff0018,len:4
+[2019-08-29 14:05:45] load:0x3fff001c,len:6192
+[2019-08-29 14:05:45] ho 0 tail 12 room 4
+[2019-08-29 14:05:45] load:0x40078000,len:10272
+[2019-08-29 14:05:45] load:0x40080400,len:6608
+[2019-08-29 14:05:45] entry 0x40080764
+[2019-08-29 14:05:45] [0;32mI (30) boot: ESP-IDF v3.2.2-42-g4a9f33944-dirty 2nd stage bootloader[0m
+[2019-08-29 14:05:45] [0;32mI (30) boot: compile time 18:15:19[0m
+[2019-08-29 14:05:45] [0;32mI (30) boot: Enabling RNG early entropy source...[0m
+[2019-08-29 14:05:45] [0;32mI (37) boot: SPI Speed      : 40MHz[0m
+[2019-08-29 14:05:45] [0;32mI (41) boot: SPI Mode       : DIO[0m
+[2019-08-29 14:05:45] [0;32mI (45) boot: SPI Flash Size : 4MB[0m
+[2019-08-29 14:05:45] [0;32mI (49) boot: Partition Table:[0m
+[2019-08-29 14:05:45] [0;32mI (52) boot: ## Label            Usage          Type ST Offset   Length[0m
+[2019-08-29 14:05:45] [0;32mI (60) boot:  0 nvs              WiFi data        01 02 00009000 00004000[0m
+[2019-08-29 14:05:45] [0;32mI (67) boot:  1 otadata          OTA data         01 00 0000d000 00002000[0m
+[2019-08-29 14:05:45] [0;32mI (75) boot:  2 phy_init         RF data          01 01 0000f000 00001000[0m
+[2019-08-29 14:05:45] [0;32mI (82) boot:  3 ota_0            OTA app          00 10 00010000 001e0000[0m
+[2019-08-29 14:05:45] [0;32mI (90) boot:  4 ota_1            OTA app          00 11 001f0000 001e0000[0m
+[2019-08-29 14:05:45] [0;32mI (97) boot:  5 coredump         Unknown data     01 03 003d0000 00010000[0m
+[2019-08-29 14:05:45] [0;32mI (104) boot:  6 reserved         Unknown data     01 fe 003e0000 00020000[0m
+[2019-08-29 14:05:45] [0;32mI (112) boot: End of partition table[0m
+[2019-08-29 14:05:45] [0;32mI (116) boot: No factory image, trying OTA 0[0m
+[2019-08-29 14:05:45] [0;32mI (121) esp_image: segment 0: paddr=0x00010020 vaddr=0x3f400020 size=0x26d50 (159056) map[0m
+[2019-08-29 14:05:45] [0;32mI (186) esp_image: segment 1: paddr=0x00036d78 vaddr=0x3ffb0000 size=0x02d4c ( 11596) load[0m
+[2019-08-29 14:05:45] [0;32mI (191) esp_image: segment 2: paddr=0x00039acc vaddr=0x40080000 size=0x00400 (  1024) load[0m
+[2019-08-29 14:05:45] [0;32mI (193) esp_image: segment 3: paddr=0x00039ed4 vaddr=0x40080400 size=0x0613c ( 24892) load[0m
+[2019-08-29 14:05:45] [0;32mI (212) esp_image: segment 4: paddr=0x00040018 vaddr=0x400d0018 size=0xa7cd0 (687312) map[0m
+[2019-08-29 14:05:45] [0;32mI (453) esp_image: segment 5: paddr=0x000e7cf0 vaddr=0x4008653c size=0x0a520 ( 42272) load[0m
+[2019-08-29 14:05:46] [0;32mI (481) boot: Loaded app from partition at offset 0x10000[0m
+[2019-08-29 14:05:46] [0;32mI (481) boot: Disabling RNG early entropy source...[0m
+[2019-08-29 14:05:46] [0;32mI (481) cpu_start: Pro cpu up.[0m
+[2019-08-29 14:05:46] [0;32mI (485) cpu_start: Single core mode[0m
+[2019-08-29 14:05:46] [0;32mI (489) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[2019-08-29 14:05:46] [0;32mI (496) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[2019-08-29 14:05:46] [0;32mI (502) heap_init: At 3FFB9C90 len 00026370 (152 KiB): DRAM[0m
+[2019-08-29 14:05:46] [0;32mI (508) heap_init: At 3FFE0440 len 0001FBC0 (126 KiB): D/IRAM[0m
+[2019-08-29 14:05:46] [0;32mI (515) heap_init: At 40078000 len 00008000 (32 KiB): IRAM[0m
+[2019-08-29 14:05:46] [0;32mI (521) heap_init: At 40090A5C len 0000F5A4 (61 KiB): IRAM[0m
+[2019-08-29 14:05:46] [0;32mI (527) cpu_start: Pro cpu start user code[0m
+[2019-08-29 14:05:46] [0;32mI (209) [mupgrade_check, 142]: Add an identifier to the firmware: ** MUPGRADE_FIRMWARE_FLAG **[0m
+[2019-08-29 14:05:46] [0;32mI (220) cpu_start: Starting scheduler on PRO CPU.[0m
+[2019-08-29 14:05:46] 
+[2019-08-29 14:05:46] Opening Non-Volatile moter1 && moter2 (NVS) handle...
+[2019-08-29 14:05:46] AlarmTempMax1 Failed!
+[2019-08-29 14:05:46] AlarmTempMin1 Failed!
+[2019-08-29 14:05:46] SetTempMax1 Failed!
+[2019-08-29 14:05:46] SetTempMin1 Failed!
+[2019-08-29 14:05:46] TotalTime1 Failed!
+[2019-08-29 14:05:46] OpenPer1 Failed!
+[2019-08-29 14:05:46] TempCalOff1 Failed!
+[2019-08-29 14:05:46] AlarmTempMax2 Failed!
+[2019-08-29 14:05:46] AlarmTempMin2 Failed!
+[2019-08-29 14:05:46] SetTempMax2 Failed!
+[2019-08-29 14:05:46] SetTempMin2 Failed!
+[2019-08-29 14:05:46] TotalTime2 Failed!
+[2019-08-29 14:05:46] OpenPer2 Failed!
+[2019-08-29 14:05:46] TempCalOff2 Failed!
+[2019-08-29 14:05:46] [0;32mI (271) gpio: GPIO[25]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 1| Intr:0 [0m
+[2019-08-29 14:05:46] [0;32mI (280) gpio: GPIO[26]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 1| Intr:0 [0m
+[2019-08-29 14:05:46] [0;32mI (290) gpio: GPIO[27]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 1| Intr:0 [0m
+[2019-08-29 14:05:46] [0;32mI (299) gpio: GPIO[17]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 1| Intr:0 [0m
+[2019-08-29 14:05:46] [0;32mI (308) gpio: GPIO[5]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 1| Intr:0 [0m
+[2019-08-29 14:05:46] [0;32mI (317) gpio: GPIO[18]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 1| Intr:0 [0m
+[2019-08-29 14:05:46] [0;32mI (327) gpio: GPIO[19]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 1| Intr:0 [0m
+[2019-08-29 14:05:46] eFuse Two Point: NOT supported
+[2019-08-29 14:05:46] eFuse Vref: Supported
+[2019-08-29 14:05:46] Characterized using eFuse Vref
+[2019-08-29 14:05:46] [0;32mI (344) [temp_info, 71]: temp task is start[0m
+[2019-08-29 14:05:46] [0;32mI (349) gpio: GPIO[36]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 1| Intr:3 [0m
+[2019-08-29 14:05:46] [0;32mI (358) gpio: GPIO[39]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 1| Intr:3 [0m
+[2019-08-29 14:05:46] [0;32mI (367) gpio: GPIO[34]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 1| Intr:3 [0m
+[2019-08-29 14:05:46] [0;32mI (376) gpio: GPIO[35]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 1| Intr:3 [0m
+[2019-08-29 14:05:46] [0;32mI (387) uart: queue free spaces: 10[0m
+[2019-08-29 14:05:46] [0;32mI (391) [mesh-serial, 88]: Uart handle task is running[0m
+[2019-08-29 14:05:46] [0;32mI (5349) [temp_table, 97]: n[47] kom[47.099285] temp[26.347313][0m
+[2019-08-29 14:05:51] [0;32mI (5350) [temp_table, 97]: n[47] kom[46.628475] temp[26.590637][0m
+[2019-08-29 14:05:51] *************temp_info**************
+[2019-08-29 14:05:51] kom[47.099285] offset[0.000000]
+[2019-08-29 14:05:51] [0;32mI (5358) [temp_table, 97]: n[47] kom[47.099285] temp[26.347313][0m
+[2019-08-29 14:05:51] temp[26.347313]
+[2019-08-29 14:05:51] -------------------------------------
+[2019-08-29 14:05:51] *************temp_info**************
+[2019-08-29 14:05:51] kom[46.628475] offset[0.000000]
+[2019-08-29 14:05:51] [0;32mI (5376) [temp_table, 97]: n[47] kom[46.628475] temp[26.590637][0m
+[2019-08-29 14:05:51] temp[26.590637]
+[2019-08-29 14:05:51] -------------------------------------
+[2019-08-29 14:05:51] [0;32mI (10349) [temp_table, 97]: n[50] kom[40.795631] temp[29.704536][0m
+[2019-08-29 14:05:56] [0;32mI (10349) [temp_table, 97]: n[51] kom[39.309055] temp[30.572144][0m
+[2019-08-29 14:05:56] *************temp_info**************
+[2019-08-29 14:05:56] kom[40.795631] offset[0.000000]
+[2019-08-29 14:05:56] [0;32mI (10358) [temp_table, 97]: n[50] kom[40.795631] temp[29.704536][0m
+[2019-08-29 14:05:56] temp[29.704536]
+[2019-08-29 14:05:56] -------------------------------------
+[2019-08-29 14:05:56] *************temp_info**************
+[2019-08-29 14:05:56] kom[39.309055] offset[0.000000]
+[2019-08-29 14:05:56] [0;32mI (10376) [temp_table, 97]: n[51] kom[39.309055] temp[30.572144][0m
+[2019-08-29 14:05:56] temp[30.572144]
+[2019-08-29 14:05:56] -------------------------------------
+[2019-08-29 14:05:56] [0;32mI (15349) [temp_table, 97]: n[55] kom[33.260319] temp[34.549690][0m
+[2019-08-29 14:06:01] [0;32mI (15349) [temp_table, 97]: n[57] kom[30.932045] temp[36.291145][0m
+[2019-08-29 14:06:01] *************temp_info**************
+[2019-08-29 14:06:01] kom[33.260319] offset[0.000000]
+[2019-08-29 14:06:01] [0;32mI (15358) [temp_table, 97]: n[55] kom[33.260319] temp[34.549690][0m
+[2019-08-29 14:06:01] temp[34.549690]
+[2019-08-29 14:06:01] -------------------------------------
+[2019-08-29 14:06:01] *************temp_info**************
+[2019-08-29 14:06:01] kom[30.932045] offset[0.000000]
+[2019-08-29 14:06:01] [0;32mI (15376) [temp_table, 97]: n[57] kom[30.932045] temp[36.291145][0m
+[2019-08-29 14:06:01] temp[36.291145]
+[2019-08-29 14:06:01] -------------------------------------
+[2019-08-29 14:06:01] [0;32mI (20349) [temp_table, 97]: n[58] kom[29.278641] temp[37.645290][0m
+[2019-08-29 14:06:06] [0;32mI (20349) [temp_table, 97]: n[64] kom[23.499165] temp[43.065449][0m
+[2019-08-29 14:06:06] *************temp_info**************
+[2019-08-29 14:06:06] kom[29.278641] offset[0.000000]
+[2019-08-29 14:06:06] [0;32mI (20358) [temp_table, 97]: n[58] kom[29.278641] temp[37.645290][0m
+[2019-08-29 14:06:06] temp[37.645290]
+[2019-08-29 14:06:06] -------------------------------------
+[2019-08-29 14:06:06] *************temp_info**************
+[2019-08-29 14:06:06] kom[23.499165] offset[0.000000]
+[2019-08-29 14:06:06] [0;32mI (20376) [temp_table, 97]: n[64] kom[23.499165] temp[43.065449][0m
+[2019-08-29 14:06:06] temp[43.065449]
+[2019-08-29 14:06:06] -------------------------------------
+[2019-08-29 14:06:06] [0;32mI (20396) [mdf-mesh, 340]: start mdf_mesh_init[0m
+[2019-08-29 14:06:06] I (20400) wifi: wifi driver task: 3ffcc444, prio:23, stack:3584, core=0
+[2019-08-29 14:06:06] [0;32mI (20400) system_api: Base MAC address is not set, read default base MAC address from BLK0 of EFUSE[0m
+[2019-08-29 14:06:06] [0;32mI (20409) system_api: Base MAC address is not set, read default base MAC address from BLK0 of EFUSE[0m
+[2019-08-29 14:06:06] I (20429) wifi: wifi firmware version: 0c3a77a
+[2019-08-29 14:06:06] I (20429) wifi: config NVS flash: enabled
+[2019-08-29 14:06:06] I (20429) wifi: config nano formating: disabled
+[2019-08-29 14:06:06] I (20431) wifi: Init dynamic tx buffer num: 32
+[2019-08-29 14:06:06] I (20435) wifi: Init data frame dynamic rx buffer num: 32
+[2019-08-29 14:06:06] I (20440) wifi: Init management frame dynamic rx buffer num: 32
+[2019-08-29 14:06:06] I (20445) wifi: Init management short buffer num: 32
+[2019-08-29 14:06:06] I (20450) wifi: Init static rx buffer size: 1600
+[2019-08-29 14:06:06] I (20455) wifi: Init static rx buffer num: 10
+[2019-08-29 14:06:06] I (20459) wifi: Init dynamic rx buffer num: 32
+[2019-08-29 14:06:06] I (20464) wifi: Set ps type: 0
+[2019-08-29 14:06:06] 
+[2019-08-29 14:06:06] [0;33mW (20466) phy_init: failed to load RF calibration data (0x1102), falling back to full calibration[0m
+[2019-08-29 14:06:06] [0;32mI (20658) phy: phy_version: 4008, 544f89f, Jan 24 2019, 14:54:06, 0, 2[0m
+[2019-08-29 14:06:06] I (20666) wifi: mode : sta (3c:71:bf:e0:92:28)
+[2019-08-29 14:06:06] [0;32mI (20668) [mwifi, 177]: esp-mdf version: v1.0-beta1-dirty[0m
+[2019-08-29 14:06:06] W (20668) wifi: [beacon]interval:100ms
+[2019-08-29 14:06:06] I (20671) wifi: mode : sta (3c:71:bf:e0:92:28) + softAP (3c:71:bf:e0:92:29)
+[2019-08-29 14:06:06] I (20679) wifi: Total power save buffer number: 16
+[2019-08-29 14:06:06] I (20682) wifi: Init max length of beacon: 752/752
+[2019-08-29 14:06:06] I (20687) wifi: Init max length of beacon: 752/752
+[2019-08-29 14:06:06] I (20694) mesh: <nvs>read layer:0, err:0x1102
+[2019-08-29 14:06:06] I (20695) mesh: <nvs>read assoc:0, err:0x1102
+[2019-08-29 14:06:06] W (20700) wifi: [beacon]interval:100ms
+[2019-08-29 14:06:06] I (20702) mesh: [CONFIG]invalid router settings, ssid_len:0, ssid:, bssid:00:00:00:00:00:00
+[2019-08-29 14:06:06] I (20716) wifi: Total power save buffer number: 16
+[2019-08-29 14:06:06] I (21717) wifi: Set ps type: 0
+[2019-08-29 14:06:07] 
+[2019-08-29 14:06:07] [0;32mI (21722) [mwifi, 74]: esp_mesh_event_cb event.id: 0[0m
+[2019-08-29 14:06:07] [0;32mI (21723) [mwifi, 113]: MESH is started[0m
+[2019-08-29 14:06:07] [0;32mI (21723) [mdf-mesh, 284]: event_loop_cb, event: 0[0m
+[2019-08-29 14:06:07] [0;32mI (21727) [mdf-mesh, 292]: MESH is started[0m
+[2019-08-29 14:06:07] [0;32mI (21732) [mdf-mesh, 373]: MESH_NODE,layer:-1[0m
+[2019-08-29 14:06:07] [0;32mI (21737) [mdf-mesh, 40]: Note read task is running[0m
+[2019-08-29 14:06:07] [0;32mI (21744) [get_started, 39]: Hello 所有设备初始化已完成[0m
+[2019-08-29 14:06:07] W (22023) wifi: scan number 0
+[2019-08-29 14:06:08] 
+[2019-08-29 14:06:08] I (22023) mesh: [SCAN][ch:12]AP:0, other(ID:0, RD:0), MAP:0, idle:0, candidate:0, root:0, topMAP:0[c:0,i:0][00:00:00:00:00:00][FIXED-ROOT]<>
+[2019-08-29 14:06:08] I (22028) mesh: [FAIL][1]root:0, fail:1, normal:0
+[2019-08-29 14:06:08] 
+[2019-08-29 14:06:08] W (22333) wifi: scan number 0
+[2019-08-29 14:06:08] 
+[2019-08-29 14:06:08] I (22334) mesh: [SCAN][ch:12]AP:0, other(ID:0, RD:0), MAP:0, idle:0, candidate:0, root:0, topMAP:0[c:0,i:0][00:00:00:00:00:00][FIXED-ROOT]<>
+[2019-08-29 14:06:08] I (22338) mesh: [FAIL][2]root:0, fail:2, normal:0
+[2019-08-29 14:06:08] 
+[2019-08-29 14:06:08] W (22644) wifi: scan number 0
+[2019-08-29 14:06:08] 
+[2019-08-29 14:06:08] I (22644) mesh: [SCAN][ch:12]AP:0, other(ID:0, RD:0), MAP:0, idle:0, candidate:0, root:0, topMAP:0[c:0,i:0][00:00:00:00:00:00][FIXED-ROOT]<>
+[2019-08-29 14:06:08] I (22649) mesh: [FAIL][3]root:0, fail:3, normal:0
+[2019-08-29 14:06:08] 
+[2019-08-29 14:06:08] W (22954) wifi: scan number 0
+[2019-08-29 14:06:09] 
+[2019-08-29 14:06:09] I (22955) mesh: [SCAN][ch:12]AP:0, other(ID:0, RD:0), MAP:0, idle:0, candidate:0, root:0, topMAP:0[c:0,i:0][00:00:00:00:00:00][FIXED-ROOT]<>
+[2019-08-29 14:06:09] I (22959) mesh: [FAIL][4]root:0, fail:4, normal:0
+[2019-08-29 14:06:09] 
+[2019-08-29 14:06:09] W (23265) wifi: scan number 0
+[2019-08-29 14:06:09] 
+[2019-08-29 14:06:09] I (23265) mesh: [SCAN][ch:12]AP:0, other(ID:0, RD:0), MAP:0, idle:0, candidate:0, root:0, topMAP:0[c:0,i:0][00:00:00:00:00:00][FIXED-ROOT]<>
+[2019-08-29 14:06:09] I (23269) mesh: [FAIL][5]root:0, fail:5, normal:0
+[2019-08-29 14:06:09] 
+[2019-08-29 14:06:09] W (23575) wifi: scan number 0
+[2019-08-29 14:06:09] 
+[2019-08-29 14:06:09] I (23576) mesh: [SCAN][ch:12]AP:0, other(ID:0, RD:0), MAP:0, idle:0, candidate:0, root:0, topMAP:0[c:0,i:0][00:00:00:00:00:00][FIXED-ROOT]<>
+[2019-08-29 14:06:09] I (23580) mesh: [FAIL][6]root:0, fail:6, normal:0
+[2019-08-29 14:06:09] 
+[2019-08-29 14:06:09] W (23886) wifi: scan number 0
+[2019-08-29 14:06:09] 
+[2019-08-29 14:06:09] I (23886) mesh: [SCAN][ch:12]AP:0, other(ID:0, RD:0), MAP:0, idle:0, candidate:0, root:0, topMAP:0[c:0,i:0][00:00:00:00:00:00][FIXED-ROOT]<>
+[2019-08-29 14:06:09] I (23890) mesh: [FAIL][7]root:0, fail:7, normal:0
+[2019-08-29 14:06:09] 
+[2019-08-29 14:06:09] W (24196) wifi: scan number 0
+[2019-08-29 14:06:10] 
+[2019-08-29 14:06:10] I (24197) mesh: [SCAN][ch:12]AP:0, other(ID:0, RD:0), MAP:0, idle:0, candidate:0, root:0, topMAP:0[c:0,i:0][00:00:00:00:00:00][FIXED-ROOT]<>
+[2019-08-29 14:06:10] I (24201) mesh: [FAIL][8]root:0, fail:8, normal:0
+[2019-08-29 14:06:10] 
+[2019-08-29 14:06:10] W (24507) wifi: scan number 0
+[2019-08-29 14:06:10] 
+[2019-08-29 14:06:10] I (24507) mesh: [SCAN][ch:12]AP:0, other(ID:0, RD:0), MAP:0, idle:0, candidate:0, root:0, topMAP:0[c:0,i:0][00:00:00:00:00:00][FIXED-ROOT]<>
+[2019-08-29 14:06:10] I (24511) mesh: [FAIL][9]root:0, fail:9, normal:0
+[2019-08-29 14:06:10] 
+[2019-08-29 14:06:10] W (24817) wifi: scan number 0
+[2019-08-29 14:06:10] 
+[2019-08-29 14:06:10] I (24818) mesh: [SCAN][ch:12]AP:0, other(ID:0, RD:0), MAP:0, idle:0, candidate:0, root:0, topMAP:0[c:0,i:0][00:00:00:00:00:00][FIXED-ROOT]<>
+[2019-08-29 14:06:10] I (24822) mesh: [FAIL][10]root:0, fail:10, normal:0
+[2019-08-29 14:06:10] 
+[2019-08-29 14:06:10] W (25128) wifi: scan number 0
+[2019-08-29 14:06:11] 
+[2019-08-29 14:06:11] I (25128) mesh: [SCAN][ch:12]AP:0, other(ID:0, RD:0), MAP:0, idle:0, candidate:0, root:0, topMAP:0[c:0,i:0][00:00:00:00:00:00][FIXED-ROOT]<>
+[2019-08-29 14:06:11] I (25132) mesh: [FAIL][11]root:0, fail:11, normal:0
+[2019-08-29 14:06:11] 
+[2019-08-29 14:06:11] [0;32mI (25349) [temp_table, 97]: n[60] kom[27.268579] temp[39.379795][0m
+[2019-08-29 14:06:11] [0;32mI (25350) [temp_table, 97]: n[70] kom[18.046631] temp[50.000000][0m
+[2019-08-29 14:06:11] *************temp_info**************
+[2019-08-29 14:06:11] kom[27.268579] offset[0.000000]
+[2019-08-29 14:06:11] [0;32mI (25358) [temp_table, 97]: n[60] kom[27.268579] temp[39.379795][0m
+[2019-08-29 14:06:11] temp[39.379795]
+[2019-08-29 14:06:11] -------------------------------------
+[2019-08-29 14:06:11] *************temp_info**************
+[2019-08-29 14:06:11] kom[18.046631] offset[0.000000]
+[2019-08-29 14:06:11] [0;32mI (25376) [temp_table, 97]: n[70] kom[18.046631] temp[50.000000][0m
+[2019-08-29 14:06:11] temp[50.000000]
+[2019-08-29 14:06:11] -------------------------------------
+[2019-08-29 14:06:11] I (25439) mesh: [SCAN][ch:12]AP:1, other(ID:0, RD:0), MAP:1, idle:0, candidate:1, root:1, topMAP:0[c:0,i:0][00:00:00:00:00:00][FIXED-ROOT]<>
+[2019-08-29 14:06:11] I (25441) mesh: 6563[selection]try rssi_threshold:-78, backoff times:0, max:5<-78,-82,-85>
+[2019-08-29 14:06:11] I (25450) mesh: [DONE]connect to parent:ESPM_DDB014, channel:12, rssi:-75, 30:ae:a4:dd:b0:15[layer:1, assoc:0], my_vote_num:0/voter_num:0, rc[00:00:00:00:00:00/-120/0]
+[2019-08-29 14:06:11] I (26972) wifi: n:12 2, o:12 0, ap:12 2, sta:12 2, prof:12
+[2019-08-29 14:06:13] I (26974) wifi: state: init -> auth (b0)
+[2019-08-29 14:06:13] I (26981) wifi: state: auth -> assoc (0)
+[2019-08-29 14:06:13] I (27982) wifi: state: assoc -> init (400)
+[2019-08-29 14:06:14] I (27983) wifi: n:12 0, o:12 2, ap:12 2, sta:12 2, prof:12
+[2019-08-29 14:06:14] [0;32mI (27985) [mwifi, 74]: esp_mesh_event_cb event.id: 8[0m
+[2019-08-29 14:06:14] [0;32mI (27986) [mwifi, 99]: Parent is disconnected, reason: 4[0m
+[2019-08-29 14:06:14] [0;32mI (27992) [mdf-mesh, 284]: event_loop_cb, event: 8[0m
+[2019-08-29 14:06:14] I (27993) mesh: [wifi]disconnected reason:4(assoc expire), continuous:1/max:12, non-root, vote(,)<><>
+[2019-08-29 14:06:14] [0;32mI (27999) [mdf-mesh, 309]: Parent is disconnected on station interface[0m
+[2019-08-29 14:06:14] I (28011) wifi: n:12 2, o:12 0, ap:12 2, sta:12 2, prof:12
+[2019-08-29 14:06:14] I (28020) wifi: state: init -> auth (b0)
+[2019-08-29 14:06:14] I (28029) wifi: state: auth -> assoc (0)
+[2019-08-29 14:06:14] I (28041) wifi: state: assoc -> run (10)
+[2019-08-29 14:06:14] I (28042) wifi: connected with ESPM_DDB014, channel 12, 40D
+[2019-08-29 14:06:14] I (28045) wifi: pm start, type: 0
+[2019-08-29 14:06:14] 
+[2019-08-29 14:06:14] I (28048) mesh: [scan]new scanning time:600ms
+[2019-08-29 14:06:14] W (28049) wifi: [beacon]new interval:300ms
+[2019-08-29 14:06:14] I (28052) mesh: 1891<arm>parent monitor, my layer:2(cap:16)(node), interval:4638ms, retries:1<normal connected>
+[2019-08-29 14:06:14] [0;32mI (28061) [mwifi, 74]: esp_mesh_event_cb event.id: 7[0m
+[2019-08-29 14:06:14] [0;32mI (28066) [mwifi, 80]: Parent is connected[0m
+[2019-08-29 14:06:14] [0;32mI (28071) [mdf-mesh, 284]: event_loop_cb, event: 7[0m
+[2019-08-29 14:06:14] [0;32mI (28072) [mwifi, 74]: esp_mesh_event_cb event.id: 11[0m
+[2019-08-29 14:06:14] [0;32mI (28077) [mdf-mesh, 297]: Parent is connected on station interface[0m
+[2019-08-29 14:06:14] [0;32mI (28083) [mwifi, 149]: State represents: 0[0m
+[2019-08-29 14:06:14] [0;32mI (28094) [mdf-mesh, 284]: event_loop_cb, event: 11[0m
+[2019-08-29 14:06:14] [0;32mI (28095) [mwifi, 74]: esp_mesh_event_cb event.id: 14[0m
+[2019-08-29 14:06:14] [0;32mI (28105) [mdf-mesh, 284]: event_loop_cb, event: 14[0m
+[2019-08-29 14:06:14] [0;32mI (30349) [temp_table, 97]: n[64] kom[23.069489] temp[43.554218][0m
+[2019-08-29 14:06:16] [0;31mE (30350) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:06:16] *************temp_info**************
+[2019-08-29 14:06:16] kom[23.069489] offset[0.000000]
+[2019-08-29 14:06:16] [0;32mI (30358) [temp_table, 97]: n[64] kom[23.069489] temp[43.554218][0m
+[2019-08-29 14:06:16] temp[43.554218]
+[2019-08-29 14:06:16] -------------------------------------
+[2019-08-29 14:06:16] *************temp_info**************
+[2019-08-29 14:06:16] kom[13.953312] offset[0.000000]
+[2019-08-29 14:06:16] [0;31mE (30376) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:06:16] temp[25.000000]
+[2019-08-29 14:06:16] -------------------------------------
+[2019-08-29 14:06:16] [0;32mI (31744) [mdf-mesh, 234]: System information, channel: 12, layer: 2, self mac: 3c:71:bf:e0:92:28, parent bssid: 30:ae:a4:dd:b0:15, parent rssi: -75, node num: 0, free heap: 132680[0m
+[2019-08-29 14:06:17] I (32811) mesh: 4433<active>parent layer:0(node), channel:12, rssi:-75, assoc:0(cnx rssi threshold:-120)my_assoc:0
+[2019-08-29 14:06:18] I (34314) mesh: 5177<scan>parent layer:1, rssi:-69, assoc:1(cnx rssi threshold:-120)
+[2019-08-29 14:06:20] I (34315) mesh: [SCAN][ch:12]AP:1, other(ID:0, RD:0), MAP:1, idle:0, candidate:1, root:1, topMAP:0[c:2,i:2][00:00:00:00:00:00][FIXED-ROOT]<weak>
+[2019-08-29 14:06:20] I (34324) mesh: 6563[weak]try rssi_threshold:-120, backoff times:0, max:5<-78,-82,-85>
+[2019-08-29 14:06:20] I (34332) mesh: 616[monitor]no change, parent:30:ae:a4:dd:b0:15, rssi:-69
+[2019-08-29 14:06:20] I (34338) mesh: 1891<arm>parent monitor, my layer:2(cap:16)(node), interval:6800ms, retries:2<>
+[2019-08-29 14:06:20] [0;32mI (34749) [get_started, 44]: heap free: 132456[0m
+[2019-08-29 14:06:20] [0;32mI (35349) [temp_table, 97]: n[70] kom[18.369650] temp[50.000000][0m
+[2019-08-29 14:06:21] [0;31mE (35350) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:06:21] *************temp_info**************
+[2019-08-29 14:06:21] kom[18.369650] offset[0.000000]
+[2019-08-29 14:06:21] [0;32mI (35358) [temp_table, 97]: n[70] kom[18.369650] temp[50.000000][0m
+[2019-08-29 14:06:21] temp[50.000000]
+[2019-08-29 14:06:21] -------------------------------------
+[2019-08-29 14:06:21] *************temp_info**************
+[2019-08-29 14:06:21] kom[10.483954] offset[0.000000]
+[2019-08-29 14:06:21] [0;31mE (35376) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:06:21] temp[25.000000]
+[2019-08-29 14:06:21] -------------------------------------
+[2019-08-29 14:06:21] [0;32mI (37749) [get_started, 44]: heap free: 132444[0m
+[2019-08-29 14:06:23] [0;31mE (40349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:06:26] [0;31mE (40349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:06:26] *************temp_info**************
+[2019-08-29 14:06:26] kom[15.245449] offset[0.000000]
+[2019-08-29 14:06:26] [0;31mE (40357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:06:26] temp[25.000000]
+[2019-08-29 14:06:26] -------------------------------------
+[2019-08-29 14:06:26] *************temp_info**************
+[2019-08-29 14:06:26] kom[8.011153] offset[0.000000]
+[2019-08-29 14:06:26] [0;31mE (40375) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:06:26] temp[25.000000]
+[2019-08-29 14:06:26] -------------------------------------
+[2019-08-29 14:06:26] [0;32mI (40749) [get_started, 44]: heap free: 132444[0m
+[2019-08-29 14:06:26] I (41311) mesh: 4433<active>parent layer:1(node), channel:12, rssi:-69, assoc:1(cnx rssi threshold:-120)my_assoc:0
+[2019-08-29 14:06:27] [0;32mI (41744) [mdf-mesh, 234]: System information, channel: 12, layer: 2, self mac: 3c:71:bf:e0:92:28, parent bssid: 30:ae:a4:dd:b0:15, parent rssi: -69, node num: 2, free heap: 132464[0m
+[2019-08-29 14:06:27] I (42815) mesh: 5177<scan>parent layer:1, rssi:-71, assoc:1(cnx rssi threshold:-120)
+[2019-08-29 14:06:28] I (42816) mesh: [SCAN][ch:12]AP:1, other(ID:0, RD:0), MAP:1, idle:0, candidate:1, root:1, topMAP:0[c:0,i:2][00:00:00:00:00:00][FIXED-ROOT]<weak>
+[2019-08-29 14:06:28] I (42825) mesh: 6563[weak]try rssi_threshold:-120, backoff times:0, max:5<-78,-82,-85>
+[2019-08-29 14:06:28] I (42832) mesh: 616[monitor]no change, parent:30:ae:a4:dd:b0:15, rssi:-71
+[2019-08-29 14:06:28] I (42839) mesh: 1891<arm>parent monitor, my layer:2(cap:16)(node), interval:11108ms, retries:3<>
+[2019-08-29 14:06:28] [0;32mI (43749) [get_started, 44]: heap free: 132448[0m
+[2019-08-29 14:06:29] [0;31mE (45349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:06:31] [0;31mE (45349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:06:31] *************temp_info**************
+[2019-08-29 14:06:31] kom[13.081785] offset[0.000000]
+[2019-08-29 14:06:31] [0;31mE (45357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:06:31] temp[25.000000]
+[2019-08-29 14:06:31] -------------------------------------
+[2019-08-29 14:06:31] *************temp_info**************
+[2019-08-29 14:06:31] kom[6.261858] offset[0.000000]
+[2019-08-29 14:06:31] [0;31mE (45374) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:06:31] temp[25.000000]
+[2019-08-29 14:06:31] -------------------------------------
+[2019-08-29 14:06:31] [0;32mI (46749) [get_started, 44]: heap free: 132448[0m
+[2019-08-29 14:06:32] [0;32mI (49749) [get_started, 44]: heap free: 132448[0m
+[2019-08-29 14:06:35] [0;32mI (50357) [mdf-mesh, 208]: mesh_write ok[0m
+[2019-08-29 14:06:36] [0;32mI (50358) [mesh-led, 303]: information_Upload to ROOT ok data:{"Typ":"fan","ID": 1,"Cmd": "Info","Params": {"NTemp": 25,"OpenPer": 0,"ConSta": "manual","MoSta": "stop"}}[0m
+[2019-08-29 14:06:36] [0;32mI (50374) [mdf-mesh, 208]: mesh_write ok[0m
+[2019-08-29 14:06:36] [0;32mI (50374) [mesh-led, 303]: information_Upload to ROOT ok data:{"Typ":"fan","ID": 2,"Cmd": "Info","Params": {"NTemp": 25,"OpenPer": 0,"ConSta": "manual","MoSta": "stop"}}[0m
+[2019-08-29 14:06:36] [0;31mE (50388) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:06:36] [0;31mE (50394) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:06:36] *************temp_info**************
+[2019-08-29 14:06:36] kom[11.313677] offset[0.000000]
+[2019-08-29 14:06:36] [0;31mE (50406) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:06:36] temp[25.000000]
+[2019-08-29 14:06:36] -------------------------------------
+[2019-08-29 14:06:36] *************temp_info**************
+[2019-08-29 14:06:36] kom[5.028974] offset[0.000000]
+[2019-08-29 14:06:36] [0;31mE (50424) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:06:36] temp[25.000000]
+[2019-08-29 14:06:36] -------------------------------------
+[2019-08-29 14:06:36] [0;32mI (51744) [mdf-mesh, 234]: System information, channel: 12, layer: 2, self mac: 3c:71:bf:e0:92:28, parent bssid: 30:ae:a4:dd:b0:15, parent rssi: -69, node num: 2, free heap: 132368[0m
+[2019-08-29 14:06:37] [0;32mI (52749) [get_started, 44]: heap free: 132356[0m
+[2019-08-29 14:06:38] I (54223) mesh: 4433<active>parent layer:1(node), channel:12, rssi:-69, assoc:1(cnx rssi threshold:-120)my_assoc:0
+[2019-08-29 14:06:40] [0;31mE (55349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:06:41] [0;31mE (55349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:06:41] *************temp_info**************
+[2019-08-29 14:06:41] kom[10.692665] offset[0.000000]
+[2019-08-29 14:06:41] [0;31mE (55357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:06:41] temp[25.000000]
+[2019-08-29 14:06:41] -------------------------------------
+[2019-08-29 14:06:41] *************temp_info**************
+[2019-08-29 14:06:41] kom[4.371631] offset[0.000000]
+[2019-08-29 14:06:41] [0;31mE (55374) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:06:41] temp[25.000000]
+[2019-08-29 14:06:41] -------------------------------------
+[2019-08-29 14:06:41] I (55727) mesh: 5177<scan>parent layer:1, rssi:-71, assoc:1(cnx rssi threshold:-120)
+[2019-08-29 14:06:41] I (55728) mesh: [SCAN][ch:12]AP:1, other(ID:0, RD:0), MAP:1, idle:0, candidate:1, root:1, topMAP:0[c:0,i:2][00:00:00:00:00:00][FIXED-ROOT]<weak>
+[2019-08-29 14:06:41] I (55737) mesh: 6563[weak]try rssi_threshold:-120, backoff times:0, max:5<-78,-82,-85>
+[2019-08-29 14:06:41] I (55744) mesh: 616[monitor]no change, parent:30:ae:a4:dd:b0:15, rssi:-71
+[2019-08-29 14:06:41] I (55751) mesh: 1891<arm>parent monitor, my layer:2(cap:16)(node), interval:416137ms, retries:3<>
+[2019-08-29 14:06:41] [0;32mI (55760) [get_started, 44]: heap free: 132368[0m
+[2019-08-29 14:06:41] [0;32mI (58765) [get_started, 44]: heap free: 132368[0m
+[2019-08-29 14:06:44] [0;31mE (60349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:06:46] [0;31mE (60349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:06:46] *************temp_info**************
+[2019-08-29 14:06:46] kom[12.938951] offset[0.000000]
+[2019-08-29 14:06:46] [0;31mE (60357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:06:46] temp[25.000000]
+[2019-08-29 14:06:46] -------------------------------------
+[2019-08-29 14:06:46] *************temp_info**************
+[2019-08-29 14:06:46] kom[4.051891] offset[0.000000]
+[2019-08-29 14:06:46] [0;31mE (60374) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:06:46] temp[25.000000]
+[2019-08-29 14:06:46] -------------------------------------
+[2019-08-29 14:06:46] [0;32mI (61744) [mdf-mesh, 234]: System information, channel: 12, layer: 2, self mac: 3c:71:bf:e0:92:28, parent bssid: 30:ae:a4:dd:b0:15, parent rssi: -68, node num: 2, free heap: 132356[0m
+[2019-08-29 14:06:47] [0;32mI (61765) [get_started, 44]: heap free: 132356[0m
+[2019-08-29 14:06:47] [0;32mI (64765) [get_started, 44]: heap free: 132356[0m
+[2019-08-29 14:06:50] [0;31mE (65349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:06:51] [0;31mE (65349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:06:51] *************temp_info**************
+[2019-08-29 14:06:51] kom[13.822040] offset[0.000000]
+[2019-08-29 14:06:51] [0;31mE (65357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:06:51] temp[25.000000]
+[2019-08-29 14:06:51] -------------------------------------
+[2019-08-29 14:06:51] *************temp_info**************
+[2019-08-29 14:06:51] kom[3.474808] offset[0.000000]
+[2019-08-29 14:06:51] [0;31mE (65375) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:06:51] temp[25.000000]
+[2019-08-29 14:06:51] -------------------------------------
+[2019-08-29 14:06:51] [0;32mI (67765) [get_started, 44]: heap free: 132356[0m
+[2019-08-29 14:06:53] [0;31mE (70349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:06:56] [0;31mE (70349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:06:56] *************temp_info**************
+[2019-08-29 14:06:56] kom[11.593777] offset[0.000000]
+[2019-08-29 14:06:56] [0;31mE (70357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:06:56] temp[25.000000]
+[2019-08-29 14:06:56] -------------------------------------
+[2019-08-29 14:06:56] *************temp_info**************
+[2019-08-29 14:06:56] kom[3.069470] offset[0.000000]
+[2019-08-29 14:06:56] [0;31mE (70374) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:06:56] temp[25.000000]
+[2019-08-29 14:06:56] -------------------------------------
+[2019-08-29 14:06:56] [0;32mI (70765) [get_started, 44]: heap free: 132356[0m
+[2019-08-29 14:06:56] [0;32mI (71744) [mdf-mesh, 234]: System information, channel: 12, layer: 2, self mac: 3c:71:bf:e0:92:28, parent bssid: 30:ae:a4:dd:b0:15, parent rssi: -66, node num: 2, free heap: 132356[0m
+[2019-08-29 14:06:57] [0;32mI (73765) [get_started, 44]: heap free: 132356[0m
+[2019-08-29 14:06:59] [0;31mE (75349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:07:01] [0;31mE (75349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:07:01] *************temp_info**************
+[2019-08-29 14:07:01] kom[10.356352] offset[0.000000]
+[2019-08-29 14:07:01] [0;31mE (75357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:07:01] temp[25.000000]
+[2019-08-29 14:07:01] -------------------------------------
+[2019-08-29 14:07:01] *************temp_info**************
+[2019-08-29 14:07:01] kom[2.784796] offset[0.000000]
+[2019-08-29 14:07:01] [0;31mE (75374) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:07:01] temp[25.000000]
+[2019-08-29 14:07:01] -------------------------------------
+[2019-08-29 14:07:01] [0;32mI (76765) [get_started, 44]: heap free: 132356[0m
+[2019-08-29 14:07:02] [0;32mI (79765) [get_started, 44]: heap free: 132368[0m
+[2019-08-29 14:07:05] [0;31mE (80349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:07:06] [0;31mE (80350) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:07:06] *************temp_info**************
+[2019-08-29 14:07:06] kom[9.589602] offset[0.000000]
+[2019-08-29 14:07:06] [0;31mE (80357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:07:06] temp[25.000000]
+[2019-08-29 14:07:06] -------------------------------------
+[2019-08-29 14:07:06] *************temp_info**************
+[2019-08-29 14:07:06] kom[2.584876] offset[0.000000]
+[2019-08-29 14:07:06] [0;31mE (80375) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:07:06] temp[25.000000]
+[2019-08-29 14:07:06] -------------------------------------
+[2019-08-29 14:07:06] [0;32mI (81744) [mdf-mesh, 234]: System information, channel: 12, layer: 2, self mac: 3c:71:bf:e0:92:28, parent bssid: 30:ae:a4:dd:b0:15, parent rssi: -70, node num: 2, free heap: 132356[0m
+[2019-08-29 14:07:07] [0;32mI (82765) [get_started, 44]: heap free: 132368[0m
+[2019-08-29 14:07:08] [0;31mE (85349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:07:11] [0;31mE (85351) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:07:11] *************temp_info**************
+[2019-08-29 14:07:11] kom[8.835667] offset[0.000000]
+[2019-08-29 14:07:11] [0;31mE (85358) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:07:11] temp[25.000000]
+[2019-08-29 14:07:11] -------------------------------------
+[2019-08-29 14:07:11] *************temp_info**************
+[2019-08-29 14:07:11] kom[2.444480] offset[0.000000]
+[2019-08-29 14:07:11] [0;31mE (85376) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:07:11] temp[25.000000]
+[2019-08-29 14:07:11] -------------------------------------
+[2019-08-29 14:07:11] [0;32mI (85765) [get_started, 44]: heap free: 132368[0m
+[2019-08-29 14:07:11] [0;32mI (88765) [get_started, 44]: heap free: 132356[0m
+[2019-08-29 14:07:14] [0;31mE (90349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:07:16] [0;31mE (90350) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:07:16] *************temp_info**************
+[2019-08-29 14:07:16] kom[8.197504] offset[0.000000]
+[2019-08-29 14:07:16] [0;31mE (90357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:07:16] temp[25.000000]
+[2019-08-29 14:07:16] -------------------------------------
+[2019-08-29 14:07:16] *************temp_info**************
+[2019-08-29 14:07:16] kom[2.345887] offset[0.000000]
+[2019-08-29 14:07:16] [0;31mE (90375) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:07:16] temp[25.000000]
+[2019-08-29 14:07:16] -------------------------------------
+[2019-08-29 14:07:16] [0;32mI (91744) [mdf-mesh, 234]: System information, channel: 12, layer: 2, self mac: 3c:71:bf:e0:92:28, parent bssid: 30:ae:a4:dd:b0:15, parent rssi: -69, node num: 2, free heap: 132356[0m
+[2019-08-29 14:07:17] [0;32mI (91765) [get_started, 44]: heap free: 132356[0m
+[2019-08-29 14:07:17] [0;32mI (94765) [get_started, 44]: heap free: 132356[0m
+[2019-08-29 14:07:20] [0;31mE (95349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:07:21] [0;31mE (95350) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:07:21] *************temp_info**************
+[2019-08-29 14:07:21] kom[7.877718] offset[0.000000]
+[2019-08-29 14:07:21] [0;31mE (95357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:07:21] temp[25.000000]
+[2019-08-29 14:07:21] -------------------------------------
+[2019-08-29 14:07:21] *************temp_info**************
+[2019-08-29 14:07:21] kom[2.276651] offset[0.000000]
+[2019-08-29 14:07:21] [0;31mE (95375) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:07:21] temp[25.000000]
+[2019-08-29 14:07:21] -------------------------------------
+[2019-08-29 14:07:21] [0;32mI (97765) [get_started, 44]: heap free: 132356[0m
+[2019-08-29 14:07:23] [0;32mI (100357) [mdf-mesh, 208]: mesh_write ok[0m
+[2019-08-29 14:07:26] [0;32mI (100358) [mesh-led, 303]: information_Upload to ROOT ok data:{"Typ":"fan","ID": 1,"Cmd": "Info","Params": {"NTemp": 25,"OpenPer": 0,"ConSta": "manual","MoSta": "stop"}}[0m
+[2019-08-29 14:07:26] [0;32mI (100370) [mdf-mesh, 208]: mesh_write ok[0m
+[2019-08-29 14:07:26] [0;32mI (100372) [mesh-led, 303]: information_Upload to ROOT ok data:{"Typ":"fan","ID": 2,"Cmd": "Info","Params": {"NTemp": 25,"OpenPer": 0,"ConSta": "manual","MoSta": "stop"}}[0m
+[2019-08-29 14:07:26] [0;31mE (100389) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:07:26] [0;31mE (100394) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:07:26] *************temp_info**************
+[2019-08-29 14:07:26] kom[7.817484] offset[0.000000]
+[2019-08-29 14:07:26] [0;31mE (100407) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:07:26] temp[25.000000]
+[2019-08-29 14:07:26] -------------------------------------
+[2019-08-29 14:07:26] *************temp_info**************
+[2019-08-29 14:07:26] kom[2.228030] offset[0.000000]
+[2019-08-29 14:07:26] [0;31mE (100425) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:07:26] temp[25.000000]
+[2019-08-29 14:07:26] -------------------------------------
+[2019-08-29 14:07:26] [0;32mI (100765) [get_started, 44]: heap free: 132356[0m
+[2019-08-29 14:07:26] [0;32mI (101744) [mdf-mesh, 234]: System information, channel: 12, layer: 2, self mac: 3c:71:bf:e0:92:28, parent bssid: 30:ae:a4:dd:b0:15, parent rssi: -69, node num: 2, free heap: 132356[0m
+[2019-08-29 14:07:27] [0;32mI (103765) [get_started, 44]: heap free: 132356[0m
+[2019-08-29 14:07:29] [0;31mE (105349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:07:31] [0;31mE (105349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:07:31] *************temp_info**************
+[2019-08-29 14:07:31] kom[7.524632] offset[0.000000]
+[2019-08-29 14:07:31] [0;31mE (105357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:07:31] temp[25.000000]
+[2019-08-29 14:07:31] -------------------------------------
+[2019-08-29 14:07:31] *************temp_info**************
+[2019-08-29 14:07:31] kom[2.193887] offset[0.000000]
+[2019-08-29 14:07:31] [0;31mE (105375) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:07:31] temp[25.000000]
+[2019-08-29 14:07:31] -------------------------------------
+[2019-08-29 14:07:31] [0;32mI (106765) [get_started, 44]: heap free: 132368[0m
+[2019-08-29 14:07:32] [0;32mI (109765) [get_started, 44]: heap free: 132248[0m
+[2019-08-29 14:07:35] [0;31mE (110349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:07:36] [0;31mE (110349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:07:36] *************temp_info**************
+[2019-08-29 14:07:36] kom[7.155955] offset[0.000000]
+[2019-08-29 14:07:36] [0;31mE (110357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:07:36] temp[25.000000]
+[2019-08-29 14:07:36] -------------------------------------
+[2019-08-29 14:07:36] *************temp_info**************
+[2019-08-29 14:07:36] kom[2.169910] offset[0.000000]
+[2019-08-29 14:07:36] [0;31mE (110375) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:07:36] temp[25.000000]
+[2019-08-29 14:07:36] -------------------------------------
+[2019-08-29 14:07:36] [0;32mI (111744) [mdf-mesh, 234]: System information, channel: 12, layer: 2, self mac: 3c:71:bf:e0:92:28, parent bssid: 30:ae:a4:dd:b0:15, parent rssi: -69, node num: 2, free heap: 132356[0m
+[2019-08-29 14:07:37] [0;32mI (112765) [get_started, 44]: heap free: 132356[0m
+[2019-08-29 14:07:38] [0;31mE (115349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:07:41] [0;31mE (115350) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:07:41] *************temp_info**************
+[2019-08-29 14:07:41] kom[9.524875] offset[0.000000]
+[2019-08-29 14:07:41] [0;31mE (115357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:07:41] temp[25.000000]
+[2019-08-29 14:07:41] -------------------------------------
+[2019-08-29 14:07:41] *************temp_info**************
+[2019-08-29 14:07:41] kom[2.153072] offset[0.000000]
+[2019-08-29 14:07:41] [0;31mE (115375) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:07:41] temp[25.000000]
+[2019-08-29 14:07:41] -------------------------------------
+[2019-08-29 14:07:41] [0;32mI (115765) [get_started, 44]: heap free: 132356[0m
+[2019-08-29 14:07:41] [0;32mI (118765) [get_started, 44]: heap free: 132356[0m
+[2019-08-29 14:07:44] [0;31mE (120349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:07:46] [0;31mE (120350) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:07:46] *************temp_info**************
+[2019-08-29 14:07:46] kom[12.507454] offset[0.000000]
+[2019-08-29 14:07:46] [0;31mE (120358) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:07:46] temp[25.000000]
+[2019-08-29 14:07:46] -------------------------------------
+[2019-08-29 14:07:46] *************temp_info**************
+[2019-08-29 14:07:46] kom[2.155105] offset[0.000000]
+[2019-08-29 14:07:46] [0;31mE (120375) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:07:46] temp[25.000000]
+[2019-08-29 14:07:46] -------------------------------------
+[2019-08-29 14:07:46] [0;32mI (121744) [mdf-mesh, 234]: System information, channel: 12, layer: 2, self mac: 3c:71:bf:e0:92:28, parent bssid: 30:ae:a4:dd:b0:15, parent rssi: -69, node num: 2, free heap: 132356[0m
+[2019-08-29 14:07:47] [0;32mI (121765) [get_started, 44]: heap free: 132356[0m
+[2019-08-29 14:07:47] [0;32mI (124765) [get_started, 44]: heap free: 132356[0m
+[2019-08-29 14:07:50] [0;31mE (125349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:07:51] [0;31mE (125349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:07:51] *************temp_info**************
+[2019-08-29 14:07:51] kom[13.714972] offset[0.000000]
+[2019-08-29 14:07:51] [0;31mE (125357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:07:51] temp[25.000000]
+[2019-08-29 14:07:51] -------------------------------------
+[2019-08-29 14:07:51] *************temp_info**************
+[2019-08-29 14:07:51] kom[2.365701] offset[0.000000]
+[2019-08-29 14:07:51] [0;31mE (125375) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:07:51] temp[25.000000]
+[2019-08-29 14:07:51] -------------------------------------
+[2019-08-29 14:07:51] [0;32mI (127765) [get_started, 44]: heap free: 132356[0m
+[2019-08-29 14:07:53] [0;31mE (130349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:07:56] [0;31mE (130350) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:07:56] *************temp_info**************
+[2019-08-29 14:07:56] kom[12.557003] offset[0.000000]
+[2019-08-29 14:07:56] [0;31mE (130357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:07:56] temp[25.000000]
+[2019-08-29 14:07:56] -------------------------------------
+[2019-08-29 14:07:56] *************temp_info**************
+[2019-08-29 14:07:56] kom[2.463218] offset[0.000000]
+[2019-08-29 14:07:56] [0;31mE (130375) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:07:56] temp[25.000000]
+[2019-08-29 14:07:56] -------------------------------------
+[2019-08-29 14:07:56] [0;32mI (130765) [get_started, 44]: heap free: 132368[0m
+[2019-08-29 14:07:56] [0;32mI (131744) [mdf-mesh, 234]: System information, channel: 12, layer: 2, self mac: 3c:71:bf:e0:92:28, parent bssid: 30:ae:a4:dd:b0:15, parent rssi: -69, node num: 2, free heap: 132356[0m
+[2019-08-29 14:07:57] I (133460) wifi: bcn_timout,ap_probe_send_start
+[2019-08-29 14:07:59] [0;32mI (133765) [get_started, 44]: heap free: 132368[0m
+[2019-08-29 14:07:59] [0;31mE (135349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:08:01] [0;31mE (135350) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:08:01] *************temp_info**************
+[2019-08-29 14:08:01] kom[10.586214] offset[0.000000]
+[2019-08-29 14:08:01] [0;31mE (135357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:08:01] temp[25.000000]
+[2019-08-29 14:08:01] -------------------------------------
+[2019-08-29 14:08:01] *************temp_info**************
+[2019-08-29 14:08:01] kom[2.359045] offset[0.000000]
+[2019-08-29 14:08:01] [0;31mE (135375) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:08:01] temp[25.000000]
+[2019-08-29 14:08:01] -------------------------------------
+[2019-08-29 14:08:01] I (135964) wifi: ap_probe_send over, resett wifi status to disassoc
+[2019-08-29 14:08:02] I (135964) wifi: state: run -> init (c800)
+[2019-08-29 14:08:02] I (135965) wifi: pm stop, total sleep time: 0 us / 107919624 us
+[2019-08-29 14:08:02] 
+[2019-08-29 14:08:02] I (135969) wifi: n:12 0, o:12 2, ap:12 2, sta:12 2, prof:12
+[2019-08-29 14:08:02] [0;32mI (135977) [mwifi, 74]: esp_mesh_event_cb event.id: 8[0m
+[2019-08-29 14:08:02] [0;32mI (135980) [mwifi, 99]: Parent is disconnected, reason: 200[0m
+[2019-08-29 14:08:02] [0;32mI (135986) [mdf-mesh, 284]: event_loop_cb, event: 8[0m
+[2019-08-29 14:08:02] I (135987) mesh: [wifi]disconnected reason:200(beacon timeout), continuous:1/max:12, non-root, vote(,)<><>
+[2019-08-29 14:08:02] [0;32mI (135992) [mdf-mesh, 309]: Parent is disconnected on station interface[0m
+[2019-08-29 14:08:02] W (136002) wifi: [beacon]interval:300ms
+[2019-08-29 14:08:02] I (136013) wifi: n:12 2, o:12 0, ap:12 2, sta:12 2, prof:12
+[2019-08-29 14:08:02] I (136018) wifi: state: init -> auth (b0)
+[2019-08-29 14:08:02] [0;32mI (136765) [get_started, 44]: heap free: 132400[0m
+[2019-08-29 14:08:02] I (137022) wifi: state: auth -> init (200)
+[2019-08-29 14:08:03] I (137022) wifi: n:12 0, o:12 2, ap:12 2, sta:12 2, prof:12
+[2019-08-29 14:08:03] [0;32mI (137024) [mwifi, 74]: esp_mesh_event_cb event.id: 8[0m
+[2019-08-29 14:08:03] [0;32mI (137026) [mwifi, 99]: Parent is disconnected, reason: 2[0m
+[2019-08-29 14:08:03] [0;32mI (137032) [mdf-mesh, 284]: event_loop_cb, event: 8[0m
+[2019-08-29 14:08:03] I (137033) mesh: [wifi]disconnected reason:2(auth expire), continuous:2/max:12, non-root, vote(,)<><>
+[2019-08-29 14:08:03] [0;32mI (137038) [mdf-mesh, 309]: Parent is disconnected on station interface[0m
+[2019-08-29 14:08:03] W (137047) wifi: [beacon]interval:300ms
+[2019-08-29 14:08:03] I (137058) wifi: n:12 2, o:12 0, ap:12 2, sta:12 2, prof:12
+[2019-08-29 14:08:03] I (137063) wifi: state: init -> auth (b0)
+[2019-08-29 14:08:03] I (138067) wifi: state: auth -> init (200)
+[2019-08-29 14:08:04] I (138068) wifi: n:12 0, o:12 2, ap:12 2, sta:12 2, prof:12
+[2019-08-29 14:08:04] [0;32mI (138070) [mwifi, 74]: esp_mesh_event_cb event.id: 8[0m
+[2019-08-29 14:08:04] [0;32mI (138071) [mwifi, 99]: Parent is disconnected, reason: 2[0m
+[2019-08-29 14:08:04] [0;32mI (138077) [mdf-mesh, 284]: event_loop_cb, event: 8[0m
+[2019-08-29 14:08:04] I (138078) mesh: [wifi]disconnected reason:2(auth expire), continuous:3/max:12, non-root, vote(,)<><>
+[2019-08-29 14:08:04] [0;32mI (138084) [mdf-mesh, 309]: Parent is disconnected on station interface[0m
+[2019-08-29 14:08:04] W (138093) wifi: [beacon]interval:300ms
+[2019-08-29 14:08:04] I (138104) wifi: n:12 2, o:12 0, ap:12 2, sta:12 2, prof:12
+[2019-08-29 14:08:04] I (138108) wifi: state: init -> auth (b0)
+[2019-08-29 14:08:04] I (138122) wifi: state: auth -> init (69c0)
+[2019-08-29 14:08:04] I (138122) wifi: n:12 0, o:12 2, ap:12 2, sta:12 2, prof:12
+[2019-08-29 14:08:04] [0;32mI (138124) [mwifi, 74]: esp_mesh_event_cb event.id: 8[0m
+[2019-08-29 14:08:04] [0;32mI (138126) [mwifi, 99]: Parent is disconnected, reason: 105[0m
+[2019-08-29 14:08:04] [0;32mI (138133) [mdf-mesh, 284]: event_loop_cb, event: 8[0m
+[2019-08-29 14:08:04] I (138134) mesh: [wifi]disconnected reason:105(parent stopped), continuous:4/max:12, non-root, vote(,)<><>
+[2019-08-29 14:08:04] [0;32mI (138140) [mdf-mesh, 309]: Parent is disconnected on station interface[0m
+[2019-08-29 14:08:04] W (138149) wifi: [beacon]interval:300ms
+[2019-08-29 14:08:04] I (138159) wifi: n:12 2, o:12 0, ap:12 2, sta:12 2, prof:12
+[2019-08-29 14:08:04] I (138165) wifi: state: init -> auth (b0)
+[2019-08-29 14:08:04] I (138181) wifi: state: auth -> init (69c0)
+[2019-08-29 14:08:04] I (138182) wifi: n:12 0, o:12 2, ap:12 2, sta:12 2, prof:12
+[2019-08-29 14:08:04] [0;32mI (138185) [mwifi, 74]: esp_mesh_event_cb event.id: 8[0m
+[2019-08-29 14:08:04] [0;32mI (138185) [mwifi, 99]: Parent is disconnected, reason: 105[0m
+[2019-08-29 14:08:04] [0;32mI (138191) [mdf-mesh, 284]: event_loop_cb, event: 8[0m
+[2019-08-29 14:08:04] I (138192) mesh: [wifi]disconnected reason:105(parent stopped), continuous:5/max:12, non-root, vote(,)<><>
+[2019-08-29 14:08:04] [0;32mI (138198) [mdf-mesh, 309]: Parent is disconnected on station interface[0m
+[2019-08-29 14:08:04] W (138207) wifi: [beacon]interval:300ms
+[2019-08-29 14:08:04] I (138218) wifi: n:12 2, o:12 0, ap:12 2, sta:12 2, prof:12
+[2019-08-29 14:08:04] I (138223) wifi: state: init -> auth (b0)
+[2019-08-29 14:08:04] I (138228) wifi: state: auth -> init (69c0)
+[2019-08-29 14:08:04] I (138230) wifi: n:12 0, o:12 2, ap:12 2, sta:12 2, prof:12
+[2019-08-29 14:08:04] [0;32mI (138238) [mwifi, 74]: esp_mesh_event_cb event.id: 8[0m
+[2019-08-29 14:08:04] [0;32mI (138241) [mwifi, 99]: Parent is disconnected, reason: 105[0m
+[2019-08-29 14:08:04] [0;32mI (138247) [mdf-mesh, 284]: event_loop_cb, event: 8[0m
+[2019-08-29 14:08:04] I (138248) mesh: [wifi]disconnected reason:105(parent stopped), continuous:6/max:12, non-root, vote(,)<><>
+[2019-08-29 14:08:04] [0;32mI (138254) [mdf-mesh, 309]: Parent is disconnected on station interface[0m
+[2019-08-29 14:08:04] W (138263) wifi: [beacon]interval:300ms
+[2019-08-29 14:08:04] I (138274) wifi: n:12 2, o:12 0, ap:12 2, sta:12 2, prof:12
+[2019-08-29 14:08:04] I (138279) wifi: state: init -> auth (b0)
+[2019-08-29 14:08:04] I (138284) wifi: state: auth -> init (69c0)
+[2019-08-29 14:08:04] I (138286) wifi: n:12 0, o:12 2, ap:12 2, sta:12 2, prof:12
+[2019-08-29 14:08:04] [0;32mI (138294) [mwifi, 74]: esp_mesh_event_cb event.id: 8[0m
+[2019-08-29 14:08:04] [0;32mI (138297) [mwifi, 99]: Parent is disconnected, reason: 105[0m
+[2019-08-29 14:08:04] [0;32mI (138303) [mdf-mesh, 284]: event_loop_cb, event: 8[0m
+[2019-08-29 14:08:04] I (138304) mesh: [wifi]disconnected reason:105(parent stopped), continuous:0/max:12, non-root, vote(,)<><>
+[2019-08-29 14:08:04] [0;32mI (138310) [mdf-mesh, 309]: Parent is disconnected on station interface[0m
+[2019-08-29 14:08:04] W (138319) wifi: [beacon]interval:300ms
+[2019-08-29 14:08:04] I (138330) mesh: [parent stopped]looking for a new parent, [L:2]try layer:1
+[2019-08-29 14:08:04] [0;32mI (138343) [mwifi, 74]: esp_mesh_event_cb event.id: 22[0m
+[2019-08-29 14:08:04] [0;32mI (138343) [mwifi, 157]: Network state: root_less[0m
+[2019-08-29 14:08:04] [0;32mI (138347) [mdf-mesh, 284]: event_loop_cb, event: 11[0m
+[2019-08-29 14:08:04] [0;32mI (138353) [mdf-mesh, 284]: event_loop_cb, event: 22[0m
+[2019-08-29 14:08:04] [0;32mI (139765) [get_started, 44]: heap free: 132076[0m
+[2019-08-29 14:08:05] [0;31mE (140349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:08:06] [0;31mE (140349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:08:06] *************temp_info**************
+[2019-08-29 14:08:06] kom[9.307519] offset[0.000000]
+[2019-08-29 14:08:06] [0;31mE (140357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:08:06] temp[25.000000]
+[2019-08-29 14:08:06] -------------------------------------
+[2019-08-29 14:08:06] *************temp_info**************
+[2019-08-29 14:08:06] kom[2.285891] offset[0.000000]
+[2019-08-29 14:08:06] [0;31mE (140375) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:08:06] temp[25.000000]
+[2019-08-29 14:08:06] -------------------------------------
+[2019-08-29 14:08:06] [0;32mI (141744) [mdf-mesh, 234]: System information, channel: 11, layer: -1, self mac: 3c:71:bf:e0:92:28, parent bssid: 30:ae:a4:dd:b0:15, parent rssi: -69, node num: 2, free heap: 131476[0m
+[2019-08-29 14:08:07] I (142656) mesh: [SCAN][ch:0]AP:17, other(ID:0, RD:0), MAP:1, idle:0, candidate:1, root:1, topMAP:0[c:2,i:0][00:00:00:00:00:00][FIXED-ROOT]<>
+[2019-08-29 14:08:08] I (142659) mesh: 6563[selection]try rssi_threshold:-78, backoff times:0, max:5<-78,-82,-85>
+[2019-08-29 14:08:08] I (142668) mesh: [DONE]connect to parent:ESPM_DDB014, channel:12, rssi:-69, 30:ae:a4:dd:b0:15[layer:1, assoc:0], my_vote_num:0/voter_num:0, rc[00:00:00:00:00:00/-75/2]
+[2019-08-29 14:08:08] [0;32mI (142765) [get_started, 44]: heap free: 132440[0m
+[2019-08-29 14:08:08] I (144190) wifi: n:12 2, o:12 0, ap:12 2, sta:12 2, prof:12
+[2019-08-29 14:08:10] I (144192) wifi: state: init -> auth (b0)
+[2019-08-29 14:08:10] I (144204) wifi: state: auth -> assoc (0)
+[2019-08-29 14:08:10] I (144238) wifi: state: assoc -> run (10)
+[2019-08-29 14:08:10] I (144238) wifi: connected with ESPM_DDB014, channel 12, 40D
+[2019-08-29 14:08:10] I (144241) wifi: pm start, type: 0
+[2019-08-29 14:08:10] 
+[2019-08-29 14:08:10] [0;31mE (144243) event: invalid static ip[0m
+[2019-08-29 14:08:10] W (144244) wifi: [beacon]interval:300ms
+[2019-08-29 14:08:10] I (144247) mesh: 1891<arm>parent monitor, my layer:2(cap:16)(node), interval:9333ms, retries:1<normal connected>
+[2019-08-29 14:08:10] [0;32mI (144257) [mwifi, 74]: esp_mesh_event_cb event.id: 7[0m
+[2019-08-29 14:08:10] [0;32mI (144263) [mwifi, 80]: Parent is connected[0m
+[2019-08-29 14:08:10] [0;32mI (144268) [mdf-mesh, 284]: event_loop_cb, event: 7[0m
+[2019-08-29 14:08:10] [0;32mI (144269) [mwifi, 74]: esp_mesh_event_cb event.id: 11[0m
+[2019-08-29 14:08:10] [0;32mI (144274) [mdf-mesh, 297]: Parent is connected on station interface[0m
+[2019-08-29 14:08:10] [0;32mI (144280) [mwifi, 149]: State represents: 0[0m
+[2019-08-29 14:08:10] [0;32mI (144291) [mdf-mesh, 284]: event_loop_cb, event: 11[0m
+[2019-08-29 14:08:10] [0;32mI (144292) [mwifi, 74]: esp_mesh_event_cb event.id: 22[0m
+[2019-08-29 14:08:10] [0;32mI (144302) [mwifi, 157]: Network state: root_connect[0m
+[2019-08-29 14:08:10] [0;32mI (144308) [mdf-mesh, 284]: event_loop_cb, event: 11[0m
+[2019-08-29 14:08:10] [0;32mI (144310) [mwifi, 74]: esp_mesh_event_cb event.id: 14[0m
+[2019-08-29 14:08:10] [0;32mI (144315) [mdf-mesh, 284]: event_loop_cb, event: 22[0m
+[2019-08-29 14:08:10] [0;32mI (144325) [mdf-mesh, 284]: event_loop_cb, event: 14[0m
+[2019-08-29 14:08:10] [0;31mE (145349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:08:11] [0;31mE (145349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:08:11] *************temp_info**************
+[2019-08-29 14:08:11] kom[8.177908] offset[0.000000]
+[2019-08-29 14:08:11] [0;31mE (145357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:08:11] temp[25.000000]
+[2019-08-29 14:08:11] -------------------------------------
+[2019-08-29 14:08:11] *************temp_info**************
+[2019-08-29 14:08:11] kom[2.234519] offset[0.000000]
+[2019-08-29 14:08:11] [0;31mE (145375) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:08:11] temp[25.000000]
+[2019-08-29 14:08:11] -------------------------------------
+[2019-08-29 14:08:11] [0;32mI (145765) [get_started, 44]: heap free: 132572[0m
+[2019-08-29 14:08:11] [0;32mI (148765) [get_started, 44]: heap free: 132572[0m
+[2019-08-29 14:08:14] [0;32mI (150394) [mdf-mesh, 208]: mesh_write ok[0m
+[2019-08-29 14:08:16] [0;32mI (150395) [mesh-led, 303]: information_Upload to ROOT ok data:{"Typ":"fan","ID": 1,"Cmd": "Info","Params": {"NTemp": 25,"OpenPer": 0,"ConSta": "manual","MoSta": "stop"}}[0m
+[2019-08-29 14:08:16] [0;32mI (150416) [mdf-mesh, 208]: mesh_write ok[0m
+[2019-08-29 14:08:16] [0;32mI (150417) [mesh-led, 303]: information_Upload to ROOT ok data:{"Typ":"fan","ID": 2,"Cmd": "Info","Params": {"NTemp": 25,"OpenPer": 0,"ConSta": "manual","MoSta": "stop"}}[0m
+[2019-08-29 14:08:16] [0;31mE (150427) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:08:16] [0;31mE (150433) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:08:16] *************temp_info**************
+[2019-08-29 14:08:16] kom[7.864166] offset[0.000000]
+[2019-08-29 14:08:16] [0;31mE (150446) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:08:16] temp[25.000000]
+[2019-08-29 14:08:16] -------------------------------------
+[2019-08-29 14:08:16] *************temp_info**************
+[2019-08-29 14:08:16] kom[2.198443] offset[0.000000]
+[2019-08-29 14:08:16] [0;31mE (150463) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:08:16] temp[25.000000]
+[2019-08-29 14:08:16] -------------------------------------
+[2019-08-29 14:08:16] [0;32mI (151744) [mdf-mesh, 234]: System information, channel: 12, layer: 2, self mac: 3c:71:bf:e0:92:28, parent bssid: 30:ae:a4:dd:b0:15, parent rssi: -66, node num: 2, free heap: 132572[0m
+[2019-08-29 14:08:17] [0;32mI (151765) [get_started, 44]: heap free: 132572[0m
+[2019-08-29 14:08:17] I (153815) mesh: 4433<active>parent layer:1(node), channel:12, rssi:-66, assoc:0(cnx rssi threshold:-120)my_assoc:0
+[2019-08-29 14:08:19] [0;32mI (154765) [get_started, 44]: heap free: 132368[0m
+[2019-08-29 14:08:20] I (155319) mesh: 5177<scan>parent layer:1, rssi:-71, assoc:1(cnx rssi threshold:-120)
+[2019-08-29 14:08:21] I (155320) mesh: [SCAN][ch:12]AP:1, other(ID:0, RD:0), MAP:1, idle:0, candidate:1, root:1, topMAP:0[c:2,i:2][00:00:00:00:00:00][FIXED-ROOT]<weak>
+[2019-08-29 14:08:21] I (155329) mesh: 6563[weak]try rssi_threshold:-120, backoff times:0, max:5<-78,-82,-85>
+[2019-08-29 14:08:21] I (155336) mesh: 616[monitor]no change, parent:30:ae:a4:dd:b0:15, rssi:-71
+[2019-08-29 14:08:21] I (155343) mesh: 1891<arm>parent monitor, my layer:2(cap:16)(node), interval:11188ms, retries:2<>
+[2019-08-29 14:08:21] [0;31mE (155352) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:08:21] [0;31mE (155358) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:08:21] *************temp_info**************
+[2019-08-29 14:08:21] kom[7.476829] offset[0.000000]
+[2019-08-29 14:08:21] [0;31mE (155371) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:08:21] temp[25.000000]
+[2019-08-29 14:08:21] -------------------------------------
+[2019-08-29 14:08:21] *************temp_info**************
+[2019-08-29 14:08:21] kom[2.173110] offset[0.000000]
+[2019-08-29 14:08:21] [0;31mE (155388) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:08:21] temp[25.000000]
+[2019-08-29 14:08:21] -------------------------------------
+[2019-08-29 14:08:21] [0;32mI (157765) [get_started, 44]: heap free: 132368[0m
+[2019-08-29 14:08:23] [0;31mE (160349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:08:26] [0;31mE (160349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:08:26] *************temp_info**************
+[2019-08-29 14:08:26] kom[8.344951] offset[0.000000]
+[2019-08-29 14:08:26] [0;31mE (160357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:08:26] temp[25.000000]
+[2019-08-29 14:08:26] -------------------------------------
+[2019-08-29 14:08:26] *************temp_info**************
+[2019-08-29 14:08:26] kom[2.385231] offset[0.000000]
+[2019-08-29 14:08:26] [0;31mE (160375) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:08:26] temp[25.000000]
+[2019-08-29 14:08:26] -------------------------------------
+[2019-08-29 14:08:26] [0;32mI (160765) [get_started, 44]: heap free: 132368[0m
+[2019-08-29 14:08:26] [0;32mI (161744) [mdf-mesh, 234]: System information, channel: 12, layer: 2, self mac: 3c:71:bf:e0:92:28, parent bssid: 30:ae:a4:dd:b0:15, parent rssi: -65, node num: 2, free heap: 132356[0m
+[2019-08-29 14:08:27] I (162020) mesh: 4397<assoc>parent layer:1, channel:12, rssi:-65, assoc:1, rssi threshold<-78,-82,-85>
+[2019-08-29 14:08:28] [0;32mI (163765) [get_started, 44]: heap free: 132356[0m
+[2019-08-29 14:08:29] [0;31mE (165349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:08:31] [0;31mE (165349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:08:31] *************temp_info**************
+[2019-08-29 14:08:31] kom[11.444970] offset[0.000000]
+[2019-08-29 14:08:31] [0;31mE (165357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:08:31] temp[25.000000]
+[2019-08-29 14:08:31] -------------------------------------
+[2019-08-29 14:08:31] *************temp_info**************
+[2019-08-29 14:08:31] kom[2.322816] offset[0.000000]
+[2019-08-29 14:08:31] [0;31mE (165375) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:08:31] temp[25.000000]
+[2019-08-29 14:08:31] -------------------------------------
+[2019-08-29 14:08:31] [0;32mI (166765) [get_started, 44]: heap free: 132356[0m
+[2019-08-29 14:08:32] I (166810) mesh: 4433<active>parent layer:1(node), channel:12, rssi:-66, assoc:1(cnx rssi threshold:-120)my_assoc:0
+[2019-08-29 14:08:32] I (168313) mesh: 5177<scan>parent layer:1, rssi:-69, assoc:1(cnx rssi threshold:-120)
+[2019-08-29 14:08:34] I (168314) mesh: [SCAN][ch:12]AP:1, other(ID:0, RD:0), MAP:1, idle:0, candidate:1, root:1, topMAP:0[c:0,i:2][00:00:00:00:00:00][FIXED-ROOT]<weak>
+[2019-08-29 14:08:34] I (168324) mesh: 6563[weak]try rssi_threshold:-120, backoff times:0, max:5<-78,-82,-85>
+[2019-08-29 14:08:34] I (168331) mesh: 616[monitor]no change, parent:30:ae:a4:dd:b0:15, rssi:-69
+[2019-08-29 14:08:34] I (168338) mesh: 1891<arm>parent monitor, my layer:2(cap:16)(node), interval:6750ms, retries:3<>
+[2019-08-29 14:08:34] [0;32mI (169765) [get_started, 44]: heap free: 132356[0m
+[2019-08-29 14:08:35] [0;31mE (170349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:08:36] [0;31mE (170349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:08:36] *************temp_info**************
+[2019-08-29 14:08:36] kom[13.690056] offset[0.000000]
+[2019-08-29 14:08:36] [0;31mE (170357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:08:36] temp[25.000000]
+[2019-08-29 14:08:36] -------------------------------------
+[2019-08-29 14:08:36] *************temp_info**************
+[2019-08-29 14:08:36] kom[2.260449] offset[0.000000]
+[2019-08-29 14:08:36] [0;31mE (170375) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:08:36] temp[25.000000]
+[2019-08-29 14:08:36] -------------------------------------
+[2019-08-29 14:08:36] [0;32mI (171744) [mdf-mesh, 234]: System information, channel: 12, layer: 2, self mac: 3c:71:bf:e0:92:28, parent bssid: 30:ae:a4:dd:b0:15, parent rssi: -65, node num: 2, free heap: 132368[0m
+[2019-08-29 14:08:37] [0;32mI (172765) [get_started, 44]: heap free: 132356[0m
+[2019-08-29 14:08:38] I (175260) mesh: 4433<active>parent layer:1(node), channel:12, rssi:-65, assoc:1(cnx rssi threshold:-120)my_assoc:0
+[2019-08-29 14:08:41] [0;31mE (175349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:08:41] [0;31mE (175349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:08:41] *************temp_info**************
+[2019-08-29 14:08:41] kom[12.917433] offset[0.000000]
+[2019-08-29 14:08:41] [0;31mE (175357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:08:41] temp[25.000000]
+[2019-08-29 14:08:41] -------------------------------------
+[2019-08-29 14:08:41] *************temp_info**************
+[2019-08-29 14:08:41] kom[2.216653] offset[0.000000]
+[2019-08-29 14:08:41] [0;31mE (175375) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:08:41] temp[25.000000]
+[2019-08-29 14:08:41] -------------------------------------
+[2019-08-29 14:08:41] [0;32mI (175765) [get_started, 44]: heap free: 132540[0m
+[2019-08-29 14:08:41] W (176766) wifi: scan number 0
+[2019-08-29 14:08:42] 
+[2019-08-29 14:08:42] I (176767) mesh: [SCAN][ch:12]AP:0, other(ID:0, RD:0), MAP:0, idle:0, candidate:0, root:0, topMAP:0[c:2,i:2][00:00:00:00:00:00][FIXED-ROOT]<weak>
+[2019-08-29 14:08:42] I (176772) mesh: [FAIL][1]root:0, fail:1, normal:0[weak]
+[2019-08-29 14:08:42] 
+[2019-08-29 14:08:42] I (176777) mesh: 1891<arm>parent monitor, my layer:2(cap:16)(node), interval:348256ms, retries:3<>
+[2019-08-29 14:08:42] [0;32mI (178765) [get_started, 44]: heap free: 132540[0m
+[2019-08-29 14:08:44] [0;31mE (180349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:08:46] [0;31mE (180349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:08:46] *************temp_info**************
+[2019-08-29 14:08:46] kom[11.087126] offset[0.000000]
+[2019-08-29 14:08:46] [0;31mE (180357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:08:46] temp[25.000000]
+[2019-08-29 14:08:46] -------------------------------------
+[2019-08-29 14:08:46] *************temp_info**************
+[2019-08-29 14:08:46] kom[2.185897] offset[0.000000]
+[2019-08-29 14:08:46] [0;31mE (180375) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:08:46] temp[25.000000]
+[2019-08-29 14:08:46] -------------------------------------
+[2019-08-29 14:08:46] [0;32mI (181744) [mdf-mesh, 234]: System information, channel: 12, layer: 2, self mac: 3c:71:bf:e0:92:28, parent bssid: 30:ae:a4:dd:b0:15, parent rssi: -64, node num: 2, free heap: 132552[0m
+[2019-08-29 14:08:47] [0;32mI (181765) [get_started, 44]: heap free: 132552[0m
+[2019-08-29 14:08:47] [0;32mI (184765) [get_started, 44]: heap free: 132552[0m
+[2019-08-29 14:08:50] [0;31mE (185349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:08:51] [0;31mE (185349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:08:51] *************temp_info**************
+[2019-08-29 14:08:51] kom[10.073082] offset[0.000000]
+[2019-08-29 14:08:51] [0;31mE (185357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:08:51] temp[25.000000]
+[2019-08-29 14:08:51] -------------------------------------
+[2019-08-29 14:08:51] *************temp_info**************
+[2019-08-29 14:08:51] kom[2.164300] offset[0.000000]
+[2019-08-29 14:08:51] [0;31mE (185375) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:08:51] temp[25.000000]
+[2019-08-29 14:08:51] -------------------------------------
+[2019-08-29 14:08:51] [0;32mI (187765) [get_started, 44]: heap free: 132540[0m
+[2019-08-29 14:08:53] [0;31mE (190349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:08:56] [0;31mE (190349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:08:56] *************temp_info**************
+[2019-08-29 14:08:56] kom[11.409657] offset[0.000000]
+[2019-08-29 14:08:56] [0;31mE (190357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:08:56] temp[25.000000]
+[2019-08-29 14:08:56] -------------------------------------
+[2019-08-29 14:08:56] *************temp_info**************
+[2019-08-29 14:08:56] kom[2.149133] offset[0.000000]
+[2019-08-29 14:08:56] [0;31mE (190375) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:08:56] temp[25.000000]
+[2019-08-29 14:08:56] -------------------------------------
+[2019-08-29 14:08:56] [0;32mI (190765) [get_started, 44]: heap free: 132540[0m
+[2019-08-29 14:08:56] [0;32mI (191744) [mdf-mesh, 234]: System information, channel: 12, layer: 2, self mac: 3c:71:bf:e0:92:28, parent bssid: 30:ae:a4:dd:b0:15, parent rssi: -65, node num: 2, free heap: 132552[0m
+[2019-08-29 14:08:57] [0;32mI (193765) [get_started, 44]: heap free: 132540[0m
+[2019-08-29 14:08:59] [0;31mE (195349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:09:01] [0;31mE (195349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:09:01] *************temp_info**************
+[2019-08-29 14:09:01] kom[13.454442] offset[0.000000]
+[2019-08-29 14:09:01] [0;31mE (195357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:09:01] temp[25.000000]
+[2019-08-29 14:09:01] -------------------------------------
+[2019-08-29 14:09:01] *************temp_info**************
+[2019-08-29 14:09:01] kom[2.149131] offset[0.000000]
+[2019-08-29 14:09:01] [0;31mE (195375) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:09:01] temp[25.000000]
+[2019-08-29 14:09:01] -------------------------------------
+[2019-08-29 14:09:01] [0;32mI (196765) [get_started, 44]: heap free: 132540[0m
+[2019-08-29 14:09:02] [0;32mI (199765) [get_started, 44]: heap free: 132540[0m
+[2019-08-29 14:09:05] [0;32mI (200352) [mdf-mesh, 208]: mesh_write ok[0m
+[2019-08-29 14:09:06] [0;32mI (200352) [mesh-led, 303]: information_Upload to ROOT ok data:{"Typ":"fan","ID": 1,"Cmd": "Info","Params": {"NTemp": 25,"OpenPer": 0,"ConSta": "manual","MoSta": "stop"}}[0m
+[2019-08-29 14:09:06] [0;32mI (200369) [mdf-mesh, 208]: mesh_write ok[0m
+[2019-08-29 14:09:06] [0;32mI (200369) [mesh-led, 303]: information_Upload to ROOT ok data:{"Typ":"fan","ID": 2,"Cmd": "Info","Params": {"NTemp": 25,"OpenPer": 0,"ConSta": "manual","MoSta": "stop"}}[0m
+[2019-08-29 14:09:06] [0;31mE (200383) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:09:06] [0;31mE (200389) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:09:06] *************temp_info**************
+[2019-08-29 14:09:06] kom[13.040287] offset[0.000000]
+[2019-08-29 14:09:06] [0;31mE (200401) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:09:06] temp[25.000000]
+[2019-08-29 14:09:06] -------------------------------------
+[2019-08-29 14:09:06] *************temp_info**************
+[2019-08-29 14:09:06] kom[2.299645] offset[0.000000]
+[2019-08-29 14:09:06] [0;31mE (200421) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:09:06] temp[25.000000]
+[2019-08-29 14:09:06] -------------------------------------
+[2019-08-29 14:09:06] [0;32mI (201744) [mdf-mesh, 234]: System information, channel: 12, layer: 2, self mac: 3c:71:bf:e0:92:28, parent bssid: 30:ae:a4:dd:b0:15, parent rssi: -66, node num: 2, free heap: 132552[0m
+[2019-08-29 14:09:07] [0;32mI (202765) [get_started, 44]: heap free: 132540[0m
+[2019-08-29 14:09:08] [0;31mE (205349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:09:11] [0;31mE (205349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:09:11] *************temp_info**************
+[2019-08-29 14:09:11] kom[11.344063] offset[0.000000]
+[2019-08-29 14:09:11] [0;31mE (205357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:09:11] temp[25.000000]
+[2019-08-29 14:09:11] -------------------------------------
+[2019-08-29 14:09:11] *************temp_info**************
+[2019-08-29 14:09:11] kom[2.244178] offset[0.000000]
+[2019-08-29 14:09:11] [0;31mE (205375) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:09:11] temp[25.000000]
+[2019-08-29 14:09:11] -------------------------------------
+[2019-08-29 14:09:11] [0;32mI (205765) [get_started, 44]: heap free: 132552[0m
+[2019-08-29 14:09:11] [0;32mI (208765) [get_started, 44]: heap free: 132552[0m
+[2019-08-29 14:09:14] [0;31mE (210349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:09:16] [0;31mE (210349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:09:16] *************temp_info**************
+[2019-08-29 14:09:16] kom[10.120211] offset[0.000000]
+[2019-08-29 14:09:16] [0;31mE (210357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:09:16] temp[25.000000]
+[2019-08-29 14:09:16] -------------------------------------
+[2019-08-29 14:09:16] *************temp_info**************
+[2019-08-29 14:09:16] kom[2.205226] offset[0.000000]
+[2019-08-29 14:09:16] [0;31mE (210375) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:09:16] temp[25.000000]
+[2019-08-29 14:09:16] -------------------------------------
+[2019-08-29 14:09:16] [0;32mI (211744) [mdf-mesh, 234]: System information, channel: 12, layer: 2, self mac: 3c:71:bf:e0:92:28, parent bssid: 30:ae:a4:dd:b0:15, parent rssi: -64, node num: 2, free heap: 132552[0m
+[2019-08-29 14:09:17] [0;32mI (211765) [get_started, 44]: heap free: 132552[0m
+[2019-08-29 14:09:17] [0;32mI (214765) [get_started, 44]: heap free: 132540[0m
+[2019-08-29 14:09:20] [0;31mE (215349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:09:21] [0;31mE (215349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:09:21] *************temp_info**************
+[2019-08-29 14:09:21] kom[8.950730] offset[0.000000]
+[2019-08-29 14:09:21] [0;31mE (215357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:09:21] temp[25.000000]
+[2019-08-29 14:09:21] -------------------------------------
+[2019-08-29 14:09:21] *************temp_info**************
+[2019-08-29 14:09:21] kom[2.177873] offset[0.000000]
+[2019-08-29 14:09:21] [0;31mE (215375) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:09:21] temp[25.000000]
+[2019-08-29 14:09:21] -------------------------------------
+[2019-08-29 14:09:21] [0;32mI (217765) [get_started, 44]: heap free: 132540[0m
+[2019-08-29 14:09:23] [0;31mE (220349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:09:26] [0;31mE (220349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:09:26] *************temp_info**************
+[2019-08-29 14:09:26] kom[8.023922] offset[0.000000]
+[2019-08-29 14:09:26] [0;31mE (220357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:09:26] temp[25.000000]
+[2019-08-29 14:09:26] -------------------------------------
+[2019-08-29 14:09:26] *************temp_info**************
+[2019-08-29 14:09:26] kom[2.158664] offset[0.000000]
+[2019-08-29 14:09:26] [0;31mE (220375) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:09:26] temp[25.000000]
+[2019-08-29 14:09:26] -------------------------------------
+[2019-08-29 14:09:26] [0;32mI (220765) [get_started, 44]: heap free: 132540[0m
+[2019-08-29 14:09:26] [0;32mI (221744) [mdf-mesh, 234]: System information, channel: 12, layer: 2, self mac: 3c:71:bf:e0:92:28, parent bssid: 30:ae:a4:dd:b0:15, parent rssi: -67, node num: 2, free heap: 132540[0m
+[2019-08-29 14:09:27] [0;32mI (223767) [get_started, 44]: heap free: 132540[0m
+[2019-08-29 14:09:29] [0;31mE (225349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:09:31] [0;31mE (225349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:09:31] *************temp_info**************
+[2019-08-29 14:09:31] kom[9.798691] offset[0.000000]
+[2019-08-29 14:09:31] [0;31mE (225357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:09:31] temp[25.000000]
+[2019-08-29 14:09:31] -------------------------------------
+[2019-08-29 14:09:31] *************temp_info**************
+[2019-08-29 14:09:31] kom[2.145175] offset[0.000000]
+[2019-08-29 14:09:31] [0;31mE (225375) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:09:31] temp[25.000000]
+[2019-08-29 14:09:31] -------------------------------------
+[2019-08-29 14:09:31] [0;32mI (226768) [get_started, 44]: heap free: 132540[0m
+[2019-08-29 14:09:32] [0;32mI (229768) [get_started, 44]: heap free: 132540[0m
+[2019-08-29 14:09:35] [0;31mE (230349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:09:36] [0;31mE (230349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:09:36] *************temp_info**************
+[2019-08-29 14:09:36] kom[12.002413] offset[0.000000]
+[2019-08-29 14:09:36] [0;31mE (230357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:09:36] temp[25.000000]
+[2019-08-29 14:09:36] -------------------------------------
+[2019-08-29 14:09:36] *************temp_info**************
+[2019-08-29 14:09:36] kom[2.149559] offset[0.000000]
+[2019-08-29 14:09:36] [0;31mE (230375) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:09:36] temp[25.000000]
+[2019-08-29 14:09:36] -------------------------------------
+[2019-08-29 14:09:36] [0;32mI (231744) [mdf-mesh, 234]: System information, channel: 12, layer: 2, self mac: 3c:71:bf:e0:92:28, parent bssid: 30:ae:a4:dd:b0:15, parent rssi: -65, node num: 2, free heap: 132540[0m
+[2019-08-29 14:09:37] [0;32mI (232768) [get_started, 44]: heap free: 132552[0m
+[2019-08-29 14:09:38] [0;31mE (235349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:09:41] [0;31mE (235349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:09:41] *************temp_info**************
+[2019-08-29 14:09:41] kom[11.646772] offset[0.000000]
+[2019-08-29 14:09:41] [0;31mE (235357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:09:41] temp[25.000000]
+[2019-08-29 14:09:41] -------------------------------------
+[2019-08-29 14:09:41] *************temp_info**************
+[2019-08-29 14:09:41] kom[2.212024] offset[0.000000]
+[2019-08-29 14:09:41] [0;31mE (235375) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:09:41] temp[25.000000]
+[2019-08-29 14:09:41] -------------------------------------
+[2019-08-29 14:09:41] [0;32mI (235768) [get_started, 44]: heap free: 132552[0m
+[2019-08-29 14:09:41] [0;32mI (238768) [get_started, 44]: heap free: 132540[0m
+[2019-08-29 14:09:44] [0;31mE (240349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:09:46] [0;31mE (240349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:09:46] *************temp_info**************
+[2019-08-29 14:09:46] kom[9.875672] offset[0.000000]
+[2019-08-29 14:09:46] [0;31mE (240357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:09:46] temp[25.000000]
+[2019-08-29 14:09:46] -------------------------------------
+[2019-08-29 14:09:46] *************temp_info**************
+[2019-08-29 14:09:46] kom[2.194705] offset[0.000000]
+[2019-08-29 14:09:46] [0;31mE (240375) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:09:46] temp[25.000000]
+[2019-08-29 14:09:46] -------------------------------------
+[2019-08-29 14:09:46] [0;32mI (241744) [mdf-mesh, 234]: System information, channel: 12, layer: 2, self mac: 3c:71:bf:e0:92:28, parent bssid: 30:ae:a4:dd:b0:15, parent rssi: -66, node num: 2, free heap: 132540[0m
+[2019-08-29 14:09:47] [0;32mI (241768) [get_started, 44]: heap free: 132540[0m
+[2019-08-29 14:09:47] [0;32mI (244768) [get_started, 44]: heap free: 132540[0m
+[2019-08-29 14:09:50] W (245272) wifi: [beacon]new interval:100ms
+[2019-08-29 14:09:51] I (245275) mesh: [scan]new scanning time:300ms
+[2019-08-29 14:09:51] [0;31mE (245349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:09:51] [0;31mE (245349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:09:51] *************temp_info**************
+[2019-08-29 14:09:51] kom[8.896618] offset[0.000000]
+[2019-08-29 14:09:51] [0;31mE (245357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:09:51] temp[25.000000]
+[2019-08-29 14:09:51] -------------------------------------
+[2019-08-29 14:09:51] *************temp_info**************
+[2019-08-29 14:09:51] kom[2.170484] offset[0.000000]
+[2019-08-29 14:09:51] [0;31mE (245374) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:09:51] temp[25.000000]
+[2019-08-29 14:09:51] -------------------------------------
+[2019-08-29 14:09:51] [0;32mI (247768) [get_started, 44]: heap free: 132540[0m
+[2019-08-29 14:09:53] W (248342) wifi: [beacon]new interval:1000ms
+[2019-08-29 14:09:54] I (248345) mesh: [scan]new scanning time:1500ms
+[2019-08-29 14:09:54] [0;32mI (250349) [mdf-moter, 265]: 设备3已断开链接[0m
+[2019-08-29 14:09:56] [0;32mI (250349) [mdf-moter, 269]: 设备4已断开链接[0m
+[2019-08-29 14:09:56] [0;32mI (250349) [mdf-moter, 273]: 设备5已断开链接[0m
+[2019-08-29 14:09:56] [0;32mI (250354) [mdf-moter, 277]: 设备6已断开链接[0m
+[2019-08-29 14:09:56] [0;32mI (250375) [mdf-mesh, 208]: mesh_write ok[0m
+[2019-08-29 14:09:56] [0;32mI (250375) [mesh-led, 303]: information_Upload to ROOT ok data:{"Typ":"fan","ID": 1,"Cmd": "Info","Params": {"NTemp": 25,"OpenPer": 0,"ConSta": "manual","MoSta": "stop"}}[0m
+[2019-08-29 14:09:56] [0;32mI (250400) [mdf-mesh, 208]: mesh_write ok[0m
+[2019-08-29 14:09:56] [0;32mI (250400) [mesh-led, 303]: information_Upload to ROOT ok data:{"Typ":"fan","ID": 2,"Cmd": "Info","Params": {"NTemp": 25,"OpenPer": 0,"ConSta": "manual","MoSta": "stop"}}[0m
+[2019-08-29 14:09:56] [0;31mE (250410) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:09:56] [0;31mE (250416) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:09:56] *************temp_info**************
+[2019-08-29 14:09:56] kom[8.198625] offset[0.000000]
+[2019-08-29 14:09:56] [0;31mE (250429) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:09:56] temp[25.000000]
+[2019-08-29 14:09:56] -------------------------------------
+[2019-08-29 14:09:56] *************temp_info**************
+[2019-08-29 14:09:56] kom[2.153476] offset[0.000000]
+[2019-08-29 14:09:56] [0;31mE (250446) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:09:56] temp[25.000000]
+[2019-08-29 14:09:56] -------------------------------------
+[2019-08-29 14:09:56] [0;32mI (250768) [get_started, 44]: heap free: 132540[0m
+[2019-08-29 14:09:56] [0;32mI (251744) [mdf-mesh, 234]: System information, channel: 12, layer: 2, self mac: 3c:71:bf:e0:92:28, parent bssid: 30:ae:a4:dd:b0:15, parent rssi: -65, node num: 2, free heap: 132540[0m
+[2019-08-29 14:09:57] [0;32mI (253768) [get_started, 44]: heap free: 132540[0m
+[2019-08-29 14:09:59] [0;31mE (255349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:10:01] [0;31mE (255349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:10:01] *************temp_info**************
+[2019-08-29 14:10:01] kom[7.734276] offset[0.000000]
+[2019-08-29 14:10:01] [0;31mE (255357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:10:01] temp[25.000000]
+[2019-08-29 14:10:01] -------------------------------------
+[2019-08-29 14:10:01] *************temp_info**************
+[2019-08-29 14:10:01] kom[2.141531] offset[0.000000]
+[2019-08-29 14:10:01] [0;31mE (255375) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:10:01] temp[25.000000]
+[2019-08-29 14:10:01] -------------------------------------
+[2019-08-29 14:10:01] [0;32mI (256768) [get_started, 44]: heap free: 132552[0m
+[2019-08-29 14:10:02] [0;32mI (259768) [get_started, 44]: heap free: 132552[0m
+[2019-08-29 14:10:05] [0;31mE (260349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:10:06] [0;31mE (260349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:10:06] *************temp_info**************
+[2019-08-29 14:10:06] kom[7.252019] offset[0.000000]
+[2019-08-29 14:10:06] [0;31mE (260357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:10:06] temp[25.000000]
+[2019-08-29 14:10:06] -------------------------------------
+[2019-08-29 14:10:06] *************temp_info**************
+[2019-08-29 14:10:06] kom[2.156661] offset[0.000000]
+[2019-08-29 14:10:06] [0;31mE (260374) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:10:06] temp[25.000000]
+[2019-08-29 14:10:06] -------------------------------------
+[2019-08-29 14:10:06] [0;32mI (261744) [mdf-mesh, 234]: System information, channel: 12, layer: 2, self mac: 3c:71:bf:e0:92:28, parent bssid: 30:ae:a4:dd:b0:15, parent rssi: -66, node num: 2, free heap: 132540[0m
+[2019-08-29 14:10:07] [0;32mI (262768) [get_started, 44]: heap free: 132552[0m
+[2019-08-29 14:10:08] [0;31mE (265349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:10:11] [0;31mE (265349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:10:11] *************temp_info**************
+[2019-08-29 14:10:11] kom[9.123943] offset[0.000000]
+[2019-08-29 14:10:11] [0;31mE (265357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:10:11] temp[25.000000]
+[2019-08-29 14:10:11] -------------------------------------
+[2019-08-29 14:10:11] *************temp_info**************
+[2019-08-29 14:10:11] kom[2.196514] offset[0.000000]
+[2019-08-29 14:10:11] [0;31mE (265375) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:10:11] temp[25.000000]
+[2019-08-29 14:10:11] -------------------------------------
+[2019-08-29 14:10:11] [0;32mI (265768) [get_started, 44]: heap free: 132540[0m
+[2019-08-29 14:10:11] [0;32mI (268768) [get_started, 44]: heap free: 132540[0m
+[2019-08-29 14:10:14] [0;31mE (270349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:10:16] [0;31mE (270349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:10:16] *************temp_info**************
+[2019-08-29 14:10:16] kom[11.456382] offset[0.000000]
+[2019-08-29 14:10:16] [0;31mE (270357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:10:16] temp[25.000000]
+[2019-08-29 14:10:16] -------------------------------------
+[2019-08-29 14:10:16] *************temp_info**************
+[2019-08-29 14:10:16] kom[2.171755] offset[0.000000]
+[2019-08-29 14:10:16] [0;31mE (270375) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:10:16] temp[25.000000]
+[2019-08-29 14:10:16] -------------------------------------
+[2019-08-29 14:10:16] [0;32mI (271744) [mdf-mesh, 234]: System information, channel: 12, layer: 2, self mac: 3c:71:bf:e0:92:28, parent bssid: 30:ae:a4:dd:b0:15, parent rssi: -66, node num: 2, free heap: 132540[0m
+[2019-08-29 14:10:17] [0;32mI (271768) [get_started, 44]: heap free: 132540[0m
+[2019-08-29 14:10:17] [0;32mI (274768) [get_started, 44]: heap free: 132540[0m
+[2019-08-29 14:10:20] [0;31mE (275349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:10:21] [0;31mE (275349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:10:21] *************temp_info**************
+[2019-08-29 14:10:21] kom[10.451181] offset[0.000000]
+[2019-08-29 14:10:21] [0;31mE (275357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:10:21] temp[25.000000]
+[2019-08-29 14:10:21] -------------------------------------
+[2019-08-29 14:10:21] *************temp_info**************
+[2019-08-29 14:10:21] kom[2.154368] offset[0.000000]
+[2019-08-29 14:10:21] [0;31mE (275375) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:10:21] temp[25.000000]
+[2019-08-29 14:10:21] -------------------------------------
+[2019-08-29 14:10:21] [0;32mI (277768) [get_started, 44]: heap free: 132540[0m
+[2019-08-29 14:10:23] [0;31mE (280349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:10:26] [0;31mE (280349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:10:26] *************temp_info**************
+[2019-08-29 14:10:26] kom[9.020391] offset[0.000000]
+[2019-08-29 14:10:26] [0;31mE (280357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:10:26] temp[25.000000]
+[2019-08-29 14:10:26] -------------------------------------
+[2019-08-29 14:10:26] *************temp_info**************
+[2019-08-29 14:10:26] kom[2.142158] offset[0.000000]
+[2019-08-29 14:10:26] [0;31mE (280375) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:10:26] temp[25.000000]
+[2019-08-29 14:10:26] -------------------------------------
+[2019-08-29 14:10:26] [0;32mI (280768) [get_started, 44]: heap free: 132540[0m
+[2019-08-29 14:10:26] [0;32mI (281744) [mdf-mesh, 234]: System information, channel: 12, layer: 2, self mac: 3c:71:bf:e0:92:28, parent bssid: 30:ae:a4:dd:b0:15, parent rssi: -66, node num: 2, free heap: 132540[0m
+[2019-08-29 14:10:27] [0;32mI (283768) [get_started, 44]: heap free: 132552[0m
+[2019-08-29 14:10:29] [0;31mE (285349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:10:31] [0;31mE (285349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:10:31] *************temp_info**************
+[2019-08-29 14:10:31] kom[8.377473] offset[0.000000]
+[2019-08-29 14:10:31] [0;31mE (285357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:10:31] temp[25.000000]
+[2019-08-29 14:10:31] -------------------------------------
+[2019-08-29 14:10:31] *************temp_info**************
+[2019-08-29 14:10:31] kom[2.133584] offset[0.000000]
+[2019-08-29 14:10:31] [0;31mE (285375) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:10:31] temp[25.000000]
+[2019-08-29 14:10:31] -------------------------------------
+[2019-08-29 14:10:31] [0;32mI (286768) [get_started, 44]: heap free: 132552[0m
+[2019-08-29 14:10:32] [0;32mI (289768) [get_started, 44]: heap free: 132540[0m
+[2019-08-29 14:10:35] [0;31mE (290349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:10:36] [0;31mE (290349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:10:36] *************temp_info**************
+[2019-08-29 14:10:36] kom[8.001151] offset[0.000000]
+[2019-08-29 14:10:36] [0;31mE (290357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:10:36] temp[25.000000]
+[2019-08-29 14:10:36] -------------------------------------
+[2019-08-29 14:10:36] *************temp_info**************
+[2019-08-29 14:10:36] kom[2.127563] offset[0.000000]
+[2019-08-29 14:10:36] [0;31mE (290374) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:10:36] temp[25.000000]
+[2019-08-29 14:10:36] -------------------------------------
+[2019-08-29 14:10:36] [0;32mI (291744) [mdf-mesh, 234]: System information, channel: 12, layer: 2, self mac: 3c:71:bf:e0:92:28, parent bssid: 30:ae:a4:dd:b0:15, parent rssi: -66, node num: 2, free heap: 132540[0m
+[2019-08-29 14:10:37] [0;32mI (292768) [get_started, 44]: heap free: 132540[0m
+[2019-08-29 14:10:38] [0;31mE (295349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:10:41] [0;31mE (295349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:10:41] *************temp_info**************
+[2019-08-29 14:10:41] kom[7.708641] offset[0.000000]
+[2019-08-29 14:10:41] [0;31mE (295357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:10:41] temp[25.000000]
+[2019-08-29 14:10:41] -------------------------------------
+[2019-08-29 14:10:41] *************temp_info**************
+[2019-08-29 14:10:41] kom[2.123335] offset[0.000000]
+[2019-08-29 14:10:41] [0;31mE (295375) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:10:41] temp[25.000000]
+[2019-08-29 14:10:41] -------------------------------------
+[2019-08-29 14:10:41] [0;32mI (295768) [get_started, 44]: heap free: 132540[0m
+[2019-08-29 14:10:41] [0;32mI (298768) [get_started, 44]: heap free: 132540[0m
+[2019-08-29 14:10:44] I (299847) wifi: bcn_timout,ap_probe_send_start
+[2019-08-29 14:10:45] I (299942) wifi: state: run -> init (6c0)
+[2019-08-29 14:10:45] I (299943) wifi: pm stop, total sleep time: 0 us / 155701085 us
+[2019-08-29 14:10:45] 
+[2019-08-29 14:10:45] I (299943) wifi: n:12 0, o:12 2, ap:12 2, sta:12 2, prof:12
+[2019-08-29 14:10:45] [0;32mI (299948) [mwifi, 74]: esp_mesh_event_cb event.id: 8[0m
+[2019-08-29 14:10:45] [0;32mI (299952) [mwifi, 99]: Parent is disconnected, reason: 6[0m
+[2019-08-29 14:10:46] [0;32mI (299958) [mdf-mesh, 284]: event_loop_cb, event: 8[0m
+[2019-08-29 14:10:46] I (299959) mesh: [wifi]disconnected reason:6(non-authenticated STA), continuous:1/max:12, non-root, vote(,)<><>
+[2019-08-29 14:10:46] [0;32mI (299965) [mdf-mesh, 309]: Parent is disconnected on station interface[0m
+[2019-08-29 14:10:46] I (299974) mesh: [scan]new scanning time:600ms
+[2019-08-29 14:10:46] W (299985) wifi: [beacon]new interval:300ms
+[2019-08-29 14:10:46] I (299991) wifi: n:12 2, o:12 0, ap:12 2, sta:12 2, prof:12
+[2019-08-29 14:10:46] I (299995) wifi: state: init -> auth (b0)
+[2019-08-29 14:10:46] I (300002) wifi: state: auth -> init (69c0)
+[2019-08-29 14:10:46] I (300002) wifi: n:12 0, o:12 2, ap:12 2, sta:12 2, prof:12
+[2019-08-29 14:10:46] [0;32mI (300009) [mwifi, 74]: esp_mesh_event_cb event.id: 8[0m
+[2019-08-29 14:10:46] [0;32mI (300013) [mwifi, 99]: Parent is disconnected, reason: 105[0m
+[2019-08-29 14:10:46] [0;32mI (300019) [mdf-mesh, 284]: event_loop_cb, event: 8[0m
+[2019-08-29 14:10:46] I (300020) mesh: [wifi]disconnected reason:105(parent stopped), continuous:2/max:12, non-root, vote(,)<><>
+[2019-08-29 14:10:46] [0;32mI (300025) [mdf-mesh, 309]: Parent is disconnected on station interface[0m
+[2019-08-29 14:10:46] W (300035) wifi: [beacon]interval:300ms
+[2019-08-29 14:10:46] I (300046) wifi: n:12 2, o:12 0, ap:12 2, sta:12 2, prof:12
+[2019-08-29 14:10:46] I (300051) wifi: state: init -> auth (b0)
+[2019-08-29 14:10:46] I (300057) wifi: state: auth -> init (69c0)
+[2019-08-29 14:10:46] I (300058) wifi: n:12 0, o:12 2, ap:12 2, sta:12 2, prof:12
+[2019-08-29 14:10:46] [0;32mI (300065) [mwifi, 74]: esp_mesh_event_cb event.id: 8[0m
+[2019-08-29 14:10:46] [0;32mI (300069) [mwifi, 99]: Parent is disconnected, reason: 105[0m
+[2019-08-29 14:10:46] [0;32mI (300075) [mdf-mesh, 284]: event_loop_cb, event: 8[0m
+[2019-08-29 14:10:46] I (300076) mesh: [wifi]disconnected reason:105(parent stopped), continuous:3/max:12, non-root, vote(,)<><>
+[2019-08-29 14:10:46] [0;32mI (300081) [mdf-mesh, 309]: Parent is disconnected on station interface[0m
+[2019-08-29 14:10:46] W (300091) wifi: [beacon]interval:300ms
+[2019-08-29 14:10:46] I (300102) wifi: n:12 2, o:12 0, ap:12 2, sta:12 2, prof:12
+[2019-08-29 14:10:46] I (300107) wifi: state: init -> auth (b0)
+[2019-08-29 14:10:46] I (300113) wifi: state: auth -> init (69c0)
+[2019-08-29 14:10:46] I (300114) wifi: n:12 0, o:12 2, ap:12 2, sta:12 2, prof:12
+[2019-08-29 14:10:46] [0;32mI (300121) [mwifi, 74]: esp_mesh_event_cb event.id: 8[0m
+[2019-08-29 14:10:46] [0;32mI (300125) [mwifi, 99]: Parent is disconnected, reason: 105[0m
+[2019-08-29 14:10:46] [0;32mI (300131) [mdf-mesh, 284]: event_loop_cb, event: 8[0m
+[2019-08-29 14:10:46] I (300132) mesh: [wifi]disconnected reason:105(parent stopped), continuous:4/max:12, non-root, vote(,)<><>
+[2019-08-29 14:10:46] [0;32mI (300137) [mdf-mesh, 309]: Parent is disconnected on station interface[0m
+[2019-08-29 14:10:46] W (300147) wifi: [beacon]interval:300ms
+[2019-08-29 14:10:46] I (300158) wifi: n:12 2, o:12 0, ap:12 2, sta:12 2, prof:12
+[2019-08-29 14:10:46] I (300163) wifi: state: init -> auth (b0)
+[2019-08-29 14:10:46] I (300169) wifi: state: auth -> init (69c0)
+[2019-08-29 14:10:46] I (300170) wifi: n:12 0, o:12 2, ap:12 2, sta:12 2, prof:12
+[2019-08-29 14:10:46] [0;32mI (300177) [mwifi, 74]: esp_mesh_event_cb event.id: 8[0m
+[2019-08-29 14:10:46] [0;32mI (300181) [mwifi, 99]: Parent is disconnected, reason: 105[0m
+[2019-08-29 14:10:46] [0;32mI (300187) [mdf-mesh, 284]: event_loop_cb, event: 8[0m
+[2019-08-29 14:10:46] I (300188) mesh: [wifi]disconnected reason:105(parent stopped), continuous:5/max:12, non-root, vote(,)<><>
+[2019-08-29 14:10:46] [0;32mI (300193) [mdf-mesh, 309]: Parent is disconnected on station interface[0m
+[2019-08-29 14:10:46] W (300203) wifi: [beacon]interval:300ms
+[2019-08-29 14:10:46] I (300214) wifi: n:12 2, o:12 0, ap:12 2, sta:12 2, prof:12
+[2019-08-29 14:10:46] I (300219) wifi: state: init -> auth (b0)
+[2019-08-29 14:10:46] I (300227) wifi: state: auth -> init (69c0)
+[2019-08-29 14:10:46] I (300228) wifi: n:12 0, o:12 2, ap:12 2, sta:12 2, prof:12
+[2019-08-29 14:10:46] [0;32mI (300233) [mwifi, 74]: esp_mesh_event_cb event.id: 8[0m
+[2019-08-29 14:10:46] [0;32mI (300237) [mwifi, 99]: Parent is disconnected, reason: 105[0m
+[2019-08-29 14:10:46] [0;32mI (300243) [mdf-mesh, 284]: event_loop_cb, event: 8[0m
+[2019-08-29 14:10:46] I (300244) mesh: [wifi]disconnected reason:105(parent stopped), continuous:6/max:12, non-root, vote(,)<><>
+[2019-08-29 14:10:46] [0;32mI (300249) [mdf-mesh, 309]: Parent is disconnected on station interface[0m
+[2019-08-29 14:10:46] W (300259) wifi: [beacon]interval:300ms
+[2019-08-29 14:10:46] I (300270) wifi: n:12 2, o:12 0, ap:12 2, sta:12 2, prof:12
+[2019-08-29 14:10:46] I (300275) wifi: state: init -> auth (b0)
+[2019-08-29 14:10:46] I (300287) wifi: state: auth -> init (69c0)
+[2019-08-29 14:10:46] I (300288) wifi: n:12 0, o:12 2, ap:12 2, sta:12 2, prof:12
+[2019-08-29 14:10:46] [0;32mI (300290) [mwifi, 74]: esp_mesh_event_cb event.id: 8[0m
+[2019-08-29 14:10:46] [0;32mI (300293) [mwifi, 99]: Parent is disconnected, reason: 105[0m
+[2019-08-29 14:10:46] [0;32mI (300299) [mdf-mesh, 284]: event_loop_cb, event: 8[0m
+[2019-08-29 14:10:46] I (300300) mesh: [wifi]disconnected reason:105(parent stopped), continuous:0/max:12, non-root, vote(,)<><>
+[2019-08-29 14:10:46] [0;32mI (300305) [mdf-mesh, 309]: Parent is disconnected on station interface[0m
+[2019-08-29 14:10:46] W (300315) wifi: [beacon]interval:300ms
+[2019-08-29 14:10:46] I (300325) mesh: [parent stopped]looking for a new parent, [L:2]try layer:1
+[2019-08-29 14:10:46] [0;32mI (300381) [mwifi, 74]: esp_mesh_event_cb event.id: 22[0m
+[2019-08-29 14:10:46] [0;32mI (300381) [mwifi, 157]: Network state: root_less[0m
+[2019-08-29 14:10:46] [0;32mI (300382) [mdf-mesh, 284]: event_loop_cb, event: 11[0m
+[2019-08-29 14:10:46] [0;32mI (300387) [mdf-mesh, 284]: event_loop_cb, event: 22[0m
+[2019-08-29 14:10:46] [0;33mW (300394) [mwifi, 730]: <MDF_ERR_MWIFI_NO_ROOT> Current network has no root[0m
+[2019-08-29 14:10:46] [0;33mW (300400) [mdf-mesh, 207]: mwifi_write, err: 20000a[0m
+[2019-08-29 14:10:46] [0;32mI (300406) [mesh-led, 303]: information_Upload to ROOT ok data:{"Typ":"fan","ID": 1,"Cmd": "Info","Params": {"NTemp": 25,"OpenPer": 0,"ConSta": "manual","MoSta": "stop"}}[0m
+[2019-08-29 14:10:46] [0;33mW (300422) [mwifi, 730]: <MDF_ERR_MWIFI_NO_ROOT> Current network has no root[0m
+[2019-08-29 14:10:46] [0;33mW (300430) [mdf-mesh, 207]: mwifi_write, err: 20000a[0m
+[2019-08-29 14:10:46] [0;32mI (300435) [mesh-led, 303]: information_Upload to ROOT ok data:{"Typ":"fan","ID": 2,"Cmd": "Info","Params": {"NTemp": 25,"OpenPer": 0,"ConSta": "manual","MoSta": "stop"}}[0m
+[2019-08-29 14:10:46] [0;31mE (300451) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:10:46] [0;31mE (300458) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:10:46] *************temp_info**************
+[2019-08-29 14:10:46] kom[7.619260] offset[0.000000]
+[2019-08-29 14:10:46] [0;31mE (300470) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:10:46] temp[25.000000]
+[2019-08-29 14:10:46] -------------------------------------
+[2019-08-29 14:10:46] *************temp_info**************
+[2019-08-29 14:10:46] kom[2.167732] offset[0.000000]
+[2019-08-29 14:10:46] [0;31mE (300488) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:10:46] temp[25.000000]
+[2019-08-29 14:10:46] -------------------------------------
+[2019-08-29 14:10:46] [0;32mI (301744) [mdf-mesh, 234]: System information, channel: 5, layer: -1, self mac: 3c:71:bf:e0:92:28, parent bssid: 30:ae:a4:dd:b0:15, parent rssi: -65, node num: 2, free heap: 132120[0m
+[2019-08-29 14:10:47] [0;32mI (301768) [get_started, 44]: heap free: 132120[0m
+[2019-08-29 14:10:47] I (304692) mesh: [SCAN][ch:0]AP:19, other(ID:0, RD:0), MAP:1, idle:0, candidate:1, root:1, topMAP:0[c:2,i:0][00:00:00:00:00:00][FIXED-ROOT]<>
+[2019-08-29 14:10:50] I (304694) mesh: 6563[selection]try rssi_threshold:-78, backoff times:0, max:5<-78,-82,-85>
+[2019-08-29 14:10:50] I (304703) mesh: [DONE]connect to parent:ESPM_DDB014, channel:12, rssi:-65, 30:ae:a4:dd:b0:15[layer:1, assoc:0], my_vote_num:0/voter_num:0, rc[00:00:00:00:00:00/-75/2]
+[2019-08-29 14:10:50] [0;32mI (304768) [get_started, 44]: heap free: 132572[0m
+[2019-08-29 14:10:50] [0;31mE (305349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:10:51] [0;31mE (305349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:10:51] *************temp_info**************
+[2019-08-29 14:10:51] kom[7.319202] offset[0.000000]
+[2019-08-29 14:10:51] [0;31mE (305357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:10:51] temp[25.000000]
+[2019-08-29 14:10:51] -------------------------------------
+[2019-08-29 14:10:51] *************temp_info**************
+[2019-08-29 14:10:51] kom[2.167281] offset[0.000000]
+[2019-08-29 14:10:51] [0;31mE (305375) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:10:51] temp[25.000000]
+[2019-08-29 14:10:51] -------------------------------------
+[2019-08-29 14:10:51] I (306225) wifi: n:12 2, o:12 0, ap:12 2, sta:12 2, prof:12
+[2019-08-29 14:10:52] I (306227) wifi: state: init -> auth (b0)
+[2019-08-29 14:10:52] I (306232) wifi: state: auth -> assoc (0)
+[2019-08-29 14:10:52] I (306243) wifi: state: assoc -> run (10)
+[2019-08-29 14:10:52] I (306243) wifi: connected with ESPM_DDB014, channel 12, 40D
+[2019-08-29 14:10:52] I (306301) wifi: pm start, type: 0
+[2019-08-29 14:10:52] 
+[2019-08-29 14:10:52] [0;31mE (306305) event: invalid static ip[0m
+[2019-08-29 14:10:52] W (306306) wifi: [beacon]interval:300ms
+[2019-08-29 14:10:52] I (306307) mesh: 1891<arm>parent monitor, my layer:2(cap:16)(node), interval:10335ms, retries:1<normal connected>
+[2019-08-29 14:10:52] [0;32mI (306313) [mwifi, 74]: esp_mesh_event_cb event.id: 7[0m
+[2019-08-29 14:10:52] [0;32mI (306319) [mwifi, 80]: Parent is connected[0m
+[2019-08-29 14:10:52] [0;32mI (306324) [mdf-mesh, 284]: event_loop_cb, event: 7[0m
+[2019-08-29 14:10:52] [0;32mI (306325) [mwifi, 74]: esp_mesh_event_cb event.id: 11[0m
+[2019-08-29 14:10:52] [0;32mI (306330) [mdf-mesh, 297]: Parent is connected on station interface[0m
+[2019-08-29 14:10:52] [0;32mI (306336) [mwifi, 149]: State represents: 0[0m
+[2019-08-29 14:10:52] [0;32mI (306347) [mdf-mesh, 284]: event_loop_cb, event: 11[0m
+[2019-08-29 14:10:52] [0;32mI (306348) [mwifi, 74]: esp_mesh_event_cb event.id: 22[0m
+[2019-08-29 14:10:52] [0;32mI (306358) [mwifi, 157]: Network state: root_connect[0m
+[2019-08-29 14:10:52] [0;32mI (306364) [mdf-mesh, 284]: event_loop_cb, event: 11[0m
+[2019-08-29 14:10:52] [0;32mI (306366) [mwifi, 74]: esp_mesh_event_cb event.id: 14[0m
+[2019-08-29 14:10:52] [0;32mI (306371) [mdf-mesh, 284]: event_loop_cb, event: 22[0m
+[2019-08-29 14:10:52] I (306376) mesh: <MESH_NWK_MIE_CHANGE><><><><><ROOT LOST><><>
+[2019-08-29 14:10:52] [0;32mI (306382) [mdf-mesh, 284]: event_loop_cb, event: 14[0m
+[2019-08-29 14:10:52] I (306388) mesh: 4397<assoc>parent layer:1, channel:12, rssi:-71, assoc:1, rssi threshold<-78,-82,-85>
+[2019-08-29 14:10:52] [0;32mI (306404) [mdf-mesh, 59]: Receive [ROOT] addr: 30:ae:a4:dd:b0:14, size: 24, data: {"ID":3,"Cmd":"set mac"}[0m
+[2019-08-29 14:10:52] [0;32mI (306412) [mesh-led, 146]: start json press[0m
+[2019-08-29 14:10:52] [0;32mI (306417) [screen_info, 137]: ID号设置成功[0m
+[2019-08-29 14:10:52] [0;32mI (306422) [screen_info, 137]: ID号设置成功[0m
+[2019-08-29 14:10:52] [0;32mI (306427) [mesh-led, 157]: 重新配置设备号:dev:2,id:4[0m
+[2019-08-29 14:10:52] [0;32mI (306434) [mesh-led, 232]: 设置MACID[0m
+[2019-08-29 14:10:52] [0;32mI (306438) [mesh-led, 241]: 触发实时数据上传[0m
+[2019-08-29 14:10:52] [0;32mI (306448) [mdf-mesh, 208]: mesh_write ok[0m
+[2019-08-29 14:10:52] [0;32mI (306449) [mesh-led, 303]: information_Upload to ROOT ok data:{"Typ":"fan","ID": 3,"Cmd": "Info","Params": {"NTemp": 25,"OpenPer": 0,"ConSta": "manual","MoSta": "stop"}}[0m
+[2019-08-29 14:10:52] [0;32mI (306474) [mdf-mesh, 208]: mesh_write ok[0m
+[2019-08-29 14:10:52] [0;32mI (306474) [mesh-led, 303]: information_Upload to ROOT ok data:{"Typ":"fan","ID": 4,"Cmd": "Info","Params": {"NTemp": 25,"OpenPer": 0,"ConSta": "manual","MoSta": "stop"}}[0m
+[2019-08-29 14:10:52] [0;32mI (307768) [get_started, 44]: heap free: 132720[0m
+[2019-08-29 14:10:53] [0;31mE (310349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:10:56] [0;31mE (310349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:10:56] *************temp_info**************
+[2019-08-29 14:10:56] kom[9.360692] offset[0.000000]
+[2019-08-29 14:10:56] [0;31mE (310357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:10:56] temp[25.000000]
+[2019-08-29 14:10:56] -------------------------------------
+[2019-08-29 14:10:56] *************temp_info**************
+[2019-08-29 14:10:56] kom[2.151226] offset[0.000000]
+[2019-08-29 14:10:56] [0;31mE (310375) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:10:56] temp[25.000000]
+[2019-08-29 14:10:56] -------------------------------------
+[2019-08-29 14:10:56] [0;32mI (310768) [get_started, 44]: heap free: 132720[0m
+[2019-08-29 14:10:56] [0;32mI (311744) [mdf-mesh, 234]: System information, channel: 12, layer: 2, self mac: 3c:71:bf:e0:92:28, parent bssid: 30:ae:a4:dd:b0:15, parent rssi: -67, node num: 2, free heap: 132708[0m
+[2019-08-29 14:10:57] [0;32mI (313768) [get_started, 44]: heap free: 132720[0m
+[2019-08-29 14:10:59] [0;31mE (315349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:11:01] [0;31mE (315349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:11:01] *************temp_info**************
+[2019-08-29 14:11:01] kom[11.821780] offset[0.000000]
+[2019-08-29 14:11:01] [0;31mE (315357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:11:01] temp[25.000000]
+[2019-08-29 14:11:01] -------------------------------------
+[2019-08-29 14:11:01] *************temp_info**************
+[2019-08-29 14:11:01] kom[2.172102] offset[0.000000]
+[2019-08-29 14:11:01] [0;31mE (315375) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:11:01] temp[25.000000]
+[2019-08-29 14:11:01] -------------------------------------
+[2019-08-29 14:11:01] [0;32mI (316768) [get_started, 44]: heap free: 132708[0m
+[2019-08-29 14:11:02] I (316897) mesh: 4433<active>parent layer:1(node), channel:12, rssi:-67, assoc:1(cnx rssi threshold:-120)my_assoc:0
+[2019-08-29 14:11:02] I (318400) mesh: 5177<scan>parent layer:1, rssi:-71, assoc:1(cnx rssi threshold:-120)
+[2019-08-29 14:11:04] I (318401) mesh: [SCAN][ch:12]AP:1, other(ID:0, RD:0), MAP:1, idle:0, candidate:1, root:1, topMAP:0[c:2,i:2][00:00:00:00:00:00][FIXED-ROOT]<weak>
+[2019-08-29 14:11:04] I (318410) mesh: 6563[weak]try rssi_threshold:-120, backoff times:0, max:5<-78,-82,-85>
+[2019-08-29 14:11:04] I (318418) mesh: 616[monitor]no change, parent:30:ae:a4:dd:b0:15, rssi:-71
+[2019-08-29 14:11:04] I (318424) mesh: 1891<arm>parent monitor, my layer:2(cap:16)(node), interval:11497ms, retries:2<>
+[2019-08-29 14:11:04] [0;32mI (319768) [get_started, 44]: heap free: 132488[0m
+[2019-08-29 14:11:05] [0;31mE (320349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:11:06] [0;31mE (320349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:11:06] *************temp_info**************
+[2019-08-29 14:11:06] kom[10.801742] offset[0.000000]
+[2019-08-29 14:11:06] [0;31mE (320357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:11:06] temp[25.000000]
+[2019-08-29 14:11:06] -------------------------------------
+[2019-08-29 14:11:06] *************temp_info**************
+[2019-08-29 14:11:06] kom[2.218945] offset[0.000000]
+[2019-08-29 14:11:06] [0;31mE (320375) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:11:06] temp[25.000000]
+[2019-08-29 14:11:06] -------------------------------------
+[2019-08-29 14:11:06] [0;32mI (321744) [mdf-mesh, 234]: System information, channel: 12, layer: 2, self mac: 3c:71:bf:e0:92:28, parent bssid: 30:ae:a4:dd:b0:15, parent rssi: -67, node num: 2, free heap: 132488[0m
+[2019-08-29 14:11:07] [0;32mI (322768) [get_started, 44]: heap free: 132488[0m
+[2019-08-29 14:11:08] [0;31mE (325349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:11:11] [0;31mE (325349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:11:11] *************temp_info**************
+[2019-08-29 14:11:11] kom[11.859095] offset[0.000000]
+[2019-08-29 14:11:11] [0;31mE (325357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:11:11] temp[25.000000]
+[2019-08-29 14:11:11] -------------------------------------
+[2019-08-29 14:11:11] *************temp_info**************
+[2019-08-29 14:11:11] kom[2.187507] offset[0.000000]
+[2019-08-29 14:11:11] [0;31mE (325375) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:11:11] temp[25.000000]
+[2019-08-29 14:11:11] -------------------------------------
+[2019-08-29 14:11:11] [0;32mI (325768) [get_started, 44]: heap free: 132488[0m
+[2019-08-29 14:11:11] [0;32mI (328769) [get_started, 44]: heap free: 132488[0m
+[2019-08-29 14:11:14] I (330208) mesh: 4433<active>parent layer:1(node), channel:12, rssi:-67, assoc:1(cnx rssi threshold:-120)my_assoc:0
+[2019-08-29 14:11:16] [0;31mE (330349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:11:16] [0;31mE (330349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:11:16] *************temp_info**************
+[2019-08-29 14:11:16] kom[13.350675] offset[0.000000]
+[2019-08-29 14:11:16] [0;31mE (330357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:11:16] temp[25.000000]
+[2019-08-29 14:11:16] -------------------------------------
+[2019-08-29 14:11:16] *************temp_info**************
+[2019-08-29 14:11:16] kom[2.211023] offset[0.000000]
+[2019-08-29 14:11:16] [0;31mE (330375) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:11:16] temp[25.000000]
+[2019-08-29 14:11:16] -------------------------------------
+[2019-08-29 14:11:16] I (331712) mesh: 5177<scan>parent layer:1, rssi:-71, assoc:1(cnx rssi threshold:-120)
+[2019-08-29 14:11:17] I (331712) mesh: [SCAN][ch:12]AP:1, other(ID:0, RD:0), MAP:1, idle:0, candidate:1, root:1, topMAP:0[c:0,i:2][00:00:00:00:00:00][FIXED-ROOT]<weak>
+[2019-08-29 14:11:17] I (331722) mesh: 6563[weak]try rssi_threshold:-120, backoff times:0, max:5<-78,-82,-85>
+[2019-08-29 14:11:17] I (331729) mesh: 616[monitor]no change, parent:30:ae:a4:dd:b0:15, rssi:-71
+[2019-08-29 14:11:17] I (331736) mesh: 1891<arm>parent monitor, my layer:2(cap:16)(node), interval:12063ms, retries:3<>
+[2019-08-29 14:11:17] [0;32mI (331745) [mdf-mesh, 234]: System information, channel: 12, layer: 2, self mac: 3c:71:bf:e0:92:28, parent bssid: 30:ae:a4:dd:b0:15, parent rssi: -67, node num: 2, free heap: 132492[0m
+[2019-08-29 14:11:17] [0;32mI (331769) [get_started, 44]: heap free: 132492[0m
+[2019-08-29 14:11:17] [0;32mI (334769) [get_started, 44]: heap free: 132504[0m
+[2019-08-29 14:11:20] [0;31mE (335349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:11:21] [0;31mE (335349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:11:21] *************temp_info**************
+[2019-08-29 14:11:21] kom[11.474322] offset[0.000000]
+[2019-08-29 14:11:21] [0;31mE (335357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:11:21] temp[25.000000]
+[2019-08-29 14:11:21] -------------------------------------
+[2019-08-29 14:11:21] *************temp_info**************
+[2019-08-29 14:11:21] kom[2.211077] offset[0.000000]
+[2019-08-29 14:11:21] [0;31mE (335375) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:11:21] temp[25.000000]
+[2019-08-29 14:11:21] -------------------------------------
+[2019-08-29 14:11:21] [0;32mI (337769) [get_started, 44]: heap free: 132504[0m
+[2019-08-29 14:11:23] [0;31mE (340349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:11:26] [0;31mE (340349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:11:26] *************temp_info**************
+[2019-08-29 14:11:26] kom[10.090383] offset[0.000000]
+[2019-08-29 14:11:26] [0;31mE (340357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:11:26] temp[25.000000]
+[2019-08-29 14:11:26] -------------------------------------
+[2019-08-29 14:11:26] *************temp_info**************
+[2019-08-29 14:11:26] kom[2.181982] offset[0.000000]
+[2019-08-29 14:11:26] [0;31mE (340375) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:11:26] temp[25.000000]
+[2019-08-29 14:11:26] -------------------------------------
+[2019-08-29 14:11:26] [0;32mI (340769) [get_started, 44]: heap free: 132492[0m
+[2019-08-29 14:11:26] [0;32mI (341744) [mdf-mesh, 234]: System information, channel: 12, layer: 2, self mac: 3c:71:bf:e0:92:28, parent bssid: 30:ae:a4:dd:b0:15, parent rssi: -68, node num: 2, free heap: 132504[0m
+[2019-08-29 14:11:27] [0;32mI (343769) [get_started, 44]: heap free: 132492[0m
+[2019-08-29 14:11:29] I (344098) mesh: 4433<active>parent layer:1(node), channel:12, rssi:-68, assoc:1(cnx rssi threshold:-120)my_assoc:0
+[2019-08-29 14:11:30] [0;31mE (345349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:11:31] [0;31mE (345349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:11:31] *************temp_info**************
+[2019-08-29 14:11:31] kom[8.969855] offset[0.000000]
+[2019-08-29 14:11:31] [0;31mE (345357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:11:31] temp[25.000000]
+[2019-08-29 14:11:31] -------------------------------------
+[2019-08-29 14:11:31] *************temp_info**************
+[2019-08-29 14:11:31] kom[2.201291] offset[0.000000]
+[2019-08-29 14:11:31] [0;31mE (345375) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:11:31] temp[25.000000]
+[2019-08-29 14:11:31] -------------------------------------
+[2019-08-29 14:11:31] I (345602) mesh: 5177<scan>parent layer:1, rssi:-70, assoc:1(cnx rssi threshold:-120)
+[2019-08-29 14:11:31] I (345603) mesh: [SCAN][ch:12]AP:1, other(ID:0, RD:0), MAP:1, idle:0, candidate:1, root:1, topMAP:0[c:2,i:2][00:00:00:00:00:00][FIXED-ROOT]<weak>
+[2019-08-29 14:11:31] I (345612) mesh: 6563[weak]try rssi_threshold:-120, backoff times:0, max:5<-78,-82,-85>
+[2019-08-29 14:11:31] I (345619) mesh: 616[monitor]no change, parent:30:ae:a4:dd:b0:15, rssi:-70
+[2019-08-29 14:11:31] I (345626) mesh: 1891<arm>parent monitor, my layer:2(cap:16)(node), interval:306672ms, retries:3<>
+[2019-08-29 14:11:31] [0;32mI (346769) [get_started, 44]: heap free: 132492[0m
+[2019-08-29 14:11:32] [0;32mI (349769) [get_started, 44]: heap free: 132492[0m
+[2019-08-29 14:11:35] [0;32mI (350360) [mdf-mesh, 208]: mesh_write ok[0m
+[2019-08-29 14:11:36] [0;32mI (350361) [mesh-led, 303]: information_Upload to ROOT ok data:{"Typ":"fan","ID": 3,"Cmd": "Info","Params": {"NTemp": 25,"OpenPer": 0,"ConSta": "manual","MoSta": "stop"}}[0m
+[2019-08-29 14:11:36] [0;32mI (350381) [mdf-mesh, 208]: mesh_write ok[0m
+[2019-08-29 14:11:36] [0;32mI (350382) [mesh-led, 303]: information_Upload to ROOT ok data:{"Typ":"fan","ID": 4,"Cmd": "Info","Params": {"NTemp": 25,"OpenPer": 0,"ConSta": "manual","MoSta": "stop"}}[0m
+[2019-08-29 14:11:36] [0;31mE (350393) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:11:36] [0;31mE (350399) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:11:36] *************temp_info**************
+[2019-08-29 14:11:36] kom[8.016966] offset[0.000000]
+[2019-08-29 14:11:36] [0;31mE (350412) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:11:36] temp[25.000000]
+[2019-08-29 14:11:36] -------------------------------------
+[2019-08-29 14:11:36] *************temp_info**************
+[2019-08-29 14:11:36] kom[2.175110] offset[0.000000]
+[2019-08-29 14:11:36] [0;31mE (350429) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:11:36] temp[25.000000]
+[2019-08-29 14:11:36] -------------------------------------
+[2019-08-29 14:11:36] [0;32mI (351744) [mdf-mesh, 234]: System information, channel: 12, layer: 2, self mac: 3c:71:bf:e0:92:28, parent bssid: 30:ae:a4:dd:b0:15, parent rssi: -68, node num: 2, free heap: 132504[0m
+[2019-08-29 14:11:37] [0;32mI (352769) [get_started, 44]: heap free: 132492[0m
+[2019-08-29 14:11:38] [0;31mE (355349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:11:41] [0;31mE (355349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:11:41] *************temp_info**************
+[2019-08-29 14:11:41] kom[7.153661] offset[0.000000]
+[2019-08-29 14:11:41] [0;31mE (355357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:11:41] temp[25.000000]
+[2019-08-29 14:11:41] -------------------------------------
+[2019-08-29 14:11:41] *************temp_info**************
+[2019-08-29 14:11:41] kom[2.156724] offset[0.000000]
+[2019-08-29 14:11:41] [0;31mE (355375) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:11:41] temp[25.000000]
+[2019-08-29 14:11:41] -------------------------------------
+[2019-08-29 14:11:41] [0;32mI (355769) [get_started, 44]: heap free: 132492[0m
+[2019-08-29 14:11:41] [0;32mI (358769) [get_started, 44]: heap free: 132504[0m
+[2019-08-29 14:11:44] [0;31mE (360349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:11:46] [0;31mE (360349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:11:46] *************temp_info**************
+[2019-08-29 14:11:46] kom[8.134827] offset[0.000000]
+[2019-08-29 14:11:46] [0;31mE (360357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:11:46] temp[25.000000]
+[2019-08-29 14:11:46] -------------------------------------
+[2019-08-29 14:11:46] *************temp_info**************
+[2019-08-29 14:11:46] kom[2.143813] offset[0.000000]
+[2019-08-29 14:11:46] [0;31mE (360375) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:11:46] temp[25.000000]
+[2019-08-29 14:11:46] -------------------------------------
+[2019-08-29 14:11:46] [0;32mI (361744) [mdf-mesh, 234]: System information, channel: 12, layer: 2, self mac: 3c:71:bf:e0:92:28, parent bssid: 30:ae:a4:dd:b0:15, parent rssi: -68, node num: 2, free heap: 132504[0m
+[2019-08-29 14:11:47] [0;32mI (361769) [get_started, 44]: heap free: 132504[0m
+[2019-08-29 14:11:47] [0;32mI (364769) [get_started, 44]: heap free: 132504[0m
+[2019-08-29 14:11:50] [0;31mE (365349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:11:51] [0;31mE (365349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:11:51] *************temp_info**************
+[2019-08-29 14:11:51] kom[9.285506] offset[0.000000]
+[2019-08-29 14:11:51] [0;31mE (365357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:11:51] temp[25.000000]
+[2019-08-29 14:11:51] -------------------------------------
+[2019-08-29 14:11:51] *************temp_info**************
+[2019-08-29 14:11:51] kom[2.134746] offset[0.000000]
+[2019-08-29 14:11:51] [0;31mE (365375) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:11:51] temp[25.000000]
+[2019-08-29 14:11:51] -------------------------------------
+[2019-08-29 14:11:51] [0;32mI (367769) [get_started, 44]: heap free: 132492[0m
+[2019-08-29 14:11:53] [0;31mE (370349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:11:56] [0;31mE (370349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:11:56] *************temp_info**************
+[2019-08-29 14:11:56] kom[8.843798] offset[0.000000]
+[2019-08-29 14:11:56] [0;31mE (370357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:11:56] temp[25.000000]
+[2019-08-29 14:11:56] -------------------------------------
+[2019-08-29 14:11:56] *************temp_info**************
+[2019-08-29 14:11:56] kom[2.128379] offset[0.000000]
+[2019-08-29 14:11:56] [0;31mE (370375) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:11:56] temp[25.000000]
+[2019-08-29 14:11:56] -------------------------------------
+[2019-08-29 14:11:56] [0;32mI (370769) [get_started, 44]: heap free: 132492[0m
+[2019-08-29 14:11:56] [0;32mI (371744) [mdf-mesh, 234]: System information, channel: 12, layer: 2, self mac: 3c:71:bf:e0:92:28, parent bssid: 30:ae:a4:dd:b0:15, parent rssi: -68, node num: 2, free heap: 132504[0m
+[2019-08-29 14:11:57] [0;32mI (373769) [get_started, 44]: heap free: 132492[0m
+[2019-08-29 14:11:59] [0;31mE (375349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:12:01] [0;31mE (375349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:12:01] *************temp_info**************
+[2019-08-29 14:12:01] kom[7.585730] offset[0.000000]
+[2019-08-29 14:12:01] [0;31mE (375357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:12:01] temp[25.000000]
+[2019-08-29 14:12:01] -------------------------------------
+[2019-08-29 14:12:01] *************temp_info**************
+[2019-08-29 14:12:01] kom[2.123908] offset[0.000000]
+[2019-08-29 14:12:01] [0;31mE (375375) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:12:01] temp[25.000000]
+[2019-08-29 14:12:01] -------------------------------------
+[2019-08-29 14:12:01] [0;32mI (376769) [get_started, 44]: heap free: 132492[0m
+[2019-08-29 14:12:02] [0;32mI (379769) [get_started, 44]: heap free: 132492[0m
+[2019-08-29 14:12:05] [0;31mE (380349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:12:06] [0;31mE (380349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:12:06] *************temp_info**************
+[2019-08-29 14:12:06] kom[7.025064] offset[0.000000]
+[2019-08-29 14:12:06] [0;31mE (380357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:12:06] temp[25.000000]
+[2019-08-29 14:12:06] -------------------------------------
+[2019-08-29 14:12:06] *************temp_info**************
+[2019-08-29 14:12:06] kom[2.120768] offset[0.000000]
+[2019-08-29 14:12:06] [0;31mE (380375) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:12:06] temp[25.000000]
+[2019-08-29 14:12:06] -------------------------------------
+[2019-08-29 14:12:06] [0;32mI (381744) [mdf-mesh, 234]: System information, channel: 12, layer: 2, self mac: 3c:71:bf:e0:92:28, parent bssid: 30:ae:a4:dd:b0:15, parent rssi: -69, node num: 2, free heap: 132504[0m
+[2019-08-29 14:12:07] [0;32mI (382769) [get_started, 44]: heap free: 132492[0m
+[2019-08-29 14:12:08] [0;31mE (385349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:12:11] [0;31mE (385349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:12:11] *************temp_info**************
+[2019-08-29 14:12:11] kom[6.795002] offset[0.000000]
+[2019-08-29 14:12:11] [0;31mE (385357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:12:11] temp[25.000000]
+[2019-08-29 14:12:11] -------------------------------------
+[2019-08-29 14:12:11] *************temp_info**************
+[2019-08-29 14:12:11] kom[2.118563] offset[0.000000]
+[2019-08-29 14:12:11] [0;31mE (385375) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:12:11] temp[25.000000]
+[2019-08-29 14:12:11] -------------------------------------
+[2019-08-29 14:12:11] [0;32mI (385769) [get_started, 44]: heap free: 132504[0m
+[2019-08-29 14:12:11] [0;32mI (388769) [get_started, 44]: heap free: 132504[0m
+[2019-08-29 14:12:14] [0;31mE (390349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:12:16] [0;31mE (390349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:12:16] *************temp_info**************
+[2019-08-29 14:12:16] kom[6.635572] offset[0.000000]
+[2019-08-29 14:12:16] [0;31mE (390357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:12:16] temp[25.000000]
+[2019-08-29 14:12:16] -------------------------------------
+[2019-08-29 14:12:16] *************temp_info**************
+[2019-08-29 14:12:16] kom[2.117015] offset[0.000000]
+[2019-08-29 14:12:16] [0;31mE (390375) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:12:16] temp[25.000000]
+[2019-08-29 14:12:16] -------------------------------------
+[2019-08-29 14:12:16] [0;32mI (391745) [mdf-mesh, 234]: System information, channel: 12, layer: 2, self mac: 3c:71:bf:e0:92:28, parent bssid: 30:ae:a4:dd:b0:15, parent rssi: -69, node num: 2, free heap: 132492[0m
+[2019-08-29 14:12:17] [0;32mI (391769) [get_started, 44]: heap free: 132492[0m
+[2019-08-29 14:12:17] [0;32mI (394769) [get_started, 44]: heap free: 132492[0m
+[2019-08-29 14:12:20] [0;31mE (395349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:12:21] [0;31mE (395349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:12:21] *************temp_info**************
+[2019-08-29 14:12:21] kom[6.093737] offset[0.000000]
+[2019-08-29 14:12:21] [0;31mE (395357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:12:21] temp[25.000000]
+[2019-08-29 14:12:21] -------------------------------------
+[2019-08-29 14:12:21] *************temp_info**************
+[2019-08-29 14:12:21] kom[2.115927] offset[0.000000]
+[2019-08-29 14:12:21] [0;31mE (395375) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:12:21] temp[25.000000]
+[2019-08-29 14:12:21] -------------------------------------
+[2019-08-29 14:12:21] [0;32mI (397769) [get_started, 44]: heap free: 132492[0m
+[2019-08-29 14:12:23] [0;32mI (400354) [mdf-mesh, 208]: mesh_write ok[0m
+[2019-08-29 14:12:26] [0;32mI (400354) [mesh-led, 303]: information_Upload to ROOT ok data:{"Typ":"fan","ID": 3,"Cmd": "Info","Params": {"NTemp": 25,"OpenPer": 0,"ConSta": "manual","MoSta": "stop"}}[0m
+[2019-08-29 14:12:26] [0;32mI (400371) [mdf-mesh, 208]: mesh_write ok[0m
+[2019-08-29 14:12:26] [0;32mI (400372) [mesh-led, 303]: information_Upload to ROOT ok data:{"Typ":"fan","ID": 4,"Cmd": "Info","Params": {"NTemp": 25,"OpenPer": 0,"ConSta": "manual","MoSta": "stop"}}[0m
+[2019-08-29 14:12:26] [0;31mE (400385) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:12:26] [0;31mE (400391) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:12:26] *************temp_info**************
+[2019-08-29 14:12:26] kom[8.054799] offset[0.000000]
+[2019-08-29 14:12:26] [0;31mE (400403) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:12:26] temp[25.000000]
+[2019-08-29 14:12:26] -------------------------------------
+[2019-08-29 14:12:26] *************temp_info**************
+[2019-08-29 14:12:26] kom[2.115164] offset[0.000000]
+[2019-08-29 14:12:26] [0;31mE (400421) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:12:26] temp[25.000000]
+[2019-08-29 14:12:26] -------------------------------------
+[2019-08-29 14:12:26] [0;32mI (400769) [get_started, 44]: heap free: 132492[0m
+[2019-08-29 14:12:26] [0;32mI (401744) [mdf-mesh, 234]: System information, channel: 12, layer: 2, self mac: 3c:71:bf:e0:92:28, parent bssid: 30:ae:a4:dd:b0:15, parent rssi: -69, node num: 2, free heap: 132492[0m
+[2019-08-29 14:12:27] [0;32mI (403769) [get_started, 44]: heap free: 132492[0m
+[2019-08-29 14:12:29] [0;31mE (405349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:12:31] [0;31mE (405349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:12:31] *************temp_info**************
+[2019-08-29 14:12:31] kom[11.157747] offset[0.000000]
+[2019-08-29 14:12:31] [0;31mE (405357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:12:31] temp[25.000000]
+[2019-08-29 14:12:31] -------------------------------------
+[2019-08-29 14:12:31] *************temp_info**************
+[2019-08-29 14:12:31] kom[2.129555] offset[0.000000]
+[2019-08-29 14:12:31] [0;31mE (405377) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:12:31] temp[25.000000]
+[2019-08-29 14:12:31] -------------------------------------
+[2019-08-29 14:12:31] W (406298) wifi: [beacon]new interval:100ms
+[2019-08-29 14:12:32] I (406300) mesh: [scan]new scanning time:300ms
+[2019-08-29 14:12:32] [0;32mI (406769) [get_started, 44]: heap free: 132492[0m
+[2019-08-29 14:12:32] W (407321) wifi: [beacon]new interval:1000ms
+[2019-08-29 14:12:33] I (407324) mesh: [scan]new scanning time:1500ms
+[2019-08-29 14:12:33] [0;32mI (409769) [get_started, 44]: heap free: 132504[0m
+[2019-08-29 14:12:35] [0;31mE (410349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:12:36] [0;31mE (410349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:12:36] *************temp_info**************
+[2019-08-29 14:12:36] kom[10.545251] offset[0.000000]
+[2019-08-29 14:12:36] [0;31mE (410357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:12:36] temp[25.000000]
+[2019-08-29 14:12:36] -------------------------------------
+[2019-08-29 14:12:36] *************temp_info**************
+[2019-08-29 14:12:36] kom[2.223198] offset[0.000000]
+[2019-08-29 14:12:36] [0;31mE (410374) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:12:36] temp[25.000000]
+[2019-08-29 14:12:36] -------------------------------------
+[2019-08-29 14:12:36] [0;32mI (411744) [mdf-mesh, 234]: System information, channel: 12, layer: 2, self mac: 3c:71:bf:e0:92:28, parent bssid: 30:ae:a4:dd:b0:15, parent rssi: -69, node num: 2, free heap: 132492[0m
+[2019-08-29 14:12:37] [0;32mI (412769) [get_started, 44]: heap free: 132504[0m
+[2019-08-29 14:12:38] [0;31mE (415349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:12:41] [0;31mE (415349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:12:41] *************temp_info**************
+[2019-08-29 14:12:41] kom[9.360779] offset[0.000000]
+[2019-08-29 14:12:41] [0;31mE (415357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:12:41] temp[25.000000]
+[2019-08-29 14:12:41] -------------------------------------
+[2019-08-29 14:12:41] *************temp_info**************
+[2019-08-29 14:12:41] kom[2.190493] offset[0.000000]
+[2019-08-29 14:12:41] [0;31mE (415375) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:12:41] temp[25.000000]
+[2019-08-29 14:12:41] -------------------------------------
+[2019-08-29 14:12:41] [0;32mI (415769) [get_started, 44]: heap free: 132504[0m
+[2019-08-29 14:12:41] [0;32mI (418769) [get_started, 44]: heap free: 132492[0m
+[2019-08-29 14:12:44] [0;31mE (420349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:12:46] [0;31mE (420349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:12:46] *************temp_info**************
+[2019-08-29 14:12:46] kom[8.550839] offset[0.000000]
+[2019-08-29 14:12:46] [0;31mE (420357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:12:46] temp[25.000000]
+[2019-08-29 14:12:46] -------------------------------------
+[2019-08-29 14:12:46] *************temp_info**************
+[2019-08-29 14:12:46] kom[2.167527] offset[0.000000]
+[2019-08-29 14:12:46] [0;31mE (420375) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:12:46] temp[25.000000]
+[2019-08-29 14:12:46] -------------------------------------
+[2019-08-29 14:12:46] [0;32mI (421744) [mdf-mesh, 234]: System information, channel: 12, layer: 2, self mac: 3c:71:bf:e0:92:28, parent bssid: 30:ae:a4:dd:b0:15, parent rssi: -69, node num: 2, free heap: 132492[0m
+[2019-08-29 14:12:47] [0;32mI (421769) [get_started, 44]: heap free: 132492[0m
+[2019-08-29 14:12:47] [0;32mI (424769) [get_started, 44]: heap free: 132492[0m
+[2019-08-29 14:12:50] [0;31mE (425349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:12:51] [0;31mE (425349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:12:51] *************temp_info**************
+[2019-08-29 14:12:51] kom[7.445582] offset[0.000000]
+[2019-08-29 14:12:51] [0;31mE (425357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:12:51] temp[25.000000]
+[2019-08-29 14:12:51] -------------------------------------
+[2019-08-29 14:12:51] *************temp_info**************
+[2019-08-29 14:12:51] kom[2.151399] offset[0.000000]
+[2019-08-29 14:12:51] [0;31mE (425374) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:12:51] temp[25.000000]
+[2019-08-29 14:12:51] -------------------------------------
+[2019-08-29 14:12:51] [0;32mI (427769) [get_started, 44]: heap free: 132492[0m
+[2019-08-29 14:12:53] I (429850) mesh: 4397<assoc>parent layer:1, channel:12, rssi:-68, assoc:1, rssi threshold<-78,-82,-85>
+[2019-08-29 14:12:55] [0;31mE (430349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:12:56] [0;31mE (430349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:12:56] *************temp_info**************
+[2019-08-29 14:12:56] kom[8.252023] offset[0.000000]
+[2019-08-29 14:12:56] [0;31mE (430357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:12:56] temp[25.000000]
+[2019-08-29 14:12:56] -------------------------------------
+[2019-08-29 14:12:56] *************temp_info**************
+[2019-08-29 14:12:56] kom[2.140073] offset[0.000000]
+[2019-08-29 14:12:56] [0;31mE (430374) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:12:56] temp[25.000000]
+[2019-08-29 14:12:56] -------------------------------------
+[2019-08-29 14:12:56] [0;32mI (430769) [get_started, 44]: heap free: 132492[0m
+[2019-08-29 14:12:56] [0;32mI (431744) [mdf-mesh, 234]: System information, channel: 12, layer: 2, self mac: 3c:71:bf:e0:92:28, parent bssid: 30:ae:a4:dd:b0:15, parent rssi: -68, node num: 2, free heap: 132492[0m
+[2019-08-29 14:12:57] [0;32mI (433769) [get_started, 44]: heap free: 132492[0m
+[2019-08-29 14:12:59] [0;31mE (435349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:13:01] [0;31mE (435349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:13:01] *************temp_info**************
+[2019-08-29 14:13:01] kom[11.062019] offset[0.000000]
+[2019-08-29 14:13:01] [0;31mE (435357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:13:01] temp[25.000000]
+[2019-08-29 14:13:01] -------------------------------------
+[2019-08-29 14:13:01] *************temp_info**************
+[2019-08-29 14:13:01] kom[2.132120] offset[0.000000]
+[2019-08-29 14:13:01] [0;31mE (435375) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:13:01] temp[25.000000]
+[2019-08-29 14:13:01] -------------------------------------
+[2019-08-29 14:13:01] [0;32mI (436769) [get_started, 44]: heap free: 132504[0m
+[2019-08-29 14:13:02] [0;32mI (439769) [get_started, 44]: heap free: 132504[0m
+[2019-08-29 14:13:05] [0;31mE (440349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:13:06] [0;31mE (440349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:13:06] *************temp_info**************
+[2019-08-29 14:13:06] kom[13.701032] offset[0.000000]
+[2019-08-29 14:13:06] [0;31mE (440357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:13:06] temp[25.000000]
+[2019-08-29 14:13:06] -------------------------------------
+[2019-08-29 14:13:06] *************temp_info**************
+[2019-08-29 14:13:06] kom[2.126535] offset[0.000000]
+[2019-08-29 14:13:06] [0;31mE (440375) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:13:06] temp[25.000000]
+[2019-08-29 14:13:06] -------------------------------------
+[2019-08-29 14:13:06] [0;32mI (441744) [mdf-mesh, 234]: System information, channel: 12, layer: 2, self mac: 3c:71:bf:e0:92:28, parent bssid: 30:ae:a4:dd:b0:15, parent rssi: -68, node num: 2, free heap: 132492[0m
+[2019-08-29 14:13:07] [0;32mI (442769) [get_started, 44]: heap free: 132492[0m
+[2019-08-29 14:13:08] [0;31mE (445349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:13:11] [0;31mE (445349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:13:11] *************temp_info**************
+[2019-08-29 14:13:11] kom[15.484315] offset[0.000000]
+[2019-08-29 14:13:11] [0;31mE (445357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:13:11] temp[25.000000]
+[2019-08-29 14:13:11] -------------------------------------
+[2019-08-29 14:13:11] *************temp_info**************
+[2019-08-29 14:13:11] kom[2.122613] offset[0.000000]
+[2019-08-29 14:13:11] [0;31mE (445375) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:13:11] temp[25.000000]
+[2019-08-29 14:13:11] -------------------------------------
+[2019-08-29 14:13:11] [0;32mI (445769) [get_started, 44]: heap free: 132492[0m
+[2019-08-29 14:13:11] [0;32mI (448769) [get_started, 44]: heap free: 132492[0m
+[2019-08-29 14:13:14] [0;32mI (450352) [mdf-mesh, 208]: mesh_write ok[0m
+[2019-08-29 14:13:16] [0;32mI (450353) [mesh-led, 303]: information_Upload to ROOT ok data:{"Typ":"fan","ID": 3,"Cmd": "Info","Params": {"NTemp": 25,"OpenPer": 0,"ConSta": "manual","MoSta": "stop"}}[0m
+[2019-08-29 14:13:16] [0;32mI (450369) [mdf-mesh, 208]: mesh_write ok[0m
+[2019-08-29 14:13:16] [0;32mI (450370) [mesh-led, 303]: information_Upload to ROOT ok data:{"Typ":"fan","ID": 4,"Cmd": "Info","Params": {"NTemp": 25,"OpenPer": 0,"ConSta": "manual","MoSta": "stop"}}[0m
+[2019-08-29 14:13:16] [0;31mE (450383) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:13:16] [0;31mE (450389) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:13:16] *************temp_info**************
+[2019-08-29 14:13:16] kom[16.498987] offset[0.000000]
+[2019-08-29 14:13:16] [0;31mE (450402) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:13:16] temp[25.000000]
+[2019-08-29 14:13:16] -------------------------------------
+[2019-08-29 14:13:16] *************temp_info**************
+[2019-08-29 14:13:16] kom[2.119859] offset[0.000000]
+[2019-08-29 14:13:16] [0;31mE (450419) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:13:16] temp[25.000000]
+[2019-08-29 14:13:16] -------------------------------------
+[2019-08-29 14:13:16] [0;32mI (451744) [mdf-mesh, 234]: System information, channel: 12, layer: 2, self mac: 3c:71:bf:e0:92:28, parent bssid: 30:ae:a4:dd:b0:15, parent rssi: -72, node num: 2, free heap: 132492[0m
+[2019-08-29 14:13:17] [0;32mI (451769) [get_started, 44]: heap free: 132492[0m
+[2019-08-29 14:13:17] [0;32mI (454769) [get_started, 44]: heap free: 132492[0m
+[2019-08-29 14:13:20] [0;31mE (455349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:13:21] [0;31mE (455349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:13:21] *************temp_info**************
+[2019-08-29 14:13:21] kom[16.996946] offset[0.000000]
+[2019-08-29 14:13:21] [0;31mE (455357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:13:21] temp[25.000000]
+[2019-08-29 14:13:21] -------------------------------------
+[2019-08-29 14:13:21] *************temp_info**************
+[2019-08-29 14:13:21] kom[2.117924] offset[0.000000]
+[2019-08-29 14:13:21] [0;31mE (455374) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:13:21] temp[25.000000]
+[2019-08-29 14:13:21] -------------------------------------
+[2019-08-29 14:13:21] [0;32mI (457769) [get_started, 44]: heap free: 132492[0m
+[2019-08-29 14:13:23] [0;31mE (460349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:13:26] [0;31mE (460349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:13:26] *************temp_info**************
+[2019-08-29 14:13:26] kom[16.637684] offset[0.000000]
+[2019-08-29 14:13:26] [0;31mE (460357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:13:26] temp[25.000000]
+[2019-08-29 14:13:26] -------------------------------------
+[2019-08-29 14:13:26] *************temp_info**************
+[2019-08-29 14:13:26] kom[2.116566] offset[0.000000]
+[2019-08-29 14:13:26] [0;31mE (460375) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:13:26] temp[25.000000]
+[2019-08-29 14:13:26] -------------------------------------
+[2019-08-29 14:13:26] [0;32mI (460769) [get_started, 44]: heap free: 132504[0m
+[2019-08-29 14:13:26] [0;32mI (461744) [mdf-mesh, 234]: System information, channel: 12, layer: 2, self mac: 3c:71:bf:e0:92:28, parent bssid: 30:ae:a4:dd:b0:15, parent rssi: -73, node num: 2, free heap: 132492[0m
+[2019-08-29 14:13:27] [0;32mI (463769) [get_started, 44]: heap free: 132504[0m
+[2019-08-29 14:13:29] [0;31mE (465349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:13:31] [0;31mE (465349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:13:31] *************temp_info**************
+[2019-08-29 14:13:31] kom[15.320373] offset[0.000000]
+[2019-08-29 14:13:31] [0;31mE (465357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:13:31] temp[25.000000]
+[2019-08-29 14:13:31] -------------------------------------
+[2019-08-29 14:13:31] *************temp_info**************
+[2019-08-29 14:13:31] kom[2.115612] offset[0.000000]
+[2019-08-29 14:13:31] [0;31mE (465375) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:13:31] temp[25.000000]
+[2019-08-29 14:13:31] -------------------------------------
+[2019-08-29 14:13:31] [0;32mI (466769) [get_started, 44]: heap free: 132504[0m
+[2019-08-29 14:13:32] [0;32mI (469769) [get_started, 44]: heap free: 132492[0m
+[2019-08-29 14:13:35] [0;31mE (470349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:13:36] [0;31mE (470349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:13:36] *************temp_info**************
+[2019-08-29 14:13:36] kom[12.550056] offset[0.000000]
+[2019-08-29 14:13:36] [0;31mE (470357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:13:36] temp[25.000000]
+[2019-08-29 14:13:36] -------------------------------------
+[2019-08-29 14:13:36] *************temp_info**************
+[2019-08-29 14:13:36] kom[2.114943] offset[0.000000]
+[2019-08-29 14:13:36] [0;31mE (470375) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:13:36] temp[25.000000]
+[2019-08-29 14:13:36] -------------------------------------
+[2019-08-29 14:13:36] [0;32mI (471744) [mdf-mesh, 234]: System information, channel: 12, layer: 2, self mac: 3c:71:bf:e0:92:28, parent bssid: 30:ae:a4:dd:b0:15, parent rssi: -73, node num: 2, free heap: 132492[0m
+[2019-08-29 14:13:37] [0;32mI (472769) [get_started, 44]: heap free: 132492[0m
+[2019-08-29 14:13:38] [0;31mE (475349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:13:41] [0;31mE (475349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:13:41] *************temp_info**************
+[2019-08-29 14:13:41] kom[10.250434] offset[0.000000]
+[2019-08-29 14:13:41] [0;31mE (475357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:13:41] temp[25.000000]
+[2019-08-29 14:13:41] -------------------------------------
+[2019-08-29 14:13:41] *************temp_info**************
+[2019-08-29 14:13:41] kom[2.114472] offset[0.000000]
+[2019-08-29 14:13:41] [0;31mE (475375) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:13:41] temp[25.000000]
+[2019-08-29 14:13:41] -------------------------------------
+[2019-08-29 14:13:41] [0;32mI (475769) [get_started, 44]: heap free: 132492[0m
+[2019-08-29 14:13:41] [0;32mI (478769) [get_started, 44]: heap free: 132492[0m
+[2019-08-29 14:13:44] [0;31mE (480349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:13:46] [0;31mE (480349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:13:46] *************temp_info**************
+[2019-08-29 14:13:46] kom[9.035856] offset[0.000000]
+[2019-08-29 14:13:46] [0;31mE (480357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:13:46] temp[25.000000]
+[2019-08-29 14:13:46] -------------------------------------
+[2019-08-29 14:13:46] *************temp_info**************
+[2019-08-29 14:13:46] kom[2.114142] offset[0.000000]
+[2019-08-29 14:13:46] [0;31mE (480375) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:13:46] temp[25.000000]
+[2019-08-29 14:13:46] -------------------------------------
+[2019-08-29 14:13:46] [0;32mI (481744) [mdf-mesh, 234]: System information, channel: 12, layer: 2, self mac: 3c:71:bf:e0:92:28, parent bssid: 30:ae:a4:dd:b0:15, parent rssi: -73, node num: 2, free heap: 132492[0m
+[2019-08-29 14:13:47] [0;32mI (481769) [get_started, 44]: heap free: 132492[0m
+[2019-08-29 14:13:47] [0;32mI (484769) [get_started, 44]: heap free: 132492[0m
+[2019-08-29 14:13:50] [0;31mE (485349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:13:51] [0;31mE (485349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:13:51] *************temp_info**************
+[2019-08-29 14:13:51] kom[8.362059] offset[0.000000]
+[2019-08-29 14:13:51] [0;31mE (485357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:13:51] temp[25.000000]
+[2019-08-29 14:13:51] -------------------------------------
+[2019-08-29 14:13:51] *************temp_info**************
+[2019-08-29 14:13:51] kom[2.113910] offset[0.000000]
+[2019-08-29 14:13:51] [0;31mE (485375) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:13:51] temp[25.000000]
+[2019-08-29 14:13:51] -------------------------------------
+[2019-08-29 14:13:51] [0;32mI (487769) [get_started, 44]: heap free: 132504[0m
+[2019-08-29 14:13:53] [0;31mE (490349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:13:56] [0;31mE (490349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:13:56] *************temp_info**************
+[2019-08-29 14:13:56] kom[7.932464] offset[0.000000]
+[2019-08-29 14:13:56] [0;31mE (490357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:13:56] temp[25.000000]
+[2019-08-29 14:13:56] -------------------------------------
+[2019-08-29 14:13:56] *************temp_info**************
+[2019-08-29 14:13:56] kom[2.113747] offset[0.000000]
+[2019-08-29 14:13:56] [0;31mE (490375) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:13:56] temp[25.000000]
+[2019-08-29 14:13:56] -------------------------------------
+[2019-08-29 14:13:56] [0;32mI (490769) [get_started, 44]: heap free: 132504[0m
+[2019-08-29 14:13:56] [0;32mI (491744) [mdf-mesh, 234]: System information, channel: 12, layer: 2, self mac: 3c:71:bf:e0:92:28, parent bssid: 30:ae:a4:dd:b0:15, parent rssi: -72, node num: 2, free heap: 132492[0m
+[2019-08-29 14:13:57] [0;32mI (493769) [get_started, 44]: heap free: 132492[0m
+[2019-08-29 14:13:59] [0;31mE (495349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:14:01] [0;31mE (495349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:14:01] *************temp_info**************
+[2019-08-29 14:14:01] kom[7.619783] offset[0.000000]
+[2019-08-29 14:14:01] [0;31mE (495357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:14:01] temp[25.000000]
+[2019-08-29 14:14:01] -------------------------------------
+[2019-08-29 14:14:01] *************temp_info**************
+[2019-08-29 14:14:01] kom[2.113632] offset[0.000000]
+[2019-08-29 14:14:01] [0;31mE (495375) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:14:01] temp[25.000000]
+[2019-08-29 14:14:01] -------------------------------------
+[2019-08-29 14:14:01] [0;32mI (496769) [get_started, 44]: heap free: 132492[0m
+[2019-08-29 14:14:02] [0;32mI (499769) [get_started, 44]: heap free: 132492[0m
+[2019-08-29 14:14:05] [0;32mI (500349) [mdf-moter, 265]: 设备3已断开链接[0m
+[2019-08-29 14:14:06] [0;32mI (500349) [mdf-moter, 269]: 设备4已断开链接[0m
+[2019-08-29 14:14:06] [0;32mI (500349) [mdf-moter, 273]: 设备5已断开链接[0m
+[2019-08-29 14:14:06] [0;32mI (500354) [mdf-moter, 277]: 设备6已断开链接[0m
+[2019-08-29 14:14:06] [0;32mI (500365) [mdf-mesh, 208]: mesh_write ok[0m
+[2019-08-29 14:14:06] [0;32mI (500365) [mesh-led, 303]: information_Upload to ROOT ok data:{"Typ":"fan","ID": 3,"Cmd": "Info","Params": {"NTemp": 25,"OpenPer": 0,"ConSta": "manual","MoSta": "stop"}}[0m
+[2019-08-29 14:14:06] [0;32mI (500390) [mdf-mesh, 208]: mesh_write ok[0m
+[2019-08-29 14:14:06] [0;32mI (500390) [mesh-led, 303]: information_Upload to ROOT ok data:{"Typ":"fan","ID": 4,"Cmd": "Info","Params": {"NTemp": 25,"OpenPer": 0,"ConSta": "manual","MoSta": "stop"}}[0m
+[2019-08-29 14:14:06] [0;31mE (500401) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:14:06] [0;31mE (500407) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:14:06] *************temp_info**************
+[2019-08-29 14:14:06] kom[7.307513] offset[0.000000]
+[2019-08-29 14:14:06] [0;31mE (500420) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:14:06] temp[25.000000]
+[2019-08-29 14:14:06] -------------------------------------
+[2019-08-29 14:14:06] *************temp_info**************
+[2019-08-29 14:14:06] kom[2.113552] offset[0.000000]
+[2019-08-29 14:14:06] [0;31mE (500437) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:14:06] temp[25.000000]
+[2019-08-29 14:14:06] -------------------------------------
+[2019-08-29 14:14:06] [0;32mI (501744) [mdf-mesh, 234]: System information, channel: 12, layer: 2, self mac: 3c:71:bf:e0:92:28, parent bssid: 30:ae:a4:dd:b0:15, parent rssi: -72, node num: 2, free heap: 132492[0m
+[2019-08-29 14:14:07] [0;32mI (502769) [get_started, 44]: heap free: 132492[0m
+[2019-08-29 14:14:08] [0;31mE (505349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:14:11] [0;31mE (505349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:14:11] *************temp_info**************
+[2019-08-29 14:14:11] kom[6.779890] offset[0.000000]
+[2019-08-29 14:14:11] [0;31mE (505357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:14:11] temp[25.000000]
+[2019-08-29 14:14:11] -------------------------------------
+[2019-08-29 14:14:11] *************temp_info**************
+[2019-08-29 14:14:11] kom[2.113496] offset[0.000000]
+[2019-08-29 14:14:11] [0;31mE (505375) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:14:11] temp[25.000000]
+[2019-08-29 14:14:11] -------------------------------------
+[2019-08-29 14:14:11] [0;32mI (505769) [get_started, 44]: heap free: 132492[0m
+[2019-08-29 14:14:11] [0;32mI (508769) [get_started, 44]: heap free: 132492[0m
+[2019-08-29 14:14:14] [0;31mE (510349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:14:16] [0;31mE (510349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:14:16] *************temp_info**************
+[2019-08-29 14:14:16] kom[6.411314] offset[0.000000]
+[2019-08-29 14:14:16] [0;31mE (510357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:14:16] temp[25.000000]
+[2019-08-29 14:14:16] -------------------------------------
+[2019-08-29 14:14:16] *************temp_info**************
+[2019-08-29 14:14:16] kom[2.113456] offset[0.000000]
+[2019-08-29 14:14:16] [0;31mE (510375) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:14:16] temp[25.000000]
+[2019-08-29 14:14:16] -------------------------------------
+[2019-08-29 14:14:16] [0;32mI (511744) [mdf-mesh, 234]: System information, channel: 12, layer: 2, self mac: 3c:71:bf:e0:92:28, parent bssid: 30:ae:a4:dd:b0:15, parent rssi: -73, node num: 2, free heap: 132504[0m
+[2019-08-29 14:14:17] [0;32mI (511770) [get_started, 44]: heap free: 132504[0m
+[2019-08-29 14:14:17] [0;32mI (514770) [get_started, 44]: heap free: 132504[0m
+[2019-08-29 14:14:20] [0;31mE (515349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:14:21] [0;31mE (515349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:14:21] *************temp_info**************
+[2019-08-29 14:14:21] kom[9.144065] offset[0.000000]
+[2019-08-29 14:14:21] [0;31mE (515357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:14:21] temp[25.000000]
+[2019-08-29 14:14:21] -------------------------------------
+[2019-08-29 14:14:21] *************temp_info**************
+[2019-08-29 14:14:21] kom[2.113428] offset[0.000000]
+[2019-08-29 14:14:21] [0;31mE (515374) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:14:21] temp[25.000000]
+[2019-08-29 14:14:21] -------------------------------------
+[2019-08-29 14:14:21] [0;32mI (517770) [get_started, 44]: heap free: 132504[0m
+[2019-08-29 14:14:23] [0;31mE (520349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:14:26] [0;31mE (520349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:14:26] *************temp_info**************
+[2019-08-29 14:14:26] kom[11.544370] offset[0.000000]
+[2019-08-29 14:14:26] [0;31mE (520357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:14:26] temp[25.000000]
+[2019-08-29 14:14:26] -------------------------------------
+[2019-08-29 14:14:26] *************temp_info**************
+[2019-08-29 14:14:26] kom[2.151872] offset[0.000000]
+[2019-08-29 14:14:26] [0;31mE (520375) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:14:26] temp[25.000000]
+[2019-08-29 14:14:26] -------------------------------------
+[2019-08-29 14:14:26] [0;32mI (520770) [get_started, 44]: heap free: 132492[0m
+[2019-08-29 14:14:26] [0;32mI (521744) [mdf-mesh, 234]: System information, channel: 12, layer: 2, self mac: 3c:71:bf:e0:92:28, parent bssid: 30:ae:a4:dd:b0:15, parent rssi: -73, node num: 2, free heap: 132504[0m
+[2019-08-29 14:14:27] [0;32mI (523770) [get_started, 44]: heap free: 132492[0m
+[2019-08-29 14:14:29] [0;31mE (525349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:14:31] [0;31mE (525349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:14:31] *************temp_info**************
+[2019-08-29 14:14:31] kom[10.287094] offset[0.000000]
+[2019-08-29 14:14:31] [0;31mE (525357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:14:31] temp[25.000000]
+[2019-08-29 14:14:31] -------------------------------------
+[2019-08-29 14:14:31] *************temp_info**************
+[2019-08-29 14:14:31] kom[2.192564] offset[0.000000]
+[2019-08-29 14:14:31] [0;31mE (525375) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:14:31] temp[25.000000]
+[2019-08-29 14:14:31] -------------------------------------
+[2019-08-29 14:14:31] [0;32mI (526770) [get_started, 44]: heap free: 132492[0m
+[2019-08-29 14:14:32] [0;32mI (529770) [get_started, 44]: heap free: 132492[0m
+[2019-08-29 14:14:35] [0;31mE (530349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:14:36] [0;31mE (530349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:14:36] *************temp_info**************
+[2019-08-29 14:14:36] kom[9.284575] offset[0.000000]
+[2019-08-29 14:14:36] [0;31mE (530357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:14:36] temp[25.000000]
+[2019-08-29 14:14:36] -------------------------------------
+[2019-08-29 14:14:36] *************temp_info**************
+[2019-08-29 14:14:36] kom[2.168981] offset[0.000000]
+[2019-08-29 14:14:36] [0;31mE (530375) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:14:36] temp[25.000000]
+[2019-08-29 14:14:36] -------------------------------------
+[2019-08-29 14:14:36] [0;32mI (531744) [mdf-mesh, 234]: System information, channel: 12, layer: 2, self mac: 3c:71:bf:e0:92:28, parent bssid: 30:ae:a4:dd:b0:15, parent rssi: -73, node num: 2, free heap: 132504[0m
+[2019-08-29 14:14:37] [0;32mI (532770) [get_started, 44]: heap free: 132492[0m
+[2019-08-29 14:14:38] [0;31mE (535349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:14:41] [0;31mE (535349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:14:41] *************temp_info**************
+[2019-08-29 14:14:41] kom[8.309520] offset[0.000000]
+[2019-08-29 14:14:41] [0;31mE (535357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:14:41] temp[25.000000]
+[2019-08-29 14:14:41] -------------------------------------
+[2019-08-29 14:14:41] *************temp_info**************
+[2019-08-29 14:14:41] kom[2.152420] offset[0.000000]
+[2019-08-29 14:14:41] [0;31mE (535375) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:14:41] temp[25.000000]
+[2019-08-29 14:14:41] -------------------------------------
+[2019-08-29 14:14:41] [0;32mI (535770) [get_started, 44]: heap free: 132492[0m
+[2019-08-29 14:14:41] [0;32mI (538770) [get_started, 44]: heap free: 132504[0m
+[2019-08-29 14:14:44] [0;31mE (540349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:14:46] [0;31mE (540349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:14:46] *************temp_info**************
+[2019-08-29 14:14:46] kom[7.857950] offset[0.000000]
+[2019-08-29 14:14:46] [0;31mE (540357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:14:46] temp[25.000000]
+[2019-08-29 14:14:46] -------------------------------------
+[2019-08-29 14:14:46] *************temp_info**************
+[2019-08-29 14:14:46] kom[2.140790] offset[0.000000]
+[2019-08-29 14:14:46] [0;31mE (540375) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:14:46] temp[25.000000]
+[2019-08-29 14:14:46] -------------------------------------
+[2019-08-29 14:14:46] [0;32mI (541744) [mdf-mesh, 234]: System information, channel: 12, layer: 2, self mac: 3c:71:bf:e0:92:28, parent bssid: 30:ae:a4:dd:b0:15, parent rssi: -73, node num: 2, free heap: 132504[0m
+[2019-08-29 14:14:47] [0;32mI (541770) [get_started, 44]: heap free: 132504[0m
+[2019-08-29 14:14:47] [0;32mI (544770) [get_started, 44]: heap free: 132492[0m
+[2019-08-29 14:14:50] [0;31mE (545349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:14:51] [0;31mE (545349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:14:51] *************temp_info**************
+[2019-08-29 14:14:51] kom[10.651635] offset[0.000000]
+[2019-08-29 14:14:51] [0;31mE (545357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:14:51] temp[25.000000]
+[2019-08-29 14:14:51] -------------------------------------
+[2019-08-29 14:14:51] *************temp_info**************
+[2019-08-29 14:14:51] kom[2.132624] offset[0.000000]
+[2019-08-29 14:14:51] [0;31mE (545374) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:14:51] temp[25.000000]
+[2019-08-29 14:14:51] -------------------------------------
+[2019-08-29 14:14:51] [0;32mI (547770) [get_started, 44]: heap free: 132492[0m
+[2019-08-29 14:14:53] [0;32mI (550352) [mdf-mesh, 208]: mesh_write ok[0m
+[2019-08-29 14:14:56] [0;32mI (550352) [mesh-led, 303]: information_Upload to ROOT ok data:{"Typ":"fan","ID": 3,"Cmd": "Info","Params": {"NTemp": 25,"OpenPer": 0,"ConSta": "manual","MoSta": "stop"}}[0m
+[2019-08-29 14:14:56] [0;32mI (550368) [mdf-mesh, 208]: mesh_write ok[0m
+[2019-08-29 14:14:56] [0;32mI (550368) [mesh-led, 303]: information_Upload to ROOT ok data:{"Typ":"fan","ID": 4,"Cmd": "Info","Params": {"NTemp": 25,"OpenPer": 0,"ConSta": "manual","MoSta": "stop"}}[0m
+[2019-08-29 14:14:56] [0;31mE (550383) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:14:56] [0;31mE (550389) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:14:56] *************temp_info**************
+[2019-08-29 14:14:56] kom[12.761596] offset[0.000000]
+[2019-08-29 14:14:56] [0;31mE (550401) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:14:56] temp[25.000000]
+[2019-08-29 14:14:56] -------------------------------------
+[2019-08-29 14:14:56] *************temp_info**************
+[2019-08-29 14:14:56] kom[2.129013] offset[0.000000]
+[2019-08-29 14:14:56] [0;31mE (550419) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:14:56] temp[25.000000]
+[2019-08-29 14:14:56] -------------------------------------
+[2019-08-29 14:14:56] [0;32mI (550770) [get_started, 44]: heap free: 132492[0m
+[2019-08-29 14:14:56] [0;32mI (551744) [mdf-mesh, 234]: System information, channel: 12, layer: 2, self mac: 3c:71:bf:e0:92:28, parent bssid: 30:ae:a4:dd:b0:15, parent rssi: -73, node num: 2, free heap: 132504[0m
+[2019-08-29 14:14:57] [0;32mI (553770) [get_started, 44]: heap free: 132492[0m
+[2019-08-29 14:14:59] I (554778) mesh: 4397<assoc>parent layer:1, channel:12, rssi:-71, assoc:1, rssi threshold<-78,-82,-85>
+[2019-08-29 14:15:00] [0;31mE (555349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:15:01] [0;31mE (555349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:15:01] *************temp_info**************
+[2019-08-29 14:15:01] kom[11.933764] offset[0.000000]
+[2019-08-29 14:15:01] [0;31mE (555357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:15:01] temp[25.000000]
+[2019-08-29 14:15:01] -------------------------------------
+[2019-08-29 14:15:01] *************temp_info**************
+[2019-08-29 14:15:01] kom[2.204367] offset[0.000000]
+[2019-08-29 14:15:01] [0;31mE (555375) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:15:01] temp[25.000000]
+[2019-08-29 14:15:01] -------------------------------------
+[2019-08-29 14:15:01] [0;32mI (556770) [get_started, 44]: heap free: 132492[0m
+[2019-08-29 14:15:02] [0;32mI (559770) [get_started, 44]: heap free: 132492[0m
+[2019-08-29 14:15:05] [0;31mE (560349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:15:06] [0;31mE (560349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:15:06] *************temp_info**************
+[2019-08-29 14:15:06] kom[10.130614] offset[0.000000]
+[2019-08-29 14:15:06] [0;31mE (560357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:15:06] temp[25.000000]
+[2019-08-29 14:15:06] -------------------------------------
+[2019-08-29 14:15:06] *************temp_info**************
+[2019-08-29 14:15:06] kom[2.177270] offset[0.000000]
+[2019-08-29 14:15:06] [0;31mE (560375) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:15:06] temp[25.000000]
+[2019-08-29 14:15:06] -------------------------------------
+[2019-08-29 14:15:06] [0;32mI (561744) [mdf-mesh, 234]: System information, channel: 12, layer: 2, self mac: 3c:71:bf:e0:92:28, parent bssid: 30:ae:a4:dd:b0:15, parent rssi: -70, node num: 2, free heap: 132492[0m
+[2019-08-29 14:15:07] [0;32mI (562770) [get_started, 44]: heap free: 132504[0m
+[2019-08-29 14:15:08] [0;31mE (565349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:15:11] [0;31mE (565349) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:15:11] *************temp_info**************
+[2019-08-29 14:15:11] kom[9.154581] offset[0.000000]
+[2019-08-29 14:15:11] [0;31mE (565357) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:15:11] temp[25.000000]
+[2019-08-29 14:15:11] -------------------------------------
+[2019-08-29 14:15:11] *************temp_info**************
+[2019-08-29 14:15:11] kom[2.158241] offset[0.000000]
+[2019-08-29 14:15:11] [0;31mE (565375) [temp_table, 102]: convert2temp fail, return [25][0m
+[2019-08-29 14:15:11] temp[25.000000]
+[2019-08-29 14:15:11] -------------------------------------
+[2019-08-29 14:15:11] [0;32mI (565770) [get_started, 44]: heap free: 132504[0m
+[2019-08-29 14:15:11] 

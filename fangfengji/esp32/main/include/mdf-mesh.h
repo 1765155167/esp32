@@ -4,12 +4,6 @@
 #include "mdf_common.h"
 #include "mwifi.h"
 
-#define BUF_SIZE MWIFI_PAYLOAD_LEN
-xTaskHandle *pvCreatedTask;
-void send_unlock(void);
-void send_lock(void);
-// void mupgrade_ota(void * arg);
-void esp_start_ota(char * data);
 int get_dev_num(void);/*获取该设备的设备号*/
 mdf_err_t mdf_mesh_init(void);
 mdf_err_t mesh_write(uint8_t src_addr[],char *data);

@@ -8,18 +8,18 @@ static const char *TAG = "mdf-moter";
 static temp_info_t *temp_info[2] = {0};/*定义两个温度结构体指针*/
 
 moter_args moter_args1 = {
-	.AlarmTempMax = 35,	//报警高温
-	.AlarmTempMin = 15,	//报警低温
+	.AlarmTempMax = 55,	//报警高温
+	.AlarmTempMin = 0,	//报警低温
 	.SetTempMax = 27,	//设定控制温度上限
-	.SetTempMin = 20,	//设定控制温度下限
-	.TotalTime = 600,   //风口完整开启或关闭一次所需时间，单位s
+	.SetTempMin = 15,	//设定控制温度下限
+	.TotalTime = 100,   //风口完整开启或关闭一次所需时间，单位s
 };/*参数信息*/
 
 moter_args moter_args2= {
-	.AlarmTempMax = 30,	//报警高温
-	.AlarmTempMin = 15,	//报警低温
-	.SetTempMax = 23,	//设定控制温度上限
-	.SetTempMin = 20,	//设定控制温度下限
+	.AlarmTempMax = 55,	//报警高温
+	.AlarmTempMin = 0,	//报警低温
+	.SetTempMax = 27,	//设定控制温度上限
+	.SetTempMin = 15,	//设定控制温度下限
 	.TotalTime = 600,   //风口完整开启或关闭一次所需时间，单位s
 };/*参数信息*/
 
@@ -104,6 +104,8 @@ static void test_timer_once_auto(void* arg)
  * */
 static void moter_temp_alarm(void *timer)
 {
+	led_status_unset(HIGH_TEMP);
+	led_status_unset(LOW_TEMP);
 	if(moter_flag1.NTemp > moter_args1.AlarmTempMax) {
 		MDF_LOGW("设备1温度过高");
 		led_status_set(HIGH_TEMP);
@@ -111,8 +113,6 @@ static void moter_temp_alarm(void *timer)
 			moter_flag1.ConSta = "auto";
 		}
 		up_alarm_temp_info(CONFIG_DEVICE_NUM * 2 - 1);/*上传温度报警信息*/
-	}else {
-		led_status_unset(HIGH_TEMP);
 	}
 	
 	if(moter_flag1.NTemp < moter_args1.AlarmTempMin) {
@@ -122,8 +122,6 @@ static void moter_temp_alarm(void *timer)
 			moter_flag1.ConSta = "auto";
 		}
 		up_alarm_temp_info(CONFIG_DEVICE_NUM * 2 - 1);/*上传温度报警信息*/
-	}else {
-		led_status_unset(LOW_TEMP);
 	}
 	
 	
@@ -134,8 +132,6 @@ static void moter_temp_alarm(void *timer)
 			moter_flag2.ConSta = "auto";
 		}
 		up_alarm_temp_info(CONFIG_DEVICE_NUM * 2);/*上传温度报警信息*/
-	}else {
-		led_status_unset(HIGH_TEMP);
 	}
 	
 	if(moter_flag2.NTemp < moter_args2.AlarmTempMin) {
@@ -145,8 +141,6 @@ static void moter_temp_alarm(void *timer)
 			moter_flag2.ConSta = "auto";
 		}
 		up_alarm_temp_info(CONFIG_DEVICE_NUM * 2);/*上传温度报警信息*/
-	}else {
-		led_status_unset(LOW_TEMP);
 	}
 }
 /*自动控制*/
@@ -467,19 +461,26 @@ mdf_err_t moter_reverse(int io)
 	case 1:
 	case 3:
 	case 5:/* 电机１反转 */
-		if(moter_flag1.OpenPer > 0 && strcmp(moter_flag2.ConSta,"manual") == 0) {
+		if(moter_flag1.OpenPer > 0 && strcmp(moter_flag1.ConSta,"manual") == 0) {
 			moter_flag1.MoSta = "reverse";
-		}else {
-			MDF_LOGW("风口1开度为0 or 自动模式");
+		}else if (moter_flag1.OpenPer  <= 0){
+			MDF_LOGW("风口1开度为0");
+		}else
+		{
+			MDF_LOGW("1当前为自动模式");
 		}
+		
 		break;
 	case 2:
 	case 4:
 	case 6:/* 电机２反转 */
 		if(moter_flag2.OpenPer > 0 && strcmp(moter_flag2.ConSta,"manual") == 0) {
 			moter_flag2.MoSta = "reverse";
-		}else {
-			MDF_LOGW("风口2开度为0 or 自动模式");
+		}else if (moter_flag2.OpenPer  <= 0){
+			MDF_LOGW("风口2开度为0");
+		}else
+		{
+			MDF_LOGW("2当前为自动模式");
 		}
 		break;
 	default:

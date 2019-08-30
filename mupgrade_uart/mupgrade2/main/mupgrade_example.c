@@ -25,8 +25,9 @@
 #include "mwifi.h"
 #include "mupgrade.h"
 #include "driver/uart.h"
+#include "check.h"
 
-#define BUF_SIZE 4096
+#define BUF_SIZE MWIFI_PAYLOAD_LEN
 static const char *TAG = "mupgrade_example";
 static xSemaphoreHandle g_send_lock;
 static xSemaphoreHandle _recv_lock;
@@ -163,7 +164,7 @@ static void node_read_task(void *arg)
 static void ota_task()
 {
     mdf_err_t ret       = MDF_OK;
-    uint8_t *data       = MDF_MALLOC(MWIFI_PAYLOAD_LEN);
+    uint8_t *data       = MDF_MALLOC(MWIFI_PAYLOAD_LEN + 8);
     char name[32]       = {0x0};
     size_t total_size   = 0;
     int start_time      = 0;
@@ -236,11 +237,13 @@ static void ota_task()
      * @brief 3. Read firmware from the server and write it to the flash of the root node
      */
     for (ssize_t size = 0, recv_size = 0; recv_size < total_size; recv_size += size) {
-        size = esp_http_client_read(client, (char *)data, MWIFI_PAYLOAD_LEN);
-        MDF_LOGI("%02x%02x %02x%02x",data[0],data[1],data[size - 2],data[size - 1]);
+        size = esp_http_client_read(client, (char *)data, 1024);
+        MDF_LOGI("%02x%02x %02x%02x,size:%d",data[0],data[1],data[size - 2],data[size - 1],size);
+        //uart_encryption((uint8_t *)data,(size_t *)&size,DUPLEX_NO_ACK,BIN);/*加密　crc检验位*/
+        //MDF_LOGI("size:%d",size);
         send_lock();
-		uart_write_bytes(CONFIG_UART_PORT_NUM, (char *)data, size);
-		send_unlock();
+        uart_write_bytes(CONFIG_UART_PORT_NUM, (char *)data, size);
+        send_unlock();
         MDF_ERROR_GOTO(size < 0, EXIT, "<%s> Read data from http stream", mdf_err_to_name(ret));
 
         if (size > 0) {
@@ -258,7 +261,7 @@ static void ota_task()
              (xTaskGetTickCount() - start_time) * portTICK_RATE_MS / 1000);
 
     start_time = xTaskGetTickCount();
-
+    vTaskDelay(100 * 1000 / portTICK_PERIOD_MS);
     /**
      * @brief 4. The firmware will be sent to each node.
      */

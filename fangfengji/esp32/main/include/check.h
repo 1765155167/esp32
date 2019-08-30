@@ -4,7 +4,7 @@
 #include "mdf-mesh.h"
 #include "driver/uart.h"
 #include "moter_nvs.h"
-
+#include "serial.h"
 //ack_typ
 #define DUPLEX_NEED_ACK 2
 #define DUPLEX_IS_ACK 3

@@ -8,11 +8,9 @@ static const char *TAG = "temp_info";
 
 #define ADC_UNIT 1
 #define DEFAULT_VREF 1100 
-#define RNF2 47
-#define RNF1 47
-#define REF_MV 3300
-#define INI_VAL 50/*默认为25度*/
-#define MAX_TEMP 2
+#define REF_MV 3300 //3300mv
+#define INI_VAL 50 /*默认为25度*/
+#define MAX_TEMP 2 /*ntc个数*/
 
 int32_t TempCalOff[MAX_TEMP] = {0};/*温度校准偏移 真正偏移的10倍*/
 static temp_info_t *g_info[MAX_TEMP] = {0};

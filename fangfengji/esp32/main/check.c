@@ -14,7 +14,7 @@ void send_ack(void)/*发送应答信号*/
 	uart_encryption(data, &size, DUPLEX_IS_ACK, STR);//加密
 	send_lock();
 	uart_write_bytes(CONFIG_UART_PORT_NUM, (char*)data, size);
-	// uart_write_bytes(CONFIG_UART_PORT_NUM, "\r\n", 2);
+	uart_write_bytes(CONFIG_UART_PORT_NUM, "\r\n", 2);
 	send_unlock();
 	MDF_LOGI("发送ACK...");
 	MDF_FREE(data);
@@ -37,7 +37,7 @@ mdf_err_t uart_decrypt(unsigned char * data,
 	
 	crc = crc8_com(data + 4, len - 5);
 	if(crc == data[len - 1]) {
-		MDF_LOGI("crc check success crc:%d",crc);
+		//MDF_LOGI("crc check success crc:%d",crc);
 		err = MDF_OK;
 	}else {
 		MDF_LOGE("crc check failure crc:%d,data_crc:%d",crc,data[len - 1]);

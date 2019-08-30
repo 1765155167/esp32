@@ -30,5 +30,6 @@ mdf_err_t nvs_save_tempCal(uint8_t drive);
  *@加载设备对应的参数信息、风口开度、温度校准值
  **/
 mdf_err_t nvs_load(void);
-
+mdf_err_t nvs_save_mac(char* value);
+mdf_err_t nvs_load_mac(void);
 #endif

@@ -19,13 +19,12 @@
 
 每个风口控制系统实现以下功能
 
-| 设备功能         | 说明                                                         |
+| 设备功能        　| 说明                                                         |
 | ---------------- | ------------------------------------------------------------ |
-| 自动控温         | 在自动模式下，根据实时温度和设定温度上下限来进行温度控制     |
-| 设备按键操作     | 使用按键来设置风口的开启和关闭，选择手动或自动控温模式       |
-| 设备远程控制     | 配置参数，控制模式切换，手动控制风口，温度校准，风口校准，触发实时数据上传 |
-| 实时状态屏幕显示 | 显示风口控制系统相关信息                                     |
-
+| 自动控温          | 在自动模式下，根据实时温度和设定温度上下限来进行温度控制     |
+| 设备按键操作       | 使用按键来设置风口的开启和关闭，选择手动或自动控温模式       |
+| 设备远程控制       | 配置参数，控制模式切换，手动控制风口，温度校准，风口校准，触发实时数据上传 |
+| 实时状态屏幕显示    | 显示风口控制系统相关信息                                     |
 
 
 ### 自动控温
@@ -120,6 +119,34 @@
 > - `SetTempMin` 设定控制温度下限
 > - `TotalTime` 风口完整开启或关闭一次所需时间，单位s
 
+#### 配置MAC地址表
+```json
+{
+    "Devs": [
+        {
+            "ID": 1,
+            "Cmd": "mac",
+            "Mac":"30:ae:a4:dd:b0:1c,30:ae:a4:dd:b0:7c,30:ae:a4:dd:b0:68"
+        }
+    ]
+}
+{"Devs":[{ "ID": 1,"Cmd": "mac","Mac":"30:ae:a4:dd:b0:1c,30:ae:a4:dd:b0:02,30:ae:a4:dd:b0:52"}]}
+{"Devs":[{ "ID": 1,"Cmd": "mac","Mac":"30:ae:a4:dd:b0:1c,30:ae:a4:dd:b0:02"}]}
+{"Devs":[{ "ID": 1,"Cmd": "mac","Mac":"30:ae:a4:dd:b0:1c"}]}
+```
+> - 注意ID号必须为1 最多3个MAC地址
+> - MAC表格只作用于使用ID为3,4,5,6,的放风机
+> - 当ID为-1,1,2时,无MAC表格也没事-1表示控制所有放风机,1,2为根节点（带Air202）设备上的放风机
+> - MAC地址表格如下
+> - {0x30, 0xae, 0xa4, 0xdd, 0xb0, 0x1c},//root dev1 放风机ID 1,2
+> - {0x30, 0xae, 0xa4, 0xdd, 0xb0, 0x02},//node dev2 放风机ID 3,4
+> - {0x30, 0xae, 0xa4, 0xdd, 0xb0, 0x52},//node dev3 放风机ID 5,6
+
+| MAC 地址                            | 设备管理的放风机ID号 | mesh类型      | 有无Air202    |
+| ---------------------------------- | ----------------- | ------------- | ------------- |
+| 0x30, 0xae, 0xa4, 0xdd, 0xb0, 0x1c | 1,2               | ROOT         | Y             |
+| 0x30, 0xae, 0xa4, 0xdd, 0xb0, 0x02 | 3,4               | NODE         | N             |
+| 0x30, 0xae, 0xa4, 0xdd, 0xb0, 0x52 | 5,6               | NODE         | N             |
 
 
 #### 手动控制
@@ -269,9 +296,13 @@
         }
     ]
 }
-packet_num: 901, total_size: 921872
+
 {"Devs":[{"ID": 1,"Cmd": "ota","Params": {"table_size": 921872, "name": "hello-world.bin"}}]}
 ```
+> - 固件地址为101.132.42.189:8070/hello-world.bin
+> - 服务器固件目录/var/www/html
+> - 如需更换固件直接替换掉hello-world.bin即可，注意固件名字必须是hello-world.bin 大小要真实有效
+> - 更加固件名请同事修改Air202 exp32_ota部分代码
 
 ### 设备上传
 
@@ -290,9 +321,6 @@ packet_num: 901, total_size: 921872
     }
 }
 {"Devs":[{"Typ":"fan","ID": 1,"Cmd": "Info","Params":{"NTemp": 15,"OpenPer": 38,"ConSta": "manual","MoSta": "stop"}},{"Typ":"fan","ID": 2,"Cmd": "Info","Params": {"NTemp": 15,"OpenPer": 100,"ConSta": "manual","MoSta": "stop"}},{"Typ":"fan","ID": 5,"Cmd": "Info","Params": {"NTemp": 15,"OpenPer": 0,"ConSta": "manual","MoSta": "stop"}},{"Typ":"fan","ID": 6,"Cmd": "Info","Params": {"NTemp": 15,"OpenPer": 0,"ConSta": "manual","MoSta": "stop"}}]}
-
-{"Devs":[{"Typ":"fan","ID": 1,"Cmd": "Info","Params": {"NTemp": 15,"OpenPer": 38,"ConSta": "manual","MoSta": "stop"}},{"Typ":"fan","ID": 2,"Cmd": "Info","Params": {"NTemp": 15,"OpenPer": 100,"ConSta": "manual","MoSta": "stop"}}]}
-
 ```
 
 > - `Typ` 设备类型
@@ -332,3 +360,4 @@ packet_num: 901, total_size: 921872
 > `Devices` 目标设备对象数组，可以为有多个目标id
 >
 > `id` 目标设备id，为-1时代表对所有设备生效
+> - ota升级和配置MAC表是ID必须为1

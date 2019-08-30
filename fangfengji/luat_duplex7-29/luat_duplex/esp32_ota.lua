@@ -48,18 +48,19 @@ end
 local function send_ota()
     while true do
         a = table.remove(esp32_ota,1)
+        local num = 0
         if a ~= nil then
-            res = duplex.sendbin(a,300)
+            res = duplex.sendbin(a,500)
             while not res do
                 num = num + 1
                 if num >= 4 then
-                    log.info("esp32 error")
+                    log.info("send bin error")
                     break
                 end
-                res = duplex.sendbin(a,300)
+                res = duplex.sendbin(a,500)
             end
         else
-            sys.wait(300)
+            sys.wait(500)
         end
     end
 end

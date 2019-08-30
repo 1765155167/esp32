@@ -16,4 +16,4 @@
 - screen_info.c 屏幕控制
 - temp_info.c ntc温度
 - temp_table.c
-
+- config.h 外部电路配置相关信息

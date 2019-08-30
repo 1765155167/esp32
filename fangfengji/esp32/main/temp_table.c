@@ -90,6 +90,10 @@ float convert2temp(float kom)
             float x0 = g_temp_table[n][0];
             float y0 = g_temp_table[n][1];
             float k = g_temp_table[n + 1][2];
+            if(n == 0) {
+                MDF_LOGE("convert2temp fail, return [%d]", ILLEGAL_TEMP);
+                return ILLEGAL_TEMP;
+            }
             MDF_LOGI("n[%d] kom[%f] temp[%f]",n, kom, (kom - x0)*k + y0);
             return (kom - x0)*k + y0;
         }

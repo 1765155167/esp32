@@ -127,7 +127,20 @@ mdf_err_t screen_init(void)
 	build_screen_info(&moter_flag2, &moter_args2,CONFIG_DEVICE_NUM * 2);
 	return MDF_OK;
 }
-
+void set_device_id(moter_stu *device,int id)
+{
+    for(int n = 0; n < MAX_INFO; n++)
+    {
+        if(g_info[n]->device == device)
+        {
+            g_info[n]->id = id;
+            MDF_LOGI("ID号设置成功");
+            return ;
+        }
+    }
+    MDF_LOGW("ID号设置是失败");
+    return;
+}
 void build_screen_info(moter_stu *device, moter_args *args,int id)
 {
     screen_info_t *info = MDF_CALLOC(1, sizeof(screen_info_t));

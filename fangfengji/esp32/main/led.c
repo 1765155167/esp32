@@ -8,8 +8,10 @@
 #include "mupgrade_ota.h"
 
 static const char *TAG = "mesh-led";
+extern uint8_t dest_addr[3][MWIFI_ADDR_LEN];
 extern int CONFIG_DEVICE_NUM;/*设备号*/
-extern int DEVICE_TYPE;/*设备类型*/
+extern moter_stu moter_flag1;
+extern moter_stu moter_flag2;
 /*主设备等待从设备发送信息*/
 static void test_root_once(void* arg);
 //定义定时器句柄
@@ -24,52 +26,37 @@ static void test_root_once(void* arg)
 {
 	information_Upload(NULL);
 }
+
 mdf_err_t led_init(void)
 {
 	static bool init_flag = pdFALSE;
 	if(init_flag) {
 		return MDF_OK;
 	}
+	init_flag =pdTRUE;
 	gpio_config_t io_config;
 	io_config.pin_bit_mask = BIT64(LED1_GPIO);  /*!< GPIO pin: set with bit mask, each bit maps to a GPIO */
     io_config.mode = GPIO_MODE_OUTPUT;         	/*!< GPIO mode: set input/output mode*/
     io_config.intr_type = GPIO_INTR_DISABLE;    /*!< GPIO interrupt type */    
 	gpio_config(&io_config);
-	MDF_ERROR_ASSERT( gpio_set_level(LED1_GPIO, 1) );
-
+	
 	io_config.pin_bit_mask = BIT64(LED2_GPIO);
 	gpio_config(&io_config);
-	MDF_ERROR_ASSERT( gpio_set_level(LED2_GPIO, 1) );
-
+	
 	io_config.pin_bit_mask = BIT64(LED3_GPIO);
 	gpio_config(&io_config);
-	MDF_ERROR_ASSERT( gpio_set_level(LED3_GPIO, 1) );
-
-	MDF_ERROR_ASSERT( gpio_set_level(LED1_GPIO, 0) );
+	
 	ESP_ERROR_CHECK( esp_timer_create(&test_root_arg, &test_root_handle) );
-	init_flag =pdTRUE;
+
+	led_status_set( MESH_CONNECTION_ERROR );
+	led_status_unset( HIGH_TEMP );
+	led_status_unset( LOW_TEMP );
+
 	return MDF_OK;
 }
+
 /*设置状态灯*/
 void led_status_set(int status)
-{
-    switch(status)
-    {
-        case MESH_CONNECTION_ERROR:
-            gpio_set_level(LED1_GPIO, 1);
-            break;
-
-        case HIGH_TEMP:
-            gpio_set_level(LED2_GPIO, 1);
-            break;
-
-        case LOW_TEMP:
-            gpio_set_level(LED3_GPIO, 1);
-            break;
-    }
-}
-
-void led_status_unset(int status)
 {
     switch(status)
     {
@@ -86,12 +73,31 @@ void led_status_unset(int status)
             break;
     }
 }
+
+void led_status_unset(int status)
+{
+    switch(status)
+    {
+        case MESH_CONNECTION_ERROR:
+            gpio_set_level(LED1_GPIO, 1);
+            break;
+
+        case HIGH_TEMP:
+            gpio_set_level(LED2_GPIO, 1);
+            break;
+
+        case LOW_TEMP:
+            gpio_set_level(LED3_GPIO, 1);
+            break;
+    }
+}
 /*
  *@按键控制
  **/
 void key_led_press(int key)
 {
 	static int id = 0;
+	char * json_info = MDF_MALLOC(MWIFI_PAYLOAD_LEN);
 	if(id == 0) {
 		id =  get_drive_id(); //获取id
 	}
@@ -117,7 +123,16 @@ void key_led_press(int key)
 	default:
 		break;
 	}
+	
 	trig_screen_info_refresh();//屏幕刷新
+	if(key != KEY4_SHORT_ONCE && key != KEY4_LONG)
+	{
+		if(!esp_mesh_is_root()) {//主设备
+			get_json_info(json_info, id - 1);
+			information_Upload(json_info);
+		}
+	}
+	MDF_FREE(json_info);
 }
 /*
  *@json 信息控制
@@ -134,6 +149,13 @@ void json_led_press(char * data)
 
 	json_id = cJSON_GetObjectItem(json_root, "ID");
 	MDF_ERROR_GOTO(!json_id, ret, "json id 不存在 , data: %s", data);
+	if(json_id->valueint != -1 && (json_id->valueint - 1) / 2 + 1 != CONFIG_DEVICE_NUM)
+	{
+		CONFIG_DEVICE_NUM = (json_id->valueint - 1) / 2 + 1;
+		set_device_id(&moter_flag1,CONFIG_DEVICE_NUM * 2 - 1);
+		set_device_id(&moter_flag2,CONFIG_DEVICE_NUM * 2);
+		MDF_LOGI("重新配置设备号:dev:%d,id:%d",CONFIG_DEVICE_NUM,get_drive_id());
+	}
 
 	json_cmd = cJSON_GetObjectItem(json_root, "Cmd");
 	MDF_ERROR_GOTO(!json_cmd, ret, "json_cmd 不存在 , data: %s", data);
@@ -193,10 +215,21 @@ void json_led_press(char * data)
 		MDF_LOGI("OTA升级");
 		if(json_id->valueint == 1)
 		{
-			get_version();
 			esp_start_ota(data);//id=1
-			
 		}
+	} else if (strcmp(json_cmd->valuestring,"mac") == 0) {
+		if(json_id->valueint != 1) goto ret;
+		MDF_LOGI("配置MAC地址表格");
+		cJSON *json_mac    = NULL;
+		json_mac = cJSON_GetObjectItem(json_root, "Mac");
+		MDF_ERROR_GOTO(!json_mac, ret, "json mac 不存在 , data: %s", data);
+		nvs_save_mac(json_mac->valuestring);
+		nvs_load_mac();
+		mesh_write(dest_addr[0],"{\"ID\":1,\"Cmd\":\"set mac\"}");
+		mesh_write(dest_addr[1],"{\"ID\":3,\"Cmd\":\"set mac\"}");
+		mesh_write(dest_addr[2],"{\"ID\":5,\"Cmd\":\"set mac\"}");
+	} else if (strcmp(json_cmd->valuestring,"set mac") == 0) {
+		MDF_LOGI("设置MACID");
 	} else {
 		MDF_LOGW("Unknown json cmd");
 	}
@@ -233,10 +266,13 @@ mdf_err_t up_alarm_temp_info(int id)
 		MDF_LOGI("up_alarm_temp_info:%s",json_info);
 		size_t size = strlen(json_info);
 		send_lock();
-		uart_encryption((uint8_t *)json_info,&size,DUPLEX_NO_ACK,STR);/*加密　crc检验位*/
+		uart_encryption((uint8_t *)json_info,&size,DUPLEX_NEED_ACK,STR);/*加密　crc检验位*/
 		uart_write_bytes(CONFIG_UART_PORT_NUM, (char *)json_info, size);
         uart_write_bytes(CONFIG_UART_PORT_NUM, "\r\n", 2);
 		send_unlock();
+		if(get_air202() == true) {
+			MDF_LOGI("接收到ACK");
+		}
 	}else
 	{
 		get_alarm_temp_info(json_info,id);
@@ -256,10 +292,13 @@ mdf_err_t information_Upload(char * json_info)
 		MDF_LOGI("information_Upload:%s",json_info_all);
 		size_t size = strlen(json_info_all);
 		send_lock();
-		uart_encryption((uint8_t *)json_info_all,&size,DUPLEX_NO_ACK,STR);/*加密　crc检验位*/
+		uart_encryption((uint8_t *)json_info_all,&size,DUPLEX_NEED_ACK,STR);/*加密　crc检验位*/
 		uart_write_bytes(CONFIG_UART_PORT_NUM, (char *)json_info_all, size);
         uart_write_bytes(CONFIG_UART_PORT_NUM, "\r\n", 2);
 		send_unlock();
+		if(get_air202() == true) {
+			MDF_LOGI("接收到ACK");
+		}
 		moter_3 = pdFALSE;
 		moter_4 = pdFALSE;
 		moter_5 = pdFALSE;
